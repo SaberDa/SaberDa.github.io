@@ -76,6 +76,69 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-指针的初始化" class="post-指针的初始化 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/09/17/指针的初始化/">指针的初始化</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/17/指针的初始化/" data-id="citha6xh5001aj2b3eykupe2k" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>&#x672C;&#x6587;&#x53EA;&#x662F;&#x7B14;&#x8005;&#x65B9;&#x4FBF;&#x8BB0;&#x5FC6;&#x800C;&#x6574;&#x7406;&#x7684;&#xFF0C;&#x5173;&#x4E8E;c&#x6307;&#x9488;&#x7684;&#x5177;&#x4F53;&#x7528;&#x9014;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x5F88;&#x68D2;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6211;&#x8FD9;&#x53EA;&#x662F;&#x6668;&#x661F;&#x4E4B;&#x6BD4;&#x7693;&#x6708;&#x800C;&#x5DF2;
+</code></pre><h2 id="&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;"></a>&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;</h2><p>&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x548C;&#x5B9A;&#x4E49;&#x540E;&#x518D;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>1.&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x65F6;&#x521D;&#x59CB;&#x5316;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>2.&#x5148;&#x5B9A;&#x4E49;&#x540E;&#x521D;&#x59CB;&#x5316;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p;</span><br><span class="line">p = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>3.&#x628A;&#x6307;&#x9488;&#x521D;&#x59CB;&#x5316;&#x4E3A;NULL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p = NULL;</span><br><span class="line">*p = 233;</span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;"><a href="#&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;" class="headerlink" title="&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;"></a>&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;</h2><p>1.&#x6307;&#x9488;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x88AB;&#x8D4B;&#x4E88;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x503C;&#xFF08;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x6574;&#x5F62;&#x5E38;&#x4EAE;&#x662F;&#x5185;&#x5B58;&#x7684;&#x90A3;&#x5FEB;&#x5730;&#x5740;&#xFF09;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p;</span><br><span class="line">p = 233; 	//&#x9519;&#x8BEF;&#x5199;&#x6CD5;</span><br></pre></td></tr></table></figure></p>
+<p>2.&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x524D;&#x4E0D;&#x80FD;&#x518D;&#x52A0;&#x201C;*&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p, a = 233;</span><br><span class="line">*p = &amp;a;	//&#x9519;&#x8BEF;&#x5199;&#x6CD5; </span><br></pre></td></tr></table></figure></p>
+<h2 id="&#x6CE8;&#x610F;&#xFF1A;"><a href="#&#x6CE8;&#x610F;&#xFF1A;" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h2><p>1.&#x591A;&#x4E2A;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x5740;</p>
+<p>2.&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#x662F;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x7684;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p = &amp;a;</span><br><span class="line">int b = 2333;</span><br><span class="line">p = &amp;b;		//&#x4FEE;&#x6539;&#x65B9;&#x5411;</span><br></pre></td></tr></table></figure>
+<p>3.&#x6307;&#x9488;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x91CC;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5783;&#x573E;&#x503C;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x91CE;&#x6307;&#x9488;</p>
+<p>&#x91CE;&#x6307;&#x9488;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;</p>
+<p>&#x91CE;&#x6307;&#x9488;&#x53EF;&#x80FD;&#x4F1A;&#x8BBF;&#x95EE;&#x4F60;&#x4E0D;&#x8BE5;&#x8BBF;&#x95EE;&#x7684;&#x5730;&#x5740;</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/09/17/指针的初始化/">
+    <time datetime="2016-09-17T14:46:58.000Z" class="entry-date">
+        2016-09-17
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指针/">指针</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-线性表" class="post-线性表 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -91,7 +154,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/14/线性表/" data-id="citfypqjg001n1jb34wptgdmc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/14/线性表/" data-id="citha6xhl001sj2b3aeu7or1l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -343,7 +406,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/08/26/HTML-1/" data-id="citfypqi100051jb3jbmyqrw5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/08/26/HTML-1/" data-id="citha6xfk0005j2b34zqeeebu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -440,7 +503,7 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/08/26/Cocoapods/" data-id="citfypqhj00001jb3eg6x57h2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/08/26/Cocoapods/" data-id="citha6xfb0001j2b3hs8w0jcd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -508,7 +571,7 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/07/22/First-day-in-Europe/" data-id="citfypqht00041jb33wy2ym0w" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/07/22/First-day-in-Europe/" data-id="citha6xfh0004j2b3u2emj3wk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -584,63 +647,10 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
 
 
   
-    <article id="post-UIView-设置指定几个角为圆角" class="post-UIView-设置指定几个角为圆角 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/07/21/UIView-设置指定几个角为圆角/">UIView 设置指定几个角为圆角</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/07/21/UIView-设置指定几个角为圆角/" data-id="citfypqio000i1jb3rq25tz09" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="&#x521D;&#x59CB;&#x5316;UIView"><a href="#&#x521D;&#x59CB;&#x5316;UIView" class="headerlink" title="&#x521D;&#x59CB;&#x5316;UIView"></a>&#x521D;&#x59CB;&#x5316;UIView</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">UIView * view = [UIView alloc]initWithFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width,[UIScreen mainScreen].bounds.size.height)];</span><br><span class="line">[view setBackgroundColor:[UIColor White]];</span><br><span class="line">[self.view addSubview:view];</span><br></pre></td></tr></table></figure>
-<h2 id="&#x8BBE;&#x7F6E;view&#x5DE6;&#x4FA7;&#x4E0A;UIRectCornerTopLeft-&#x548C;-&#x5DE6;&#x4FA7;&#x4E0B;UIRectCornerBottomLeft&#x4E3A;5&#x7684;&#x5706;&#x89D2;"><a href="#&#x8BBE;&#x7F6E;view&#x5DE6;&#x4FA7;&#x4E0A;UIRectCornerTopLeft-&#x548C;-&#x5DE6;&#x4FA7;&#x4E0B;UIRectCornerBottomLeft&#x4E3A;5&#x7684;&#x5706;&#x89D2;" class="headerlink" title="&#x8BBE;&#x7F6E;view&#x5DE6;&#x4FA7;&#x4E0A;UIRectCornerTopLeft &#x548C; &#x5DE6;&#x4FA7;&#x4E0B;UIRectCornerBottomLeft&#x4E3A;5&#x7684;&#x5706;&#x89D2;"></a>&#x8BBE;&#x7F6E;view&#x5DE6;&#x4FA7;&#x4E0A;UIRectCornerTopLeft &#x548C; &#x5DE6;&#x4FA7;&#x4E0B;UIRectCornerBottomLeft&#x4E3A;5&#x7684;&#x5706;&#x89D2;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerBottomLeft cornerRadii:CGSizeMake(5, 5)];</span><br><span class="line">CAShapeLayer * layer = [[CAShapeLayer alloc]init];</span><br><span class="line">layer.frame = view.bounds;</span><br><span class="line">layer.path = path.CGPath;</span><br><span class="line">view.layer.mask = layer;</span><br></pre></td></tr></table></figure>
-<h2 id="&#x8BBE;&#x7F6E;view-&#x5168;&#x90E8;&#x89D2;&#x4E3A;&#x5706;&#x89D2;"><a href="#&#x8BBE;&#x7F6E;view-&#x5168;&#x90E8;&#x89D2;&#x4E3A;&#x5706;&#x89D2;" class="headerlink" title="&#x8BBE;&#x7F6E;view &#x5168;&#x90E8;&#x89D2;&#x4E3A;&#x5706;&#x89D2;"></a>&#x8BBE;&#x7F6E;view &#x5168;&#x90E8;&#x89D2;&#x4E3A;&#x5706;&#x89D2;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//&#x8BBE;&#x7F6E;&#x90A3;&#x4E2A;&#x5706;&#x89D2;&#x5927;&#x5C0F;</span><br><span class="line">viewT.layer.cornerRadius = 10;</span><br><span class="line">//&#x8BBE;&#x7F6E;YES&#x662F;&#x4FDD;&#x8BC1;&#x6DFB;&#x52A0;&#x7684;&#x56FE;&#x7247;&#x8986;&#x76D6;&#x89C6;&#x56FE;&#x7684;&#x6548;&#x679C;</span><br><span class="line">viewT.layer.masksToBounds = YES;</span><br></pre></td></tr></table></figure>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/07/21/UIView-设置指定几个角为圆角/">
-    <time datetime="2016-07-21T10:50:29.000Z" class="entry-date">
-        2016-07-21
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -661,7 +671,7 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">14</span></li></ul>
     </div>
   </aside>
 
@@ -671,6 +681,10 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2016/09/24/栈，队列，数组/">栈，队列，数组</a>
+          </li>
         
           <li>
             <a href="/2016/09/23/素数筛C-实现/">素数筛C++实现</a>
@@ -688,10 +702,6 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
             <a href="/2016/09/18/freopen的重定向输入/">freopen的重定向输入</a>
           </li>
         
-          <li>
-            <a href="/2016/09/17/指针的初始化/">指针的初始化</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -701,7 +711,7 @@ noindex&#xFF1A;&#x6587;&#x4EF6;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x94FE;&
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">2</span></li></ul>
     </div>
   </aside>
 
