@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="一个神奇的地方" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>树与二叉树（二） | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x662F;&amp;#x6811;&amp;#x7CFB;&amp;#x5217;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;&amp;#x5B58;&amp;#x50A8;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树（二）">
+<meta property="og:url" content="https://saberda.github.io/2016/10/13/树与二叉树（二）/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x662F;&amp;#x6811;&amp;#x7CFB;&amp;#x5217;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;&amp;#x5B58;&amp;#x50A8;">
+<meta property="og:updated_time" content="2016-10-13T09:12:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树与二叉树（二）">
+<meta name="twitter:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x662F;&amp;#x6811;&amp;#x7CFB;&amp;#x5217;&amp;#x7684;&amp;#x7B2C;&amp;#x4E8C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x4ECB;&amp;#x7ECD;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;&amp;#x5B58;&amp;#x50A8;">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　Mac　　|　　二次元　　|　　630991493@qq.com　　|　　目前确实喜欢上了一个妹子</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-树与二叉树（二）" class="post-树与二叉树（二） post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      树与二叉树（二）
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/13/树与二叉树（二）/" data-id="ciu84msbp0021cdb3a4va5nmt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x6811;&#x7CFB;&#x5217;&#x7684;&#x7B2C;&#x4E8C;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x548C;&#x7B80;&#x5355;&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x5E94;&#x7528;&#x4E3E;&#x4F8B;
+</code></pre><h2 id="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x987A;&#x5E8F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;"><a href="#&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x987A;&#x5E8F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;" class="headerlink" title="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x987A;&#x5E8F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;"></a>&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x987A;&#x5E8F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;</h2><p>[&#x7B14;&#x8005;&#x6CE8;]&#x7531;&#x4E8E;&#x8FC7;&#x4E8E;&#x6D6A;&#x8D39;&#x7A7A;&#x95F4;&#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x4F7F;&#x7528;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//&#x5B9A;&#x4E49;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6700;&#x5927;&#x7ED3;&#x70B9;&#x6570;</span><br><span class="line">#define MAX_TREE_SIZE 100</span><br><span class="line">//0&#x53F7;&#x5355;&#x5143;&#x5B58;&#x50A8;&#x6839;&#x8282;&#x70B9;</span><br><span class="line">typedef tElemType SqBiTree[ MAX_TREE_SIZE];	//&#x58F0;&#x660E;&#x4E8C;&#x53C9;&#x6811;</span><br><span class="line">SqBiTree ty;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x94FE;&#x5F0F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;"><a href="#&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x94FE;&#x5F0F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;" class="headerlink" title="&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x94FE;&#x5F0F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;"></a>&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x94FE;&#x5F0F;&#x5B58;&#x50A8;&#x7ED3;&#x6784;</h2><p>&#x4E00;&#x3001;&#x4E8C;&#x53C9;&#x94FE;&#x8868;</p>
+<p>&#x7ED3;&#x6784;&#x7279;&#x70B9;&#xFF1A;leftChild&#x3000;|&#x3000;data&#x3000;|&#x3000;rightChild</p>
+<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct BiTNode {</span><br><span class="line">	//&#x7ED3;&#x70B9;&#x7ED3;&#x6784;</span><br><span class="line">	tEmleType data;</span><br><span class="line">	struct BiTNode *lChild, *rChild;</span><br><span class="line">}BiTNode, *BiTree;</span><br></pre></td></tr></table></figure>
+<p>&#x4E8C;&#x3001;&#x4E09;&#x53C9;&#x94FE;&#x8868;</p>
+<p>&#x7ED3;&#x6784;&#x7279;&#x70B9;&#xFF1A;parent&#x3000;|&#x3000;lestChild&#x3000;|&#x3000;data&#x3000;|&#x3000;rightChild</p>
+<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct TriTNode {</span><br><span class="line">	//&#x7ED3;&#x70B9;&#x7ED3;&#x6784;</span><br><span class="line">	tEmleType data;</span><br><span class="line">	struct TriTNode *lChild, *rChild, *parent;</span><br><span class="line">}TriTNode, *TriTree;</span><br></pre></td></tr></table></figure>
+<p>&#x4E09;&#x3001;&#x82E5;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x542B;&#x6709;n&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;&#x5219;&#x4ED6;&#x7684;&#x4E8C;&#x53C9;&#x94FE;&#x8868;&#x4E2D;&#x5FC5;&#x542B;&#x6709;2n&#x4E2A;&#x6307;&#x9488;&#x57DF;&#xFF0C;&#x5176;&#x4E2D;&#x5FC5;&#x6709;n+1&#x4E2A;&#x7A7A;&#x7684;&#x94FE;&#x57DF;</p>
+<p>&#x56DB;&#x3001;&#x4E0D;&#x540C;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x5B9E;&#x73B0;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x64CD;&#x4F5C;&#x4E5F;&#x4E0D;&#x540C;&#x3002;&#x5982;&#x8981;&#x627E;&#x67D0;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x7236;&#x8282;&#x70B9;&#xFF0C;&#x5728;&#x4E09;&#x53C9;&#x94FE;&#x8868;&#x4E2D;&#x5F88;&#x5BB9;&#x6613;&#x5B9E;&#x73B0;&#xFF1B;&#x5728;&#x4E8C;&#x53C9;&#x94FE;&#x8868;&#x4E2D;&#x5219;&#x9700;&#x4ECE;&#x6839;&#x6307;&#x9488;&#x51FA;&#x53D1;&#x4E00;&#x4E00;&#x67E5;&#x627E;&#x3002;&#x53EF;&#x89C1;&#xFF0C;&#x5728;&#x5177;&#x4F53;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x6839;&#x636E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5F62;&#x6001;&#x548C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x6765;&#x51B3;&#x5B9A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x3002;</p>
+<h2 id="&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x5E94;&#x7528;&#x4E3E;&#x4F8B;"><a href="#&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x5E94;&#x7528;&#x4E3E;&#x4F8B;" class="headerlink" title="&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x5E94;&#x7528;&#x4E3E;&#x4F8B;"></a>&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x5E94;&#x7528;&#x4E3E;&#x4F8B;</h2><p>&#x4E00;&#x3001;&#x67E5;&#x8BE2;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x7ED3;&#x70B9;</p>
+<p>&#x5728;&#x4E8C;&#x53C9;&#x6811;&#x4E0D;&#x7A7A;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x548C;&#x6839;&#x8282;&#x70B9;&#x7684;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x82E5;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x627E;&#x5230;&#x8FD4;&#x56DE;TRUE</p>
+<p>&#x5426;&#x5219;&#x5728;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x82E5;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;TRUE</p>
+<p>&#x5426;&#x5219;&#x7EE7;&#x7EED;&#x5728;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x627E;&#xFF0C;&#x82E5;&#x627E;&#x5230;&#x5219;&#x8FD4;&#x56DE;TRUE&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;FALSE</p>
+<p>&#x5B9E;&#x73B0;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Status Preorder(BiTree T, ElemType x, BiTree &amp;p) {</span><br><span class="line">	//&#x82E5;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x5B58;&#x5728;&#x548C;x&#x76F8;&#x540C;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5219;p&#x6307;&#x5411;&#x8BE5;&#x7ED3;&#x70B9;&#x5E76;&#x8FD4;&#x56DE;OK&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;FALSE</span><br><span class="line">	if(T) {</span><br><span class="line">		if(T -&gt; data == x) {</span><br><span class="line">			p = T;</span><br><span class="line">			return OK;</span><br><span class="line">		} else {</span><br><span class="line">			if(Preorder(T -&gt; lChild, x, p))</span><br><span class="line">				return OK;</span><br><span class="line">			else </span><br><span class="line">				return(Preorder(T -&gt; rChild, x, p));</span><br><span class="line">		}</span><br><span class="line">	} else </span><br><span class="line">		return FALSE;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E8C;&#x3001;&#x7EDF;&#x8BA1;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x7684;&#x4E2A;&#x6570;</p>
+<p>&#x7B97;&#x6CD5;&#x57FA;&#x672C;&#x601D;&#x60F3;&#xFF1A;&#x5148;&#x5E8F;&#xFF08;&#x6216;&#x4E2D;&#x5E8F;&#x6216;&#x540E;&#x5E8F;&#xFF09;&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5728;&#x904D;&#x5386;&#x8FC7;&#x7A0B;&#x4E2D;&#x67E5;&#x627E;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x8BA1;&#x6570;&#x3002;&#x7531;&#x6B64;&#xFF0C;&#x9700;&#x5728;&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x4E2D;&#x589E;&#x6DFB;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x7B97;&#x6CD5;&#x4E2D;&#x8BBF;&#x95EE;&#x7ED3;&#x70B9;&#x7684;&#x64CD;&#x4F5C;&#x6539;&#x4E3A;&#xFF1A;&#x82E5;&#x662F;&#x53F6;&#x5B50;&#xFF0C;&#x5219;&#x8BA1;&#x6570;&#x5668;&#x52A0;&#x4E00;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void CountLeaf(BiTree T, int &amp;count) {</span><br><span class="line">	//CountLeaf&#x662F;&#x4FDD;&#x5B58;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x6570;&#x76EE;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#x521D;&#x59CB;&#x5316;&#x503C;&#x4E3A;0</span><br><span class="line">	if(T) {</span><br><span class="line">		if((!T -&gt; lChild) &amp;&amp; (!T -&gt; rChild))</span><br><span class="line">			count++;</span><br><span class="line">	CountLeaf(T -&gt; lChild, count);</span><br><span class="line">	CountLeaf(T -&gt; rChild, count);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int CountLeaf(BiTree T) {</span><br><span class="line">	//&#x8FD4;&#x56DE;&#x6307;&#x9488;T&#x6240;&#x6307;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2A;&#x6570;</span><br><span class="line">	if(!T) </span><br><span class="line">		return 0;</span><br><span class="line">	if((!T -&gt; lChild) &amp;&amp; (T -&gt; rChild))</span><br><span class="line">		return 1;</span><br><span class="line">	else {</span><br><span class="line">		m = CountLeaf(T -&gt; lChild);</span><br><span class="line">		n = CountLeaf(T -&gt; rChild);</span><br><span class="line">		return (m+n);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x53D8;&#x5F62;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int Count(BiTree T) {</span><br><span class="line">	//&#x8FD4;&#x56DE;&#x6307;&#x9488;T&#x6240;&#x6307;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x6240;&#x6709;&#x7ED3;&#x70B9;&#x4E2A;&#x6570;</span><br><span class="line">	if(!T) </span><br><span class="line">		return 0;</span><br><span class="line">	if((!T -&gt; lChild) &amp;&amp; (T -&gt; rChild))</span><br><span class="line">		return 1;</span><br><span class="line">	else {</span><br><span class="line">		m = Count(T -&gt; lChild);</span><br><span class="line">		n = Count(T -&gt; rChild);</span><br><span class="line">		return (m+n+1);</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E09;&#x3001;&#x6C42;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#xFF08;&#x540E;&#x5E8F;&#x904D;&#x5386;&#xFF09;</p>
+<p>&#x7B97;&#x6CD5;&#x57FA;&#x672C;&#x601D;&#x60F3;&#xFF1A;&#x9996;&#x5148;&#x5206;&#x6790;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x548C;&#x5B83;&#x7684;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x6DF1;&#x5EA6;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x4ECE;&#x4E8C;&#x53C9;&#x6811;&#x6DF1;&#x5EA6;&#x7684;&#x5B9A;&#x4E49;&#x53EF;&#x77E5;&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x5E94;&#x4E3A;&#x5176;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x6DF1;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x503C;+1.&#x7531;&#x6B64;&#xFF0C;&#x9700;&#x5148;&#x5206;&#x522B;&#x6C42;&#x5F97;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#xFF0C;&#x7B97;&#x6CD5;&#x4E2D;&#x201C;&#x8BBF;&#x95EE;&#x7ED3;&#x70B9;&#x201D;&#x7684;&#x64CD;&#x4F5C;&#x4E3A;&#xFF1A;&#x6C42;&#x5F97;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x6DF1;&#x5EA6;&#x7684;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x7136;&#x540E;+1</p>
+<p>&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int Depth(BiTree T) {</span><br><span class="line">	//&#x8FD4;&#x56DE;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</span><br><span class="line">	if(!T) </span><br><span class="line">		depthval = 0;</span><br><span class="line">	else {</span><br><span class="line">		depthLeft = Depth(T -&gt; lChild);</span><br><span class="line">		depthRight = Depth(T -&gt; rChild);</span><br><span class="line">		depthval = 1 + (depthval &gt; depthRight ?depthLeft : depthRight);</span><br><span class="line">	}</span><br><span class="line">	return depthval;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x56DB;&#x3001;&#x590D;&#x5236;&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x5176;&#x57FA;&#x672C;&#x64CD;&#x4F5C;&#x4E3A;&#xFF1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7ED3;&#x70B9;</span><br><span class="line">//&#xFF08;&#x5176;&#x6570;&#x636E;&#x57DF;&#x4E3A;item&#xFF0C;&#x5DE6;&#x6307;&#x9488;&#x57DF;&#x4E3A;lptr&#xFF0C;&#x53F3;&#x6307;&#x9488;&#x57DF;&#x4E3A;rptr&#xFF09;</span><br><span class="line">BiTree getTreeNode(TElemType item, BiTNode *lptr, BiTNode *rptr) {</span><br><span class="line">	if( !(T = new BiTNode) )</span><br><span class="line">		exit(1);</span><br><span class="line">	T -&gt; data = item;</span><br><span class="line">	T -&gt; lChild = lptr;</span><br><span class="line">	T -&gt; rChild = rptr;</span><br><span class="line">	return T;</span><br><span class="line">}	</span><br><span class="line">BiTree copyTree(BiTNode *T) {</span><br><span class="line">	if(!T)</span><br><span class="line">		return NULL;</span><br><span class="line">	if(T -&gt; lChild)</span><br><span class="line">		newlptr = copyTree(T -&gt; lChild);</span><br><span class="line">		//&#x590D;&#x5236;&#x5DE6;&#x5B50;&#x6811;</span><br><span class="line">	else</span><br><span class="line">		newlptr = NULL;</span><br><span class="line">	if(T -&gt; rChild)</span><br><span class="line">		newrptr = copyTree(T -&gt; rChild);</span><br><span class="line">		//&#x590D;&#x5236;&#x53F3;&#x5B50;&#x6811;</span><br><span class="line">	else</span><br><span class="line">		newrptr = NULL;	</span><br><span class="line">	newT = getTreeNode(T -&gt; data, newlptr, newrptr);</span><br><span class="line">	return newT;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E94;&#x3001;&#x5EFA;&#x7ACB;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;</p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;&#x76F8;&#x5E94;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x7684;&#x5EFA;&#x7ACB;&#x7B97;&#x6CD5;</p>
+<p>&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F62;&#x5F0F;&#x201C;&#x6839; &#x5DE6;&#x5B50;&#x6811; &#x53F3;&#x5B50;&#x6811;&#x201D;&#xFF0C;&#x5B9A;&#x4E49;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Status createBiTree(BiTree &amp;T) {</span><br><span class="line">	scanf(&amp;ch):</span><br><span class="line">	if(ch == &#x2018; &#x2019;)</span><br><span class="line">		T = NULL;</span><br><span class="line">	else {</span><br><span class="line">		if(!(T = new BITNode))</span><br><span class="line">			exit(OVERFLOW);</span><br><span class="line">		//&#x751F;&#x6210;&#x6839;&#x8282;&#x70B9;</span><br><span class="line">		T -&gt; data = ch;</span><br><span class="line">		//&#x6784;&#x9020;&#x5DE6;&#x5B50;&#x6811;</span><br><span class="line">		createBiTree(T -&gt; lChild);</span><br><span class="line">		//&#x6784;&#x9020;&#x53F3;&#x5B50;&#x6811;</span><br><span class="line">		createBiTree(T -&gt; rChild);</span><br><span class="line">	}</span><br><span class="line">	return OK;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x53E6;&#x4E00;&#x4E2A;&#x5EFA;&#x7ACB;&#x65B9;&#x6CD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">void crtBT(BiTree &amp;T, char per[], char ins[], int ps, int is, int n) {</span><br><span class="line">	//&#x5DF2;&#x77E5;pre[ps, &#x2026;, ps + n - 1] &#x4E3A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5148;&#x5E8F;&#x5E8F;&#x5217;&#xFF1B;ins[is , &#x2026; , is + n -1] &#x4E3A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#xFF0C;&#x672C;&#x7B97;&#x6CD5;&#x7531;&#x6B64;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x6784;&#x9020;&#x4E8C;&#x53C9;&#x94FE;&#x8868;</span><br><span class="line">	//ps:&#x5148;&#x5E8F;&#x5E8F;&#x5217;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;</span><br><span class="line">	//is:&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;</span><br><span class="line">	//n:&#x5F53;&#x524D;&#x7ED3;&#x70B9;&#x6570;</span><br><span class="line">	if(n == 0) </span><br><span class="line">		T = NULL;</span><br><span class="line">	else {</span><br><span class="line">		//&#x5728;&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#x67E5;&#x8BE2;</span><br><span class="line">		k = Search(ins, per[ps]);</span><br><span class="line">		if(k == -1)</span><br><span class="line">			T = NULL;</span><br><span class="line">		else {</span><br><span class="line">			if(!(T = new BiTNode))</span><br><span class="line">				exit(OVERFLOW);</span><br><span class="line">			if(k == is)</span><br><span class="line">				T -&gt; lChild = NULL;</span><br><span class="line">			else</span><br><span class="line">				CrtBt(T -&gt; lChild, pre[], ins[], ps + 1, is, k - is);</span><br><span class="line">			if(k == is + n - 1)</span><br><span class="line">				T -&gt; rChild = NULL;</span><br><span class="line">			else</span><br><span class="line">				CrtBT(T -&gt; rChild, pre[], ins[], ps + 1 + (k - is), k+1, n-(k-is)-1);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x516D;&#x3001;&#x6309;&#x7ED9;&#x5B9A;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x5EFA;&#x76F8;&#x5E94;&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x7279;&#x70B9;&#xFF1A;&#x64CD;&#x4F5C;&#x6570;&#x662F;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x8FD0;&#x7B97;&#x7B26;&#x662F;&#x5206;&#x652F;&#x7ED3;&#x70B9;</p>
+<p>&#x6309;&#x5148;&#x7F00;&#x8868;&#x793A;&#x5F0F;&#x5EFA;&#x6811;</p>
+<p>&#x3000;&#x3000;&#x4F8B;&#x5982;&#xFF1A;- * + a b c / d e<br>&#x3000;&#x3000;<br>&#x7531;&#x539F;&#x8868;&#x8FBE;&#x5F0F;&#x5EFA;&#x6811;<br>&#x3000;&#x3000;<br>&#x3000;&#x3000;&#x4F8B;&#x5982;&#xFF1A;(a + b) * c - d / e<br>&#x3000;&#x3000;<br>&#x5206;&#x6790;&#x8868;&#x8FBE;&#x5F0F;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;&#xFF1A;&#x7ED3;&#x5408;&#x8FD0;&#x7B97;&#x7B26;&#x4F18;&#x5148;&#x7EA7;</p>
+<p>&#x4E03;&#x3001;&#x6309;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x6811;</p>
+<p>&#x7531;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x7684;&#x5B9A;&#x4E49;&#x53EF;&#x77E5;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x65F6;&#xFF0C;&#x5BF9;&#x4E00;&#x5C42;&#x7ED3;&#x70B9;&#x8BBF;&#x95EE;&#x5B8C;&#x540E;&#xFF0C;&#x5728;&#x6309;&#x7167;&#x5B83;&#x4EEC;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x5E8F;&#x5BF9;&#x5404;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x548C;&#x53F3;&#x5B69;&#x5B50;&#x987A;&#x5E8F;&#x8BBF;&#x95EE;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x8FDB;&#x884C;&#xFF0C;&#x5148;&#x9047;&#x5230;&#x7684;&#x7ED3;&#x70B9;&#x5148;&#x8BBF;&#x95EE;&#xFF0C;&#x8FD9;&#x4E0E;&#x961F;&#x5217;&#x7684;&#x64CD;&#x4F5C;&#x539F;&#x5219;&#x6BD4;&#x8F83;&#x543B;&#x5408;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x65F6;&#xFF0C;&#x53EF;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#x7ED3;&#x6784;&#xFF0C;&#x904D;&#x5386;&#x4ECE;&#x4E8C;&#x53C9;&#x6811;&#x5F00;&#x59CB;&#x7684;&#x6839;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#xFF0C;&#x5148;&#x5C06;&#x6839;&#x8282;&#x70B9;&#x6307;&#x9488;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x961F;&#x5934;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6BCF;&#x53D6;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code>1.&#x8BBF;&#x95EE;&#x8BE5;&#x5143;&#x7D20;&#x6240;&#x6307;&#x7ED3;&#x70B9;
+2.&#x82E5;&#x8BE5;&#x5143;&#x7D20;&#x6240;&#x6307;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x3001;&#x53F3;&#x7ED3;&#x70B9;&#x975E;&#x7A7A;&#xFF0C;&#x5219;&#x5C06;&#x8BE5;&#x5143;&#x7D20;&#x6240;&#x6307;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x6307;&#x9488;&#x548C;&#x53F3;&#x5B69;&#x5B50;&#x6307;&#x9488;&#x987A;&#x5E8F;&#x5165;&#x961F;
+&#x6B64;&#x8FC7;&#x7A0B;&#x4E0D;&#x65AD;&#x8FDB;&#x884C;&#xFF0C;&#x5F53;&#x961F;&#x5217;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x7ED3;&#x675F;
+</code></pre><p>&#x4E00;&#x7EF4;&#x6570;&#x7EC4;Queue[MAX_TREE_SIZE]&#x7528;&#x4EE5;&#x5B9E;&#x73B0;&#x961F;&#x5217;&#xFF0C;&#x53D8;&#x91CF;front&#x548C;rear&#x5206;&#x522B;&#x8868;&#x793A;&#x5F53;&#x524D;&#x961F;&#x9996;&#x5143;&#x7D20;&#x548C;&#x961F;&#x5C3E;&#x5143;&#x7D20;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;</p>
+<p>&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">void levelOrder(BiTree b) {</span><br><span class="line">	BiTree Queue[MAX_TREE_SIZE];</span><br><span class="line">	int front, rear;</span><br><span class="line">	if (b == NULL) </span><br><span class="line">		return;</span><br><span class="line">	front = -1;</span><br><span class="line">	rear = 0;</span><br><span class="line">	Queue[rear] = b;</span><br><span class="line">	while (front != rear) {</span><br><span class="line">		//&#x8BBF;&#x95EE;&#x961F;&#x9996;&#x7ED3;&#x70B9;&#x6570;&#x636E;&#x57DF;</span><br><span class="line">		Visit(Queue[++front] -&gt; data);</span><br><span class="line">		if ( Queue[front]-&gt;lChild != NULL)</span><br><span class="line">			//&#x5C06;&#x961F;&#x9996;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x5165;&#x961F;&#x5217;</span><br><span class="line">			Queue[++rear] = Queue[front]-&gt;lChild;</span><br><span class="line">		if ( Queue[front]-&gt;rChild != NULL)</span><br><span class="line">			//&#x5C06;&#x961F;&#x9996;&#x7ED3;&#x70B9;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x5165;&#x961F;&#x5217;</span><br><span class="line">			Queue[++rear] = Queue[front]-&gt;rChild;</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E5D;&#x3001;</p>
+<p>&#x904D;&#x5386;&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x4E8C;&#x53C9;&#x6811;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x7684;&#x57FA;&#x7840;&#x3002;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x8349;&#x9519;&#x5305;&#x62EC;&#x904D;&#x5386;&#x548C;&#x5220;&#x9664;&#xFF0C;&#x4EE5;&#x53CA;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x590D;&#x5236;&#x548C;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x6362;&#xFF0C;&#x5176;&#x6838;&#x5FC3;&#x601D;&#x60F3;&#x662F;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x904D;&#x5386;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x64CD;&#x4F5C;&#x9700;&#x8981;&#x501F;&#x52A9;&#x5FAA;&#x73AF;&#x6216;&#x8005;&#x9012;&#x5F52;&#x5B8C;&#x6210;&#x3002;&#x719F;&#x6089;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6027;&#x8D28;&#x3001;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x7684;&#x7279;&#x70B9;&#x548C;&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x53EF;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x89E3;&#x51B3;&#x6B64;&#x7C7B;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5341;&#x3001;&#x5C0F;&#x7ED3;</p>
+<p>&#x6EE1;&#x8DB3;&#x4E0B;&#x5217;&#x6761;&#x4EF6;&#x7684;&#x4E8C;&#x53C9;&#x6811;:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x82E5;&#x5148;&#x5E8F;&#x6392;&#x5217;&#x4E0E;&#x540E;&#x5E8F;&#x6392;&#x5217;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x6216;&#x4E3A;&#x7A7A;&#x6811;&#xFF0C;&#x6216;&#x4E3A;&#x53EA;&#x6709;&#x6839;&#x8282;&#x70B9;&#x7684;&#x4E8C;&#x53C9;&#x6811;</span><br><span class="line">&#x82E5;&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#x4E0E;&#x540E;&#x5E8F;&#x5E8F;&#x5217;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x6216;&#x4E3A;&#x7A7A;&#x6811;&#xFF0C;&#x6216;&#x4E3A;&#x4EFB;&#x4E00;&#x7ED3;&#x70B9;&#x81F3;&#x591A;&#x53EA;&#x6709;&#x5DE6;&#x5B50;&#x6811;&#x7684;&#x4E8C;&#x53C9;&#x6811;</span><br><span class="line">&#x82E5;&#x5148;&#x5E8F;&#x5E8F;&#x5217;&#x4E0E;&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x6216;&#x4E3A;&#x7A7A;&#x6811;&#xFF0C;&#x6216;&#x4E3A;&#x4EFB;&#x4E00;&#x7ED3;&#x70B9;&#x81F3;&#x591A;&#x53EA;&#x6709;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x4E8C;&#x53C9;&#x6811;</span><br><span class="line">&#x82E5;&#x4E2D;&#x5E8F;&#x5E8F;&#x5217;&#x4E0E;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x5E8F;&#x5217;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x6216;&#x4E3A;&#x7A7A;&#x6811;&#xFF0C;&#x6216;&#x4E3A;&#x4EFB;&#x4E00;&#x7ED3;&#x70B9;&#x81F3;&#x591A;&#x53EA;&#x6709;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x4E8C;&#x53C9;&#x6811;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/13/树与二叉树（二）/">
+    <time datetime="2016-10-13T08:31:35.000Z" class="entry-date">
+        2016-10-13
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/10/13/树与二叉树（三）/" rel="prev"><span class="meta-nav">←</span> 树与二叉树（三）</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/13/树与二叉树（一）/" rel="next">树与二叉树（一） <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">21</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/13/树与二叉树（三）/">树与二叉树（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/13/树与二叉树（二）/">树与二叉树（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/13/树与二叉树（一）/">树与二叉树（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/13/谈一谈KMP算法/">谈一谈KMP算法</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/11/三道题深入理解递归/">三道题深入理解递归</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
