@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="SaberDa的幻想乡">
 <meta property="og:description" content="&amp;#x6307;&amp;#x9488;&amp;#x5165;&amp;#x95E8;&amp;#xFF0C;&amp;#x770B;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5C31;&amp;#x591F;&amp;#x4E86;
 &amp;#x672C;&amp;#x6587;&amp;#x7AE0;&amp;#x4E3B;&amp;#x8981;&amp;#x4EE5;&amp;#x4EE3;&amp;#x7801;&amp;#x7ED9;&amp;#x5927;&amp;#x5BB6;&amp;#x8BB2;&amp;#x89E3;&amp;#x6307">
-<meta property="og:updated_time" content="2016-10-21T12:06:54.000Z">
+<meta property="og:updated_time" content="2016-10-23T14:23:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大话指针">
 <meta name="twitter:description" content="&amp;#x6307;&amp;#x9488;&amp;#x5165;&amp;#x95E8;&amp;#xFF0C;&amp;#x770B;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5C31;&amp;#x591F;&amp;#x4E86;
@@ -48,7 +48,7 @@
       </h1>
       
         <h2 class="site-description">
-          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　myLove = (Girl *)malloc(you);</a>
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　myLove = (Girl *)malloc(you)　　|　　630991493@qq.com</a>
         </h2>
       
     </hgroup>
@@ -93,7 +93,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/19/大话指针/" data-id="ciujrrein001rgwb339x7puml" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/19/大话指针/" data-id="ciumq3iod001rytb3dy27wokt" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -108,6 +108,7 @@
 <h2 id="&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;"><a href="#&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;" class="headerlink" title="&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;"></a>&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">void main() {</div><div class="line">	int *p1;</div><div class="line">	char *p2;</div><div class="line">	double *pe;</div><div class="line">	//&#x6240;&#x6709;&#x6307;&#x9488;&#x5728;32&#x4F4D;&#x7CFB;&#x7EDF;&#x4E0B;&#x90FD;&#x662F;4&#x4E2A;&#x5B57;&#x8282;</div><div class="line">	//&#x5728;64&#x4E3A;&#x7CFB;&#x7EDF;&#x4E0B;&#x90FD;&#x662F;8&#x4E2A;&#x5B57;&#x8282;</div><div class="line"></div><div class="line">	//&#x4F46;&#x662F;&#x5730;&#x5740;&#x4E0D;&#x80FD;&#x4E71;&#x4F20;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x5B58;&#x50A8;&#x7684;&#x5185;&#x5BB9;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x662F;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x6570;&#x7EC4;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x51FD;&#x6570;</div><div class="line">	//&#x6307;&#x9488;&#x7C7B;&#x578B;&#x7684;&#x4F5C;&#x7528;&#xFF1A;&#x89E3;&#x6790;&#x8FD9;&#x6BB5;&#x5730;&#x5740;&#x7684;&#x6570;&#x636E;</div><div class="line">	printf(&#x201C;%d %d %d&#x201D;, sizeof(p1), sizeof(p2), sizeof(p3));</div><div class="line">}</div><div class="line"></div><div class="line">void main() {</div><div class="line">	//&#x6307;&#x9488;&#x7C7B;&#x578B;&#x4E0D;&#x5339;&#x914D;&#x4E0D;&#x80FD;&#x4E71;&#x4F20;</div><div class="line">    int a = 5555;</div><div class="line">    int *p = &amp;a;</div><div class="line">    char *ppp = &amp;a;</div><div class="line">    char *pp = p;</div><div class="line">    printf(&quot;%d&quot;, *pp);</div><div class="line">    printf(&quot;\n%d&quot;, *ppp);</div><div class="line">    printf(&quot;\n%d %d&quot;, sizeof(*p), sizeof(*pp));</div><div class="line">    printf(&quot;\n%d %d&quot;, sizeof(p), sizeof(pp));</div><div class="line">}</div></pre></td></tr></table></figure>
 <h2 id="&#x6307;&#x9488;&#x5E38;&#x8BC6;"><a href="#&#x6307;&#x9488;&#x5E38;&#x8BC6;" class="headerlink" title="&#x6307;&#x9488;&#x5E38;&#x8BC6;"></a>&#x6307;&#x9488;&#x5E38;&#x8BC6;</h2><p>1.&#x6307;&#x9488;&#x53D8;&#x91CF;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x5FC5;&#x987B;&#x521D;&#x59CB;&#x5316;</p>
 <p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x6211;&#x7684;&#x53E6;&#x4E00;&#x7BC7;&#x535A;&#x5BA2;&#xFF0C;&#x5176;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;&#x6307;&#x9488;&#x521D;&#x59CB;&#x5316;&#x7684;&#x542B;&#x4E49;&#x4E0E;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</p>
+<p><a href="http://www.saberismywife.com/2016/09/17/&#x6307;&#x9488;&#x7684;&#x521D;&#x59CB;&#x5316;/" target="_blank" rel="external">http://www.saberismywife.com/2016/09/17/&#x6307;&#x9488;&#x7684;&#x521D;&#x59CB;&#x5316;/</a></p>
 <p>2.&#x4F7F;&#x7528;&#x4E8C;&#x7EA7;&#x6307;&#x9488;&#x7684;&#x573A;&#x666F;&#xFF1A;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x6539;&#x52A8;&#x4E00;&#x7EA7;&#x6307;&#x9488;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x4E8C;&#x7EA7;&#x6307;&#x9488;</p>
 <p>3.&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF1A;&#x6309;&#x53D8;&#x91CF;&#x5730;&#x5740;&#x6765;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;</p>
 <p>  &#x95F4;&#x63A5;&#x8BBF;&#x95EE;&#xFF1A;&#x901A;&#x8FC7;&#x5B58;&#x653E;&#x53D8;&#x91CF;&#x5730;&#x5740;&#x7684;&#x53D8;&#x91CF;&#x53BB;&#x8BBF;&#x95EE;&#x53D8;&#x91CF;</p>
