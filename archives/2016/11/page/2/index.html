@@ -76,6 +76,165 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-代码签名探析" class="post-代码签名探析 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/06/代码签名探析/">代码签名探析</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/代码签名探析/" data-id="civev1wro002mq9b39f1sy1wu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>&quot;&#x7528;&#x6237;&#x4F1A;&#x611F;&#x6FC0;&#x4EE3;&#x7801;&#x7B7E;&#x540D;&#x5E26;&#x6765;&#x7684;&#x597D;&#x5904;&quot; &#x2013; Apple Developer Library
+</code></pre><p>&#x5728; iOS &#x6216; macOS &#x5E73;&#x53F0;&#x4E0A;&#x8FDB;&#x884C;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x4F60;&#x6240;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684; API &#x5927;&#x591A;&#x8BBE;&#x8BA1;&#x5F97;&#x7B80;&#x6D01;&#x660E;&#x4E86;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x5730;&#x5B9E;&#x73B0;&#x9177;&#x70AB;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#xFF0C;&#x4FBF;&#x6377;&#x5730;&#x8FDB;&#x884C;&#x5E94;&#x7528;&#x53D1;&#x5E03;&#x524D;&#x6D4B;&#x8BD5;&#xFF0C;&#x6216;&#x662F;&#x7528; Core Data &#x5C06;&#x6570;&#x636E;&#x5B89;&#x5168;&#x7684;&#x5B58;&#x50A8;&#x5728;&#x672C;&#x5730;&#x3002;&#x4F46;&#x662F;&#x603B;&#x6709;&#x4E00;&#x5929;&#xFF0C;&#x4F60;&#x4F1A;&#x78B0;&#x4E0A;&#x4EE3;&#x7801;&#x7B7E;&#x540D; (code signing) &#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6; (provisioning)&#xFF0C;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4F1A;&#x662F;&#x4F60;&#x5728;&#x5FC3;&#x91CC;&#x95EE;&#x5019;&#x67D0;&#x4E9B;&#x4EBA;&#x7956;&#x5B97;&#x7684;&#x5F00;&#x59CB;&#x3002;</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/06/代码签名探析/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/06/代码签名探析/">
+    <time datetime="2016-11-06T03:11:53.000Z" class="entry-date">
+        2016-11-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-AES-Base64数据混合加密与解密" class="post-AES-Base64数据混合加密与解密 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/06/AES-Base64数据混合加密与解密/">AES+Base64数据混合加密与解密</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/AES-Base64数据混合加密与解密/" data-id="civev1wn90005q9b37ale0q4i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>APP&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x5DF2;&#x7ECF;&#x7275;&#x52A8;&#x7740;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x8005;&#x7684;&#x5FC3;&#xFF0C;&#x7B80;&#x5355;&#x7684;MD5/Base64&#x7B49;&#x5DF2;&#x7ECF;&#x96BE;&#x4EE5;&#x6EE1;&#x8DB3;&#x5F53;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x5B89;&#x5168;&#x6807;&#x51C6;&#xFF0C;&#x672C;&#x6587;&#x7B80;&#x5355;&#x7684;&#x4ECB;&#x7ECD;&#x4E0B;AES&#x4E0E;Base64&#x7684;&#x6DF7;&#x5408;&#x52A0;&#x5BC6;&#x4E0E;&#x89E3;&#x5BC6;&quot;
+</code></pre><p>AES:&#x9AD8;&#x7EA7;&#x52A0;&#x5BC6;&#x6807;&#x51C6;&#xFF08;&#x82F1;&#x8BED;&#xFF1A;Advanced Encryption Standard&#xFF0C;&#x7F29;&#x5199;&#xFF1A;AES&#xFF09;&#xFF0C;&#x5728;&#x5BC6;&#x7801;&#x5B66;&#x4E2D;&#x53C8;&#x79F0;Rijndael&#x52A0;&#x5BC6;&#x6CD5;,&#x662F;&#x7F8E;&#x56FD;&#x8054;&#x90A6;&#x653F;&#x5E9C;&#x91C7;&#x7528;&#x7684;&#x4E00;&#x79CD;&#x533A;&#x5757;&#x52A0;&#x5BC6;&#x6807;&#x51C6;&#x3002;&#x8FD9;&#x4E2A;&#x6807;&#x51C6;&#x7528;&#x6765;&#x66FF;&#x4EE3;&#x539F;&#x5148;&#x7684;DES&#xFF0C;&#x5DF2;&#x7ECF;&#x88AB;&#x591A;&#x65B9;&#x5206;&#x6790;&#x4E14;&#x5E7F;&#x4E3A;&#x5168;&#x4E16;&#x754C;&#x6240;&#x4F7F;&#x7528;&#x3002;&#x7ECF;&#x8FC7;&#x4E94;&#x5E74;&#x7684;&#x7504;&#x9009;&#x6D41;&#x7A0B;&#xFF0C;&#x9AD8;&#x7EA7;&#x52A0;&#x5BC6;&#x6807;&#x51C6;&#x7531;&#x7F8E;&#x56FD;&#x56FD;&#x5BB6;&#x6807;&#x51C6;&#x4E0E;&#x6280;&#x672F;&#x7814;&#x7A76;&#x9662;&#xFF08;NIST&#xFF09;&#x4E8E;2001&#x5E74;11&#x6708;26&#x65E5;&#x53D1;&#x5E03;&#x4E8E;FIPS PUB 197&#xFF0C;&#x5E76;&#x5728;2002&#x5E74;5&#x6708;26&#x65E5;&#x6210;&#x4E3A;&#x6709;&#x6548;&#x7684;&#x6807;&#x51C6;&#x3002;2006&#x5E74;&#xFF0C;&#x9AD8;&#x7EA7;&#x52A0;&#x5BC6;&#x6807;&#x51C6;&#x5DF2;&#x7136;&#x6210;&#x4E3A;&#x5BF9;&#x79F0;&#x5BC6;&#x94A5;&#x52A0;&#x5BC6;&#x4E2D;&#x6700;&#x6D41;&#x884C;&#x7684;&#x7B97;&#x6CD5;&#x4E4B;&#x4E00;&#x3002;</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/06/AES-Base64数据混合加密与解密/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/06/AES-Base64数据混合加密与解密/">
+    <time datetime="2016-11-06T02:35:56.000Z" class="entry-date">
+        2016-11-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-浅谈iOS高斯模糊" class="post-浅谈iOS高斯模糊 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/06/浅谈iOS高斯模糊/">浅谈iOS的模糊效果</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/浅谈iOS高斯模糊/" data-id="civev1wsw004lq9b37ntwbrtw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>iOS&#x7684;&#x6A21;&#x7CCA;&#x6548;&#x679C;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x6709;&#x597D;&#x51E0;&#x79CD;&#xFF0C;&#x57FA;&#x672C;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5C06;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5C06;&#x6A21;&#x7CCA;&#x7684;&#x63A7;&#x4EF6;&#x653E;&#x5728;UI&#x754C;&#x9762;&#x4E0A;&#xFF0C;&#x4F7F;&#x63A7;&#x4EF6;&#x8986;&#x76D6;&#x7684;&#x533A;&#x57DF;&#x8FBE;&#x5230;&#x6A21;&#x7CCA;&#x7684;&#x6548;&#x679C;&#x3002;&#x6BCF;&#x79CD;&#x65B9;&#x5F0F;&#x6211;&#x5404;&#x9009;&#x4E86;2&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5B83;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4EE5;&#x53CA;&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B;&#x5B83;&#x4EEC;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#x3002;</p>
+<h2 id="coreImage"><a href="#coreImage" class="headerlink" title="coreImage"></a>coreImage</h2>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/06/浅谈iOS高斯模糊/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/06/浅谈iOS高斯模糊/">
+    <time datetime="2016-11-06T02:17:53.000Z" class="entry-date">
+        2016-11-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-从零开始学习Linux-5" class="post-从零开始学习Linux-5 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -91,7 +250,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-5/" data-id="civ9o76sp002df6b3ujejynfv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-5/" data-id="civev1wri0028q9b3hefavuob" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -150,7 +309,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/Huffman树以及Huffman编码/" data-id="civ9o76pf000if6b3tpbtgao5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/Huffman树以及Huffman编码/" data-id="civev1wpp000tq9b3dwtwjp53" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -208,7 +367,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-4/" data-id="civ9o76sm0026f6b3rriobqyi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-4/" data-id="civev1wrg0025q9b3l0v7lvb2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -264,7 +423,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/03/从零开始学习Linux-3/" data-id="civ9o76sh0021f6b37tdkj7lh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/03/从零开始学习Linux-3/" data-id="civev1wrf0022q9b3vsvqrfcd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -305,121 +464,10 @@
 
 
   
-    <article id="post-从零开始学习Linux-2" class="post-从零开始学习Linux-2 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/02/从零开始学习Linux-2/">从零开始学习Linux-2</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/02/从零开始学习Linux-2/" data-id="civ9o76sf001yf6b39cktpd7l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><a href="#Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;" class="headerlink" title="Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;"></a>Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2><pre><code>&#x4E0B;&#x9762;&#x8FD9;&#x4E24;&#x6BB5;&#x662F;&#x4E13;&#x95E8;&#x4E3A;windows&#x7528;&#x6237;&#x5199;&#x7684;
-</code></pre><p>&#x5728;&#x8BB2; Linux &#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x4E4B;&#x524D;&#xFF0C;&#x4F60;&#x9996;&#x5148;&#x8981;&#x6E05;&#x695A;&#x4E00;&#x70B9;&#x4E1C;&#x897F;&#xFF0C;&#x90A3;&#x5C31;&#x662F; Linux &#x7684;&#x76EE;&#x5F55;&#x4E0E; Windows &#x7684;&#x76EE;&#x5F55;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6216;&#x8BB8;&#x5BF9;&#x4E8E;&#x4E00;&#x822C;&#x64CD;&#x4F5C;&#x4E0A;&#x7684;&#x611F;&#x53D7;&#x6765;&#x8BF4;&#x6CA1;&#x6709;&#x591A;&#x5927;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x4ECE;&#x5B83;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x6765;&#x8BF4;&#x662F;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/02/从零开始学习Linux-2/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/02/从零开始学习Linux-2/">
-    <time datetime="2016-11-02T11:13:57.000Z" class="entry-date">
-        2016-11-02
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-从零开始学习Linux-1" class="post-从零开始学习Linux-1 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/01/从零开始学习Linux-1/">从零开始学习Linux-1</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/01/从零开始学习Linux-1/" data-id="civ9o76sb001sf6b3r6fsygmq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="Linux-&#x7528;&#x6237;&#x7BA1;&#x7406;"><a href="#Linux-&#x7528;&#x6237;&#x7BA1;&#x7406;" class="headerlink" title="Linux &#x7528;&#x6237;&#x7BA1;&#x7406;"></a>Linux &#x7528;&#x6237;&#x7BA1;&#x7406;</h2><p>Linux &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x591A;&#x7528;&#x6237;&#x767B;&#x9646;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x6BD4;&#x5982;&#x201C;zsr&#x201D;&#x548C;&#x201C;lgd&#x201D;&#x90FD;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x767B;&#x9646;&#x540C;&#x4E00;&#x53F0;&#x4E3B;&#x673A;&#xFF0C;&#x4ED6;&#x4EEC;&#x5171;&#x4EAB;&#x4E00;&#x4E9B;&#x4E3B;&#x673A;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x4F46;&#x4ED6;&#x4EEC;&#x4E5F;&#x5206;&#x522B;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#xFF0C;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x5404;&#x81EA;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x4ED6;&#x4EEC;&#x7684;&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x78C1;&#x76D8;&#x4E0A;&#x7684;&#x751A;&#x81F3;&#x540C;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x5206;&#x533A;&#x6216;&#x8005;&#x76EE;&#x5F55;&#x91CC;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E; Linux &#x7684;<strong>&#x7528;&#x6237;&#x7BA1;&#x7406;</strong>&#x548C;<strong>&#x6743;&#x9650;&#x673A;&#x5236;</strong>&#xFF0C;&#x4E0D;&#x540C;&#x7528;&#x6237;&#x4E0D;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x5730;&#x67E5;&#x770B;&#x3001;&#x4FEE;&#x6539;&#x5F7C;&#x6B64;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/01/从零开始学习Linux-1/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/01/从零开始学习Linux-1/">
-    <time datetime="2016-11-01T14:01:48.000Z" class="entry-date">
-        2016-11-01
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2016/11/">&laquo; Prev</a><a class="page-number" href="/archives/2016/11/">1</a><span class="page-number current">2</span>
+        <a class="extend prev" rel="prev" href="/archives/2016/11/">&laquo; Prev</a><a class="page-number" href="/archives/2016/11/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2016/11/page/3/">3</a><a class="extend next" rel="next" href="/archives/2016/11/page/3/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -440,7 +488,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">38</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">41</span></li></ul>
     </div>
   </aside>
 
@@ -452,23 +500,23 @@
       <ul>
         
           <li>
+            <a href="/2016/11/11/动态查找表/">动态查找表</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/10/静态查找表/">静态查找表</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/10/二叉查找树/">二叉查找树</a>
+          </li>
+        
+          <li>
             <a href="/2016/11/08/从零开始学习Linux-7/">从零开始学习Linux-7</a>
           </li>
         
           <li>
             <a href="/2016/11/08/详探贪心算法/">详探贪心算法</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/06/从零开始学习Linux-6/">从零开始学习Linux-6</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/06/iOS非越狱微信自动抢红包/">iOS非越狱微信自动抢红包</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/06/代码签名探析/">代码签名探析</a>
           </li>
         
       </ul>
@@ -480,7 +528,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">4</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">6</span></li></ul>
     </div>
   </aside>
 
