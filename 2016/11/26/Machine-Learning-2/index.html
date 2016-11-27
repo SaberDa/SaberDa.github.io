@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Machine-Learning-2 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Multiple FeaturesLinear regression with multiple variables is also known as &amp;#x201C;multivariate linear regression&amp;#x201D;.
+We now introduce notation for equations where we can have any number of inpu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-2">
+<meta property="og:url" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="Multiple FeaturesLinear regression with multiple variables is also known as &amp;#x201C;multivariate linear regression&amp;#x201D;.
+We now introduce notation for equations where we can have any number of inpu">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/2.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/4.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/5.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/6.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/7.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/8.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/9.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/10.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/11.png">
+<meta property="og:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/12.png">
+<meta property="og:updated_time" content="2016-11-27T07:33:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine-Learning-2">
+<meta name="twitter:description" content="Multiple FeaturesLinear regression with multiple variables is also known as &amp;#x201C;multivariate linear regression&amp;#x201D;.
+We now introduce notation for equations where we can have any number of inpu">
+<meta name="twitter:image" content="https://saberda.github.io/2016/11/26/Machine-Learning-2/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　俯仰之间 换了人间</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/Machine Learning/">Machine Learning</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Machine-Learning-2" class="post-Machine-Learning-2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Machine-Learning-2
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/26/Machine-Learning-2/" data-id="ciw00ma7f0000oyhb2bjgaw65" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="Multiple-Features"><a href="#Multiple-Features" class="headerlink" title="Multiple Features"></a>Multiple Features</h2><p>Linear regression with multiple variables is also known as &#x201C;multivariate linear regression&#x201D;.</p>
+<p>We now introduce notation for equations where we can have any number of input variables.</p>
+<a id="more"></a>
+<p><img src="/2016/11/26/Machine-Learning-2/1.png" alt=""></p>
+<p>The multivariable form of the hypothesis function accommodating these multiple features is as follows:</p>
+<p>h<sub>&#x398;</sub>(x) = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x<sub>1</sub> + &#x398;<sub>2</sub>x<sub>2</sub> + &#x2026; + &#x398;<sub>n</sub>x<sub>n</sub></p>
+<p>In order to develop intuition about this function, we can think about &#x398;<sub>0</sub> as the basic price of a house,&#x398;<sub>1</sub> as the price per square meter,&#x398;<sub>2</sub> as the price per floor, etc.x<sub>1</sub> will be the number of square meters in the house, x<sub>2</sub> the number of floors, etc.</p>
+<p>Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/2.png" alt=""></p>
+<p>This is a vectorization of our hypothesis function for one training example; see the lessons on vectorization to learn more.</p>
+<p>Remark: Note that for convenience reasons in this course we assume: x<sub>0</sub><sup>(i)</sup> = 1 for (i &#x2208; 1,&#x2026;,m).This allows us to do matrix operations with theta and x. Hence making the two vectors &#x2018;theta&#x2019; and x<sub>(i)</sub> match each other element-wise (that is, have the same number of elements: n+1).]</p>
+<p>The training examples are stored in X row-wise. The following example shows us the reason behind setting x<sub>0</sub><sup>(i)</sup> = 1:</p>
+<p>As a result, you can calculate the hypothesis as a column vector of size (m x 1) with:</p>
+<p><strong>h<sub>&#x398;</sub>(X)=X&#x398;</strong></p>
+<h2 id="Gradient-Descent-For-Multiple-Variables"><a href="#Gradient-Descent-For-Multiple-Variables" class="headerlink" title="Gradient Descent For Multiple Variables"></a>Gradient Descent For Multiple Variables</h2><ul>
+<li>Gradient Descent for Multiple Variables</li>
+</ul>
+<p>The gradient descent equation itself is generally the same form; we just have to repeat it for our &#x2018;n&#x2019; features:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/4.png" alt=""></p>
+<p>In other words:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/5.png" alt=""></p>
+<p>The following image compares gradient descent with one variable to gradient descent with multiple variables:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/6.png" alt=""></p>
+<h2 id="Gradient-Descent-in-Practice-I-Feature-Scaling"><a href="#Gradient-Descent-in-Practice-I-Feature-Scaling" class="headerlink" title="Gradient Descent in Practice I - Feature Scaling"></a>Gradient Descent in Practice I - Feature Scaling</h2><p>We can speed up gradient descent by having each of our input values in roughly the same range. This is because &#x3B8; will descend quickly on small ranges and slowly on large ranges, and so will oscillate inefficiently down to the optimum when the variables are very uneven.</p>
+<p>The way to prevent this is to modify the ranges of our input variables so that they are all roughly the same. Ideally:</p>
+<p>-1 &#x2264; x<sub>i</sub> &#x2264; 1</p>
+<p>or</p>
+<p>-0.5 &#x2264; x<sub>i</sub> &#x2264; 0.5</p>
+<p>These aren&#x2019;t exact requirements; we are only trying to speed things up. The goal is to get all input variables into roughly one of these ranges, give or take a few.</p>
+<p>Two techniques to help with this are <strong>feature scaling</strong> and <strong>mean normalization</strong>. Feature scaling involves dividing the input values by the range (i.e. the maximum value minus the minimum value) of the input variable, resulting in a new range of just 1. Mean normalization involves subtracting the average value for an input variable from the values for that input variable resulting in a new average value for the input variable of just zero. To implement both of these techniques, adjust your input values as shown in this formula:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/7.png" alt=""></p>
+<p>Where &#x3BC;<sub>i</sub> is the average of all the values for feature (i) and s<sub>i</sub> is the range of values (max - min), or s<sub>i</sub> is the standard deviation.</p>
+<p>Note that dividing by the range, or dividing by the standard deviation, give different results. The quizzes in this course use range - the programming exercises use standard deviation.</p>
+<p>For example, if x<sub>i</sub> represents housing prices with a range of 100 to 2000 and a mean value of 1000, then, </p>
+<p><img src="/2016/11/26/Machine-Learning-2/8.png" alt=""></p>
+<h2 id="Gradient-Descent-in-Practice-II-Learning-Rate"><a href="#Gradient-Descent-in-Practice-II-Learning-Rate" class="headerlink" title="Gradient Descent in Practice II - Learning Rate"></a>Gradient Descent in Practice II - Learning Rate</h2><p><strong>Debugging gradient descent.</strong>Make a plot with number of iterations on the x-axis. Now plot the cost function, J(&#x3B8;) over the number of iterations of gradient descent. If J(&#x3B8;) ever increases, then you probably need to decrease &#x3B1;.</p>
+<p><strong>Automatic convergence test.</strong>Declare convergence if J(&#x3B8;) decreases by less than E in one iteration, where E is some small value such as 10<sup>-3</sup><br>.However in practice it&#x2019;s difficult to choose this threshold value.</p>
+<p><img src="/2016/11/26/Machine-Learning-2/9.png" alt=""></p>
+<p>It has been proven that if learning rate &#x3B1; is sufficiently small, then J(&#x3B8;) will decrease on every iteration.</p>
+<p><img src="/2016/11/26/Machine-Learning-2/10.png" alt=""></p>
+<p>To summarize:</p>
+<p>If &#x3B1; is too small: slow convergence.</p>
+<p>If &#x3B1; is too large: may not decrease on every iteration and thus may not converge.</p>
+<h2 id="Features-and-Polynomial-Regression"><a href="#Features-and-Polynomial-Regression" class="headerlink" title="Features and Polynomial Regression"></a>Features and Polynomial Regression</h2><p>We can improve our features and the form of our hypothesis function in a couple different ways.</p>
+<p>We can <strong>combine</strong> multiple features into one. For example, we can combine x<sub>1</sub> and x<sub>2</sub> into a new feature x<sub>3</sub> by taking x<sub>1</sub>, x<sub>2</sub>.</p>
+<p><strong>Polynomial Regression</strong></p>
+<p>Our hypothesis function need not be linear (a straight line) if that does not fit the data well.</p>
+<p>We can <strong>change the behavior or curve</strong> of our hypothesis function by making it a quadratic, cubic or square root function (or any other form).</p>
+<p>For example, if our hypothesis function is h<sub>&#x398;</sub> = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x<sub>1</sub> then we can create additional features based on x<sub>1</sub> to get the quadratic function h<sub>&#x398;</sub> = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x<sub>1</sub> + &#x398;<sub>2</sub>x<sub>1</sub><sup>2</sup> or the cubic function h<sub>&#x398;</sub> = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x<sub>1</sub> + &#x398;<sub>2</sub>x<sub>1</sub><sup>2</sup> + &#x398;<sub>3</sub>x<sub>1</sub><sup>3</sup>.</p>
+<p>In the cubic version, we have created new features x<sub>2</sub> and x<sub>3</sub> where x<sub>2</sub> = x<sub>1</sub><sup>2</sup> and x<sub>3</sub> = x<sub>1</sub><sup>3</sup></p>
+<p>To make it a square root function, we could do: h<sub>&#x398;</sub> = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x<sub>1</sub> + &#x398;<sub>2</sub>&#x221A;x<sub>1</sub>.</p>
+<p>One important thing to keep in mind is, if you choose your features this way then feature scaling becomes very important.</p>
+<h2 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h2><p>Gradient descent gives one way of minimizing J. Let&#x2019;s discuss a second way of doing so, this time performing the minimization explicitly and without resorting to an iterative algorithm. In the &#x201C;Normal Equation&#x201D; method, we will minimize J by explicitly taking its derivatives with respect to the &#x3B8;j &#x2019;s, and setting them to zero. This allows us to find the optimum theta without iteration. The normal equation formula is given below:</p>
+<p>&#x3B8; = (X<sub>T</sub>X)<sub>-1</sub>X<sub>T</sub>y</p>
+<p><img src="/2016/11/26/Machine-Learning-2/11.png" alt=""></p>
+<p>There is <strong>no need</strong> to do feature scaling with the normal equation.</p>
+<p>The following is a comparison of gradient descent and the normal equation:</p>
+<p><img src="/2016/11/26/Machine-Learning-2/12.png" alt=""></p>
+<p>With the normal equation, computing the inversion has complexity O(n<sup>3</sup>).So if we have a very large number of features, the normal equation will be slow. In practice, when n exceeds 10,000 it might be a good time to go from a normal solution to an iterative process.</p>
+<h2 id="Normal-Equation-Noninvertibility"><a href="#Normal-Equation-Noninvertibility" class="headerlink" title="Normal Equation Noninvertibility"></a>Normal Equation Noninvertibility</h2><p>When implementing the normal equation in octave we want to use the &#x2018;pinv&#x2019; function rather than &#x2018;inv.&#x2019; The &#x2018;pinv&#x2019; function will give you a value of &#x3B8; even if X<sup>T</sup>X is not invertible.</p>
+<p>If X<sup>T</sup>X is <strong>noninvertible</strong>, the common causes might be having :</p>
+<p>Redundant features, where two features are very closely related (i.e. they are linearly dependent)</p>
+<p>Too many features (e.g. m &#x2264; n). In this case, delete some features or use &#x201C;regularization&#x201D; (to be explained in a later lesson).</p>
+<p>Solutions to the above problems include deleting a feature that is linearly dependent with another or deleting one or more features when there are too many features.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/26/Machine-Learning-2/">
+    <time datetime="2016-11-26T02:52:02.000Z" class="entry-date">
+        2016-11-26
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/11/21/Machine-Learning-1/" rel="next">Machine Learning-1 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/26/Machine-Learning-2/">Machine-Learning-2</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/21/Machine-Learning-1/">Machine Learning-1</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/入门MySQL（三）/">入门MySQL（三）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/入门MySQL（二）/">入门MySQL（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/入门MySQL（一）/">入门MySQL（一）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
