@@ -44,7 +44,7 @@ However, this method doesn&amp;#x2019;t work">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/19.png">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/20.png">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/21.png">
-<meta property="og:updated_time" content="2016-12-01T09:34:04.000Z">
+<meta property="og:updated_time" content="2016-12-01T11:05:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine-Learning-3">
 <meta name="twitter:description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. 
@@ -178,7 +178,7 @@ However, this method doesn&amp;#x2019;t work">
 <p><img src="/2016/11/29/Machine-Learning-3/19.png" alt=""></p>
 <p>We can write a single function that returns both of these:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function [jVal, gradient] = costFunction(theta)</div><div class="line">	jVal = [...code to compute J(theta)...];</div><div class="line">	gradient = [...code to compute derivative of J(theta)...];</div><div class="line">end</div></pre></td></tr></table></figure>
-<p>Then we can use octave&#x2019;s &#x201C;fminunc()&#x201D; optimization algorithm along with the &#x201C;optimset()&#x201D; function that creates an object containing the options we want to send to &#x201C;fminunc()&#x201D;. (Note: the value for MaxIter should be an integer, not a character string - errata in the video at 7:30)</p>
+<p>Then we can use octave&#x2019;s &#x201C;fminunc()&#x201D; optimization algorithm along with the &#x201C;optimset()&#x201D; function that creates an object containing the options we want to send to &#x201C;fminunc()&#x201D;. (Note: the value for MaxIter should be an integer, not a character string - errata)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 100);</div><div class="line">initialTheta = zeros(2,1);</div><div class="line">	[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</div></pre></td></tr></table></figure>
 <p>We give to the function &#x201C;fminunc()&#x201D; our cost function, our initial vector of theta values, and the &#x201C;options&#x201D; object that we created beforehand.</p>
 <h2 id="Multiclass-Classification-One-vs-all"><a href="#Multiclass-Classification-One-vs-all" class="headerlink" title="Multiclass Classification: One-vs-all"></a>Multiclass Classification: One-vs-all</h2><p>Now we will approach the classification of data when we have more than two categories. Instead of y = {0,1} we will expand our definition so that y = {0,1&#x2026;n}.</p>
