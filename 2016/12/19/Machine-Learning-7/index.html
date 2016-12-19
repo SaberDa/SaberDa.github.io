@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Machine-Learning-7 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-7">
+<meta property="og:url" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/2.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/3.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/4.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/5.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/6.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/7.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/8.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/9.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/10.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/11.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/12.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/13.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/14.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/15.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/16.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/17.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/18.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/19.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/21.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/22.png">
+<meta property="og:updated_time" content="2016-12-19T04:25:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine-Learning-7">
+<meta name="twitter:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+<meta name="twitter:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　我生而坚强 只要不死 就能笑的猖狂</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/机器学习/">机器学习</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Machine-Learning-7" class="post-Machine-Learning-7 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Machine-Learning-7
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/19/Machine-Learning-7/" data-id="ciwvi0ivm001wduhbna13njm0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="SVM-and-Kernels"><a href="#SVM-and-Kernels" class="headerlink" title="SVM and Kernels"></a>SVM and Kernels</h2><h2 id="Optimization-Objective"><a href="#Optimization-Objective" class="headerlink" title="Optimization Objective"></a>Optimization Objective</h2><p>Ps:<br>&#x5411;&#x91CF;&#x673A;&#xFF08;Vector Machine&#xFF09;&#xFF1A;&#x7B80;&#x79F0;VM&#x3002;&#x5411;&#x91CF;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x7B80;&#x79F0;&#x3002;</p>
+<p>The <strong>Support Vector Machine (SVM)</strong> is yet another type of supervised machine learning algorithm. It is sometimes cleaner and more powerful.</p>
+<p>Recall that in logistic regression, we use the following rules:</p>
+<ul>
+<li><p>If y=1, then h<sub>&#x398;</sub>(x)&#x2248;1 and &#x398;<sup>T</sup>x&gt;&gt;0</p>
+</li>
+<li><p>If y=1, then h<sub>&#x398;</sub>(x)&#x2248;0 and &#x398;<sup>T</sup>x&gt;&gt;0</p>
+</li>
+</ul>
+<p>Recall the cost function for (unregularized) logistic regression:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/1.png" alt=""></p>
+<p>To make a support vector machine, we will modify the first term of the cost function<br><strong>-log(h<sub>&#x398;</sub>(x)) = -log((1+e<sup>-&#x398;<sup>T</sup>x</sup>)<sup>-1</sup>)</strong><br>so that when &#x398;<sup>T</sup>x (from now on, we shall refer to this as z) is <strong>greater than 1</strong>, it outputs 0. Furthermore, for values of z less than 1, we shall use a straight decreasing line instead of the sigmoid curve. (In the literature, this is called a hinge loss function.)</p>
+<p><img src="/2016/12/19/Machine-Learning-7/2.png" alt=""></p>
+<p>Similarly, we modify the second term of the cost function -log(h<sub>&#x398;</sub>(x)) = -log((1+e<sup>-&#x398;<sup>T</sup>x</sup>)<sup>-1</sup>) so that when z is less than -1, it outputs 0. We also modify it so that for values of z <strong>greater than -1</strong>, we use a straight increasing line instead of the sigmoid curve.</p>
+<p><img src="/2016/12/19/Machine-Learning-7/3.png" alt=""></p>
+<p>We shall denote these as cost<sub>1</sub>(z) and cost<sub>0</sub>(z) (respectively, note that cost<sub>1</sub>(z) is the cost for classifying when y=1, and cost<sub>0</sub>(z) is the cost for classifying when y=0), and we may define them as follows (where k is an arbitrary constant defining the magnitude of the slope of the line):</p>
+<ul>
+<li>z = &#x398;<sup>T</sup>x</li>
+<li>cost<sub>0</sub>(z) = max(0,k(1+z))</li>
+<li>cost<sub>1</sub>(z) = max(0,k(1-z))</li>
+</ul>
+<p>Recall the full cost function from (regularized) logistic regression:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/4.png" alt=""></p>
+<p>Note that the negative sign has been distributed into the sum in the above equation.</p>
+<p>We may transform this into the cost function for support vector machines by substituting cost<sub>1</sub>(z) and cost<sub>0</sub>(z) </p>
+<p><img src="/2016/12/19/Machine-Learning-7/5.png" alt=""></p>
+<p>We can optimize this a bit by multiplying this by m (thus removing the m factor in the denominators). Note that this does not affect our optimization, since we&#x2019;re simply multiplying our cost function by a positive constant (for example, minimizing (u-5)<sup>2</sup>+1 gives us 5; multiplying it by 10 to make it 10(u-5)<sup>2</sup>+10 still gives us 5 when minimized).</p>
+<p><img src="/2016/12/19/Machine-Learning-7/6.png" alt=""></p>
+<p>Furthermore, convention dictates that we regularize using a factor C, instead of &#x3BB;, like so:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/7.png" alt=""></p>
+<p>This is equivalent to multiplying the equation by C=1/&#x3BB; and thus results in the same values when optimized. Now, when we wish to regularize more (that is, reduce overfitting), we <strong>decrease</strong> C, and when we wish to regularize less (that is, reduce underfitting), we <strong>increase</strong> C.</p>
+<p>Finally, note that the hypothesis of the Support Vector Machine is not interpreted as the probability of y being 1 or 0 (as it is for the hypothesis of logistic regression). Instead, it outputs either 1 or 0. (In technical terms, it is a discriminant function.)</p>
+<p><img src="/2016/12/19/Machine-Learning-7/8.png" alt=""></p>
+<h2 id="Large-Margin-Intuition"><a href="#Large-Margin-Intuition" class="headerlink" title="Large Margin Intuition"></a>Large Margin Intuition</h2><p>A useful way to think about Support Vector Machines is to think of them as <strong>Large Margin Classifiers</strong>.</p>
+<ul>
+<li>If y=1, we want &#x398;<sup>T</sup>x &#x2265; 1 (not just &#x2265; 0)</li>
+<li>If y=0, we want &#x398;<sup>T</sup>x &#x2264; 1 (not just &lt; 0)</li>
+</ul>
+<p>Now when we set our constant C to a very <strong>large</strong> value (e.g. 100,000), our optimizing function will constrain &#x398; such that the equation A (the summation of the cost of each example) equals 0. We impose the following constraints on &#x398;:</p>
+<p>&#x398;<sup>T</sup>x &#x2265; 1 if y = 1 and &#x398;<sup>T</sup>x &#x2264; 1 if y = 0</p>
+<p>If C is very large, we must choose &#x398; parameters such that:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/9.png" alt=""></p>
+<p>This reduces our cost function to:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/10.png" alt=""></p>
+<p>Recall the decision boundary from logistic regression (the line separating the positive and negative examples). In SVMs, the decision boundary has the special property that it is <strong>as far away as possible</strong> from both the positive and the negative examples.</p>
+<p>The distance of the decision boundary to the nearest example is called the <strong>margin</strong>. Since SVMs maximize this margin, it is often called a <strong>Large Margin Classifier</strong>.</p>
+<p>The SVM will separate the negative and positive examples by a <strong>large margin</strong>.</p>
+<p>This large margin is only achieved when <strong>C is very large</strong>.</p>
+<p>Data is <strong>linearly separable</strong> when a <strong>straight line</strong> can separate the positive and negative examples.</p>
+<p>If we have <strong>outlier</strong> examples that we don&#x2019;t want to affect the decision boundary, then we can <strong>reduce</strong> C.</p>
+<p>Increasing and decreasing C is similar to respectively decreasing and increasing &#x3BB;, and can simplify our decision boundary.</p>
+<h2 id="Mathematics-Behind-Large-Margin-Classification-Optional"><a href="#Mathematics-Behind-Large-Margin-Classification-Optional" class="headerlink" title="Mathematics Behind Large Margin Classification (Optional)"></a>Mathematics Behind Large Margin Classification (Optional)</h2><h2 id="Vector-Inner-Product"><a href="#Vector-Inner-Product" class="headerlink" title="Vector Inner Product"></a>Vector Inner Product</h2><p>Say we have two vectors, u and v:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/11.png" alt=""></p>
+<p>The length of vector v is denoted ||v||, and it describes the line on a graph from origin (0,0) to (v<sub>1</sub>,v<sub>2</sub>)</p>
+<p>The length of vector v can be calculated with &#x221A;(v<sub>1</sub><sup>2</sup> + v<sub>2</sub><sup>2</sup>) by the Pythagorean theorem.</p>
+<p>The <strong>projection</strong> of vector v onto vector u is found by taking a right angle from u to the end of v, creating a right triangle.</p>
+<ul>
+<li>p= length of projection of v onto the vector u.</li>
+<li>u<sup>T</sup>v = p&#x22C5;||u||</li>
+</ul>
+<p>Note that u<sup>T</sup>v = ||u|| <em> ||v|| </em> cos&#x398; where &#x3B8; is the angle between u and v. Also,<br>p=||v||cos&#x3B8; . If you substitute p for ||v||cos&#x3B8; , you get u<sup>T</sup>v = p&#x22C5;||u||</p>
+<p>So the product u<sup>T</sup>v is equal to the length of the projection times the length of vector u.</p>
+<p>In our example, since u and v are vectors of the same length, u<sup>T</sup>v = v<sup>T</sup>u</p>
+<p><img src="/2016/12/19/Machine-Learning-7/12.png" alt=""></p>
+<p>If the <strong>angle</strong> between the lines for v and u is <strong>greater than 90 degrees</strong>, then the projection p will be <strong>negative</strong>.</p>
+<p><img src="/2016/12/19/Machine-Learning-7/13.png" alt=""></p>
+<p>We can use the same rules to rewrite &#x398;<sup>T</sup>x<sup>(i)</sup></p>
+<p><img src="/2016/12/19/Machine-Learning-7/14.png" alt=""></p>
+<p>So we now have a new optimization objective by substituting p<sup>(i)</sup>*||&#x398;|| in for &#x398;<sup>T</sup>x<sup>(i)</sup></p>
+<p><img src="/2016/12/19/Machine-Learning-7/15.png" alt=""></p>
+<p>The reason this causes a &#x201C;large margin&#x201D; is because: the vector for &#x398; is perpendicular to the decision boundary. In order for our optimization objective (above) to hold true, we need the absolute value of our projections p<sup>(i)</sup> to be as large as possible.</p>
+<p>If &#x398;<sub>0</sub> = 0, then all our decision boundaries will intersect (0,0). If &#x398;<sub>0</sub> &#x2260; 0, the support vector machine will still find a large margin for the decision boundary.</p>
+<h2 id="Kernels-I"><a href="#Kernels-I" class="headerlink" title="Kernels I"></a>Kernels I</h2><p><strong>Kernels</strong> allow us to make complex, non-linear classifiers using Support Vector Machines.</p>
+<p>Given x, compute new feature depending on proximity to landmarks l<sup>(1)</sup>,l<sup>(2)</sup>,l<sup>(3)</sup></p>
+<p>To do this, we find the &#x201C;similarity&#x201D; of x and some landmark l<sup>(i)</sup></p>
+<p><img src="/2016/12/19/Machine-Learning-7/16.png" alt=""></p>
+<p>This &#x201C;similarity&#x201D; function is called a <strong>Gaussian Kernel</strong>. It is a specific example of a kernel.</p>
+<p>The similarity function can also be written as follows:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/17.png" alt=""></p>
+<p>There are a couple properties of the similarity function:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/18.png" alt=""></p>
+<p>In other words, if x and the landmark are close, then the similarity will be close to 1, and if x and the landmark are far away from each other, the similarity will be close to 0.</p>
+<p>Each landmark gives us the features in our hypothesis:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/19.png" alt=""></p>
+<p>&#x3C3;<sup>2</sup> is a parameter of the Gaussian Kernel, and it can be modified to increase or decrease the <strong>drop-off</strong> of our feature f<sub>i</sub>. Combined with looking at the values inside &#x398;, we can choose these landmarks to get the general shape of the decision boundary.</p>
+<h2 id="Kernels-II"><a href="#Kernels-II" class="headerlink" title="Kernels II"></a>Kernels II</h2><p>One way to get the landmarks is to put them in the <strong>exact same</strong> locations as all the training examples. This gives us m landmarks, with one landmark per training example.</p>
+<p>Given example x:</p>
+<p>f<sub>1</sub>=similarity(x,l<sup>(1)</sup>), f<sub>2</sub>=similarity(x,l<sup>(2)</sup>),<br>f<sub>3</sub>=similarity(x,l<sup>(3)</sup>),and so on</p>
+<p>This gives us a &#x201C;feature vector,&#x201D; f<sub>(i)</sub> of all our features for example x<sub>(i)</sub> We may also set f<sub>0</sub>=1 to correspond with &#x398;<sub>0</sub>. Thus given training example x<sub>(0)</sub>:</p>
+<p><img src="/2016/12/19/Machine-Learning-7/21.png" alt=""></p>
+<p>Now to get the parameters &#x398; we can use the SVM minimization algorithm but with f<sup>(i)</sup> substituted in for x<sup>(i)</sup> :</p>
+<p><img src="/2016/12/19/Machine-Learning-7/22.png" alt=""></p>
+<p>Using kernels to generate f(i) is not exclusive to SVMs and may also be applied to logistic regression. However, because of computational optimizations on SVMs, kernels combined with SVMs is much faster than with other algorithms, so kernels are almost always found combined only with SVMs.</p>
+<h2 id="Choosing-SVM-Parameters"><a href="#Choosing-SVM-Parameters" class="headerlink" title="Choosing SVM Parameters"></a>Choosing SVM Parameters</h2><p>Choosing C (recall that <strong>C = &#x3BB;<sup>-1</sup></strong></p>
+<ul>
+<li>If C is large, then we get higher variance/lower bias</li>
+<li>If C is small, then we get lower variance/higher bias</li>
+</ul>
+<p>The other parameter we must choose is &#x3C3;<sup>2</sup> from the Gaussian Kernel function:</p>
+<ul>
+<li>With a large &#x3C3;<sup>2</sup> ,the features fi vary more smoothly, causing higher bias and lower variance.</li>
+<li>With a small &#x3C3;<sup>2</sup>, the features fi vary less smoothly, causing lower bias and higher variance.</li>
+</ul>
+<h2 id="Using-An-SVM"><a href="#Using-An-SVM" class="headerlink" title="Using An SVM"></a>Using An SVM</h2><p>There are lots of good SVM libraries already written. A. Ng often uses &#x2018;liblinear&#x2019; and &#x2018;libsvm&#x2019;. In practical application, you should use one of these libraries rather than rewrite the functions.</p>
+<p>In practical application, the choices you do need to make are:</p>
+<ul>
+<li>Choice of parameter C</li>
+<li>Choice of kernel (similarity function)</li>
+<li>No kernel (&#x201C;linear&#x201D; kernel) &#x2013; gives standard linear classifier</li>
+<li>Choose when n is large and when m is small</li>
+<li>Gaussian Kernel (above) &#x2013; need to choose &#x3C3;<sup>2</sup></li>
+<li>Choose when n is small and m is large</li>
+</ul>
+<p>The library may ask you to provide the kernel function.</p>
+<p><strong>Note</strong>: do perform feature scaling before using the Gaussian Kernel.</p>
+<p><strong>Note</strong>: not all similarity functions are valid kernels. They must satisfy &#x201C;Mercer&#x2019;s Theorem&#x201D; which guarantees that the SVM package&#x2019;s optimizations run correctly and do not diverge.</p>
+<p>You want to train C and the parameters for the kernel function using the training and cross-validation datasets.</p>
+<h2 id="Multi-class-Classification"><a href="#Multi-class-Classification" class="headerlink" title="Multi-class Classification"></a>Multi-class Classification</h2><p>Many SVM libraries have multi-class classification built-in.</p>
+<p>You can use the <strong>one-vs-all</strong> method just like we did for logistic regression, where y &#x2208; 1,2,3&#x2026;,K with &#x398;<sup>(1)</sup>,&#x398;<sup>(2)</sup>,&#x398;<sup>(3)</sup>&#x2026;&#x398;<sup>(K)</sup>.We pick class i with the largest (&#x398;<sup>(i)</sup>)<sup>T</sup>x.</p>
+<h2 id="Logistic-Regression-vs-SVMs"><a href="#Logistic-Regression-vs-SVMs" class="headerlink" title="Logistic Regression vs. SVMs"></a>Logistic Regression vs. SVMs</h2><p>If n is large (relative to m), then use logistic regression, or SVM without a kernel (the &#x201C;linear kernel&#x201D;)</p>
+<p>If n is small and m is intermediate, then use SVM with a Gaussian Kernel</p>
+<p>If n is small and m is large, then manually create/add more features, then use logistic regression or SVM without a kernel.</p>
+<p>In the first case, we don&#x2019;t have enough examples to need a complicated polynomial hypothesis. In the second example, we have enough examples that we may need a complex non-linear hypothesis. In the last case, we want to increase our features so that logistic regression becomes applicable.</p>
+<p><strong>Note</strong>: a neural network is likely to work well for any of these situations, but may be slower to train.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/19/Machine-Learning-7/">
+    <time datetime="2016-12-19T02:58:53.000Z" class="entry-date">
+        2016-12-19
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2016/12/13/Machine-Learning-6/" rel="next">Machine-Learning-6 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/19/Machine-Learning-7/">Machine-Learning-7</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/13/Machine-Learning-6/">Machine-Learning-6</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/10/Machine-Learning-5/">Machine-Learning-5</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/07/Machine-Learning-4/">Machine-Learning-4</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/29/Machine-Learning-3/">Machine-Learning-3</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
