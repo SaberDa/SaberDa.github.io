@@ -15,12 +15,14 @@
   
   <title>Machine-Learning-7 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+  <meta name="description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;
+The Sup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine-Learning-7">
 <meta property="og:url" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+<meta property="og:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;
+The Sup">
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/1.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/2.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/3.png">
@@ -42,10 +44,11 @@
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/19.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/21.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/22.png">
-<meta property="og:updated_time" content="2016-12-19T05:21:41.000Z">
+<meta property="og:updated_time" content="2016-12-25T13:32:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine-Learning-7">
-<meta name="twitter:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x8BA1;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;">
+<meta name="twitter:description" content="SVM and KernelsOptimization ObjectivePs:&amp;#x5411;&amp;#x91CF;&amp;#x673A;&amp;#xFF08;Vector Machine&amp;#xFF09;&amp;#xFF1A;&amp;#x7B80;&amp;#x79F0;VM&amp;#x3002;&amp;#x5411;&amp;#x91CF;&amp;#x7B97;&amp;#x673A;&amp;#x7684;&amp;#x7B80;&amp;#x79F0;&amp;#x3002;
+The Sup">
 <meta name="twitter:image" content="https://saberda.github.io/2016/12/19/Machine-Learning-7/1.png">
   
   
@@ -114,13 +117,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/19/Machine-Learning-7/" data-id="ciwvi0ivm001wduhbna13njm0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/19/Machine-Learning-7/" data-id="cixcv8dzd001d9uhb1n48gr79" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="SVM-and-Kernels"><a href="#SVM-and-Kernels" class="headerlink" title="SVM and Kernels"></a>SVM and Kernels</h2><h2 id="Optimization-Objective"><a href="#Optimization-Objective" class="headerlink" title="Optimization Objective"></a>Optimization Objective</h2><p>Ps:<br>&#x5411;&#x91CF;&#x673A;&#xFF08;Vector Machine&#xFF09;&#xFF1A;&#x7B80;&#x79F0;VM&#x3002;&#x5411;&#x91CF;&#x8BA1;&#x7B97;&#x673A;&#x7684;&#x7B80;&#x79F0;&#x3002;</p>
+        <h2 id="SVM-and-Kernels"><a href="#SVM-and-Kernels" class="headerlink" title="SVM and Kernels"></a>SVM and Kernels</h2><h2 id="Optimization-Objective"><a href="#Optimization-Objective" class="headerlink" title="Optimization Objective"></a>Optimization Objective</h2><p>Ps:<br>&#x5411;&#x91CF;&#x673A;&#xFF08;Vector Machine&#xFF09;&#xFF1A;&#x7B80;&#x79F0;VM&#x3002;&#x5411;&#x91CF;&#x7B97;&#x673A;&#x7684;&#x7B80;&#x79F0;&#x3002;</p>
 <p>The <strong>Support Vector Machine (SVM)</strong> is yet another type of supervised machine learning algorithm. It is sometimes cleaner and more powerful.</p>
 <p>Recall that in logistic regression, we use the following rules:</p>
 <a id="more"></a>
@@ -273,6 +276,8 @@
 <nav class="nav-single">
     <h3 class="assistive-text">文章导航</h3>
     
+        <span class="nav-previous"><a href="/2016/12/31/Machine-Learning-8/" rel="prev"><span class="meta-nav">←</span> Machine-Learning-8</a></span>
+    
     
         <span class="nav-next"><a href="/2016/12/13/Machine-Learning-6/" rel="next">Machine-Learning-6 <span class="meta-nav">→</span></a></span>
     
@@ -300,7 +305,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
     </div>
   </aside>
 
@@ -310,6 +315,14 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget-content">
       <ul>
+        
+          <li>
+            <a href="/2016/12/31/Machine-Learning-9/">Machine-Learning-9</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/Machine-Learning-8/">Machine-Learning-8</a>
+          </li>
         
           <li>
             <a href="/2016/12/19/Machine-Learning-7/">Machine-Learning-7</a>
@@ -323,14 +336,6 @@
             <a href="/2016/12/10/Machine-Learning-5/">Machine-Learning-5</a>
           </li>
         
-          <li>
-            <a href="/2016/12/07/Machine-Learning-4/">Machine-Learning-4</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/29/Machine-Learning-3/">Machine-Learning-3</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -340,7 +345,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

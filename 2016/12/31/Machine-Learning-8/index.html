@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Machine-Learning-8 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ClusteringUnsupervised Learning: IntroductionUnsupervised learning is contrasted from supervised learning because it uses an unlabeled training set rather than a labeled one.
+In other words, we don&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-8">
+<meta property="og:url" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="ClusteringUnsupervised Learning: IntroductionUnsupervised learning is contrasted from supervised learning because it uses an unlabeled training set rather than a labeled one.
+In other words, we don&amp;#x">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/2.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/3.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/4.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/5.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/6.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/7.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/8.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/9.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/10.png">
+<meta property="og:updated_time" content="2016-12-31T06:46:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine-Learning-8">
+<meta name="twitter:description" content="ClusteringUnsupervised Learning: IntroductionUnsupervised learning is contrasted from supervised learning because it uses an unlabeled training set rather than a labeled one.
+In other words, we don&amp;#x">
+<meta name="twitter:image" content="https://saberda.github.io/2016/12/31/Machine-Learning-8/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　我生而坚强 只要不死 就能笑的猖狂</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/机器学习/">机器学习</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Machine-Learning-8" class="post-Machine-Learning-8 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Machine-Learning-8
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/31/Machine-Learning-8/" data-id="cixcv8dyv001a9uhby73j4zas" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h2><h2 id="Unsupervised-Learning-Introduction"><a href="#Unsupervised-Learning-Introduction" class="headerlink" title="Unsupervised Learning: Introduction"></a>Unsupervised Learning: Introduction</h2><p>Unsupervised learning is contrasted from supervised learning because it uses an unlabeled training set rather than a labeled one.</p>
+<p>In other words, we don&#x2019;t have the vector y of expected results, we only have a dataset of features where we can find structure.</p>
+<a id="more"></a>
+<p>Clustering is good for:</p>
+<ul>
+<li>Market segmentation</li>
+<li>Social network analysis</li>
+<li>Organizing computer clusters</li>
+<li>Astronomical data analysis</li>
+</ul>
+<h2 id="K-Means-Algorithm"><a href="#K-Means-Algorithm" class="headerlink" title="K-Means Algorithm"></a>K-Means Algorithm</h2><p>The K-Means Algorithm is the most popular and widely used algorithm for automatically grouping data into coherent subsets.</p>
+<ol>
+<li><p>Randomly initialize two points in the dataset called the cluster centroids.</p>
+</li>
+<li><p>Cluster assignment: assign all examples into one of two groups based on which cluster centroid the example is closest to.</p>
+</li>
+<li>Move centroid: compute the averages for all the points inside each of the two cluster centroid groups, then move the cluster centroid points to those averages.</li>
+<li>Re-run (2) and (3) until we have found our clusters.</li>
+</ol>
+<p>Our main variables are:</p>
+<ul>
+<li>K (number of clusters)</li>
+<li>Training set x<sup>(1)</sup>,x<sup>(2)</sup>,&#x2026;,x<sup>(m)</sup></li>
+<li>Where x<sup>(i)</sup> &#x2208; &#x211D;<sup>n</sup></li>
+</ul>
+<p>Note that we <strong>will not use</strong> the x0=1 convention.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Randomly initialize K cluster centroids mu(1), mu(2), ..., mu(K)</div><div class="line">Repeat:</div><div class="line">   for i = 1 to m:</div><div class="line">      c(i):= index (from 1 to K) of cluster centroid closest to x(i)</div><div class="line">   for k = 1 to K:</div><div class="line">      mu(k):= average (mean) of points assigned to cluster k</div></pre></td></tr></table></figure>
+<p>The <strong>first for-loop</strong> is the &#x2018;Cluster Assignment&#x2019; step. We make a vector c where c(i) represents the centroid assigned to example x(i).</p>
+<p>We can write the operation of the Cluster Assignment step more mathematically as follows:</p>
+<p>c<sup>(i)</sup> = argmin<sub>k</sub>||x<sup>(i)</sup> - &#x3BC;<sub>k</sub>||<sup>2</sup></p>
+<p>That is, each c<sup>(i)</sup> contains the index of the centroid that has minimal distance to x<sup>(i)</sup></p>
+<p>By convention, we square the right-hand-side, which makes the function we are trying to minimize more sharply increasing. It is mostly just a convention. But a convention that helps reduce the computation load because the Euclidean distance requires a square root but it is canceled.</p>
+<p>Without the square:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/1.png" alt=""></p>
+<p>With the square:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/2.png" alt=""></p>
+<p>&#x2026;so the square convention serves two purposes, minimize more sharply and less computation.</p>
+<p>The <strong>second for-loop</strong> is the &#x2018;Move Centroid&#x2019; step where we move each centroid to the average of its group.</p>
+<p>More formally, the equation for this loop is as follows:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/3.png" alt=""></p>
+<p>Where each of x<sup>(k1)</sup>,x<sup>(k2)</sup>,&#x2026;,x<sup>(kn)</sup> are the training examples assigned to group m&#x3BC;<sub>k</sub></p>
+<p>If you have a cluster centroid with <strong>0 points</strong> assigned to it, you can randomly <strong>re-initialize</strong> that centroid to a new point. You can also simply <strong>eliminate</strong> that cluster group.</p>
+<p>After a number of iterations the algorithm will <strong>converge</strong>, where new iterations do not affect the clusters.</p>
+<p>Note on non-separated clusters: some datasets have no real inner separation or natural structure. K-means can still evenly segment your data into K subsets, so can still be useful in this case.</p>
+<h2 id="Optimization-Objective"><a href="#Optimization-Objective" class="headerlink" title="Optimization Objective"></a>Optimization Objective</h2><p>Recall some of the parameters we used in our algorithm:</p>
+<ul>
+<li>c<sup>(i)</sup> = index of cluster (1,2,&#x2026;,K) to which example x(i) is currently assigned</li>
+<li>&#x3BC;<sub>k</sub> = cluster centroid k (&#x3BC;k&#x2208;&#x211D;n)</li>
+<li>&#x3BC;<sub>c<sup>(i)</sup></sub> = cluster centroid of cluster to which example x(i) has been assigned</li>
+</ul>
+<p>Using these variables we can define our <strong>cost function</strong>:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/4.png" alt=""></p>
+<p>Our <strong>optimization objective</strong> is to minimize all our parameters using the above cost function:</p>
+<p>min<sub>c,&#x3BC;</sub>J(c,&#x3BC;)</p>
+<p>That is, we are finding all the values in sets c, representing all our clusters, and &#x3BC;, representing all our centroids, that will minimize <strong>the average of the distances</strong> of every training example to its corresponding cluster centroid.</p>
+<p>The above cost function is often called the <strong>distortion</strong> of the training examples.</p>
+<p>In the <strong>cluster</strong> assignment step, our goal is to:</p>
+<p>Minimize J(&#x2026;) with c<sup>(1)</sup>,c<sup>(2)</sup>,&#x2026;,c<sup>(m)</sup> (holding &#x3BC;<sub>1</sub>,&#x2026;,&#x3BC;<sub>k</sub> fixed)</p>
+<p>In the <strong>move centroid</strong> step, our goal is to:</p>
+<p>Minimize J(&#x2026;) with &#x3BC;<sub>1</sub>,&#x2026;,&#x3BC;<sub>k</sub></p>
+<p>With k-means, it is <strong>not possible for the cost function to sometimes increase</strong>. It should always descend.</p>
+<h2 id="Random-Initialization"><a href="#Random-Initialization" class="headerlink" title="Random Initialization"></a>Random Initialization</h2><p>There&#x2019;s one particular recommended method for randomly initializing your cluster centroids.</p>
+<ol>
+<li>Have K&lt;m. That is, make sure the number of your clusters is less than the number of your training examples.</li>
+<li>Randomly pick K training examples. (Not mentioned in the lecture, but also be sure the selected examples are unique).</li>
+<li>Set &#x3BC;<sub>1</sub>,&#x2026;,&#x3BC;<sub>k</sub> equal to these K examples.</li>
+</ol>
+<p>K-means <strong>can get stuck in local optima</strong>. To decrease the chance of this happening, you can run the algorithm on many different random initializations. In cases where K&lt;10 it is strongly recommended to run a loop of random initializations.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for i = 1 to 100:</div><div class="line">   randomly initialize k-means</div><div class="line">   run k-means to get &apos;c&apos; and &apos;m&apos;</div><div class="line">   compute the cost function (distortion) J(c,m)</div><div class="line">pick the clustering that gave us the lowest cost</div></pre></td></tr></table></figure>
+<h2 id="Choosing-the-Number-of-Clusters"><a href="#Choosing-the-Number-of-Clusters" class="headerlink" title="Choosing the Number of Clusters"></a>Choosing the Number of Clusters</h2><p>Choosing K can be quite arbitrary and ambiguous.</p>
+<p><strong>The elbow method</strong>: plot the cost J and the number of clusters K. The cost function should reduce as we increase the number of clusters, and then flatten out. Choose K at the point where the cost function starts to flatten out.</p>
+<p>However, fairly often, the curve is <strong>very gradual</strong>, so there&#x2019;s no clear elbow.</p>
+<p><strong>Note</strong>: J will <strong>always</strong> decrease as K is increased. The one exception is if k-means gets stuck at a bad local optimum.</p>
+<p>Another way to choose K is to observe how well k-means performs on a <strong>downstream purpose</strong>. In other words, you choose K that proves to be most useful for some goal you&#x2019;re trying to achieve from using these clusters.</p>
+<h2 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h2><ul>
+<li>Motivation I: Data Compression</li>
+</ul>
+<ol>
+<li>We may want to reduce the dimension of our features if we have a lot of redundant data.</li>
+<li>To do this, we find two highly correlated features, plot them, and make a new line that seems to describe both features accurately. We place all the new features on this single line.</li>
+</ol>
+<p>Doing dimensionality reduction will reduce the total data we have to store in computer memory and will speed up our learning algorithm.</p>
+<p>Note: in dimensionality reduction, we are reducing our features rather than our number of examples. Our variable m will stay the same size; n, the number of features each example from x<sup>(1)</sup> to x<sup>(m)</sup> carries, will be reduced.</p>
+<ul>
+<li>Motivation II: Visualization</li>
+</ul>
+<p>It is not easy to visualize data that is more than three dimensions. We can reduce the dimensions of our data to 3 or less in order to plot it.</p>
+<p>We need to find new features, z<sub>1</sub>, z<sub>2</sub>(and perhaps z<sub>3</sub>) that can effectively <strong>summarize</strong> all the other features.</p>
+<p>Example: hundreds of features related to a country&#x2019;s economic system may all be combined into one feature that you call &#x201C;Economic Activity.&#x201D;</p>
+<h2 id="Principal-Component-Analysis-Problem-Formulation"><a href="#Principal-Component-Analysis-Problem-Formulation" class="headerlink" title="Principal Component Analysis Problem Formulation"></a>Principal Component Analysis Problem Formulation</h2><p>The most popular dimensionality reduction algorithm is Principal Component Analysis (PCA)</p>
+<p><strong>Problem formulation</strong></p>
+<p>Given two features, x<sub>1</sub> and x<sub>2</sub>, we want to find a single line that effectively describes both features at once. We then map our old features onto this new line to get a new single feature.</p>
+<p>The same can be done with three features, where we map them to a plane.</p>
+<p>The <strong>goal of PCA</strong> is to <strong>reduce</strong> the average of all the distances of every feature to the projection line. This is the <strong>projection error</strong>.</p>
+<p>Reduce from 2d to 1d: find a direction (a vector u<sup>(1)</sup> &#x2208; &#x211D;<sup>n</sup>) onto which to project the data so as to minimize the projection error.</p>
+<p>The more general case is as follows:<br>Reduce from n-dimension to k-dimension: Find k vectors u<sub>(1)</sub>, u<sub>(2)</sub>,&#x2026;,u<sub>(k)</sub> onto which to project the data so as to minimize the projection error.</p>
+<p>If we are converting from 3d to 2d, we will project our data onto two directions (a plane), so k will be 2.</p>
+<p><strong>PCA is not linear regression</strong></p>
+<ul>
+<li>In linear regression, we are minimizing the squared error from every point to our predictor line. These are vertical distances.</li>
+<li>In PCA, we are minimizing the shortest distance, or shortest orthogonal distances, to our data points.</li>
+</ul>
+<p>More generally, in linear regression we are taking all our examples in x and applying the parameters in &#x398; to predict y.<br>In PCA, we are taking a number of features x<sub>1</sub>,x<sub>2</sub>,&#x2026;,x<sub>n</sub>, and finding a closest common dataset among them. We aren&#x2019;t trying to predict any result and we aren&#x2019;t applying any theta weights to the features.</p>
+<h2 id="Principal-Component-Analysis-Algorithm"><a href="#Principal-Component-Analysis-Algorithm" class="headerlink" title="Principal Component Analysis Algorithm"></a>Principal Component Analysis Algorithm</h2><p>Before we can apply PCA, there is a data pre-processing step we must perform:</p>
+<p><strong>Data preprocessing</strong></p>
+<ul>
+<li>Given training set: x(1),x(2),&#x2026;,x(m)</li>
+<li>Preprocess (feature scaling/mean normalization):</li>
+</ul>
+<p><img src="/2016/12/31/Machine-Learning-8/5.png" alt=""></p>
+<ul>
+<li>Replace each x<sub>j</sub><sup>(i)</sup> with x<sub>j</sub><sup>(i)</sup> - &#x3BC;<sub>j</sub></li>
+<li>If different features on different scales (e.g., x<sub>1</sub> = size of house, x<sub>2</sub> = number of bedrooms), scale features to have comparable range of values.</li>
+</ul>
+<p>Above, we first subtract the mean of each feature from the original feature. </p>
+<p>Then we scale all the features :</p>
+<p><img src="/2016/12/31/Machine-Learning-8/6.png" alt=""></p>
+<p>We can define specifically what it means to reduce from 2d to 1d data as follows:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/7.png" alt=""></p>
+<p>The z values are all real numbers and are the projections of our features onto u<sup>(1)</sup></p>
+<p>So, PCA has two tasks: figure out u<sup>(1)</sup>,&#x2026;, u<sup>(k)</sup> and also to find z<sub>1</sub>, z<sub>2</sub>,&#x2026;,z<sub>m</sub></p>
+<p>The mathematical proof for the following procedure is complicated and beyond the scope of this course.</p>
+<p><strong>1.Compute &#x201C;covariance matrix&#x201D;</strong></p>
+<p><img src="/2016/12/31/Machine-Learning-8/8.png" alt=""></p>
+<p>This can be vectorized in Octave as:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sigma = (1/m) * X&apos; * X;</div></pre></td></tr></table></figure>
+<p>We denote the covariance matrix with a capital sigma (which happens to be the same symbol for summation, confusingly&#x2014;they represent entirely different things).</p>
+<p>Note that x<sup>(i)</sup> is an n&#xD7;1 vector, (x<sup>(i)</sup>)<sup>T</sup> is an 1&#xD7;n vector and X is a m&#xD7;n matrix (row-wise stored examples). The product of those will be an n&#xD7;n matrix, which are the dimensions of &#x3A3;.</p>
+<p><strong>2. Compute &#x201C;eigenvectors&#x201D; of covariance matrix &#x3A3;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[U,S,V] = svd(Sigma);</div></pre></td></tr></table></figure>
+<p>svd() is the &#x2018;singular value decomposition&#x2019;, a built-in Octave function.</p>
+<p>What we actually want out of svd() is the &#x2018;U&#x2019; matrix of the Sigma covariance matrix: U &#x2208; &#x211D;<sup>n*n</sup>.U contains u<sup>(1)</sup>,&#x2026;, u<sup>(n)</sup>, which is exactly what we want.</p>
+<p><strong>3. Take the first k columns of the U matrix and compute z</strong></p>
+<p>We&#x2019;ll assign the first k columns of U to a variable called &#x2018;Ureduce&#x2019;. This will be an n&#xD7;k matrix. We compute z with:</p>
+<p>z<sup>(i)</sup> = Ureduce<sup>T</sup> * x<sup>(i)</sup></p>
+<p>UreduceZ<sup>T</sup> will have dimensions k&#xD7;n while x(i) will have dimensions n&#xD7;1. The product Ureduce<sup>T</sup> * x<sup>(i)</sup> will have dimensions k&#xD7;1.</p>
+<p>To summarize, the whole algorithm in octave is roughly:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Sigma = (1/m) * X&apos; * X; % compute the covariance matrix</div><div class="line">[U,S,V] = svd(Sigma);   % compute our projected directions</div><div class="line">Ureduce = U(:,1:k);     % take the first k directions</div><div class="line">Z = X * Ureduce;        % compute the projected data points</div></pre></td></tr></table></figure>
+<h2 id="Reconstruction-from-Compressed-Representation"><a href="#Reconstruction-from-Compressed-Representation" class="headerlink" title="Reconstruction from Compressed Representation"></a>Reconstruction from Compressed Representation</h2><p>If we use PCA to compress our data, how can we uncompress our data, or go back to our original number of features?</p>
+<p>To go from 1-dimension back to 2d we do: z &#x2208; &#x211D; -&gt; x &#x2208; &#x211D;<sup>2</sup></p>
+<p>We can do this with the equation: x<sub>approx</sub><sup>(1)</sup></p>
+<p>Note that we can only get approximations of our original data.</p>
+<p>Note: It turns out that the U matrix has the special property that it is a Unitary Matrix. One of the special properties of a Unitary Matrix is:</p>
+<p>U<sup>-1</sup> = U<sup><em></em></sup> where the &#x201C;\&#x201C; means &#x201C;conjugate transpose&#x201D;.</p>
+<p>Since we are dealing with real numbers here, this is equivalent to:</p>
+<p>U<sup>-1</sup> = U<sup>T</sup> So we could compute the inverse and use that, but it would be a waste of energy and compute cycles.</p>
+<h2 id="Choosing-the-Number-of-Principal-Components"><a href="#Choosing-the-Number-of-Principal-Components" class="headerlink" title="Choosing the Number of Principal Components"></a>Choosing the Number of Principal Components</h2><p>How do we choose k, also called the number of principal components? Recall that k is the dimension we are reducing to.</p>
+<p>One way to choose k is by using the following formula:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/9.png" alt=""></p>
+<p>In other words, the squared projection error divided by the total variation should be less than one percent, so that <strong>99% of the variance is retained</strong>.</p>
+<p><strong>Algorithm for choosing k</strong></p>
+<ol>
+<li>Try PCA with k=1,2,&#x2026;</li>
+<li>Compute U<sub>reduce</sub>,z,x</li>
+<li>Check the formula given above that 99% of the variance is retained. If not, go to step one and increase k.</li>
+</ol>
+<p>This procedure would actually be horribly inefficient. In Octave, we will call svd:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[U,S,V] = svd(Sigma)</div></pre></td></tr></table></figure>
+<p>Which gives us a matrix S. We can actually check for 99% of retained variance using the S matrix as follows:</p>
+<p><img src="/2016/12/31/Machine-Learning-8/10.png" alt=""></p>
+<h2 id="Advice-for-Applying-PCA"><a href="#Advice-for-Applying-PCA" class="headerlink" title="Advice for Applying PCA"></a>Advice for Applying PCA</h2><p>The most common use of PCA is to speed up supervised learning.</p>
+<p>Given a training set with a large number of features (e.g. x<sup>(1)</sup>,&#x2026;,x<sup>(m)</sup> &#x2208; &#x211D;<sup>10000</sup>)we can use PCA to reduce the number of features in each example of the training set (e.g. x<sup>(1)</sup>,&#x2026;,x<sup>(m)</sup> &#x2208; &#x211D;<sup>1000</sup>).</p>
+<p>Note that we should define the PCA reduction from x<sup>(i)</sup> to z<sup>(i)</sup> only on the training set and not on the cross-validation or test sets. You can apply the mapping z(i) to your cross-validation and test sets after it is defined on the training set.</p>
+<p>Applications</p>
+<ul>
+<li>Compressions</li>
+</ul>
+<p>Reduce space of data</p>
+<p>Speed up algorithm</p>
+<ul>
+<li>Visualization of data</li>
+</ul>
+<p>Choose k = 2 or k = 3</p>
+<p><strong>Bad use of PCA</strong>: trying to prevent overfitting. We might think that reducing the features with PCA would be an effective way to address overfitting. It might work, but is not recommended because it does not consider the values of our results y. Using just regularization will be at least as effective.</p>
+<p>Don&#x2019;t assume you need to do PCA. <strong>Try your full machine learning algorithm without PCA first</strong>. Then use PCA if you find that you need it.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/31/Machine-Learning-8/">
+    <time datetime="2016-12-31T04:54:38.000Z" class="entry-date">
+        2016-12-31
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/机器学习/">机器学习</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/12/31/Machine-Learning-9/" rel="prev"><span class="meta-nav">←</span> Machine-Learning-9</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/12/19/Machine-Learning-7/" rel="next">Machine-Learning-7 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/31/Machine-Learning-9/">Machine-Learning-9</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/Machine-Learning-8/">Machine-Learning-8</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/19/Machine-Learning-7/">Machine-Learning-7</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/13/Machine-Learning-6/">Machine-Learning-6</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/10/Machine-Learning-5/">Machine-Learning-5</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2016 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
