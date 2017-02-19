@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>iPad开发之--splitView和popover | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iPad&amp;#x4E0A;&amp;#x7684;app&amp;#x4E0E;iPhone&amp;#x4E0A;&amp;#x7684;app&amp;#x6700;&amp;#x663E;&amp;#x8457;&amp;#x7684;&amp;#x4E0D;&amp;#x540C;&amp;#x5C31;&amp;#x662F;iPad&amp;#x4F7F;&amp;#x7528;splitView&amp;#x548C;popover&amp;#x6765;&amp;#x4EE3;&amp;#x66FF;navigationCo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPad开发之--splitView和popover">
+<meta property="og:url" content="https://saberda.github.io/2017/02/20/iPad-splitView-popover/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="iPad&amp;#x4E0A;&amp;#x7684;app&amp;#x4E0E;iPhone&amp;#x4E0A;&amp;#x7684;app&amp;#x6700;&amp;#x663E;&amp;#x8457;&amp;#x7684;&amp;#x4E0D;&amp;#x540C;&amp;#x5C31;&amp;#x662F;iPad&amp;#x4F7F;&amp;#x7528;splitView&amp;#x548C;popover&amp;#x6765;&amp;#x4EE3;&amp;#x66FF;navigationCo">
+<meta property="og:updated_time" content="2017-02-19T17:23:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPad开发之--splitView和popover">
+<meta name="twitter:description" content="iPad&amp;#x4E0A;&amp;#x7684;app&amp;#x4E0E;iPhone&amp;#x4E0A;&amp;#x7684;app&amp;#x6700;&amp;#x663E;&amp;#x8457;&amp;#x7684;&amp;#x4E0D;&amp;#x540C;&amp;#x5C31;&amp;#x662F;iPad&amp;#x4F7F;&amp;#x7528;splitView&amp;#x548C;popover&amp;#x6765;&amp;#x4EE3;&amp;#x66FF;navigationCo">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　我生而坚强 只要不死 就能笑的猖狂</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/机器学习/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/概率图模型/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-iPad-splitView-popover" class="post-iPad-splitView-popover post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      iPad开发之--splitView和popover
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/02/20/iPad-splitView-popover/" data-id="cizcxuzsb002m3vb3prapkrut" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>iPad&#x4E0A;&#x7684;app&#x4E0E;iPhone&#x4E0A;&#x7684;app&#x6700;&#x663E;&#x8457;&#x7684;&#x4E0D;&#x540C;&#x5C31;&#x662F;iPad&#x4F7F;&#x7528;splitView&#x548C;popover&#x6765;&#x4EE3;&#x66FF;navigationController</p>
+<p>&#x5728;&#x4ECB;&#x7ECD;&#x6B63;&#x6587;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x6765;&#x8C08;&#x4E00;&#x8C08;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x8FDB;&#x5165;&#x4E0D;&#x540C;&#x7684;view&#x51FA;&#x73B0;&#x4E0D;&#x540C;&#x7684;toolbars&#xFF1F;</p>
+<p>&#x5173;&#x4E8E;Navigation Controller&#x6709;&#x4E00;&#x70B9;&#x5F88;&#x91CD;&#x8981;&#xFF0C;toolbar&#x4E0A;&#x7684;&#x6309;&#x94AE;&#x548C;navigationController&#x672C;&#x8EAB;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#xFF0C;&#x5B83;&#x53EA;&#x548C;&#x5F53;&#x65F6;&#x663E;&#x793A;&#x7684;viewController&#x6709;&#x5173;&#x3002;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x77E5;&#x9053;&#x5982;&#x4F55;&#x4F7F;&#x7528;push segues&#x6765;push&#x65B0;&#x7684;&#x4E1C;&#x897F;&#x5230;navigationController&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x4F60;slide&#x8FDB;&#x6765;&#x65B0;&#x4E8B;&#x7269;&#x65F6;&#xFF0C;&#x65B0;&#x7684;&#x6309;&#x94AE;&#x4F1A;&#x51FA;&#x73B0;&#x5728;&#x5E95;&#x90E8;&#x680F;&#x4E0A;</p>
+<a id="more"></a>
+<p>UIViewController&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x91CD;&#x8F7D;&#xFF0C;&#x6216;&#x8005;&#x4F60;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBE;&#x7F6E;toolbarItems&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x9645;&#x4E0A;&#x5B83;&#x662F;&#x4E00;&#x4E2A;property&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;UIBarButtonItems&#x7684;NSArray&#x3002;&#x53EA;&#x8981;&#x4F60;&#x7684;viewController&#x88AB;push&#x5230;&#x4E00;&#x4E2A;navigationController&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E2A;navigationController&#x5E95;&#x90E8;&#x6709;&#x8BBE;&#x7F6E;toolbar&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x4F1A;&#x770B;&#x5230;&#x4F60;&#x7684;&#x6309;&#x94AE;</p>
+<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x8BB2;&#x4E00;&#x4E0B;UIBarButtonItems&#xFF0C;&#x771F;&#x6B63;&#x4F7F;&#x5F97;UIToolBar&#x5DE5;&#x4F5C;&#x7684;&#x4E1C;&#x897F;</p>
+<p>&#x4ED6;&#x4EEC;&#x6709;target action&#xFF0C;&#x5C31;&#x50CF;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x8FD9;&#x662F;&#x5F53;&#x70B9;&#x51FB;&#x4ED6;&#x4EEC;&#x65F6;&#xFF0C;&#x4F60;&#x5982;&#x4F55;&#x627E;&#x5230;&#x5B83;&#x3002;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x6709;&#x8FB9;&#x6846;&#x6216;&#x8005;&#x7B80;&#x5355;&#x6734;&#x7D20;&#x7684;&#x80CC;&#x666F;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x50CF;&#x65BD;&#x819C;&#x6CD5;&#x4E00;&#x6837;&#x8BBE;&#x7F6E;&#x5B83;&#x7684;&#x6807;&#x9898;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x8BBE;&#x8BA1;&#x7684;&#x56FE;&#x6807;&#x4EC0;&#x4E48;&#x7684;&#xFF1B;&#x6216;&#x8005;&#x4F60;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4F60;&#x81EA;&#x5B9A;&#x4E49;&#x7684;view&#xFF1B;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E0D;&#x5C11;&#x7CFB;&#x7EDF;&#x5185;&#x7F6E;&#x7684;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x8FD9;&#x6709;&#x4E24;&#x4E2A;&#x7279;&#x6B8A;&#x7684;UIBarButtonItems&#xFF0C;Fixed&#x548C;Flexible space&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x7528;&#x6765;&#x5B89;&#x6392;&#x4F60;UIToolbar&#x6309;&#x94AE;&#x7684;&#x663E;&#x793A;&#x65B9;&#x5F0F;</p>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;UIBarButtonItem&#x7684;&#x65B9;&#x5F0F;&#x662F;alloc/ init&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6587;&#x5B57;&#x6216;&#x56FE;&#x50CF;&#xFF1B;&#x6216;&#x8005;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x521D;&#x59CB;&#x5316;&#x53EB;initWithBarButtonSystemItem&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x7ED9;&#x5B83;&#x5728;&#x679A;&#x4E3E;&#x7C7B;&#x578B;&#x4E2D;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#xFF0C;&#x8BE6;&#x60C5;&#x53C2;&#x89C1;&#x82F9;&#x679C;&#x6587;&#x6863;&#xFF0C;&#x563F;&#x563F;&#x563F;</p>
+<p>&#x56E0;&#x6B64;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x680F;&#x8D85;&#x7EA7;&#x7B80;&#x5355;&#xFF0C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x5C06;&#x5176;&#x62D6;&#x52A8;&#x5230;&#x4F60;&#x7684;viewController&#xFF0C;&#x901A;&#x5E38;&#x4F60;&#x4F1A;&#x8FDE;&#x5230;&#x4E00;&#x4E2A;outlet&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x4ECE;Xcod&#x62D6;&#x4E2A;UIBarButtons&#x5230;&#x5B83;&#x91CC;&#x9762;&#xFF1B;&#x6216;&#x8005;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5DE5;&#x5177;&#x680F;&#x5BF9;&#x8C61;&#x6709;&#x4E2A;&#x7269;&#x54C1;&#x6570;&#x7EC4;&#xFF0C;&#x5C31;&#x662F;&#x4EC5;&#x4EC5;&#x53EA;&#x8981;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
+<h2 id="splitView"><a href="#splitView" class="headerlink" title="splitView"></a>splitView</h2><p>&#x540C;&#x6837;&#x7684;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;splitViewController&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5728;xcode&#x91CC;&#x5C06;&#x5B83;&#x62D6;&#x51FA;&#x6765;&#xFF0C;&#x4F60;&#x53EA;&#x80FD;&#x62D6;&#x52A8;spiltView&#x5230;&#x4E00;&#x4E2A;iPad&#x7C7B;&#x578B;&#x7684;storyboard&#x3002;splitView&#x901A;&#x5E38;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5143;&#x7D20;&#xFF0C;&#x5B83;&#x586B;&#x6EE1;&#x4E86;&#x6574;&#x4E2A;&#x5C4F;&#x5E55;&#xFF0C;&#x4F60;&#x4E0D;&#x53EF;&#x80FD;&#x628A;splitView&#x653E;&#x5230;navigationController&#x6216;popover&#x6216;&#x5176;&#x4ED6;&#x4EC0;&#x4E48;&#x7684;&#x5185;&#x90E8;&#x3002;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;splitView&#x662F;&#x63D0;&#x4F9B;&#x7ED9;&#x6574;&#x4E2A;app&#x7684;&#x3002;</p>
+<p>&#x6B63;&#x5982;&#x4F60;&#x770B;&#x5230;&#x7684;splitView&#xFF0C;&#x6709;&#x4E24;&#x4E2A;View controllers&#xFF0C;&#x4E00;&#x4E2A;&#x5DE6;&#x4FA7;&#x4E00;&#x4E2A;&#x53F3;&#x4FA7;&#x3002;&#x6211;&#x4EEC;&#x53EB;&#x5DE6;&#x4FA7;<strong>master</strong>&#xFF0C;&#x53F3;&#x4FA7;<strong>detail</strong>&#x3002;&#x4F60;get&#x548C;set&#x8FD9;&#x4E24;&#x4E2A;&#x4E1C;&#x897F;&#x8D85;&#x7EA7;&#x7B80;&#x5355;&#xFF0C;splitViewController&#x6709;&#x4E00;&#x4E2A;property&#x53EB;&#x505A;viewControllers&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x53EA;&#x7528;&#x4E24;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;&#x5DE6;&#x8FB9;&#x548C;&#x53F3;&#x8FB9;&#xFF0C;&#x5DE6;&#x4FA7;&#x662F;&#x5143;&#x7D20;0&#xFF0C;&#x53F3;&#x4FA7;&#x662F;&#x5143;&#x7D20;1&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x8BBE;&#x7F6E;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8BBE;&#x7F6E;&#x4F60;&#x7684;&#x4E24;&#x4E2A;view controllers&#x3002;&#x6CE8;&#x610F;&#x4E00;&#x4E0B;&#xFF0C;&#x901A;&#x5E38;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;API&#x4F7F;&#x4F60;&#x5F97;&#x5230;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E24;&#x4E2A;&#x4E1C;&#x897F;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x7136;&#x4F60;&#x53EF;&#x4EE5;&#x5148;get&#x5B83;&#xFF0C;&#x4F7F;&#x5176;&#x53EF;&#x53D8;&#xFF0C;&#x53EA;&#x8BBE;&#x7F6E;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x8BBE;&#x7F6E;&#x56DE;&#x53BB;&#xFF0C;&#x867D;&#x7136;Xcode&#x4F1A;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x4F60;&#x8FD9;&#x4E48;&#x505A;</p>
+<p>&#x4F60;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x8F85;&#x52A9;API&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5B83;&#x662F;&#x5916;&#x90E8;property&#x7684;non-atomic <strong>copy</strong>&#xFF0C;&#x4E0D;&#x662F;strong&#x7684;&#x3002;&#x8FD9;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF1F;&#x8FD9;&#x4E2A;API&#x4E0D;&#x5E0C;&#x671B;&#x4F60;&#x4F20;&#x9012;&#x542B;&#x6709;&#x8FD9;&#x4E24;&#x4E2A;view controllers&#x7684;&#x53EF;&#x53D8;&#x6570;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x671F;&#x5F85;&#x5982;&#x679C;&#x4F60;&#x6539;&#x53D8;&#x4E86;&#x4E00;&#x4E2A;&#xFF0C;&#x5B83;&#x4F1A;&#x4EE5;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x66F4;&#x65B0;splitView&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x8FD9;&#x91CC;&#x8BF4;&#x7684;&#x662F;&#x6211;&#x8981;&#x590D;&#x5236;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x800C;&#x4E14;&#x6211;&#x8981;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x8981;&#x6539;&#x53D8;&#x5B83;&#xFF0C;&#x4F60;&#x5F97;&#x518D;&#x7ED9;&#x6211;&#x4E00;&#x6B21;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x590D;&#x5236;&#x7684;&#x539F;&#x56E0;&#x3002;&#x4E5F;&#x6B63;&#x662F;&#x56E0;&#x4E3A;&#x5982;&#x6B64;&#xFF0C;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;iOS&#x91CC;NSArray&#x548C;NSString&#x7684;copy&#x7528;&#x6CD5;&#x76F8;&#x5F53;&#x666E;&#x904D;&#xFF0C;&#x4ED6;&#x4EEC;&#x5C31;&#x662F;&#x4E0D;&#x60F3;&#x8BA9;&#x4F60;&#x4F20;&#x9012;&#x53EF;&#x53D8;&#x6570;&#x7EC4;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x4F60;&#x6539;&#x53D8;&#x4E86;&#x5B83;&#x5BFC;&#x81F4;&#x53D1;&#x751F;&#x610F;&#x5916;&#x3002;</p>
+<p><strong>splitView&#x4E0D;&#x80FD;&#x6CA1;&#x6709;delegate</strong>&#xFF0C;&#x8FD9;&#x662F;iOS&#x5BF9;&#x8C61;&#x901A;&#x8FC7;delegate&#x6765;&#x5B8C;&#x6210;&#x81EA;&#x5DF1;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x8BBE;&#x7F6E;delegat&#xFF0C;&#x90A3;&#x4E48;&#x5F53;splitView&#x8FDB;&#x5165;Portrait&#x6A21;&#x5F0F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5DE6;&#x4FA7;&#x4F1A;&#x6D88;&#x5931;&#xFF0C;&#x4F60;&#x5E94;&#x8BE5;&#x5728;&#x89D2;&#x843D;&#x91CC;&#x653E;&#x4E00;&#x4E2A;&#x5C0F;&#x6309;&#x94AE;&#xFF0C;&#x4F7F;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x70B9;&#x51FB;&#x5B83;&#x6765;&#x8BA9;&#x5DE6;&#x4FA7;&#x51FA;&#x73B0;&#x5728;Popover&#x91CC;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;splitView&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x5B9E;&#x73B0;delegat&#x4F60;&#x5C31;&#x6CA1;&#x529E;&#x6CD5;&#x6309;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x4F60;&#x8FDB;&#x5165;&#x4E00;&#x4E2A;&#x5C34;&#x5C2C;&#x7684;&#x5883;&#x5730;&#xFF0C;&#x4F60;&#x65E0;&#x6CD5;&#x5728;Portrait&#x6A21;&#x5F0F;&#x4E0B;&#x8C03;&#x51FA;&#x5DE6;&#x4FA7;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x8981;&#x5728;&#x4F60;&#x7684;viewController&#x7684;&#x65B9;&#x6CD5;<u>viewDidLoad</u>&#x6216;<u>awakeFromNib</u>&#x91CC;&#x8BBE;&#x7F6E;&#x6B64;delegate(awakeFromNib&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x7ED9;&#x6BCF;&#x4E00;&#x4E2A;&#x4ECE;storyboard&#x91CC;&#x51FA;&#x6765;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F60;&#x80FD;&#x901A;&#x8FC7;UIView&#x770B;&#x5230;&#x5B83;&#xFF0C;&#x5B83;&#x5C31;&#x80FD;&#x63A5;&#x53D7;awakeFromNib)&#x3002;&#x540C;&#x6837;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;initWithFrame&#x548C;awakeFromNib&#x8C03;&#x7528;Setup&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;viewControllers&#x4E5F;&#x63A5;&#x53D7;awakeFromNib&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x5F53;awakeFromNib&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x8FD9;&#x4F1A;&#x662F;&#x975E;&#x5E38;&#x65E9;&#x671F;&#xFF0C;&#x5C31;&#x662F;&#x5B83;&#x521A;&#x4ECE;storyboard&#x51FA;&#x6765;&#x7684;&#x65F6;&#x5019;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;splitViewController&#x662F;&#x88AB;control&#x62D6;&#x5165;Xcode&#x7684;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x548C;&#x4F60;&#x7684;viewController&#x5173;&#x8054;&#x5728;&#x4E00;&#x8D77;&#x3002;&#x56E0;&#x6B64;&#xFF0C;awakeFromNib&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x3002;<br>splitView&#x7684;delegate&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x5904;&#x7406;&#x65CB;&#x8F6C;&#xFF0C;&#x4F60;&#x6709;&#x4E86;&#x8FD9;&#x4E2A;splitView&#xFF0C;&#x5B83;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5904;&#x5728;landscape&#x6A21;&#x5F0F;&#x5E76;&#x7136;&#x540E;&#x4F60;&#x53BB;&#x5230;Portrait&#xFF0C;&#x4F1A;&#x53D1;&#x751F;&#x4E00;&#x4E9B;&#x6539;&#x53D8;&#x3002;</p>
+<p>delegate&#x63A7;&#x5236;&#x4E00;&#x5207;&#xFF0C;&#x5E76;&#x5B8C;&#x6210;button dance&#xFF0C;&#x8FD9;&#x91CC;&#x53EB;button dance&#x662F;&#x56E0;&#x4E3A;&#x4F60;&#x9700;&#x8981;&#x6311;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#x653E;&#x5230;&#x5DE5;&#x5177;&#x680F;&#x4E2D;&#xFF0C;&#x5F53;&#x65CB;&#x8F6C;&#x5230;&#x53E6;&#x4E2A;&#x65B9;&#x5411;&#xFF0C;&#x628A;&#x4ED6;&#x62FF;&#x51FA;&#x53BB;&#xFF0C;&#x5F53;&#x5B83;&#x65CB;&#x8F6C;&#x56DE;Portrait&#x65F6;&#xFF0C;&#x518D;&#x653E;&#x56DE;&#x6765;<br>@property (nonatomic, assign) id <uisplitviewcontrollerdelegate> delegate&#xFF1B;<br>&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x662F;assign&#xFF0C;assign&#x548C;weak&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#x66F4;&#x574F;&#x4E00;&#x70B9;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F5C;&#x96F6;&#x5904;&#x7406;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x4F60;&#x8981;&#x5C0F;&#x5FC3;&#x4E00;&#x4E9B;&#xFF0C;&#x4F60;&#x521B;&#x5EFA;&#x7684;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;strong&#x6307;&#x9488;delegate&#xFF0C;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x5F53;assign&#x4ECE;&#x5806;&#x4E0A;&#x91CA;&#x653E;&#xFF0C;&#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x91CE;&#x6307;&#x9488;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4E0D;&#x662F;weak&#x3002;</uisplitviewcontrollerdelegate></p>
+<p>&#x5C31;&#x50CF;&#x4E0A;&#x6587;&#x6240;&#x8BF4;&#xFF0C;&#x53F3;&#x4FA7;&#x662F;detailed&#x7684;&#x4E00;&#x4FA7;&#xFF0C;&#x5728;splitViewController&#x91CC;&#x5B83;&#x603B;&#x662F;&#x53EF;&#x89C1;&#x7684;&#xFF0C;&#x65E0;&#x8BBA;&#x600E;&#x4E48;&#x65CB;&#x8F6C;&#x6216;&#x8005;&#x4F60;&#x7684;delegate&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x5B83;&#x603B;&#x662F;&#x53EF;&#x89C1;&#x7684;&#x3002;&#x56E0;&#x6B64;&#xFF0C;delegate&#x624D;&#x662F;&#x7BA1;&#x7406;&#x5DE6;&#x4FA7;&#x7684;&#x3002;<br>&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (BOOL)splitViewController:(UISplitViewController *)sender shouldHideViewController:(UIViewController *)master inOrientation:(UIInterfaceOrientation)orientation {</div><div class="line">	//return YES; 	//always hide it</div><div class="line">	//return NO; 	//always display it</div><div class="line">	//return UIInterfaceOrientationIsPortrait(orientation); 	//&#x8FD9;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5F53;landscape&#x5C31;&#x663E;&#x793A;&#xFF0C;portrait&#x5C31;&#x9690;&#x85CF;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x662F;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x4F60;&#x7684;delegate&#x8BE2;&#x95EE;&#x5728;&#x7279;&#x5B9A;&#x65B9;&#x5411;&#x4E0B;&#x4F60;&#x60F3;&#x8981;&#x5DE6;&#x4FA7;&#x505A;&#x4EC0;&#x4E48;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x628A;&#x81EA;&#x5DF1;&#x4F20;&#x9012;&#x7ED9;&#x4F60;&#xFF0C;&#x5728;data source&#x65B9;&#x6CD5;&#x91CC;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x51E0;&#x4E4E;&#x603B;&#x662F;sender&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4F20;&#x9012;&#x7ED9;&#x4F60;&#x5DE6;&#x4FA7;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x60F3;&#x8981;&#x9690;&#x85CF;&#x5DE6;&#x4FA7;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E09;&#x79CD;&#x9009;&#x62E9;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4E00;&#x76F4;&#x8BF4;YES&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5DE6;&#x4FA7;&#x4E00;&#x76F4;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x4ED6;&#x603B;&#x662F;&#x85CF;&#x5728;&#x6309;&#x94AE;&#x7684;&#x80CC;&#x540E;&#xFF0C;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x4F60;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x89D2;&#x843D;&#x91CC;&#x7684;&#x6309;&#x94AE;&#x6765;&#x67E5;&#x770B;&#x5DE6;&#x4FA7;&#xFF0C;&#x5B83;&#x5C06;&#x51FA;&#x73B0;&#x5728;&#x4E00;&#x4E2A;Popover&#x91CC;&#xFF1B;&#x4F60;&#x53EF;&#x4EE5;&#x8BF4;NO&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5DE6;&#x4FA7;&#x548C;&#x53F3;&#x4FA7;&#x90FD;&#x59CB;&#x7EC8;&#x51FA;&#x73B0;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#xFF1B;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7CFB;&#x7EDF;&#x4F1A;&#x505A;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x51FA;&#x73B0;&#x5176;&#x4ED6;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x56E0;&#x4E3A;portrait&#x4F1A;&#x9690;&#x85CF;&#xFF0C;&#x4F46;&#x4F60;&#x6CA1;&#x6709;&#x90A3;&#x4E2A;&#x5C0F;&#x6309;&#x94AE;&#xFF0C;&#x7CFB;&#x7EDF;&#x4E0D;&#x4F1A;&#x5E2E;&#x4F60;&#x505A;&#x5230;&#x8FD9;&#x6B65;&#xFF0C;&#x5B83;&#x4F1A;&#x7ED9;&#x4F60;&#x6309;&#x94AE;&#xFF0C;&#x4F46;&#x4F60;&#x9700;&#x8981;&#x628A;&#x5B83;&#x653E;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x5FD8;&#x8BB0;&#x8BBE;&#x7F6E;&#x4E86;delegate&#xFF0C;&#x4F1A;&#x5728;portrait&#x4E2D;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;&#x5728;popover&#x7684;&#x5DE6;&#x4FA7;&#x5E76;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x6309;&#x94AE;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5176;&#x4F59;&#x7684;splitViewDelegate&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x628A;&#x6309;&#x94AE;&#x653E;&#x4E0A;&#x53BB;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)splitViewController:(UISplitViewController *)sender willHideViewController:(UIViewController *)master withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popover {</div><div class="line">	barButtonItem.title = @&#x201C;master&#x201D;; 	//use a better word than &#x201C;master&#x201D;</div><div class="line">	//setSplitViewBarButtonItem: must put the bar button somewhere on screen</div><div class="line">	//probably in a UIToolbar or a UINavigationBar</div><div class="line">	[detailViewController setSplitViewBarButtonItem: barButtonItem];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x6709;&#x4E24;&#x4E2A;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x628A;&#x6309;&#x94AE;&#x653E;&#x4E0A;&#x53BB;&#xFF0C;&#x4E00;&#x4E2A;&#x628A;&#x6309;&#x94AE;&#x62FF;&#x6389;&#x3002;&#x8FD9;&#x662F;&#x7528;&#x6765;&#x9690;&#x85CF;&#x5DE6;&#x4FA7;&#x7684;&#xFF0C;&#x5B83;&#x4F1A;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;barButton&#xFF0C;&#x4ED6;&#x4F1A;&#x628A;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;barButton&#x653E;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A;barButton&#x88AB;&#x6309;&#x4E0B;&#xFF0C;&#x4ED6;&#x4F1A;&#x81EA;&#x52A8;&#x663E;&#x793A;&#x5DE6;&#x4FA7;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (void)splitViewController:(UISplitViewController *)sender willHideViewController:(UIViewController *)master withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popover {</div><div class="line">	//removeSplitViewBarButtonItem: must remove the bar button from its toolbar</div><div class="line">	[detailViewController removeSpiltViewBarButtonItem: nil];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x5F53;&#x4F60;&#x60F3;&#x8981;&#x65CB;&#x8F6C;&#x56DE;landscape&#xFF0C;&#x5E76;&#x628A;&#x5DE6;&#x4FA7;&#x653E;&#x56DE;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x5B83;&#x4F1A;&#x5411;&#x4F60;&#x53D1;&#x9001;&#x6B64;&#x6D88;&#x606F;invalidatingBarButton&#xFF0C;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x628A;&#x5B83;&#x4ECE;&#x4F60;&#x7684;&#x5DE5;&#x5177;&#x680F;&#x4E2D;&#x79FB;&#x9664;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (void)setSpiltViewBarButtonItem:(UIBarButtonItem *)barButtonItem {</div><div class="line">	UIToolbar *toolbar = [self toolbar]; 	//might be outlet or calculate </div><div class="line">	NSMutableArray *toolbarItems=[toolbar.items mutableCopy];</div><div class="line">	if (_splitViewBarButtonItem)</div><div class="line">   [toolbarItems removeObject:_spiltViewBarButtonItem];</div><div class="line">	//put the bar button on the left or our existing toolbar</div><div class="line">	if (barButtonItem)</div><div class="line">   [toolbarItems insertObject: barButtonItem atIndex: 0];</div><div class="line">	toolbar.items = toolbarItem;</div><div class="line">	_spiltViewBarButtonItem = barButtonItem;</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x662F;&#x9996;&#x5148;&#x8981;&#x505A;&#x7684;&#xFF0C;&#x6709;&#x5F88;&#x591A;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;splitViewsDelegates&#xFF0C;&#x8FD9;&#x4E00;&#x5207;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x5728;&#x4E24;&#x4FA7;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4EC0;&#x4E48;view controllers</p>
+<p><strong>&#x4F55;&#x65F6;&#x4F60;&#x8BE5;&#x8BBE;&#x7F6E;&#x4F60;&#x7684;delegate&#xFF1F;</strong></p>
+<p>&#x4E00;&#x662F;&#x4F60;&#x9700;&#x8981;&#x51B3;&#x5B9A;&#x8C01;&#x662F;delegate&#xFF0C;&#x662F;&#x5DE6;&#x4FA7;&#x7684;master&#xFF0C;&#x8FD8;&#x662F;&#x53F3;&#x4FA7;&#x7684;detail&#x3002;&#x4ED6;&#x4EEC;&#x90FD;&#x662F;&#x5408;&#x7406;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x8FD9;&#x8981;&#x4F9D;&#x60C5;&#x51B5;&#x800C;&#x5B9A;&#x3002;&#x6B64;&#x5916;&#x4F60;&#x9700;&#x8981;&#x53BB;&#x8003;&#x8651;&#x91CD;&#x7528;&#x6027;&#xFF0C;&#x4E24;&#x8005;&#x4E4B;&#x4E00;&#x53EF;&#x80FD;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x4E0D;&#x80FD;&#x518D;&#x90A3;&#x4E0A;&#x9762;&#x5B9E;&#x73B0;splitViewDelegate&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x7684;&#x53EF;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x7684;view&#xFF0C;&#x4F46;&#x4F60;&#x53EF;&#x4EE5;&#x5148;subclass&#x5B83;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x53BB;&#x505A;&#x3002;&#x4F46;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x662F;&#x4E13;&#x95E8;&#x7528;&#x5728;&#x4F60;&#x7684;app&#x4E0A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x628A;&#x5B83;&#x653E;&#x5728;&#x90A3;&#x6BD4;&#x8F83;&#x6709;&#x610F;&#x4E49;</p>
+<p>&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x4F60;&#x6709;master&#x548C;detail&#xFF0C;&#x4ED6;&#x4EEC;&#x4E4B;&#x6240;&#x4EE5;&#x8FD9;&#x4E48;&#x53EB;&#x662F;&#x56E0;&#x4E3A;&#x5F53;&#x4F60;&#x70B9;&#x51FB;master&#x91CC;&#x9762;&#x7684;&#x4E1C;&#x897F;&#x662F;&#xFF0C;detail&#x4F1A;&#x663E;&#x793A;&#x4F60;&#x70B9;&#x51FB;&#x7684;&#x4E1C;&#x897F;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#xFF0C;<strong>&#x5F53;master&#x6539;&#x53D8;&#x65F6;&#xFF0C;detail&#x662F;&#x600E;&#x4E48;&#x66F4;&#x65B0;&#x7684;&#xFF1F;</strong></p>
+<p>&#x7B54;&#x6848;&#x662F;&#x6709;&#x4E24;&#x4E2A;&#x9009;&#x62E9;&#x3002;<br>&#x4E00;&#x662F;&#x7B80;&#x5355;&#x7684;target action&#xFF0C;&#x5728;&#x5DE6;&#x4FA7;&#x7684;masterView&#x4F60;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x4E9B;&#x6309;&#x94AE;&#x6216;&#x8005;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x5F53;&#x5176;&#x88AB;&#x70B9;&#x51FB;&#x65F6;&#xFF0C;&#x5B83;&#x53D1;&#x9001;target action&#x6D88;&#x606F;&#x7ED9;&#x4F60;&#x7684;masterController&#xFF0C;&#x5F53;&#x5B83;&#x60F3;&#x66F4;&#x65B0;detail&#x65F6;&#x53EA;&#x9700;&#x8981;&#x53D1;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x5230;detail&#xFF0C;&#x73B0;&#x5728;&#x5C06;&#x544A;&#x8BC9;&#x4F60;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x4ECE;master&#x5F97;&#x5230;detail&#x7684;&#xFF0C;&#x5F88;&#x7B80;&#x5355;<br>&#x4F8B;&#x5982;&#xFF0C;masterViewController&#x91CC;&#x4E00;&#x4E2A;target action&#x6D88;&#x606F;&#x53EB;doit&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x4F7F;&#x7528;UIViewController&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x65B9;&#x6CD5;self.splitViewController&#x6765;&#x5F97;&#x5230;detailController&#x3002;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (IBAction)doit {</div><div class="line">	id detailViewController = [[self.spiltViewController viewControllers] lastObject];</div><div class="line">	[detailViewController setSomeProperty: &#x2026;];</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;UIViewController&#x7684;property&#xFF0C;&#x4ED6;&#x603B;&#x662F;&#x8FD4;&#x56DE;splitViewController&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x4F60;&#x6240;&#x5728;&#x7684;&#x662F;&#x4E00;&#x4E2A;splitViewController</p>
+<blockquote>
+<p>Q&#xFF1A;self.navigationController&#x548C;self.splitViewController&#x90FD;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x975E;nil&#x5417;&#xFF1F;<br>A&#xFF1A;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x3002;&#x56E0;&#x4E3A;&#x4F60;&#x81EA;&#x5DF1;&#x662F;master&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;splitViewController&#x91CC;&#x6709;&#x4E00;&#x4E2A;navigationController&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;self.navigationController&#x5C06;&#x8FD4;&#x56DE;&#x5230;&#x4F60;&#x6240;&#x5728;&#x7684;navigationController&#xFF1B;self.splitViewController&#x5C06;&#x8FD4;&#x56DE;&#x4F60;&#x6240;&#x5728;&#x7684;splitViewController&#x3002;&#x5373;&#x4F7F;&#x4F60;&#x5728;navigationController&#x91CC;&#x5E76;&#x4E14;&#x540C;&#x65F6;&#x4F60;&#x79BB;&#x5F00;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#xFF0C;&#x4F60;&#x8FD8;&#x662F;&#x5728;splitViewController&#x91CC;&#xFF0C;&#x4ED6;&#x4ECD;&#x7136;&#x4F1A;&#x8FD4;&#x56DE;&#x975E;nil&#x3002;&#x8FD9;&#x548C;&#x662F;&#x5426;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x65E0;&#x5173;&#xFF0C;&#x548C;&#x662F;&#x5426;&#x5728;UI&#x7ED3;&#x6784;&#x91CC;&#x6709;&#x5173;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5728;navigationController&#x91CC;&#xFF0C;&#x4F60;&#x8981;&#x8FD4;&#x56DE;&#x7684;&#x8BDD;&#xFF0C;back&#x6309;&#x94AE;&#x4F1A;&#x627E;&#x5230;&#x4F60; -&gt; &#x4F60;&#x4ECD;&#x7136;&#x5728;splitView&#x91CC;</p>
+</blockquote>
+<p>&#x4F60;&#x901A;&#x8FC7;splitViewController&#x7684;viewController&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6765;&#x83B7;&#x5F97;detailViewController&#xFF0C;&#x8BB0;&#x4F4F;&#x8BE5;&#x6570;&#x7EC4;&#x4E2D;&#x53EA;&#x6709;&#x4E24;&#x6837;&#x4E1C;&#x897F;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x8981;&#x8BBE;&#x7F6E;&#x5B83;&#x7684;&#x4E00;&#x4E9B;properties&#xFF0C;&#x90A3;&#x4E48;&#x4ED6;&#x5C31;&#x4F1A;&#x66F4;&#x65B0;&#xFF0C;&#x5C31;&#x662F;&#x8FD9;&#x6837;&#xFF0C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x4F60;&#x9700;&#x8981;&#x505A;&#x7684;&#x4E86;&#xFF0C;setSomeProperty&#x4F1A;&#x6709;&#x65B9;&#x6CD5;&#x6765;&#x81EA;&#x6211;&#x66F4;&#x65B0;&#xFF0C;&#x6BD4;&#x5982;setNeedsDisplay&#x4EC0;&#x4E48;&#x7684;&#x3002;</p>
+<p>&#x4E8C;&#x662F;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;segue&#xFF0C;&#x8FD9;&#x6837;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x70B9;&#x3002;&#x5728;splitViewController&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x79CD;segue&#x80FD;&#x7528;&#xFF0C;&#x5B83;&#x88AB;&#x79F0;&#x4E3A;replaceSegue&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x4F1A;&#x66FF;&#x6362;detail&#x6216;master&#x3002;&#x7528;segue&#x66FF;&#x6362;master&#x975E;&#x5E38;&#x7F55;&#x89C1;&#xFF0C;&#x4F46;&#x662F;&#x8BA9;&#x6211;&#x4EEC;&#x628A;&#x91CD;&#x70B9;&#x653E;&#x5728;&#x6709;&#x5173;&#x66FF;&#x6362;detail&#x4E0A;&#x3002;</p>
+<p>&#x6709;&#x4E00;&#x4E2A;&#x60C5;&#x51B5;&#x662F;&#x4F60;&#x60F3;&#x8981;&#x66FF;&#x6362;detailView&#x4E3A;&#x65B0;&#x7684;&#x5E26;&#x6309;&#x94AE;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x5982;&#x679C;&#x4F60;&#x70B9;&#x51FB;&#x53E6;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x5728;&#x66FF;&#x6362;&#x56DE;&#x6765;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x5C31;&#x662F;&#x7528;&#x5230;replace&#x7684;&#x5730;&#x65B9;&#x3002;&#x8FD9;&#x6709;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x8B66;&#x544A;&#x5173;&#x4E8E;replace&#x7684;&#xFF0C;&#x5F53;&#x4F60;&#x66FF;&#x6362;detailView&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x5DE5;&#x5177;&#x680F;&#x91CC;&#x6709;splitViewBarButton&#xFF0C;&#x5F53;&#x7136;&#x8BE5;&#x5DE5;&#x5177;&#x680F;&#x4E5F;&#x88AB;&#x66FF;&#x6362;&#xFF0C;&#x56E0;&#x4E3A;&#x6574;&#x4E2A;view&#x90FD;&#x4F1A;&#x66FF;&#x6362;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x9700;&#x8981;&#x628A;splieBarButton&#x8F6C;&#x79FB;&#x51FA;&#x6765;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x5C06;&#x5B83;&#x8F6C;&#x79FB;&#x5230;&#x65B0;&#x7684;delegate&#x751F;&#x6210;&#x7684;popover&#x4E0A;&#xFF0C;&#x4F60;&#x901A;&#x5E38;&#x5728;&#x51C6;&#x5907;segue&#x65F6;&#x5B8C;&#x6210;&#x53BB;&#x505A;&#x8FD9;&#x4E9B;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x51C6;&#x5907;segue&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;replaceSegue&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x95EE;detail&#x5173;&#x4E8E;&#x5B83;&#x7684;barButton&#xFF0C;&#x4F60;&#x8BBE;&#x7F6E;barButton&#xFF0C;&#x7136;&#x540E;&#x8BA9;segue&#x53D1;&#x751F;&#x3002;</p>
+<p>splitView&#x5C31;&#x8BF4;&#x8FD9;&#x4E48;&#x591A;</p>
+<h2 id="popover"><a href="#popover" class="headerlink" title="popover"></a>popover</h2><p>&#x5C31;&#x662F;&#x6F02;&#x6D6E;&#x9009;&#x5355;</p>
+<p>iOS&#x91CC;&#x6709;&#x4E00;&#x4E2A;UIPopoverController&#x7C7B;&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;UIViewController&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;UIPopoverViewController&#xFF0C;&#x56E0;&#x6B64;&#x4ED6;<strong>&#x53EA;&#x662F;</strong>&#x4E00;&#x4E2A;NSObject&#xFF0C;&#x5B83;&#x63A7;&#x5236;viewController&#x3002;</p>
+<p>&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x662F;&#x901A;&#x8FC7;contentViewController&#x7ED8;&#x5236;&#x5B83;&#x7684;viewController&#xFF0C;&#x8FD9;&#x662F;UIPopoverController&#x7684;property&#x3002;&#x4F60;&#x8BBE;&#x5B9A;&#x597D;&#x4E86;&#x4E4B;&#x540E;&#x5B83;&#x4F1A;&#x63A7;&#x5236;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x8BE5;viewController&#x7684;&#x77E9;&#x5F62;&#xFF0C;&#x4E00;&#x4E2A;&#x5C0F;&#x7BAD;&#x5934;&#x6307;&#x5411;&#x628A;&#x5B83;&#x753B;&#x51FA;&#x6765;&#x7684;&#x4E1C;&#x897F;&#x3002;</p>
+<p>&#x901A;&#x5E38;&#x4E0A;&#xFF0C;popover&#x7684;&#x53D1;&#x751F;&#x662F;&#x56E0;&#x4E3A;&#x4F60;control&#x62D6;&#x52A8;&#x5B83;&#xFF0C;&#x5E76;&#x6709;&#x4E00;&#x4E2A;segue&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x6709;&#x4E86;&#x4E00;&#x4E2A;popoverSegue&#x3002;popoverSegue&#x505A;&#x7684;&#x662F;&#xFF0C;&#x4F60;control&#x62D6;&#x52A8;&#x5B83;&#x5230;viewController&#xFF0C;&#x5B83;&#x4F1A;&#x628A;viewController&#x653E;&#x5230;popover&#x91CC;&#xFF0C;&#x4E0D;&#x7BA1;&#x4F60;&#x662F;&#x4ECE;&#x6309;&#x94AE;&#x6216;&#x4EC0;&#x4E48;&#x62D6;&#x52A8;&#xFF0C;&#x90A3;&#x5C31;&#x662F;popover&#x7684;&#x6307;&#x5411;&#x3002;</p>
+<p>&#x5F53;&#x4F60;get popoverSegue&#x7684;prepareForSegue&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5176;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;UIStoryboardPopoverSegue&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x5FC5;&#x987B;&#x5047;&#x8BBE;&#x5B83;&#x603B;&#x662F;&#x4E00;&#x4E2A;popoverSegue&#x3002;&#x7136;&#x540E;&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x505A;&#x4E00;&#x4E2A;cast&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x8BE5;segue&#x7684;property&#x548C;popoverController&#x3002;</p>
+<p>&#x4F60;&#x53EF;&#x4EE5;&#x4E0D;&#x901A;&#x8FC7;segue&#x628A;popover&#x653E;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;alloc/ initWithContentViewController&#xFF0C;&#x7ED9;&#x5B83;&#x4F60;&#x60F3;&#x8981;&#x653E;&#x8FDB;popover&#x7684;viewController&#xFF0C;&#x7136;&#x540E;&#x628A;&#x5B83;&#x653E;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x3002;</p>
+<p>&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;- (BOOL)popoverVisible;&#x6765;&#x95EE;popoverController&#x5F53;&#x524D;popover&#x662F;&#x5426;&#x53EF;&#x89C1;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x505A;popover&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x4E86;storyboard&#xFF0C;&#x5728;storyboard&#x7684;&#x65B9;&#x6CD5;instantiateViewControllerWithIdentifier&#x4F1A;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A;storyboard&#x5916;&#x90E8;&#x7684;viewController&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x65E0;&#x8BBA;&#x4F7F;&#x7528;&#x4E86;&#x90A3;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5F97;&#x5230;&#x4E00;&#x4E2A;viewController&#x7136;&#x540E;&#x53D1;&#x6D88;&#x606F;&#x7ED9;UIPopoverController&#xFF0C;&#x8FDB;&#x884C;alloc/ init&#xFF0C;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x4F60;&#x624B;&#x4E0A;&#x6709;&#x4E86;&#x4E2A;popoverController&#xFF0C;&#x4F60;&#x5411;&#x5176;&#x53D1;&#x9001;&#x8FD9;&#x4E24;&#x4E2A;&#x6D88;&#x606F;&#x4E4B;&#x4E00;&#xFF0C;&#x4F7F;&#x5176;&#x51FA;&#x73B0;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)presentPopoverFromRect:(CGRect)aRect or inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)direction animated:(BOOL)flag;</div></pre></td></tr></table></figure>
+<p>&#x6216;&#x8005;&#x8FD9;&#x6837;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem permittedArrowDirections:(UIPopoverArrowDirection)direction animated:(BOOL)flag;</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x4F60;&#x4E0D;&#x4F7F;&#x7528;segue&#x7684;&#x60C5;&#x51B5;&#x3002;&#x4F60;&#x5728;&#x4E00;&#x4E2A;&#x5C0F;&#x7684;&#x77E9;&#x5F62;&#x533A;&#x57DF;&#x5185;&#x663E;&#x793A;popover&#xFF0C;&#x4E5F;&#x8BB8;&#x662F;&#x4E00;&#x4E9B;&#x9009;&#x5B9A;&#x7684;&#x6587;&#x672C;&#x6216;&#x8005;view&#x6216;&#x6309;&#x94AE;&#x4E00;&#x7C7B;&#x7684;&#x3002;&#x6216;&#x8005;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;barButton&#x663E;&#x793A;&#x5B83;&#xFF0C;&#x70B9;&#x51FB;barButton&#x540E;&#x51FA;&#x73B0;popover&#x5F88;&#x5E38;&#x89C1;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x4F20;&#x9012;barButton&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;<u>permittedArrowDirections</u>&#x3002;&#x4F60;&#x4E5F;&#x8BB8;&#x4F1A;&#x95EE;&#xFF0C;&#x5982;&#x679C;&#x4ECE;popover&#x6216;&#x8005;barButton&#x6216;&#x4E00;&#x4E2A;&#x77E9;&#x5F62;&#x533A;&#x57DF;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x4F1A;&#x88AB;&#x653E;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x54EA;&#x91CC;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x4ED6;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x4EFB;&#x4F55;&#x53EF;&#x4EE5;&#x5BB9;&#x5F97;&#x4E0B;&#x5B83;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4F1A;&#x5C3D;&#x91CF;&#x4F7F;&#x7528;&#x4F60;&#x7684;permittedArrowDirections&#x6765;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x653E;&#x5230;&#x5DE6;&#x8FB9;&#x6216;&#x4E0B;&#x8FB9;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x5141;&#x8BB8;&#x5B83;&#x7684;&#x7BAD;&#x5934;&#x5411;&#x5DE6;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4F1A;&#x8BD5;&#x7740;&#x653E;&#x5230;&#x4E0B;&#x8FB9;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x65B9;&#x5411;&#xFF1B;&#x5982;&#x679C;&#x4F60;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x5408;&#x9002;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x628A;&#x5B83;&#x653E;&#x5230;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x5730;&#x65B9;&#xFF0C;&#x5C4F;&#x5E55;&#x4E0A;&#x603B;&#x4F1A;&#x6709;&#x653E;&#x5F97;&#x4E0B;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x6709;&#x4E2A;&#x5FAE;&#x5999;&#x7684;&#x4E8B;&#x60C5;&#x8981;&#x771F;&#x6B63;&#x5C0F;&#x5FC3;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4FDD;&#x6301;&#x4E00;&#x4E2A;strong&#x6307;&#x9488;&#x6307;&#x5411;&#x4F60;&#x7684;popoverController&#xFF0C;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x663E;&#x793A;&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x4E0D;&#x4F1A;&#x6709;strong&#x6307;&#x9488;&#x6307;&#x5411;&#x4F60;&#x7684;popoverController&#x3002;&#x6240;&#x4EE5;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x4EBA;&#x5199;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (IBAction)presentPopover {</div><div class="line">	UIPopoverController *pop = [[UIPopoverController alloc] initWithViewController: vc];</div><div class="line">	[pop presentPopoverFromBarButtonItem: item permittedArrowDirections: &#x2026;];</div><div class="line">} 	//BAD! No strong pointer to the popover controller! presenting it is not enough!</div></pre></td></tr></table></figure>
+<p>&#x4ED6;&#x4EEC;&#x4F1A;&#x8BF4;&#x5199;&#x5230;&#x8FD9;&#x91CC;&#x65B9;&#x6CD5;&#x5C31;&#x7ED3;&#x675F;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x4ED6;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x5C31;&#x4F1A;&#x5D29;&#x6E83;&#xFF0C;&#x5D29;&#x6E83;&#x7684;&#x539F;&#x56E0;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;UIPopover&#xFF0C;&#x5B83;&#x552F;&#x4E00;&#x7684;strong&#x6307;&#x9488;&#x662F;&#x8FD9;&#x4E2A;&#x672C;&#x5730;&#x53D8;&#x91CF;UIPopoverController <em>pop&#xFF0C;&#x5F53;&#x51FA;&#x4E86;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x6CA1;&#x6709;&#x4EBA;&#x6709;strong&#x6307;&#x9488;&#x6307;&#x5411;&#x8FD9;&#x4E2A;UIPopoverController&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x5F53;&#x4F60;&#x4F7F;&#x7528;popoverController&#x65F6;&#xFF0C;&#x4F60;&#x51E0;&#x4E4E;&#x603B;&#x662F;&#x5728;&#x4F60;&#x7684;&#x5BF9;&#x8C61;&#x91CC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;strong property -&gt; ```@property (nonatomic, strong) UIPopoverController </em>myPopover```</p>
+<p>&#x73B0;&#x5728;&#x4F60;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x4E00;&#x4E2A;popover&#xFF0C;&#x73B0;&#x5728;&#x8981;<strong>&#x6D88;&#x9664;</strong>&#x5B83;&#xFF0C;&#x628A;&#x5B83;&#x4ECE;&#x5C4F;&#x5E55;&#x4E0A;&#x53BB;&#x6389;&#x3002;&#x8FD9;&#x4E2A;&#x52A8;&#x4F5C;&#x901A;&#x5E38;&#x662F;&#x7528;&#x6237;&#x89E6;&#x53D1;&#x7684;&#x3002;&#x4F46;&#x662F;&#x4ED6;&#x4EEC;&#x53EF;&#x80FD;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p>
+<p>&#x4E00;&#x662F;&#x5982;&#x679C;&#x4ED6;&#x4EEC;&#x70B9;&#x51FB;&#x4E86;&#x5C4F;&#x5E55;&#x4E0A;&#x9664;popover&#x4EE5;&#x5916;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5B83;&#x4F1A;&#x5173;&#x95ED;popover&#xFF0C;&#x9664;&#x975E;&#x70B9;&#x51FB;&#x7684;&#x662F;<code>@property (nonatomic, copy) NSArray *passthroughViews;</code>&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;popover&#x4EE5;&#x5916;&#x7684;&#x7279;&#x5B9A;&#x5730;&#x65B9;&#xFF0C;&#x5373;&#x4F7F;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x4E86;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x6D88;&#x9664;popover&#xFF0C;&#x4F60;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x62D3;&#x5C55;&#x5230;&#x6574;&#x4E2A;&#x5C4F;&#x5E55;&#xFF0C;&#x90A3;&#x4E48;&#x7528;&#x6237;&#x53EA;&#x80FD;&#x901A;&#x8FC7;popover&#x91CC;&#x7684;&#x4E1C;&#x897F;&#x6765;&#x6D88;&#x9664;popover&#x3002;</p>
+<p>&#x73B0;&#x5728;&#xFF0C;&#x5F53;&#x4F60;&#x70B9;&#x51FB;popover&#x91CC;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x5B83;&#x662F;&#x600E;&#x4E48;&#x6D88;&#x9664;&#x7684;&#x5462;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x8C03;&#x7528;&#x4E86;<code>- (void)dismissPopoverAnimated:(BOOL)animated;</code>&#x3002;&#x73B0;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7CBE;&#x5999;&#x7684;&#x5730;&#x65B9;&#x662F;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x4ECE;popover&#x91CC;&#x7684;viewController&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x867D;&#x7136;&#x8FD9;&#x4E48;&#x505A;&#x5F88;&#x6709;&#x8BF1;&#x60D1;&#x529B;&#x3002;&#x5728;viewController&#x91CC;&#x6709;&#x4E2A;&#x201C;ok&#x201D;&#x6309;&#x94AE;&#xFF0C;&#x4F60;&#x70B9;&#x51FB;&#x5B83;&#x6765;&#x8C03;&#x7528;&#x4E0A;&#x8BC9;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x4E0D;&#x7BA1;&#x5427;popover&#x653E;&#x4E0A;&#x6765;&#x7684;&#x662F;&#x54EA;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x5C31;&#x5E94;&#x8BE5;&#x8D1F;&#x8D23;&#x6D88;&#x9664;popover&#x3002;&#x90A3;&#x4E48;&#x600E;&#x4E48;&#x5728;popover&#x91CC;&#x653E;&#x4E00;&#x4E2A;ok&#x6309;&#x94AE;&#x5462;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x5927;&#x91CF;&#x4F7F;&#x7528;delegation&#x3002;popover&#x5185;&#x7684;viewController&#x901A;&#x5E38;&#x6709;&#x4E2A;property&#x662F;&#x4ED6;&#x7684;delegate&#xFF0C;&#x5F53;ok&#x952E;&#x88AB;&#x6309;&#x4E0B;&#xFF0C;&#x5B83;&#x4F1A;&#x53D1;&#x6D88;&#x606F;&#x7ED9;&#x5B83;&#x7684;delegate&#xFF0C;&#x7136;&#x540E;&#x8C01;&#x628A;&#x5B83;&#x653E;&#x4E0A;&#x6765;&#x5C31;&#x8981;&#x53BB;&#x6D88;&#x9664;&#x5B83;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x770B;&#x8D77;&#x6765;&#x591A;&#x4E86;&#x597D;&#x591A;&#x989D;&#x5916;&#x7684;&#x95F4;&#x63A5;&#x64CD;&#x4F5C;&#xFF0C;&#x6211;&#x521B;&#x5EFA;&#x6B64;delegate&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x8BF4;&#x201C;ok&#xFF0C;&#x6D88;&#x9664;&#x5B83;&#x201D;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x4F1A;<strong>&#x66F4;&#x52A0;&#x9762;&#x5411;&#x5BF9;&#x8C61;</strong>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;popover&#x91CC;&#x9762;&#x7684;&#x4E1C;&#x897F;&#x4E0D;&#x7528;&#x77E5;&#x9053;&#x4ED6;&#x662F;&#x5728;popover&#x91CC;&#x9762;&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x663E;&#x793A;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x88AB;pushed&#x8FDB;navigationController&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x5728;&#x5F62;&#x6001;&#x4E0A;&#x663E;&#x793A;&#xFF0C;&#x4EE5;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x91CD;&#x7528;&#x3002;&#x8FD9;&#x4E00;&#x70B9;&#x4E5F;&#x8BB8;&#x4F60;&#x4F1A;&#x89C9;&#x5F97;&#x6DF7;&#x4E71;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x662F;&#x5FC5;&#x987B;&#x4E86;&#x89E3;&#x7684;&#xFF0C;&#x4F60;&#x8981;&#x8BB0;&#x4F4F;&#x5B83;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x8BF4;&#x4E86;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x8BF4;&#x660E;&#x8C01;&#x653E;&#x7684;&#xFF0C;&#x8C01;&#x5C31;&#x8D1F;&#x8D23;&#x6D88;&#x9664;&#x3002;</p>
+<p>popover&#x6709;delegate&#xFF0C;&#x4F46;&#x7528;&#x5904;&#x4E0D;&#x591A;&#xFF0C;&#x5B83;&#x4E3B;&#x8981;&#x505A;&#x7684;&#x662F;&#x544A;&#x8BC9;&#x4F60;&#x5173;&#x4E8E;&#x6D88;&#x9664;&#x7684;&#x4E8B;&#x3002;&#x4ED6;&#x5B9E;&#x9645;&#x4E0A;&#x6709;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x662F;&#x95EE;&#x4F60;&#x662F;&#x5426;&#x6D88;&#x9664;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;&#x544A;&#x8BC9;&#x4F60;&#x4ED6;&#x4F55;&#x65F6;&#x88AB;&#x6D88;&#x9664;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x53EA;&#x53D1;&#x751F;&#x5728;&#x6709;&#x4EBA;&#x901A;&#x8FC7;&#x70B9;&#x51FB;popover&#x4EE5;&#x5916;&#x7684;&#x5730;&#x65B9;&#x6765;&#x6D88;&#x9664;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x8C03;&#x7528;dismissPopoverAnimated&#x4F60;&#x5C31;&#x4E0D;&#x4F1A;&#x7528;&#x5230;&#x8FD9;&#x4E2A;&#x3002;<br>&#x6240;&#x4EE5;&#x8FD9;&#x662F;&#x7528;&#x6237;&#x6D88;&#x9664;popoverController</p>
+<h2 id="popover&#x7684;&#x5927;&#x5C0F;"><a href="#popover&#x7684;&#x5927;&#x5C0F;" class="headerlink" title="popover&#x7684;&#x5927;&#x5C0F;"></a>popover&#x7684;&#x5927;&#x5C0F;</h2><p>popover&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x4ED6;&#x4F1A;&#x6709;&#x591A;&#x5927;&#xFF1F;</p>
+<p>&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x8BBE;&#x7F6E;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x4E00;&#x662F;&#x5728;Xcode&#x91CC;&#x8BBE;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x9009;&#x4E2D;&#x4E00;&#x4E2A;viewController&#x5E76;inspect&#x5B83;&#xFF0C;&#x5728;inspector&#x7684;&#x5E95;&#x90E8;&#xFF0C;&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x6709;&#x4E00;&#x4E2A;&#x5C0F;&#x5F00;&#x5173;&#x53EB;popover&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x5207;&#x6362;&#x5230;on&#xFF0C;&#x5E76;&#x8868;&#x660E;&#x660E;&#x786E;&#x4F7F;&#x7528;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x7531;&#x4F60;&#x6307;&#x5B9A;&#x5F53;viewController&#x5904;&#x5728;popover&#x91CC;&#x65F6;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x4F1A;&#x6709;&#x4E00;&#x4E9B;&#x5C0F;&#x9650;&#x5236;&#xFF0C;&#x6709;&#x65F6;viewController&#x6240;&#x5728;&#x7684;popover&#x591F;&#x5927;&#x800C;&#x6709;&#x65F6;&#x4F1A;&#x592A;&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;UIViewController&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;<code>- (CGSize)contentSizeInPopover;</code>&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;UIViewController&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F60;&#x91CD;&#x8F7D;&#x5B83;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;CGSize&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x4ED6;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x51FA;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x7B2C;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x662F;UIPopoverController&#x6709;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;popover&#x7684;&#x5927;&#x5C0F;&#xFF0C;<code>- (void)setPopoverContentSize:(CGSize)size animated:(BOOL)animated;</code>&#x3002;</p>
+<p>&#x8FD9;&#x4E9B;&#x5C31;&#x662F;&#x5173;&#x4E8E;iPad&#x5F00;&#x53D1;&#x7684;&#x57FA;&#x7840;&#x5185;&#x5BB9;&#x3002;</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/20/iPad-splitView-popover/">
+    <time datetime="2017-02-19T17:05:58.000Z" class="entry-date">
+        2017-02-20
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/02/13/iOS-protocol/" rel="next">iOS-Protocol <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/02/20/iPad-splitView-popover/">iPad开发之--splitView和popover</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/iOS-protocol/">iOS-Protocol</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/29/PGM-1/">PGM(一)--Introduction and Overview</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/2016年终总结/">Legend 2016</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/Machine-Learning-9/">Machine-Learning-9</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
