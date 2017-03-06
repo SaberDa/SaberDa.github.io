@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>K-Means算法的实现 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="K-Means&amp;#x7B97;&amp;#x6CD5;&amp;#x662F;&amp;#x5206;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x6700;&amp;#x7B80;&amp;#x5355;&amp;#x6709;&amp;#x6548;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;&amp;#x6211;&amp;#x5728;&amp;#x524D;&amp;#x9762;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="K-Means算法的实现">
+<meta property="og:url" content="https://saberda.github.io/2017/03/07/k-means算法的实现/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="K-Means&amp;#x7B97;&amp;#x6CD5;&amp;#x662F;&amp;#x5206;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x6700;&amp;#x7B80;&amp;#x5355;&amp;#x6709;&amp;#x6548;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;&amp;#x6211;&amp;#x5728;&amp;#x524D;&amp;#x9762;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;">
+<meta property="og:image" content="https://saberda.github.io/2017/03/07/k-means算法的实现/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/03/07/k-means算法的实现/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/03/07/k-means算法的实现/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/03/07/k-means算法的实现/4.png">
+<meta property="og:updated_time" content="2017-03-06T17:46:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="K-Means算法的实现">
+<meta name="twitter:description" content="K-Means&amp;#x7B97;&amp;#x6CD5;&amp;#x662F;&amp;#x5206;&amp;#x7C7B;&amp;#x6570;&amp;#x636E;&amp;#x4E2D;&amp;#x6700;&amp;#x7B80;&amp;#x5355;&amp;#x6709;&amp;#x6548;&amp;#x7684;&amp;#x7B97;&amp;#x6CD5;&amp;#x3002;&amp;#x6211;&amp;#x5728;&amp;#x524D;&amp;#x9762;&amp;#x7684;&amp;#x535A;&amp;#x5BA2;&amp;">
+<meta name="twitter:image" content="https://saberda.github.io/2017/03/07/k-means算法的实现/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　我生而坚强 只要不死 就能笑的猖狂</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/机器学习/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/概率图模型/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-k-means算法的实现" class="post-k-means算法的实现 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      K-Means算法的实现
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/07/k-means算法的实现/" data-id="cizydk2qw002r69b3sgtwj4wq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>K-Means&#x7B97;&#x6CD5;&#x662F;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x4E2D;&#x6700;&#x7B80;&#x5355;&#x6709;&#x6548;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x6211;&#x5728;&#x524D;&#x9762;&#x7684;&#x535A;&#x5BA2;&#x91CC;&#x66FE;&#x7ECF;&#x5199;&#x8FC7;</p>
+<p><a href="http://www.saberismywife.com/2016/12/31/Machine-Learning-8/" target="_blank" rel="external">K-means</a></p>
+<p>&#x4F46;&#x5176;&#x8FD8;&#x662F;&#x6709;&#x4E24;&#x4E2A;&#x660E;&#x663E;&#x7684;&#x7F3A;&#x9677;&#x3002;&#x4E00;&#x662F;K-Means&#x5FC5;&#x987B;&#x4FDD;&#x5B58;&#x5168;&#x90E8;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5982;&#x679C;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x96C6;&#x5F88;&#x5927;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5927;&#x91CF;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x6B64;&#x5916;&#x5FC5;&#x987B;&#x5BF9;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x90FD;&#x8BA1;&#x7B97;&#x4E00;&#x904D;&#x8DDD;&#x79BB;&#xFF0C;&#x8FD9;&#x4F1A;&#x5F88;&#x8D39;&#x65F6;&#x95F4;&#x3002;<br>&#x53E6;&#x4E00;&#x4E2A;&#x7F3A;&#x9677;&#x5728;&#x4E8E;&#x5B83;&#x65E0;&#x6CD5;&#x7ED9;&#x51FA;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7684;&#x57FA;&#x7840;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x7684;&#x535A;&#x5BA2;&#x4E2D;&#x5199;&#x51FA;&#x89E3;&#x51B3;&#x4E4B;&#x9053;</p>
+<p>&#x672C;&#x6587;&#x4F7F;&#x7528;python&#x4EE5;&#x53CA;Matlab&#x5206;&#x522B;&#x8BE5;&#x7B97;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x4E86;&#x57FA;&#x4E8E;&#x8BE5;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;</p>
+<p><a href="https://github.com/SaberDa/K-Means" target="_blank" rel="external">&#x6E90;&#x7801;&#x53CA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;</a></p>
+<a id="more"></a>
+<h2 id="python&#x5B9E;&#x73B0;"><a href="#python&#x5B9E;&#x73B0;" class="headerlink" title="python&#x5B9E;&#x73B0;"></a>python&#x5B9E;&#x73B0;</h2><p>&#x9996;&#x5148;&#x5BFC;&#x5165;numpy&#xFF0C;operator&#x548C;listdir</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">from numpy import *</div><div class="line">import operator</div><div class="line"></div><div class="line"># &#x4ECE;os&#x6A21;&#x5757;&#x4E2D;&#x62FF;&#x51FA;listdir&#xFF0C;&#x5176;&#x4F5C;&#x7528;&#x4E3A;&#x53EF;&#x4EE5;&#x5217;&#x51FA;&#x7ED9;&#x5B9A;&#x76EE;&#x5F55;&#x540D;</div><div class="line"></div><div class="line">from os import listdir</div></pre></td></tr></table></figure>
+<p><strong>&#x7B97;&#x6CD5;&#x4E3B;&#x8981;&#x601D;&#x60F3;</strong></p>
+<p>&#x5BF9;&#x672A;&#x77E5;&#x7C7B;&#x522B;&#x5C5E;&#x6027;&#x7684;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x70B9;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;<br>&#xFF08;1&#xFF09;&#x8BA1;&#x7B97;&#x4E00;&#x76F4;&#x7C7B;&#x522B;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x70B9;&#x4E0E;&#x5F53;&#x524D;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;<br>&#xFF08;2&#xFF09;&#x6309;&#x7167;&#x8DDD;&#x79BB;&#x9012;&#x589E;&#x6B21;&#x5E8F;&#x6392;&#x5E8F;<br>&#xFF08;3&#xFF09;&#x9009;&#x53D6;&#x4E0E;&#x5F53;&#x524D;&#x70B9;&#x8DDD;&#x79BB;&#x6700;&#x5C0F;&#x7684;k&#x4E2A;&#x70B9;<br>&#xFF08;4&#xFF09;&#x786E;&#x5B9A;&#x524D;k&#x4E2A;&#x70B9;&#x6240;&#x5728;&#x7C7B;&#x522B;&#x51FA;&#x73B0;&#x7684;&#x9891;&#x7387;<br>&#xFF08;5&#xFF09;&#x8FD4;&#x56DE;&#x524D;k&#x4E2A;&#x70B9;&#x51FA;&#x73B0;&#x9891;&#x7387;&#x6700;&#x9AD8;&#x7684;&#x7C7B;&#x522B;&#x4F5C;&#x4E3A;&#x5F53;&#x524D;&#x70B9;&#x7684;&#x9884;&#x6D4B;&#x5206;&#x7C7B;</p>
+<p><strong>&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">def classify0(inX, dataSet, labels, k):</div><div class="line">    dataSetSize = dataSet.shape[0]</div><div class="line">    # &#x8DDD;&#x79BB;&#x8BA1;&#x7B97;</div><div class="line">    diffMat = tile(inX, (dataSetSize,1)) - dataSet</div><div class="line">    sqDiffMat = diffMat**2</div><div class="line">    sqDistances = sqDiffMat.sum(axis=1)</div><div class="line">    distances = sqDistances**0.5</div><div class="line">    sortedDistIndicies = distances.argsort()</div><div class="line">    classCount={}</div><div class="line">    # &#x9009;&#x62E9;&#x8DDD;&#x79BB;&#x6700;&#x5C0F;&#x7684;k&#x4E2A;&#x70B9;</div><div class="line">    for i in range(k):</div><div class="line">        voteIlabel = labels[sortedDistIndicies[i]]</div><div class="line">        classCount[voteIlabel] = classCount.get(voteIlabel,0) + 1</div><div class="line">    # &#x6392;&#x5E8F;</div><div class="line">    sortedClassCount = sorted(classCount.iteritems(), key=operator.itemgetter(1), reverse=True)</div><div class="line">    return sortedClassCount[0][0]</div></pre></td></tr></table></figure>
+<p><strong>&#x5F52;&#x4E00;&#x5316;&#x5904;&#x7406;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># newValue = (oldValue -min) / (max - min)</div><div class="line">def autoNorm(dataset):</div><div class="line">    minvals = dataset.min(0)</div><div class="line">    maxvals = dataset.max(0)</div><div class="line">    ranges = maxvals - minvals</div><div class="line">    normDataSet = zeros(shape(dataset))</div><div class="line">    m = dataset.shape[0]</div><div class="line">    normDataSet = dataset - tile(minvals, (m,1))</div><div class="line">    # &#x7279;&#x5F81;&#x503C;&#x76F8;&#x9664;</div><div class="line">    normDataSet = normDataSet/tile(ranges, (m,1))</div><div class="line">    return normDataSet,ranges,minvals</div></pre></td></tr></table></figure>
+<p><strong>&#x7B97;&#x6CD5;&#x6D4B;&#x8BD5;</strong></p>
+<p>&#x6D4B;&#x8BD5;&#x7684;&#x6587;&#x4EF6;&#x4E5F;&#x5728;&#x4E0A;&#x9762;&#x90A3;&#x4E2A;git&#x4ED3;&#x5E93;&#x91CC;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">def file2matrix(filename):</div><div class="line">    fr = open(filename)</div><div class="line">    # &#x5F97;&#x5230;&#x6587;&#x4EF6;&#x884C;&#x6570;</div><div class="line">    arrayOLines = fr.readlines()</div><div class="line">    numberOfLines = len(arrayOLines)</div><div class="line">    # &#x521B;&#x5EFA;&#x8FD4;&#x56DE;&#x7684;numpy&#x5E93;</div><div class="line">    returnMat = zeros((numberOfLines, 3))</div><div class="line">    classLabelVector = []</div><div class="line">    index = 0</div><div class="line">    # &#x89E3;&#x6790;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x5230;&#x5217;&#x8868;</div><div class="line">    for line in arrayOLines:</div><div class="line">        line = line.strip()</div><div class="line">        listFromLine = line.split(&apos;\t&apos;)</div><div class="line">        returnMat[index,:] = listFromLine[0:3]</div><div class="line">        classLabelVector.append(int(listFromLine[-1]))</div><div class="line">        index += 1</div><div class="line">    return returnMat,classLabelVector</div></pre></td></tr></table></figure>
+<p>&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#x8FDB;&#x5165;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x8FDB;&#x5165;python&#x547D;&#x4EE4;&#x884C;</p>
+<p>&#x52A0;&#x8F7D;&#x8BE5;&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x4E0B;&#x9762;&#x8F93;&#x5165;&#x5373;&#x53EF;&#x6D4B;&#x8BD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import kNN</div><div class="line">datingDataMat, datingLabels = kNN.file2matrix(&apos;datingTestSet2.txt&apos;)</div><div class="line">datingDataMat</div><div class="line">datingLabels[0:20]</div></pre></td></tr></table></figure>
+<p>&#x6548;&#x679C;&#x56FE;&#x5982;&#x4E0B;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x5728;&#x81EA;&#x5DF1;&#x6D4B;&#x8BD5;&#x65F6;&#x624B;&#x6B8B;&#x5C06;data&#x8BEF;&#x6253;&#x6210;deta&#xFF0C;&#x89C1;&#x8C05;</p>
+<p><img src="/2017/03/07/k-means&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;/1.png" alt=""></p>
+<p>&#x7B2C;&#x4E8C;&#x6B21;&#x6D4B;&#x8BD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">def datingClassTest():</div><div class="line">    hoRatio = 0.50      #hold out 10%</div><div class="line">    datingDataMat,datingLabels = file2matrix(&apos;datingTestSet2.txt&apos;)       #load data setfrom file</div><div class="line">    normMat, ranges, minVals = autoNorm(datingDataMat)</div><div class="line">    m = normMat.shape[0]</div><div class="line">    numTestVecs = int(m*hoRatio)</div><div class="line">    errorCount = 0.0</div><div class="line">    for i in range(numTestVecs):</div><div class="line">        classifierResult = classify0(normMat[i,:],normMat[numTestVecs:m,:],datingLabels[numTestVecs:m],3)</div><div class="line">        print(&quot;the classifier came back with: %d, the real answer is: %d&quot; % (classifierResult, datingLabels[i]))</div><div class="line">        if (classifierResult != datingLabels[i]): errorCount += 1.0</div><div class="line">    print(&quot;the total error rate is: %f&quot; % (errorCount/float(numTestVecs)))</div><div class="line">    print(errorCount)</div></pre></td></tr></table></figure>
+<p>&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;</p>
+<p>&#x91CD;&#x8F7D;kNN&#x6A21;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x6309;&#x4E0B;&#x9762;&#x8F93;&#x5165;&#x6D4B;&#x8BD5;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">reload kNN</div><div class="line">normMat,ranges,minVals = kNN.autoNorm(detingDataMat)</div><div class="line">normMat</div><div class="line">ranges</div><div class="line">minVals</div><div class="line">kNN.datingClassTest()</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x91CC;&#x4E5F;&#x5C06;&#x5F52;&#x4E00;&#x5316;&#x4E00;&#x9F50;&#x6D4B;&#x8BD5;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x7684;&#x6D4B;&#x8BD5;&#x9700;&#x8981;&#x7528;&#x5230;&#x5F52;&#x4E00;&#x5316;&#x65B9;&#x6CD5;</p>
+<p>&#x6548;&#x679C;&#x56FE;&#x5982;&#x4E0B;&#xFF0C;&#x56E0;&#x4E3A;kNN.datingClassTest()&#x7684;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x8FC7;&#x957F;&#xFF0C;&#x53EA;&#x622A;&#x53D6;&#x672B;&#x5C3E;</p>
+<p><img src="/2017/03/07/k-means&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;/2.png" alt=""></p>
+<p><img src="/2017/03/07/k-means&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;/3.png" alt=""></p>
+<p>&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x9519;&#x8BEF;&#x7387;&#x4E3A;6.4%&#xFF0C;&#x9519;&#x8BEF;32&#x4E2A;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x7B97;&#x6CD5;&#x5E76;&#x6CA1;&#x6709;&#x7ECF;&#x8FC7;&#x8BAD;&#x7EC3;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E48;&#x9AD8;&#x6216;&#x8005;&#x751A;&#x81F3;&#x66F4;&#x9AD8;&#x7684;&#x9519;&#x8BEF;&#x7387;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x51FA;&#x73B0;&#x7684;</p>
+<h2 id="Matlab&#x5B9E;&#x73B0;"><a href="#Matlab&#x5B9E;&#x73B0;" class="headerlink" title="Matlab&#x5B9E;&#x73B0;"></a>Matlab&#x5B9E;&#x73B0;</h2><p>&#x8FD9;&#x4E9B;&#x662F;&#x6211;&#x5F53;&#x65F6;&#x8DDF;coursera&#x4E0A;&#x65AF;&#x5766;&#x798F;&#x5927;&#x5B66;&#x7684;&#x8457;&#x540D;&#x6559;&#x6388;&#x5434;&#x6069;&#x8FBE;&#xFF08;Andrew Ng&#xFF09;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8BFE;&#x7A0B;&#x7684;&#x4F5C;&#x4E1A;&#xFF0C;&#x5DF2;&#x901A;&#x8FC7;&#x5728;&#x7EBF;&#x6D4B;&#x8BD5;&#xFF0C;&#x6B63;&#x786E;&#x7387;&#x8FD8;&#x662F;&#x6709;&#x4E9B;&#x4FDD;&#x8BC1;&#x7684;</p>
+<p><strong>find closest centroids</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function idx = findClosestCentroids(X, centroids)</div><div class="line">%FINDCLOSESTCENTROIDS computes the centroid memberships for every example</div><div class="line">K = size(centroids, 1);</div><div class="line">idx = zeros(size(X,1), 1);</div><div class="line">for i = 1:length(X)</div><div class="line">  distance = inf;</div><div class="line">  for j = 1:K</div><div class="line">    KDist = norm(X(i,:) - centroids(j,:));</div><div class="line">    if KDist &lt; distance</div><div class="line">      distance = KDist;</div><div class="line">      idx(i) = j;</div><div class="line">    end</div><div class="line">  end</div><div class="line">end</div><div class="line">end</div></pre></td></tr></table></figure>
+<p><strong>compute centroids</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function centroids = computeCentroids(X, idx, K)</div><div class="line">%COMPUTECENTROIDS returns the new centroids by computing the means of the </div><div class="line">%data points assigned to each centroid.</div><div class="line">[m n] = size(X);</div><div class="line">centroids = zeros(K, n);</div><div class="line">for i = 1:K</div><div class="line">  indices = idx == i;</div><div class="line">  for j = 1:n</div><div class="line">    centroids(i,j) = sum(X(:,j) .* indices) / sum(indices);</div><div class="line">  end</div><div class="line">end</div><div class="line">end</div></pre></td></tr></table></figure>
+<p>kMeansInitCentroids</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function centroids = kMeansInitCentroids(X, K)</div><div class="line">%KMEANSINITCENTROIDS This function initializes K centroids that are to be </div><div class="line">%used in K-Means on the dataset X</div><div class="line">centroids = zeros(K, size(X, 2));</div><div class="line">centroids - kMeansInitCentroids(X,K);</div><div class="line">for iter = 1:iterations</div><div class="line">  idx = findClosestCentroids(X,centroids);</div><div class="line">  centroids = computeMeans(X,idx,K);</div><div class="line">end</div><div class="line">randidx = randperm(size(X,1));</div><div class="line">centroids = X(randidx(1:K), :);</div><div class="line">end</div></pre></td></tr></table></figure>
+<p><strong>run k-Means</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">function [centroids, idx] = runkMeans(X, initial_centroids, ...</div><div class="line">                                      max_iters, plot_progress)</div><div class="line">%RUNKMEANS runs the K-Means algorithm on data matrix X, where each row of X</div><div class="line">% Set default value for plot progress</div><div class="line">if ~exist(&apos;plot_progress&apos;, &apos;var&apos;) || isempty(plot_progress)</div><div class="line">    plot_progress = false;</div><div class="line">end</div><div class="line">% Plot the data if we are plotting progress</div><div class="line">if plot_progress</div><div class="line">    figure;</div><div class="line">    hold on;</div><div class="line">end</div><div class="line">% Initialize values</div><div class="line">[m n] = size(X);</div><div class="line">K = size(initial_centroids, 1);</div><div class="line">centroids = initial_centroids;</div><div class="line">previous_centroids = centroids;</div><div class="line">idx = zeros(m, 1);</div><div class="line">% Run K-Means</div><div class="line">for i=1:max_iters</div><div class="line">    </div><div class="line">    % Output progress</div><div class="line">    fprintf(&apos;K-Means iteration %d/%d...\n&apos;, i, max_iters);</div><div class="line">    if exist(&apos;OCTAVE_VERSION&apos;)</div><div class="line">        fflush(stdout);</div><div class="line">    end</div><div class="line">    </div><div class="line">    % For each example in X, assign it to the closest centroid</div><div class="line">    idx = findClosestCentroids(X, centroids);</div><div class="line">    </div><div class="line">    % Optionally, plot progress here</div><div class="line">    if plot_progress</div><div class="line">        plotProgresskMeans(X, centroids, previous_centroids, idx, K, i);</div><div class="line">        previous_centroids = centroids;</div><div class="line">        fprintf(&apos;Press enter to continue.\n&apos;);</div><div class="line">        pause;</div><div class="line">    end</div><div class="line">    </div><div class="line">    % Given the memberships, compute new centroids</div><div class="line">    centroids = computeCentroids(X, idx, K);</div><div class="line">end</div><div class="line">% Hold off if we are plotting progress</div><div class="line">if plot_progress</div><div class="line">    hold off;</div><div class="line">end</div><div class="line">end</div></pre></td></tr></table></figure>
+<h2 id="&#x57FA;&#x4E8E;K-Means&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;"><a href="#&#x57FA;&#x4E8E;K-Means&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;" class="headerlink" title="&#x57FA;&#x4E8E;K-Means&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;"></a>&#x57FA;&#x4E8E;K-Means&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;</h2><p>&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x5E94;&#x7528;</p>
+<p><strong>&#x5B9E;&#x73B0;&#x601D;&#x60F3;</strong></p>
+<p>&#xFF08;1&#xFF09;&#x6536;&#x96C6;&#x6570;&#x636E;&#xFF1A;&#x63D0;&#x4F9B;&#x6587;&#x672C;&#x6587;&#x4EF6;<br>&#xFF08;2&#xFF09;&#x51C6;&#x5907;&#x6570;&#x636E;&#xFF1A;&#x7F16;&#x5199;&#x51FD;&#x6570;img2vector()&#xFF0C;&#x5C06;&#x56FE;&#x50CF;&#x683C;&#x5F0F;&#x8F6C;&#x6362;&#x4E3A;&#x5206;&#x7C7B;&#x5668;&#x53EF;&#x8BC6;&#x522B;&#x7684;&#x5411;&#x91CF;&#x683C;&#x5F0F;<br>&#xFF08;3&#xFF09;&#x5206;&#x6790;&#x6570;&#x636E;&#xFF1A;&#x68C0;&#x67E5;&#x6570;&#x636E;&#xFF0C;&#x786E;&#x4FDD;&#x5176;&#x7B26;&#x5408;&#x8981;&#x6C42;<br>&#xFF08;4&#xFF09;&#x8BAD;&#x7EC3;&#x7B97;&#x6CD5;<br>&#xFF08;5&#xFF09;&#x6D4B;&#x8BD5;&#x7B97;&#x6CD5;&#xFF1A;&#x7F16;&#x5199;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x90E8;&#x5206;&#x6570;&#x636E;&#x96C6;&#x4F5C;&#x4E3A;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x3002;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x4E0E;&#x975E;&#x6D4B;&#x8BD5;&#x8D5D;&#x672C;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x662F;&#x5DF2;&#x7ECF;&#x5206;&#x7C7B;&#x7684;&#x6570;&#x636E;,&#x5982;&#x679C;&#x9884;&#x6D4B;&#x5206;&#x7C7B;&#x4E0E;&#x5B9E;&#x9645;&#x5206;&#x7C7B;&#x4E0D;&#x540C;&#xFF0C;&#x5219;&#x6807;&#x8BB0;&#x4E3A;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;<br>&#xFF08;6&#xFF09;&#x4F7F;&#x7528;&#x7B97;&#x6CD5;</p>
+<p><strong>&#x5C06;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x4E3A;&#x6D4B;&#x8BD5;&#x5411;&#x91CF;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def img2vector(filename):</div><div class="line">    returnVect = zeros((1,1024))</div><div class="line">    fr = open(filename)</div><div class="line">    for i in range(32):</div><div class="line">        lineStr = fr.readline()</div><div class="line">        for j in range(32):</div><div class="line">            returnVect[0,32*i+j] = int(lineStr[j])</div><div class="line">    return returnVect</div></pre></td></tr></table></figure>
+<p><strong>&#x8BC6;&#x522B;&#x7B97;&#x6CD5;</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">def handwritingClassTest():</div><div class="line">    hwLabels = []</div><div class="line">    # &#x83B7;&#x53D6;&#x76EE;&#x5F55;&#x5185;&#x5BB9;</div><div class="line">    trainingFileList = listdir(&apos;digits/trainingDigits&apos;)</div><div class="line">    m = len(trainingFileList)</div><div class="line">    trainingMat = zeros((m,1024))</div><div class="line">    # &#x4ECE;&#x6587;&#x4EF6;&#x540D;&#x89E3;&#x6790;&#x5206;&#x7C7B;&#x5185;&#x5BB9;</div><div class="line">    for i in range(m):</div><div class="line">        fileNameStr = trainingFileList[i]</div><div class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]</div><div class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</div><div class="line">        hwLabels.append(classNumStr)</div><div class="line">        trainingMat[i,:] = img2vector(&apos;digits/trainingDigits/%s&apos; % fileNameStr)</div><div class="line">    testFileList = listdir(&apos;digits/testDigits&apos;)</div><div class="line">    errorCount = 0.0</div><div class="line">    mTest = len(testFileList)</div><div class="line">    for i in range(mTest):</div><div class="line">        fileNameStr = testFileList[i]</div><div class="line">        fileStr = fileNameStr.split(&apos;.&apos;)[0]</div><div class="line">        classNumStr = int(fileStr.split(&apos;_&apos;)[0])</div><div class="line">        vectorUnderTest = img2vector(&apos;digits/testDigits/%s&apos; % fileNameStr)</div><div class="line">        classifierResult = classify0(vectorUnderTest, trainingMat, hwLabels, 3)</div><div class="line">        print(&quot;the classifier came back with: %d, the real answer is: %d&quot; % (classifierResult, classNumStr))</div><div class="line">        if (classifierResult != classNumStr): errorCount += 1.0</div><div class="line">    print(&quot;\nthe total number of errors is: %d&quot; % errorCount)</div><div class="line">    print(&quot;\nthe total error rate is: %f&quot;  % (errorCount/float(mTest)))</div></pre></td></tr></table></figure>
+<p><strong>&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</strong></p>
+<p>&#x540C;&#x6837;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x5728;python&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x91CD;&#x8F7D;kNN&#xFF0C;&#x7136;&#x540E;&#x6309;&#x5982;&#x4E0B;&#x8F93;&#x5165;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">reload kNN</div><div class="line">kNN.handwritingClassTest()</div></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x4E5F;&#x662F;&#x5F88;&#x957F;&#xFF0C;&#x56E0;&#x4E3A;&#x51C6;&#x5907;&#x7684;&#x6570;&#x636E;&#x8F83;&#x591A;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x53EA;&#x622A;&#x53D6;&#x4E86;&#x672B;&#x5C3E;&#x90E8;&#x5206;</p>
+<p><img src="/2017/03/07/k-means&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;/4.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x56DE;&#x7531;&#x4E8E;&#x52A0;&#x5927;&#x4E86;&#x6570;&#x636E;&#x6837;&#x672C;&#xFF0C;&#x9519;&#x8BEF;&#x7387;&#x660E;&#x663E;&#x964D;&#x4F4E;</p>
+<p>&#x6574;&#x7406;&#x8F9B;&#x82E6;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/03/07/k-means算法的实现/">
+    <time datetime="2017-03-06T16:02:26.000Z" class="entry-date">
+        2017-03-07
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/02/20/iPad-splitView-popover/" rel="next">iPad开发之--splitView和popover <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/07/k-means算法的实现/">K-Means算法的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/20/iPad-splitView-popover/">iPad开发之--splitView和popover</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/iOS-protocol/">iOS-Protocol</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/29/PGM-1/">PGM(一)--Introduction and Overview</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/2016年终总结/">Legend 2016</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

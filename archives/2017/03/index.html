@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Archives: 2017/3 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="阿尔托利亚是我老婆~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SaberDa的幻想乡">
+<meta property="og:url" content="https://saberda.github.io/archives/2017/03/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="阿尔托利亚是我老婆~">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SaberDa的幻想乡">
+<meta name="twitter:description" content="阿尔托利亚是我老婆~">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS　　|　　二次元　　|　　630991493@qq.com　　|　　我生而坚强 只要不死 就能笑的猖狂</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/机器学习/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/概率图模型/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main">
+  
+    <article id="post-k-means算法的实现" class="post-k-means算法的实现 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/03/07/k-means算法的实现/">K-Means算法的实现</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/07/k-means算法的实现/" data-id="cizydk2qw002r69b3sgtwj4wq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>K-Means&#x7B97;&#x6CD5;&#x662F;&#x5206;&#x7C7B;&#x6570;&#x636E;&#x4E2D;&#x6700;&#x7B80;&#x5355;&#x6709;&#x6548;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x6211;&#x5728;&#x524D;&#x9762;&#x7684;&#x535A;&#x5BA2;&#x91CC;&#x66FE;&#x7ECF;&#x5199;&#x8FC7;</p>
+<p><a href="http://www.saberismywife.com/2016/12/31/Machine-Learning-8/">K-means</a></p>
+<p>&#x4F46;&#x5176;&#x8FD8;&#x662F;&#x6709;&#x4E24;&#x4E2A;&#x660E;&#x663E;&#x7684;&#x7F3A;&#x9677;&#x3002;&#x4E00;&#x662F;K-Means&#x5FC5;&#x987B;&#x4FDD;&#x5B58;&#x5168;&#x90E8;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5982;&#x679C;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x96C6;&#x5F88;&#x5927;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5927;&#x91CF;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x6B64;&#x5916;&#x5FC5;&#x987B;&#x5BF9;&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x90FD;&#x8BA1;&#x7B97;&#x4E00;&#x904D;&#x8DDD;&#x79BB;&#xFF0C;&#x8FD9;&#x4F1A;&#x5F88;&#x8D39;&#x65F6;&#x95F4;&#x3002;<br>&#x53E6;&#x4E00;&#x4E2A;&#x7F3A;&#x9677;&#x5728;&#x4E8E;&#x5B83;&#x65E0;&#x6CD5;&#x7ED9;&#x51FA;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7684;&#x57FA;&#x7840;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x7684;&#x535A;&#x5BA2;&#x4E2D;&#x5199;&#x51FA;&#x89E3;&#x51B3;&#x4E4B;&#x9053;</p>
+<p>&#x672C;&#x6587;&#x4F7F;&#x7528;python&#x4EE5;&#x53CA;Matlab&#x5206;&#x522B;&#x8BE5;&#x7B97;&#x6CD5;&#xFF0C;&#x4EE5;&#x53CA;&#x5728;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x4E86;&#x57FA;&#x4E8E;&#x8BE5;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x624B;&#x5199;&#x8BC6;&#x522B;</p>
+<p><a href="https://github.com/SaberDa/K-Means">&#x6E90;&#x7801;&#x53CA;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;</a></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/07/k-means算法的实现/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/03/07/k-means算法的实现/">
+    <time datetime="2017-03-06T16:02:26.000Z" class="entry-date">
+        2017-03-07
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+  
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">55</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/07/k-means算法的实现/">K-Means算法的实现</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/20/iPad-splitView-popover/">iPad开发之--splitView和popover</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/13/iOS-protocol/">iOS-Protocol</a>
+          </li>
+        
+          <li>
+            <a href="/2017/01/29/PGM-1/">PGM(一)--Introduction and Overview</a>
+          </li>
+        
+          <li>
+            <a href="/2016/12/31/2016年终总结/">Legend 2016</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
