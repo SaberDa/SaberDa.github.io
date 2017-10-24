@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>CNN Structure -- 1 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x52A0;&amp;#x5F3A;&amp;#x8BB0;&amp;#x5FC6;&amp;#x7684;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF0C;&amp;#x6CA1;&amp;#x505A;&amp;#x4F18;&amp;#x5316;
+ConV&amp;#x5C42;&amp;#xFF1A;
+Output size: 
+  (N - F) / stride + 1
+
+
+12N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNN Structure -- 1">
+<meta property="og:url" content="https://saberda.github.io/2017/10/25/CNN-Structure/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x52A0;&amp;#x5F3A;&amp;#x8BB0;&amp;#x5FC6;&amp;#x7684;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF0C;&amp;#x6CA1;&amp;#x505A;&amp;#x4F18;&amp;#x5316;
+ConV&amp;#x5C42;&amp;#xFF1A;
+Output size: 
+  (N - F) / stride + 1
+
+
+12N">
+<meta property="og:updated_time" content="2017-10-24T17:55:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CNN Structure -- 1">
+<meta name="twitter:description" content="&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x52A0;&amp;#x5F3A;&amp;#x8BB0;&amp;#x5FC6;&amp;#x7684;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF0C;&amp;#x6CA1;&amp;#x505A;&amp;#x4F18;&amp;#x5316;
+ConV&amp;#x5C42;&amp;#xFF1A;
+Output size: 
+  (N - F) / stride + 1
+
+
+12N">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS/ ML　　|　　二次元　　|　　saberda@qq.com　　|　　虽则如云，匪我思存</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-CNN-Structure" class="post-CNN-Structure post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      CNN Structure -- 1
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/25/CNN-Structure/" data-id="cj95wu15x0003w4b3ld4tj2ur" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x52A0;&#x5F3A;&#x8BB0;&#x5FC6;&#x7684;&#x7B14;&#x8BB0;&#xFF0C;&#x6CA1;&#x505A;&#x4F18;&#x5316;</p>
+<h2 id="ConV&#x5C42;&#xFF1A;"><a href="#ConV&#x5C42;&#xFF1A;" class="headerlink" title="ConV&#x5C42;&#xFF1A;"></a>ConV&#x5C42;&#xFF1A;</h2><ul>
+<li><p>Output size: </p>
+<p>  <strong>(N - F) / stride + 1</strong></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">N: &#x56FE;&#x50CF;&#x50CF;&#x7D20;</div><div class="line">F: &#x6EE4;&#x6CE2;&#x5668;&#x50CF;&#x7D20;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>pad</li>
+</ul>
+<p>&#x586B;&#x8865;(pad)&#xFF0C;&#x5728;&#x56FE;&#x50CF;&#x5468;&#x56F4;&#x52A0;&#x4E0A;&#x4E00;&#x5708;&#xFF08;&#x6216;&#x591A;&#x5708;&#xFF09;&#x50CF;&#x7D20;0 -&gt; &#x5377;&#x79EF;&#x5C42;&#x4E2D;&#x7684;&#x8D85;&#x53C2;&#x6570;</p>
+<p><u>&#x586B;&#x8865;&#x7684;&#x7528;&#x5904;</u>&#xFF1A;&#x52A0;&#x4E0A;&#x4E00;&#x5708;&#xFF08;&#x6216;&#x591A;&#x5708;&#xFF09;&#x518D;&#x505A;&#x5377;&#x79EF;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x5C3A;&#x5BF8;&#x4F1A;&#x548C;&#x8F93;&#x5165;&#x7684;&#x5C3A;&#x5BF8;&#x4E00;&#x6837;&#x5927;</p>
+<p>eg&#xFF1A;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#x5DF2;&#x77E5;&#x6761;&#x4EF6;&#xFF1A;</div><div class="line">	&#x8F93;&#x5165;&#x5C3A;&#x5BF8;&#xFF1A;32 * 32 * 3</div><div class="line">	&#x7528; 10 &#x5C42; 5*5 &#x7684;&#x6EE4;&#x6CE2;&#x5668;</div><div class="line">	stride&#x662F; 1&#xFF0C;pad &#x662F; 2</div><div class="line"></div><div class="line">&#x53EF;&#x4EE5;&#x63A8;&#x51FA;&#xFF1A;</div><div class="line">	&#x8F93;&#x51FA;&#x5C3A;&#x5BF8;&#xFF1A;</div><div class="line">		(32 + 2 * 2 - 5) / 1 + 1 = 32</div><div class="line">		so: 32 * 32 * 10</div><div class="line">	&#x6B64;&#x7F51;&#x7EDC;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#xFF1A;</div><div class="line">		&#x6BCF;&#x5C42;&#x6709; 5 * 5 * 3 -&gt; 75 + 1 -&gt; 76 &#x4E2A;&#xFF08; +1 for bias&#xFF09;</div><div class="line">		so: &#x5171; 76 * 10 -&gt; 760 &#x4E2A;</div></pre></td></tr></table></figure>
+<h2 id="ConV-Layer-Summary&#xFF1A;"><a href="#ConV-Layer-Summary&#xFF1A;" class="headerlink" title="ConV Layer Summary&#xFF1A;"></a>ConV Layer Summary&#xFF1A;</h2><ul>
+<li>&#x6BCF;&#x6B21;&#x63A5;&#x6536;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> <em> H<sub>1</sub> </em> D<sub>1</sub></li>
+<li>&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> <em> H<sub>2</sub> </em> D<sub>2</sub></li>
+<li>&#x5377;&#x79EF;&#x5C42;&#x7684;&#x4E2A;&#x6570;&#xFF1A;K</li>
+<li>&#x6EE4;&#x6CE2;&#x5668;&#x7684;&#x957F;&#x5EA6;&#xFF1A;F</li>
+<li>&#x6B65;&#x957F;&#xFF1A;S</li>
+<li>pad&#x7684;&#x957F;&#x5EA6;&#xFF1A;P</li>
+<li>W<sub>2</sub> = (W<sub>1</sub> - F + 2 * P) / S + 1</li>
+<li>H<sub>2</sub> = (H<sub>1</sub> - F + 2 * P) / S + 1</li>
+<li>D<sub>2</sub> = K</li>
+<li>&#x6BCF;&#x4E2A;&#x6EE4;&#x6CE2;&#x5668;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F <em> F </em> D</li>
+<li>&#x8BE5;&#x5377;&#x79EF;&#x5C42;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F <em> F </em> D <em> K + (1</em>)K</li>
+</ul>
+<p>&#x8BF4;&#x660E;&#xFF1A;</p>
+<ol>
+<li>&#x5176;&#x4E2D; K &#x603B;&#x662F; 2 &#x7684;&#x6307;&#x6570;&#xFF1B;</li>
+<li>K, F, S, P &#x662F;&#x8BE5;&#x5377;&#x79EF;&#x7684;&#x56DB;&#x4E2A;&#x8D85;&#x53C2;&#x6570;</li>
+<li>&#x4E00;&#x822C;&#x5730;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE; W<sub>2</sub> = H<sub>2</sub></li>
+<li>&#x4E3A;&#x4EC0;&#x4E48; pad &#x4E00;&#x822C;&#x9009;&#x62E9;&#x586B;&#x5145;&#x7684;&#x50CF;&#x7D20;&#x662F; 0 &#xFF1A;&#x6EE4;&#x6CE2;&#x5668;&#x53EA;&#x8003;&#x8651;&#x4E86;&#x8F93;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x4E3A;&#x505A;&#x70B9;&#x4E58;&#x7684;&#x65F6;&#x5019;&#xFF0C;0 &#x4E0D;&#x4F1A;&#x5BF9;&#x8F93;&#x51FA;&#x6709;&#x5F71;&#x54CD;</li>
+<li>1 * 1 &#x7684;&#x6EE4;&#x6CE2;&#x5668;&#x505A;&#x5377;&#x79EF;&#x770B;&#x4F3C;&#x6CA1;&#x6709;&#x610F;&#x4E49;&#xFF0C;&#x5B9E;&#x5219;&#x4E0D;&#x662F;&#xFF08;&#x56E0;&#x4E3A;&#x7EC3;&#x4E60;&#x4E2D;&#x5377;&#x79EF;&#x4E00;&#x822C;&#x662F;&#x5728;&#x4E8C;&#x7EF4;&#x5C42;&#x6B21;&#x4E0A;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6570;&#x636E;&#x662F;&#x4E09;&#x7EF4;&#x7684;&#xFF09;&#x3002;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x79F0;&#x8FD9;&#x79CD;&#x6EE4;&#x6CE2;&#x5668;&#x4E3A;&#x201C;&#x7EBF;&#x7F06;&#x201D;&#x6216;&#x8005;&#x201C;&#x6709;&#x6DF1;&#x5EA6;&#x7684;&#x5217;&#x201D;</li>
+</ol>
+<h2 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h2><p>&#x5728;&#x505A;&#x5377;&#x79EF;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4F1A;&#x5728;&#x7A7A;&#x95F4;&#x4E0A;&#x7F29;&#x5C0F;&#x6570;&#x636E;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x800C;&#x662F;&#x4F1A;&#x4FDD;&#x6301;&#x7A7A;&#x95F4;&#x7684;&#x5C3A;&#x5BF8;&#x3002;&#x7A7A;&#x95F4;&#x5C3A;&#x5BF8;&#x7684;&#x51CF;&#x5C0F;&#x901A;&#x5E38;&#x662F;&#x5728;&#x4E0B;&#x91C7;&#x6837;&#x5C42;&#xFF08;Pooling Layer&#xFF09;&#x8FDB;&#x884C;&#x7684;&#x3002;</p>
+<p>&#x4E0B;&#x91C7;&#x6837;&#x5C42;&#x5C31;&#x662F;&#x628A;&#x8F93;&#x5165;&#x6570;&#x636E;&#x62FF;&#x8FC7;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x4E0B;&#x91C7;&#x6837;&#x8FBE;&#x5230;&#x7A7A;&#x95F4;&#x4E0A;&#x538B;&#x7F29;&#x7684;&#x76EE;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x4E0B;&#x91C7;&#x6837;&#x5728;&#x6BCF;&#x4E2A;&#x6FC0;&#x6D3B;&#x6620;&#x5C04;&#x4E2D;&#x72EC;&#x7ACB;&#x7684;&#x8FDB;&#x884C;&#x3002;&#x5728;&#x6DF1;&#x5EA6;&#x65B9;&#x5411;&#x7684;&#x6BCF;&#x4E00;&#x5C42;&#x7684;&#x6FC0;&#x6D3B;&#x6620;&#x5C04;&#x672C;&#x8D28;&#x4E0A;&#x90FD;&#x662F;&#x4E0B;&#x91C7;&#x6837;&#x4E4B;&#x540E;&#x518D;&#x653E;&#x56DE;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x4E24;&#x79CD;&#x4E0B;&#x91C7;&#x6837;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li>Max Pooling : &#x53D6;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x7684;&#x6700;&#x5927;&#x6570;&#x5B57;</li>
+<li>Average Pooling : &#x53D6;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x7684;&#x5E73;&#x5747;&#x6570;&#x5B57;</li>
+</ul>
+<h2 id="Pooling-Layer-Summary&#xFF1A;"><a href="#Pooling-Layer-Summary&#xFF1A;" class="headerlink" title="Pooling Layer Summary&#xFF1A;"></a>Pooling Layer Summary&#xFF1A;</h2><ul>
+<li>&#x63A5;&#x6536;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> <em> H<sub>1</sub> </em> D<sub>1</sub></li>
+<li>&#x8F93;&#x51FA;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> <em> H<sub>2</sub> </em> D<sub>2</sub></li>
+<li>&#x6EE4;&#x6CE2;&#x5668;&#x7684;&#x5C3A;&#x5BF8;&#xFF1A;F &#xFF08;&#x5373;&#x4E0B;&#x91C7;&#x6837;&#x53D6;&#x6837;&#x7684;&#x8303;&#x56F4;&#xFF09;</li>
+<li>&#x6B65;&#x957F;&#xFF1A;S</li>
+<li>W<sub>2</sub> = (W<sub>1</sub> - F) / S + 1</li>
+<li>H<sub>2</sub> = (H<sub>1</sub> - F) / S + 1</li>
+<li>D<sub>2</sub> = D<sub>1</sub></li>
+</ul>
+<p>&#x8BF4;&#x660E;&#xFF1A;</p>
+<p>F, S &#x662F;&#x5B83;&#x7684;&#x8D85;&#x53C2;&#x6570;</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/10/25/CNN-Structure/">
+    <time datetime="2017-10-24T17:24:03.000Z" class="entry-date">
+        2017-10-25
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/10/16/MapReduce-RDBMs/" rel="next">MapReduce VS RDBMs <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">58</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/25/CNN-Structure/">CNN Structure -- 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/16/MapReduce-RDBMs/">MapReduce VS RDBMs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/Cloud-Service-Models/">Cloud Service Models</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/18/Cloud-Introduction/">Cloud Introduction</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/07/中断以及中断处理/">中断以及中断处理</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">9</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+</ul>
+</div>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
