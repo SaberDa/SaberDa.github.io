@@ -33,7 +33,7 @@ Output size:
 
 
 12N">
-<meta property="og:updated_time" content="2017-10-24T17:55:57.000Z">
+<meta property="og:updated_time" content="2017-10-24T18:03:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CNN Structure -- 1">
 <meta name="twitter:description" content="&amp;#x4E00;&amp;#x4E2A;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x52A0;&amp;#x5F3A;&amp;#x8BB0;&amp;#x5FC6;&amp;#x7684;&amp;#x7B14;&amp;#x8BB0;&amp;#xFF0C;&amp;#x6CA1;&amp;#x505A;&amp;#x4F18;&amp;#x5316;
@@ -134,17 +134,17 @@ Output size:
 <p>eg&#xFF1A;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#x5DF2;&#x77E5;&#x6761;&#x4EF6;&#xFF1A;</div><div class="line">	&#x8F93;&#x5165;&#x5C3A;&#x5BF8;&#xFF1A;32 * 32 * 3</div><div class="line">	&#x7528; 10 &#x5C42; 5*5 &#x7684;&#x6EE4;&#x6CE2;&#x5668;</div><div class="line">	stride&#x662F; 1&#xFF0C;pad &#x662F; 2</div><div class="line"></div><div class="line">&#x53EF;&#x4EE5;&#x63A8;&#x51FA;&#xFF1A;</div><div class="line">	&#x8F93;&#x51FA;&#x5C3A;&#x5BF8;&#xFF1A;</div><div class="line">		(32 + 2 * 2 - 5) / 1 + 1 = 32</div><div class="line">		so: 32 * 32 * 10</div><div class="line">	&#x6B64;&#x7F51;&#x7EDC;&#x7684;&#x53C2;&#x6570;&#x4E2A;&#x6570;&#xFF1A;</div><div class="line">		&#x6BCF;&#x5C42;&#x6709; 5 * 5 * 3 -&gt; 75 + 1 -&gt; 76 &#x4E2A;&#xFF08; +1 for bias&#xFF09;</div><div class="line">		so: &#x5171; 76 * 10 -&gt; 760 &#x4E2A;</div></pre></td></tr></table></figure>
 <h2 id="ConV-Layer-Summary&#xFF1A;"><a href="#ConV-Layer-Summary&#xFF1A;" class="headerlink" title="ConV Layer Summary&#xFF1A;"></a>ConV Layer Summary&#xFF1A;</h2><ul>
-<li>&#x6BCF;&#x6B21;&#x63A5;&#x6536;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> <em> H<sub>1</sub> </em> D<sub>1</sub></li>
-<li>&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> <em> H<sub>2</sub> </em> D<sub>2</sub></li>
+<li>&#x6BCF;&#x6B21;&#x63A5;&#x6536;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> &#xB7; H<sub>1</sub> &#xB7; D<sub>1</sub></li>
+<li>&#x6BCF;&#x6B21;&#x8F93;&#x51FA;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> &#xB7; H<sub>2</sub> &#xB7; D<sub>2</sub></li>
 <li>&#x5377;&#x79EF;&#x5C42;&#x7684;&#x4E2A;&#x6570;&#xFF1A;K</li>
 <li>&#x6EE4;&#x6CE2;&#x5668;&#x7684;&#x957F;&#x5EA6;&#xFF1A;F</li>
 <li>&#x6B65;&#x957F;&#xFF1A;S</li>
 <li>pad&#x7684;&#x957F;&#x5EA6;&#xFF1A;P</li>
-<li>W<sub>2</sub> = (W<sub>1</sub> - F + 2 * P) / S + 1</li>
-<li>H<sub>2</sub> = (H<sub>1</sub> - F + 2 * P) / S + 1</li>
+<li>W<sub>2</sub> = (W<sub>1</sub> - F + 2 &#xB7; P) / S + 1</li>
+<li>H<sub>2</sub> = (H<sub>1</sub> - F + 2 &#xB7; P) / S + 1</li>
 <li>D<sub>2</sub> = K</li>
-<li>&#x6BCF;&#x4E2A;&#x6EE4;&#x6CE2;&#x5668;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F <em> F </em> D</li>
-<li>&#x8BE5;&#x5377;&#x79EF;&#x5C42;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F <em> F </em> D <em> K + (1</em>)K</li>
+<li>&#x6BCF;&#x4E2A;&#x6EE4;&#x6CE2;&#x5668;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F &#xB7; F &#xB7; D</li>
+<li>&#x8BE5;&#x5377;&#x79EF;&#x5C42;&#x6743;&#x91CD;&#x7684;&#x6570;&#x91CF;&#xFF1A;F &#xB7; F &#xB7; D &#xB7; K + K</li>
 </ul>
 <p>&#x8BF4;&#x660E;&#xFF1A;</p>
 <ol>
@@ -162,8 +162,8 @@ Output size:
 <li>Average Pooling : &#x53D6;&#x6BCF;&#x4E2A;&#x5206;&#x533A;&#x4E2D;&#x7684;&#x5E73;&#x5747;&#x6570;&#x5B57;</li>
 </ul>
 <h2 id="Pooling-Layer-Summary&#xFF1A;"><a href="#Pooling-Layer-Summary&#xFF1A;" class="headerlink" title="Pooling Layer Summary&#xFF1A;"></a>Pooling Layer Summary&#xFF1A;</h2><ul>
-<li>&#x63A5;&#x6536;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> <em> H<sub>1</sub> </em> D<sub>1</sub></li>
-<li>&#x8F93;&#x51FA;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> <em> H<sub>2</sub> </em> D<sub>2</sub></li>
+<li>&#x63A5;&#x6536;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>1</sub> &#xB7; H<sub>1</sub> &#xB7; D<sub>1</sub></li>
+<li>&#x8F93;&#x51FA;&#x6570;&#x636E;&#x5C3A;&#x5BF8;&#xFF1A;W<sub>2</sub> &#xB7; H<sub>2</sub> &#xB7; D<sub>2</sub></li>
 <li>&#x6EE4;&#x6CE2;&#x5668;&#x7684;&#x5C3A;&#x5BF8;&#xFF1A;F &#xFF08;&#x5373;&#x4E0B;&#x91C7;&#x6837;&#x53D6;&#x6837;&#x7684;&#x8303;&#x56F4;&#xFF09;</li>
 <li>&#x6B65;&#x957F;&#xFF1A;S</li>
 <li>W<sub>2</sub> = (W<sub>1</sub> - F) / S + 1</li>
