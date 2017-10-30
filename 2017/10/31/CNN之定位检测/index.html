@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>CNN之定位检测 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x6765;&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x5377;&amp;#x79EF;&amp;#x795E;&amp;#x7ECF;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5206;&amp;#x89E3;&amp;#x4E86;&amp;#x90A3;&amp;#x4E9B;&amp;#x5C42;&amp;#x6B21;&amp;#x5E76;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNN之定位检测">
+<meta property="og:url" content="https://saberda.github.io/2017/10/31/CNN之定位检测/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x6765;&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x5377;&amp;#x79EF;&amp;#x795E;&amp;#x7ECF;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5206;&amp;#x89E3;&amp;#x4E86;&amp;#x90A3;&amp;#x4E9B;&amp;#x5C42;&amp;#x6B21;&amp;#x5E76;">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/4.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/5.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/6.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/7.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/8.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/9.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/10.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/11.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/12.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/13.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/14.png">
+<meta property="og:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/15.png">
+<meta property="og:updated_time" content="2017-10-30T17:14:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CNN之定位检测">
+<meta name="twitter:description" content="&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x6765;&amp;#x590D;&amp;#x4E60;&amp;#x4E00;&amp;#x4E0B;&amp;#x5377;&amp;#x79EF;&amp;#x795E;&amp;#x7ECF;&amp;#x7F51;&amp;#x7EDC;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x5206;&amp;#x89E3;&amp;#x4E86;&amp;#x90A3;&amp;#x4E9B;&amp;#x5C42;&amp;#x6B21;&amp;#x5E76;">
+<meta name="twitter:image" content="https://saberda.github.io/2017/10/31/CNN之定位检测/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS/ ML　　|　　二次元　　|　　saberda@qq.com　　|　　从花时间省钱到花钱省时间</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-CNN之定位检测" class="post-CNN之定位检测 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      CNN之定位检测
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/31/CNN之定位检测/" data-id="cj9eg242c0008geb3w669uxek" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>&#x7B80;&#x5355;&#x7684;&#x6765;&#x590D;&#x4E60;&#x4E00;&#x4E0B;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x6211;&#x4EEC;&#x5206;&#x89E3;&#x4E86;&#x90A3;&#x4E9B;&#x5C42;&#x6B21;&#x5E76;&#x82B1;&#x8D39;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x7406;&#x89E3;&#x5377;&#x79EF;&#x7B97;&#x5B50;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x5B66;&#x4E60;&#x5982;&#x4F55;&#x628A;&#x4E00;&#x4E2A;&#x7279;&#x5F81;&#x56FE;&#x50CF;&#x8F6C;&#x6362;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#xFF0C;&#x8FD9;&#x662F;&#x901A;&#x8FC7;&#x6ED1;&#x52A8;&#x7279;&#x5F81;&#x56FE;&#x4E0A;&#x7684;&#x7A97;&#x53E3;&#x6765;&#x8BA1;&#x7B97;&#x5185;&#x79EF;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E9B;&#x8868;&#x73B0;&#x901A;&#x8FC7;&#x8BB8;&#x591A;&#x5C42;&#x7684;&#x5904;&#x7406;&#x6765;&#x8F6C;&#x5316;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x8BB0;&#x5F97;&#x8FD9;&#x4E9B;&#x8F83;&#x4F4E;&#x7684;&#x5B66;&#x4E60;&#x8FB9;&#x754C;&#x548C;&#x989C;&#x8272;&#x7684;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x800C;&#x9AD8;&#x5C42;&#x5219;&#x5B66;&#x4E60;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x7684;&#x7269;&#x4F53;&#x90E8;&#x5206;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x8BB2;&#x5230;&#x4E86;&#x6C60;&#x5316;&#xFF0C;&#x6C60;&#x5316;&#x7528;&#x4E8E;&#x62BD;&#x6837;&#xFF0C;&#x5E76;&#x4E14;&#x7F29;&#x5C0F;&#x7F51;&#x8DEF;&#x5185;&#x7684;&#x7279;&#x5F81;&#x8868;&#x73B0;&#xFF0C;&#x8FD9;&#x662F;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x5F88;&#x666E;&#x901A;&#x7684;&#x5C42;&#x7EA7;&#x7ED3;&#x6784;&#x3002;&#x6211;&#x4EEC;&#x8FD8;&#x5BF9;&#x7279;&#x5B9A;&#x7684;&#x7F51;&#x7EDC;&#x67B6;&#x6784;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF0C;&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x80FD;&#x770B;&#x5230;&#x8FD9;&#x4E9B;&#x4E8B;&#x7269;&#x662F;&#x5982;&#x4F55;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x88AB;&#x8FDE;&#x63A5;&#x5230;&#x4E86;&#x4E00;&#x8D77;&#x3002;</p>
+<p>&#x518D;&#x7B80;&#x5355;&#x590D;&#x4E60;&#x4E00;&#x4E0B;&#x7ECF;&#x5178;&#x6A21;&#x578B;&#xFF0C;LeNet&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5C0F;&#x7684;5&#x5C42;&#x7F51;&#x7EDC;&#xFF08;98&#x5E74;&#xFF09;&#x7528;&#x4E8E;&#x6570;&#x5B57;&#x8BC6;&#x522B;&#x3002;AlexNet&#xFF0C;&#x662F;&#x4ED6;&#x62C9;&#x5F00;&#x4E86;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;&#x706B;&#x7206;&#x5E8F;&#x5E55;&#xFF0C;&#x4E4B;&#x540E;&#x662F;ZFNet&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x56FE;&#x50CF;&#x5206;&#x7C7B;&#x7F51;&#x7EDC;&#x3002;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x660E;&#x767D;&#x5728;&#x5206;&#x7C7B;&#x4E2D;&#xFF0C;&#x66F4;&#x6DF1;&#x4E00;&#x822C;&#x4F1A;&#x66F4;&#x597D;&#xFF0C;&#x4F8B;&#x5982;&#x8868;&#x73B0;&#x826F;&#x597D;&#x7684;VGG&#x548C;GoogLeNet&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x8BB2;&#x5230;&#x7684;&#x662F;ResNet&#x7684;&#x65B0;&#x7684;&#x795E;&#x5947;&#x7684;&#x7F51;&#x7EDC;&#xFF0C;&#x5B83;&#x6DF1;&#x8FBE;152&#x5C42;&#xFF0C;&#x6CA1;&#x6709;&#x5F3A;&#x5927;GPU&#x7684;&#x8FD8;&#x662F;&#x4E0D;&#x8981;&#x53BB;&#x8F7B;&#x6613;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x3002;&#x6B63;&#x5982;&#x4F60;&#x4EEC;&#x6240;&#x89C1;&#xFF0C;&#x8FD9;&#x4E9B;&#x7F51;&#x7EDC;&#x90FD;&#x5728;&#x53D8;&#x5F97;&#x66F4;&#x6DF1;&#xFF0C;&#x4E5F;&#x968F;&#x4E4B;&#x8868;&#x73B0;&#x7684;&#x66F4;&#x597D;&#x3002;</p>
+<a id="more"></a>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/1.png" alt=""></p>
+<h2 id="&#x5B9A;&#x4F4D;"><a href="#&#x5B9A;&#x4F4D;" class="headerlink" title="&#x5B9A;&#x4F4D;"></a>&#x5B9A;&#x4F4D;</h2><p>&#x4F46;&#x662F;&#x8FD9;&#x4E9B;&#x90FD;&#x4EC5;&#x4EC5;&#x4E3A;&#x4E86;&#x5206;&#x7C7B;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x73B0;&#x5728;&#x4ECB;&#x7ECD;&#x4E0B;&#x5B9A;&#x4F4D;&#xFF0C;&#x8FD9;&#x662F;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x53E6;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6B63;&#x5982;&#x6211;&#x521A;&#x624D;&#x6240;&#x8BF4;&#x7684;&#xFF0C;&#x7F51;&#x7EDC;&#x8D8A;&#x6DF1;&#x7ED3;&#x679C;&#x53EF;&#x80FD;&#x8D8A;&#x597D;&#x8FD9;&#x4E2A;&#x7ED3;&#x8BBA;&#xFF0C;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x4EFB;&#x52A1;&#x4E2D;&#x4E00;&#x6837;&#x6210;&#x7ACB;&#xFF0C;&#x6240;&#x4EE5;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x6211;&#x4EEC;&#x4E00;&#x76F4;&#x5728;&#x8BB2;&#x5206;&#x7C7B;&#x3002;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5BF9;&#x4E8E;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x5BF9;&#x4E0D;&#x540C;&#x6570;&#x91CF;&#x4E0A;&#x7684;&#x7269;&#x4F53;&#x7C7B;&#x522B;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4E2D;&#x5F88;&#x597D;&#x4E5F;&#x5F88;&#x57FA;&#x7840;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x5B83;&#x6765;&#x7406;&#x89E3;CNN&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/2.png" alt=""></p>
+<p>&#x4F46;&#x4EBA;&#x4EEC;&#x5728;&#x7814;&#x7A76;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E5F;&#x9047;&#x5230;&#x4E86;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x7684;&#x95EE;&#x9898;&#x3002;&#x8FD9;&#x5176;&#x4E2D;&#x5C31;&#x6709;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x3002;&#x73B0;&#x5728;&#xFF0C;&#x9664;&#x4E86;&#x4EC5;&#x4EC5;&#x628A;&#x56FE;&#x50CF;&#x548C;&#x7C7B;&#x6807;&#x7B7E;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x5E0C;&#x671B;&#x628A;&#x6846;&#x6846;&#x653E;&#x5728;&#x56FE;&#x50CF;&#x4E2D;&#xFF0C;&#x8868;&#x660E;&#x8FD9;&#x5C31;&#x662F;&#x5206;&#x7C7B;&#x53D1;&#x751F;&#x7684;&#x533A;&#x57DF;&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x4EBA;&#x4EEC;&#x6B63;&#x5728;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x68C0;&#x6D4B;&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x8FD8;&#x662F;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x7C7B;&#x522B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x9009;&#x4E2D;&#x5728;&#x56FE;&#x50CF;&#x5185;&#x6240;&#x6709;&#x8BE5;&#x7C7B;&#x522B;&#x7684;&#x76EE;&#x6807;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x5468;&#x56F4;&#x7684;&#x9009;&#x6846;&#x3002;&#x5728;&#x4E00;&#x4E2A;&#x6700;&#x8FD1;&#x4EBA;&#x4EEC;&#x624D;&#x5F00;&#x59CB;&#x7740;&#x624B;&#x7814;&#x7A76;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4EE4;&#x4EBA;&#x7740;&#x9B54;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x4ED6;&#x53EB;&#x505A;&#x5B9E;&#x65F6;&#x56FE;&#x50CF;&#x5206;&#x5272;&#xFF0C;&#x5176;&#x539F;&#x7406;&#x5C31;&#x662F;&#x4F60;&#x6709;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7C7B;&#x522B;&#xFF0C;&#x4F60;&#x60F3;&#x5728;&#x56FE;&#x50CF;&#x4E2D;&#x627E;&#x5230;&#x6240;&#x6709;&#x7C7B;&#x522B;&#x5BF9;&#x5E94;&#x7684;&#x76EE;&#x6807;&#xFF0C;&#x4F46;&#x662F;&#x76F8;&#x6BD4;&#x4E8E;&#x7528;&#x6846;&#x6846;&#x9009;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x66F4;&#x5E0C;&#x671B;&#x5708;&#x51FA;&#x56F4;&#x7ED5;&#x8BE5;&#x76EE;&#x6807;&#x7684;&#x8F6E;&#x5ED3;&#xFF0C;&#x5E76;&#x8BC6;&#x522B;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x7684;&#x50CF;&#x7D20;&#x3002;&#x56FE;&#x50CF;&#x5206;&#x5272;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x75AF;&#x72C2;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5728;&#x8FD9;&#x91CC;&#x4E0D;&#x53BB;&#x8BA8;&#x8BBA;&#x4ED6;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x4EEC;&#x4E5F;&#x8981;&#x4E86;&#x89E3;&#x4ED6;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4ECA;&#x5929;&#x5219;&#x8981;&#x7740;&#x91CD;&#x5173;&#x6CE8;&#x5B9A;&#x4F4D;&#x548C;&#x68C0;&#x6D4B;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x8FD9;&#x4E24;&#x8005;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x627E;&#x5230;&#x7684;&#x76EE;&#x6807;&#x7684;&#x6570;&#x91CF;&#x3002;&#x5728;&#x5B9A;&#x4F4D;&#x4E2D;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x4E00;&#x79CD;&#x5BF9;&#x8C61;&#xFF1B;&#x4F46;&#x5728;&#x68C0;&#x6D4B;&#x4E2D;&#xFF0C;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x4E2A;&#x6216;&#x591A;&#x79CD;&#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x662F;&#x4E2A;&#x5F88;&#x5C0F;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x5BF9;&#x6700;&#x7EC8;&#x7684;&#x67B6;&#x6784;&#x8D77;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F1A;&#x5148;&#x8BB2;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E24;&#x4E2A;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x3002;</p>
+<p>&#x6982;&#x62EC;&#x4E00;&#x4E0B;&#x6211;&#x521A;&#x624D;&#x6240;&#x8BB2;&#x7684;&#xFF0C;&#x5206;&#x7C7B;&#x662F;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x79CD;&#x7ED9;&#x5B9A;&#x7C7B;&#x522B;&#x6807;&#x7B7E;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5B9A;&#x4F4D;&#x5219;&#x662F;&#x5728;&#x56FE;&#x50CF;&#x4E2D;&#x7ED9;&#x5BF9;&#x8C61;&#x5708;&#x4E0A;&#x6846;&#x6846;&#xFF0C;&#x800C;&#x5206;&#x7C7B;&#x5B9A;&#x4F4D;&#x5C31;&#x662F;&#x6307;&#x6211;&#x4EEC;&#x8981;&#x540C;&#x65F6;&#x7B26;&#x5408;&#x8FD9;&#x4E24;&#x8005;&#x7684;&#x8981;&#x6C42;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/3.png" alt=""></p>
+<p>&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x4EBA;&#x4EEC;&#x76EE;&#x524D;&#x7528;&#x6B64;&#x8FBE;&#x6210;&#x7684;&#x4EFB;&#x52A1;&#x4F1A;&#x7ED9;&#x4F60;&#x4EEC;&#x4E00;&#x4E9B;&#x542F;&#x53D1;&#x3002;&#x6211;&#x4EEC;&#x8BB2;&#x5230;&#x4E86;ImageNet&#x5206;&#x7C7B;&#x7684;&#x6311;&#x6218;&#xFF0C;ImageNet&#x8FD8;&#x6709;&#x5206;&#x7C7B;+&#x5B9A;&#x4F4D;&#x7684;&#x6311;&#x6218;&#x3002;&#x76F8;&#x4F3C;&#x4E0E;&#x5206;&#x7C7B;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;1000&#x4E2A;&#x7C7B;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x7C7B;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x8BAD;&#x7EC3;&#x76EE;&#x6807;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x548C;&#x8BB8;&#x591A;&#x7684;&#x5728;&#x56FE;&#x50CF;&#x5185;&#x90E8;&#x5BF9;&#x5E94;&#x8BE5;&#x5206;&#x7C7B;&#x7684;&#x4F4D;&#x7F6E;&#x9009;&#x6846;&#x3002;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x7684;&#x66F4;&#x5C0F;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B97;&#x6CD5;&#x4F1A;&#x5F97;&#x51FA;&#x4E94;&#x4E2A;&#x731C;&#x60F3;&#xFF0C;&#x4E0E;&#x5176;&#x8BF4;&#x8FD9;&#x4E9B;&#x731C;&#x60F3;&#x4EC5;&#x662F;&#x7C7B;&#x6807;&#x7B7E;&#xFF0C;&#x4E0D;&#x5982;&#x8BF4;&#x4ED6;&#x4EEC;&#x662F;&#x4E0E;&#x4F4D;&#x7F6E;&#x6846;&#x6846;&#x5728;&#x4E00;&#x8D77;&#x7684;&#x7C7B;&#x6807;&#x7B7E;&#x3002;&#x4E3A;&#x4E86;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x7684;&#x731C;&#x60F3;&#xFF0C;&#x4F60;&#x8981;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x7684;&#x7C7B;&#x6807;&#x7B7E;&#x548C;&#x6B63;&#x786E;&#x7684;&#x4F4D;&#x7F6E;&#x6846;&#x6846;&#x3002;&#x5982;&#x679C;&#x5F97;&#x5230;&#x4E86;&#x6B63;&#x786E;&#x4F4D;&#x7F6E;&#xFF0C;&#x90A3;&#x5C31;&#x4EE3;&#x8868;&#x4F60;&#x7684;&#x7ED3;&#x679C;&#x5F88;&#x63A5;&#x8FD1;&#x5206;&#x5272;&#x7684;&#x51C6;&#x786E;&#x7387;&#xFF08;loU&#xFF1A; intersection of union&#xFF09;&#x4E86;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F60;&#x73B0;&#x5728;&#x4E0D;&#x5FC5;&#x53BB;&#x8003;&#x8651;loU&#x7684;&#x4E8B;&#x60C5;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x91CD;&#x590D;&#x4E00;&#x904D;&#x5C31;&#x662F;&#xFF0C;&#x53EA;&#x8981;&#x4F60;&#x4E94;&#x4E2A;&#x731C;&#x60F3;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x4F60;&#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x7684;imageNet&#x3002;&#x6240;&#x4EE5;&#x8FD9;&#x5C31;&#x662F;&#x4EBA;&#x4EEC;&#x4E00;&#x76F4;&#x7814;&#x7A76;&#x7684;&#x5206;&#x7C7B;+&#x5B9A;&#x4F4D;&#x7684;&#x6700;&#x4E3B;&#x8981;&#x6570;&#x636E;&#x96C6;&#x3002;</p>
+<h2 id="&#x56DE;&#x5F52;&#x7684;&#x4F7F;&#x7528;"><a href="#&#x56DE;&#x5F52;&#x7684;&#x4F7F;&#x7528;" class="headerlink" title="&#x56DE;&#x5F52;&#x7684;&#x4F7F;&#x7528;"></a>&#x56DE;&#x5F52;&#x7684;&#x4F7F;&#x7528;</h2><p>&#x5F53;&#x7814;&#x7A76;&#x5B9A;&#x4F4D;&#x65F6;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x6709;&#x7528;&#x7684;&#x5F88;&#x57FA;&#x7840;&#x7684;&#x8303;&#x5F0F;&#xFF1A;&#x56DE;&#x5F52;&#x3002;&#x6211;&#x4E0D;&#x77E5;&#x9053;&#x5728;&#x56DE;&#x60F3;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x8BFE;&#x7A0B;&#x5F53;&#x4E2D;&#xFF0C;&#x4F60;&#x80FD;&#x4E0D;&#x80FD;&#x60F3;&#x8D77;&#x5206;&#x7C7B;&#x7B97;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;SVM&#xFF0C;&#x8FD8;&#x6709;&#x56DE;&#x5F52;&#x7B97;&#x6CD5;&#xFF1B;&#x5F53;&#x6211;&#x4EEC;&#x8BA8;&#x8BBA;&#x5B9A;&#x4F4D;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x89C6;&#x4F5C;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x8FD9;&#x5F20;&#x56FE;&#x7247;&#x8981;&#x7ECF;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#xFF0C;&#x5E76;&#x6700;&#x7EC8;&#x751F;&#x6210;&#x56DB;&#x4E2A;&#x4EE3;&#x8868;&#x6846;&#x6846;&#x5927;&#x5C0F;&#x7684;&#x5B9E;&#x6570;&#x3002;&#x6709;&#x8BB8;&#x591A;&#x4E0D;&#x540C;&#x7684;&#x53C2;&#x6570;&#x6765;&#x63CF;&#x8FF0;&#x6846;&#x6846;&#xFF0C;&#x4EBA;&#x4EEC;&#x5E38;&#x7528;&#x7684;&#x662F;&#x7528;XY&#x5750;&#x6807;&#x5B9A;&#x4F4D;&#x6846;&#x6846;&#x7684;&#x5DE6;&#x4E0A;&#x89D2;&#x3001;&#x5BBD;&#x5EA6;&#x548C;&#x9AD8;&#x5EA6;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E5F;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x6846;&#x6846;&#x6765;&#x8BF4;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x90FD;&#x53EA;&#x80FD;&#x662F;&#x56DB;&#x4E2A;&#x6570;&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x771F;&#x5B9E;&#x51C6;&#x786E;&#xFF08;ground truth&#xFF09;&#x7684;&#x9009;&#x6846;&#xFF0C;&#x4E5F;&#x662F;&#x7528;&#x56DB;&#x4E2A;&#x53D8;&#x91CF;&#x63CF;&#x8FF0;&#x7684;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/4.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x635F;&#x5931;&#xFF0C;&#x6BD4;&#x5982;&#x6B27;&#x5F0F;&#x635F;&#x5931;&#xFF0C;&#x6B27;&#x5F0F;&#x635F;&#x5931;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x6807;&#x51C6;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x751F;&#x6210;&#x7684;&#x6570;&#x5B57;&#x4E0E;&#x6B63;&#x786E;&#x7684;&#x6570;&#x5B57;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x989D;&#x3002;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x540C;&#x6837;&#x8BAD;&#x7EC3;&#x4ED6;&#x5C31;&#x50CF;&#x6211;&#x4EEC;&#x8BAD;&#x7EC3;&#x5206;&#x7C7B;&#x7F51;&#x7EDC;&#x90A3;&#x6837;&#xFF1A;&#x6211;&#x4EEC;&#x7528;ground truth&#x8FB9;&#x6846;&#x5BF9;&#x8BB8;&#x591A;&#x6279;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x62BD;&#x6837;&#xFF0C;&#x5E76;&#x5411;&#x524D;&#x4F20;&#x64AD;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x505A;&#x7684;&#x9884;&#x6D4B;&#x4E0E;&#x6B63;&#x786E;&#x7684;&#x9884;&#x6D4B;&#x53EA;&#x5DEE;&#x6240;&#x5E26;&#x6765;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x635F;&#x5931;&#x5219;&#x5F80;&#x56DE;&#x4F20;&#x64AD;&#xFF0C;&#x4E00;&#x6B21;&#x4E3A;&#x65B9;&#x6CD5;&#x6765;&#x5347;&#x7EA7;&#x7F51;&#x7EDC;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x8303;&#x5F0F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4E5F;&#x4F7F;&#x5F97;&#x5B9A;&#x4F4D;&#x7684;&#x5B9E;&#x884C;&#x4E5F;&#x53D8;&#x5F97;&#x7B80;&#x5355;&#x3002;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x79D8;&#x8BC0;&#xFF0C;&#x8FD9;&#x4E2A;&#x79D8;&#x8BC0;&#x4F1A;&#x544A;&#x8BC9;&#x4F60;&#x600E;&#x6837;&#x6765;&#x5B9E;&#x65F6;&#x5206;&#x7C7B;+&#x5B9A;&#x4F4D;&#x3002;&#x9996;&#x5148;&#x4F60;&#x8981;&#x4E0B;&#x8F7D;&#x73B0;&#x6709;&#x7684;&#x524D;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x81EA;&#x5DF1;&#x7684;&#x6280;&#x672F;&#x611F;&#x5230;&#x81EA;&#x884C;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4F7F;AlexNet&#xFF0C;VGG&#xFF0C;GoogLeNet&#x7B49;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8BAD;&#x7EC3;&#x540E;&#x751F;&#x6210;class scores&#x7684;&#x5168;&#x8FDE;&#x63A5;&#x5C42;.</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/5.png" alt=""></p>
+<p>&#x4F46;&#x6211;&#x4EEC;&#x5148;&#x6682;&#x4E14;&#x4E0D;&#x53BB;&#x7BA1;&#x4ED6;&#xFF0C;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x91CC;&#x518D;&#x63A5;&#x4E0A;&#x4E00;&#x4E9B;&#x65B0;&#x7684;FC&#x3002;&#x6211;&#x4EEC;&#x628A;&#x8FD9;&#x79F0;&#x4E4B;&#x4E3A;&#x56DE;&#x5F52;&#x7F51;&#x7EDC;&#xFF08;regression head&#xFF09;&#x3002;&#x4F46;&#x6211;&#x8BA4;&#x4E3A;&#x8FD9;&#x5B9E;&#x9645;&#x4E0A;&#x8DDF;FC&#x662F;&#x4E00;&#x4E2A;&#x610F;&#x601D;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8F93;&#x51FA;&#x4E00;&#x4E9B;&#x5B9E;&#x6570;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/6.png" alt=""></p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8BAD;&#x7EC3;&#x5B83;&#x5C31;&#x50CF;&#x8BAD;&#x7EC3;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x5206;&#x7C7B;&#x7F51;&#x7EDC;&#xFF0C;&#x552F;&#x4E00;&#x533A;&#x522B;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x628A;class cores&#x548C;classes&#x66FF;&#x6362;&#x6210;L2 loss&#x548C;ground truth&#x6846;&#x6846;&#x3002;&#x9664;&#x4E86;&#x4EE5;&#x4E0A;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x8BAD;&#x7EC3;&#x539F;&#x6765;&#x7F51;&#x7EDC;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x540C;&#x6837;&#x8BAD;&#x7EC3;&#x8FD9;&#x4E2A;&#x65B0;&#x7684;&#x7F51;&#x7EDC;&#x3002;&#x5F53;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x7528;&#x8FD9;&#x659C;&#x6765;&#x5B9E;&#x73B0;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/7.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x627E;&#x4E86;&#x4E00;&#x4E9B;&#x7167;&#x7247;&#xFF0C;&#x5E76;&#x4E14;&#x8BAD;&#x7EC3;&#x4E86;&#x5206;&#x7C7B;&#x7F51;&#x7EDC;&#x548C;&#x5B9A;&#x4F4D;&#x7F51;&#x7EDC;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x5C31;&#x80FD;&#x5F97;&#x5230;class scores&#x548C;&#x6846;&#x6846;&#xFF0C;&#x5C31;&#x8FD9;&#x6837;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x4E86;&#xFF0C;&#x6309;&#x7167;&#x6B65;&#x9AA4;&#x505A;&#x5C31;&#x80FD;&#x5728;&#x4F60;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x8FD8;&#x6709;&#x4E2A;&#x7EC6;&#x8282;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x65F6;&#x4E00;&#x5171;&#x6709;&#x4E24;&#x79CD;&#x4E3B;&#x8981;&#x65B9;&#x5F0F;&#xFF0C;<strong>&#x4E0D;&#x5B9A;&#x7C7B;&#x56DE;&#x5F52;</strong>&#xFF08;class-agnostic regression&#xFF09;&#x548C;<strong>&#x7279;&#x5B9A;&#x7C7B;&#x56DE;&#x5F52;</strong>&#xFF08;class-specific regression&#xFF09;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/8.png" alt=""></p>
+<p>&#x4E0D;&#x5B9A;&#x4F4D;&#x56DE;&#x5F52;&#x662F;&#x65E0;&#x8BBA;&#x6211;&#x4F7F;&#x7528;&#x4EC0;&#x4E48;&#x7C7B;&#x522B;&#xFF0C;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x4E2D;&#x90FD;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x6743;&#x503C;&#x6765;&#x5F97;&#x5230;&#x8FB9;&#x754C;&#x6602;&#x72C2;&#x6846;&#xFF08;bounding box&#xFF09;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x603B;&#x662F;4&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x522B;&#x4ED6;&#x4EEC;&#x8868;&#x793A;&#x7684;&#x90FD;&#x662F;&#x90A3;&#x4E2A;&#x6846;&#x3002;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x9009;&#x62E9;&#x662F;&#x7279;&#x5B9A;&#x7C7B;&#x56DE;&#x5F52;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x662F;C&#x627F;&#x4E0A;4&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x6BCF;&#x79CD;&#x7C7B;&#x522B;&#x6709;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x5F88;&#x591A;&#x4EBA;&#x53D1;&#x73B0;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5728;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#x6548;&#x679C;&#x4F1A;&#x66F4;&#x597D;&#x3002;&#x76F4;&#x89C2;&#x5730;&#x8BF4;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x786E;&#x5B9E;&#x662F;&#x6709;&#x610F;&#x4E49;&#x7684;&#xFF0C;&#x8BD5;&#x7740;&#x601D;&#x8003;&#x4E00;&#x4E0B;&#xFF0C;&#x5BF9;&#x4E00;&#x53EA;&#x732B;&#x732B;&#x786E;&#x5B9A;&#x5176;&#x8FB9;&#x754C;&#x548C;&#x5BF9;&#x706B;&#x8F66;&#x786E;&#x5B9A;&#x8FB9;&#x754C;&#x603B;&#x662F;&#x6709;&#x4E00;&#x4E9B;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x9700;&#x8981;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x6765;&#x5E94;&#x5BF9;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x4ED6;&#x7A0D;&#x5FAE;&#x6539;&#x53D8;&#x4E86;&#x8BA1;&#x7B97;&#x635F;&#x5931;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x4F7F;&#x7528;ground truth class&#x6765;&#x8BA1;&#x7B97;&#x635F;&#x5931;&#xFF0C;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x5728;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x8FD9;&#x4E24;&#x79CD;&#x57FA;&#x672C;&#x5C5E;&#x4E8E;&#x540C;&#x4E00;&#x601D;&#x60F3;&#x3002;</p>
+<p><strong>&#x53E6;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x9009;&#x62E9;&#x7684;&#x5730;&#x65B9;&#x662F;&#x5728;&#x7F51;&#x7EDC;&#x7684;&#x90A3;&#x4E2A;&#x4F4D;&#x7F6E;&#x8FDB;&#x884C;&#x56DE;&#x5F52;</strong>&#x3002;&#x8FD9;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x4EBA;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x5E38;&#x89C1;&#x7684;&#x9009;&#x62E9;&#x662F;&#x5C06;&#x56DE;&#x5F52;&#x5C42;&#xFF08;regression head&#xFF09;&#x653E;&#x5728;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x5377;&#x79EF;&#x5C42;&#x540E;&#xFF0C;&#x8FD9;&#x5C31;&#x50CF;&#x662F;&#x4F60;&#x5BF9;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x91CD;&#x65B0;&#x505A;&#x4E86;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x50CF;Overfeat&#x3001;VGG&#x7F51;&#x7EDC;&#x5C31;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x53E6;&#x4E00;&#x79CD;&#x9009;&#x62E9;&#x662F;&#x5C06;&#x56DE;&#x5F52;&#x5C42;&#x653E;&#x5728;FC&#x4E4B;&#x540E;&#xFF0C;&#x50CF;deepPose&#x548C;RCNN&#x5C31;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5DE5;&#x4F5C;&#x7684;&#x3002;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x6548;&#x679C;&#x90FD;&#x4E0D;&#x9519;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x81EA;&#x5DF1;&#x7684;&#x559C;&#x597D;&#x53BB;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/9.png" alt=""></p>
+<p>&#x987A;&#x4FBF;&#x63D0;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E2A;&#x6846;&#x67B6;&#x5BF9;&#x4E0D;&#x6B62;&#x4E00;&#x79CD;&#x7269;&#x4F53;&#x6765;&#x5212;&#x5B9A;&#x5176;&#x8FB9;&#x754C;&#x6846;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#xFF0C;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x5173;&#x6CE8;&#x4ED6;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x7684;&#x8FB9;&#x754C;&#x6846;&#x3002;&#x4F46;&#x662F;&#x5728;&#x4E00;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F60;&#x63D0;&#x524D;&#x77E5;&#x9053;&#x8981;&#x5BF9;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7269;&#x4F53;&#x8FDB;&#x884C;&#x5212;&#x5206;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x603B;&#x7ED3;&#x8D77;&#x6765;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x56DE;&#x5F52;&#x5C42;&#x8F93;&#x51FA;&#x4E86;&#x6BCF;&#x4E2A;&#x7269;&#x4F53;&#x5BF9;&#x5E94;&#x7684;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x7528;&#x540C;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x5BF9;&#x7F51;&#x7EDC;&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x5BF9;&#x591A;&#x4E2A;&#x7269;&#x4F53;&#x8FDB;&#x884C;&#x5B9A;&#x4F4D;&#x662F;&#x975E;&#x5E38;&#x901A;&#x7528;&#x800C;&#x4E14;&#x529F;&#x80FD;&#x5F3A;&#x5927;&#x7684;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x8FD9;&#x9879;&#x6280;&#x672F;&#x5728;&#x4EBA;&#x7C7B;&#x59FF;&#x52BF;&#x5224;&#x5B9A;&#x4E2D;&#x5F97;&#x5230;&#x5E94;&#x7528;&#x3002;&#x5F53;&#x4F60;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x4EBA;&#x7684;&#x7279;&#x5199;&#x955C;&#x5934;&#x65F6;&#xFF0C;&#x4EBA;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x4EBA;&#x7684;&#x59FF;&#x52BF;&#x662F;&#x4EC0;&#x4E48;&#x3002;&#x4EBA;&#x4F53;&#x90FD;&#x6709;&#x7740;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x8EAB;&#x4F53;&#x5173;&#x8282;&#xFF0C;&#x50CF;&#x624B;&#x8155;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x53BB;&#x627E;&#x5230;&#x6240;&#x6709;&#x7684;&#x5173;&#x8282;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x6211;&#x4EEC;&#x8F93;&#x5165;&#x8FD9;&#x5F20;&#x56FE;&#x7247;&#x65F6;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x7F51;&#x7EDC;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x5728;XY&#x8F74;&#x4E0A;&#x627E;&#x5230;&#x6BCF;&#x4E2A;&#x5173;&#x8282;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4ECE;&#x800C;&#x80FD;&#x591F;&#x8BA9;&#x6211;&#x4EEC;&#x5BF9;&#x8FD9;&#x4E2A;&#x4EBA;&#x7684;&#x59FF;&#x52BF;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/10.png" alt=""></p>
+<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x5B9A;&#x4F4D;&#x7684;&#x601D;&#x60F3;&#x548C;&#x901A;&#x8FC7;&#x56DE;&#x5F52;&#x5B9A;&#x4F4D;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7269;&#x4F53;&#x662F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;&#x3002;&#x6211;&#x77E5;&#x9053;&#x6709;&#x65F6;&#x4F60;&#x60F3;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9A;&#x4F4D;&#x548C;&#x5206;&#x7C7B;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4EEC;&#x5411;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x7406;&#x89E3;&#x56FE;&#x50CF;&#xFF0C;&#x5E76;&#x5728;&#x8FDB;&#x884C;&#x9879;&#x76EE;&#x65F6;&#x80FD;&#x591F;&#x8003;&#x8651;&#x5230;&#x8FD9;&#x4E9B;&#x65B9;&#x9762;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x5E0C;&#x671B;&#x4F60;&#x4EEC;&#x80FD;&#x591F;&#x8003;&#x8651;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x5B9A;&#x4F4D;&#x7684;&#x6846;&#x67B6;&#xFF1A;&#x5982;&#x679C;&#x5728;&#x6BCF;&#x4E2A;&#x56FE;&#x50CF;&#x4E2D;&#x90FD;&#x6709;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x7269;&#x4F53;&#x9700;&#x8981;&#x5B9A;&#x4F4D;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5C06;&#x5B83;&#x770B;&#x6210;&#x662F;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x4F7F;&#x95EE;&#x9898;&#x66F4;&#x7B80;&#x5355;&#x4E00;&#x70B9;&#x3002;</p>
+<p>&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x901A;&#x8FC7;&#x56DE;&#x5F52;&#x5B9A;&#x4F4D;&#x7684;&#x65B9;&#x6CD5;&#x786E;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4ED6;&#x786E;&#x5B9E;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x5728;imageNet&#x8FD9;&#x6837;&#x7684;&#x6BD4;&#x8D5B;&#x5360;&#x6709;&#x4E00;&#x5E2D;&#x4E4B;&#x5730;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x65B0;&#x7684;&#x4E1C;&#x897F;&#x3002;&#x6240;&#x4EE5;&#x4EBA;&#x4EEC;&#x5B9A;&#x4F4D;&#x662F;&#x8003;&#x8651;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#x8FD8;&#x5305;&#x62EC;&#x4E86;&#x6ED1;&#x52A8;&#x7A97;&#x53E3;&#xFF08;sliding window&#xFF09;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x4F60;&#x4F9D;&#x7136;&#x8981;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x4E0D;&#x53EA;&#x662F;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4F4D;&#x7F6E;&#x591A;&#x6B21;&#x8FDB;&#x884C;&#xFF0C;&#x518D;&#x8BB2;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x8FDB;&#x884C;&#x805A;&#x5408;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#x6709;&#x4E00;&#x79CD;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x505A;&#x8FD9;&#x4E2A;&#x4E8B;&#x60C5;&#x3002;</p>
+<h2 id="Overfeat"><a href="#Overfeat" class="headerlink" title="Overfeat"></a>Overfeat</h2><p>&#x4E3A;&#x4E86;&#x66F4;&#x5177;&#x4F53;&#x7684;&#x4E86;&#x89E3;&#x6ED1;&#x52A8;&#x7A97;&#x5B9A;&#x4F4D;&#x65B9;&#x6CD5;&#x7684;&#x5DE5;&#x4F5C;&#x8FC7;&#x7A0B;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;Overfeat&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/11.png" alt=""></p>
+<p>Overfeat&#x662F;&#x5728;imageNet&#x5B9A;&#x4F4D;&#x6311;&#x6218;&#x8D5B;&#x4E2D;&#x7684;&#x4F18;&#x80DC;&#x8005;&#xFF0C;&#x8FD9;&#x4E2A;&#x7ED3;&#x6784;&#x770B;&#x4E0A;&#x53BB;&#x548C;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BB2;&#x8FC7;&#x7684;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x5F00;&#x59CB;&#x662F;&#x4E00;&#x4E2A;AlexNet&#xFF0C;&#x7136;&#x540E;&#x662F;&#x5206;&#x7C7B;&#x5C42;&#x548C;&#x56DE;&#x5F52;&#x5C42;&#x3002;&#x5206;&#x7C7B;&#x5C42;&#x8F93;&#x51FA;&#x4EA7;&#x751F;&#x7C7B;&#x7684;&#x5206;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;ALexNet&#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x671F;&#x671B;&#x7684;&#x8F93;&#x5165;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#x662F; 221 * 221&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x66F4;&#x5927;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x6B64;&#x65F6;&#x6ED1;&#x52A8;&#x7A97;&#x7684;&#x65B9;&#x6CD5;&#x80FD;&#x591F;&#x8D77;&#x5230;&#x4F5C;&#x7528;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4; 257 * 257 &#x7684;&#x56FE;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x56FE;&#x7247;&#x5DE6;&#x4E0A;&#x65B9;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#xFF0C;&#x4ECE;&#x800C;&#x5F97;&#x5230;&#x7C7B;&#x7684;&#x5206;&#x6570;&#x548C;&#x76F8;&#x5E94;&#x7684;&#x8FB9;&#x754C;&#x6846;&#x3002;&#x91CD;&#x590D;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#x7F51;&#x7EDC;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x56DB;&#x4E2A;&#x89D2;&#x843D;&#x90FD;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#xFF0C;&#x6700;&#x7EC8;&#x6211;&#x4EEC;&#x4F1A;&#x5F97;&#x5230;&#x56DB;&#x4E2A;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x4F4D;&#x7F6E;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#x6846;&#x548C;&#x7C7B;&#x7684;&#x5206;&#x6570;&#x3002;&#x4F46;&#x662F;&#x4E8B;&#x5B9E;&#x4E0A;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x5BF9;&#x8FD9;&#x4E9B;&#x8FB9;&#x754C;&#x6846;&#x548C;&#x5206;&#x6570;&#x8FDB;&#x884C;&#x4E86;&#x5408;&#x5E76;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x5F88;&#x590D;&#x6742;&#xFF0C;&#x6211;&#x76EE;&#x524D;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x61C2;&#x3002;&#x53CD;&#x6B63;&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x548C;&#x805A;&#x96C6;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x7684;&#x8FB9;&#x754C;&#x6846;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x9519;&#x8BEF;&#x4FEE;&#x6B63;&#xFF0C;&#x4ED6;&#x7684;&#x5DE5;&#x4F5C;&#x6548;&#x679C;&#x5F88;&#x597D;&#x3002;</p>
+<p>&#xFF08;&#x5F53;&#x4F60;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x65F6;&#xFF0C;&#x8F93;&#x51FA;&#x7684;&#x662F;&#xFF08;&#x8868;&#x793A;&#x8FB9;&#x754C;&#x6846;&#x7684;&#xFF09;&#x56DB;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x7406;&#x8BBA;&#x4E0A;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#xFF0C;&#x4ED6;&#x751A;&#x81F3;&#x4E0D;&#x4E00;&#x5B9A;&#x5728;&#x56FE;&#x7247;&#x5185;&#x90E8;&#xFF0C;&#x5F53;&#x4F60;&#x518D;&#x7528;&#x6ED1;&#x52A8;&#x7A97;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x5BF9;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#x5750;&#x6807;&#x8F74;&#x4E5F;&#x4F1A;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#xFF09;</p>
+<p>&#x4F46;&#x662F;&#x5728;&#x5B9E;&#x9645;&#x64CD;&#x4F5C;&#x4E2D;&#x8981;&#x4F7F;&#x7528;&#x8FDC;&#x591A;&#x4E8E;&#x56DB;&#x4E2A;&#x7684;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x8F93;&#x5165;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;&#x4E5F;&#x6709;&#x591A;&#x79CD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x662F;&#x4ECE;&#x8BBA;&#x6587;&#x4E2D;&#x6458;&#x53D6;&#x7684;&#x56FE;&#x50CF;&#xFF0C;&#x5728;&#x5DE6;&#x8FB9;&#x7684;&#x56FE;&#x50CF;&#x4E2D;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x4F4D;&#x7F6E;&#x5BF9;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#xFF0C;&#x5728;&#x4E2D;&#x95F4;&#x7684;&#x56FE;&#x50CF;&#x4E2D;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x7684;&#x662F;&#x5BF9;&#x6BCF;&#x4E2A;&#x4F4D;&#x7F6E;&#x8F93;&#x51FA;&#x54CD;&#x5E94;&#x7684;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x5728;&#x56FE;&#x50CF;&#x5E95;&#x90E8;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x662F;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x4F4D;&#x7F6E;&#x5206;&#x6570;&#x7684;&#x6620;&#x5C04;&#x3002;&#x8FD9;&#x770B;&#x4E0A;&#x53BB;&#x6709;&#x70B9;&#x4E71;&#xFF0C;&#x4F46;&#x662F;&#x91C7;&#x7528;&#x8FD9;&#x4E2A;&#x805A;&#x5408;&#x65B9;&#x6CD5;&#xFF0C;&#x4ED6;&#x4EEC;&#x6700;&#x7EC8;&#x80FD;&#x5F97;&#x5230;&#x90A3;&#x4E2A;&#x718A;&#x7684;&#x6700;&#x7EC8;&#x8FB9;&#x754C;&#x6846;&#xFF0C;&#x7136;&#x540E;&#x786E;&#x5B9A;&#x8FD9;&#x4E2A;&#x56FE;&#x7247;&#x662F;&#x4E00;&#x53EA;&#x718A;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/12.png" alt=""></p>
+<h2 id="&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x4E0E;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x8F6C;&#x6362;"><a href="#&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x4E0E;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x8F6C;&#x6362;" class="headerlink" title="&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x4E0E;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x8F6C;&#x6362;"></a>&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x4E0E;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x8F6C;&#x6362;</h2><p>&#x4E00;&#x4E2A;&#x4F60;&#x80FD;&#x591F;&#x9884;&#x6599;&#x7684;&#x95EE;&#x9898;&#x662F;&#x5BF9;&#x6BCF;&#x4E2A;&#x7C7B;&#x522B;&#x90FD;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x82B1;&#x8D39;&#x662F;&#x975E;&#x5E38;&#x6602;&#x8D35;&#x7684;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#x6709;&#x4E2A;&#x9AD8;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x5C06;&#x7F51;&#x7EDC;&#x770B;&#x6210;&#x7531;&#x5377;&#x79EF;&#x7F51;&#x7EDC;&#x548C;&#x94FE;&#x63A5;&#x7F51;&#x7EDC;&#x6784;&#x6210;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6362;&#x4E00;&#x79CD;&#x89D2;&#x5EA6;&#x770B;&#xFF0C;&#x4E00;&#x4E2A;&#x5168;&#x8FDE;&#x63A5;&#x7F51;&#x7EDC;&#x662F;&#x6709;4096&#x4E2A;&#x6570;&#x5B57;&#x6784;&#x6210;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x628A;&#x4ED6;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x5B83;&#x770B;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x7684;&#x7279;&#x5F81;&#x6620;&#x5C04;&#x3002;&#xFF08;&#x4E0B;&#x56FE;&#x4E3A;&#x539F;&#x7ED3;&#x6784;&#xFF09;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/13.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x5B83;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x6210; 1 <em> 1 &#x7EF4;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5C06;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x8F6C;&#x6362;&#x6210;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x5377;&#x79EF;&#x7279;&#x5F81;&#x6620;&#x5C04;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x7279;&#x5F81;&#x6620;&#x5C04;&#x6211;&#x4EEC;&#x4EA7;&#x751F;4096&#x7EF4;&#x5411;&#x91CF;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x6211;&#x4EEC;&#x8003;&#x8651;&#x901A;&#x8FC7;&#x4E00;&#x4E2A; 5 </em> 5 &#x7684;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x7279;&#x5F81;&#x6620;&#x5C04;&#x8FDB;&#x884C;&#x76F4;&#x63A5;&#x7684;&#x53D8;&#x6362;&#x3002;&#x8FD9;&#x770B;&#x4E0A;&#x53BB;&#x6709;&#x4E00;&#x4E9B;&#x602A;&#x5F02;&#xFF0C;&#x4F46;&#x662F;&#x601D;&#x8003;&#x4EE5;&#x540E;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x5F88;&#x6709;&#x610F;&#x4E49;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5C06;&#x8FD9;&#x4E2A;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#x8FDB;&#x884C;&#x4E00;&#x4E2A; 5 <em> 5 &#x7684;&#x5377;&#x79EF;&#x8FD0;&#x7B97;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x53E6;&#x4E00;&#x4E2A;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#xFF0C;&#x4ECE;4096&#x7EF4;&#x5230;4096&#x7EF4;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; 1 </em> 1 &#x7684;&#x5377;&#x79EF;&#x8FD0;&#x7B97;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8BA4;&#x771F;&#x601D;&#x8003;&#x7528;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x6F14;&#x7B97;&#xFF0C;&#x4F60;&#x5C31;&#x80FD;&#x7406;&#x89E3;&#x4E86;&#x3002;&#xFF08;&#x4E0B;&#x56FE;&#x4E3A;&#x8F6C;&#x6362;&#x540E;&#x7ED3;&#x6784;&#xFF09;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/14.png" alt=""></p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x7684;&#x662F;&#x4F7F;&#x7528;&#x5377;&#x79EF;&#x5C42;&#x6765;&#x7EC4;&#x5408;&#x539F;&#x6765;&#x7684;&#x7F51;&#x7EDC;&#x7684;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#xFF0C;&#x8FD9;&#x6837;&#x6548;&#x679C;&#x5F88;&#x597D;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x7F51;&#x7EDC;&#x5C31;&#x5B8C;&#x5168;&#x53EA;&#x7531;&#x5377;&#x79EF;&#x5C42;&#x4E0E;&#x6C60;&#x5316;&#x5C42;&#x548C;&#x5143;&#x7D20;&#x64CD;&#x4F5C;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x4E0A;&#x53EF;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x5C3A;&#x5BF8;&#x7684;&#x56FE;&#x7247;&#x6765;&#x8FD0;&#x884C;&#x7F51;&#x7EDC;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x8282;&#x7EA6;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x7ED9;&#x6211;&#x4EEC;&#x4E00;&#x4E2A;&#x7B49;&#x4EF7;&#x7684;&#x3001;&#x4E0E;&#x4F4D;&#x7F6E;&#x65E0;&#x5173;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x770B;&#x770B;&#x4ED6;&#x7684;&#x539F;&#x7406;&#x3002;</p>
+<p>&#x5728;&#x8BAD;&#x7EC3;&#x73AF;&#x8282;&#x4F60;&#x7528;&#x7684;&#x662F;&#x4E00;&#x4E2A; 14 <em> 14 &#x7684;&#x8F93;&#x5165;&#x56FE;&#x7247;&#x8FDB;&#x5165;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x7136;&#x540E;&#x662F;&#x8FD9;&#x4E2A;&#x5168;&#x8FDE;&#x63A5;&#x5C42;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x628A;&#x5B83;&#x89C6;&#x4E3A;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6709;&#x4E2A; 5 </em> 5 &#x7684;&#x5377;&#x79EF;&#x6838;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x5377;&#x79EF;&#x6838;&#x628A;&#x4E4B;&#x524D;&#x7684;&#x7ED3;&#x679C;&#x53D8;&#x6210;&#x4E00;&#x4E2A; 1 <em> 1 &#x7684;&#x5143;&#x7D20;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5C55;&#x73B0;&#x6DF1;&#x5EA6;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; 1 </em> 1 &#x5176;&#x5B9E;&#x662F; 1 <em> 1 </em> 4096&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x628A;&#x8FD9;&#x4E2A;&#x5C42;&#x8F6C;&#x5316;&#x6210;&#x4E86;&#x989D;&#x5377;&#x79EF;&#x5C42;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x8FD9;&#x4E00;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5377;&#x79EF;&#x5C42;&#x8FD0;&#x884C;&#x5728;&#x4E86;&#x4E00;&#x5F20;&#x66F4;&#x5927;&#x5C3A;&#x5BF8;&#x7684;&#x56FE;&#x7247;&#x4E0A;&#xFF0C;&#x4F60;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6211;&#x4EEC;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x50CF;&#x7D20;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x540C;&#x6837;&#x7684;&#x5377;&#x79EF;&#x6C60;&#x5316;&#x8FC7;&#x7A0B;&#xFF0C;&#x6700;&#x540E;&#x5F97;&#x5230;&#x4E86;&#x4E00;&#x4E2A;2*2&#x7684;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x6837;&#x6700;&#x5927;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x5927;&#x5C0F;&#x7684;&#x56FE;&#x7247;&#x4E0A;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#xFF0C;&#x8FD9;&#x6837;&#x80FD;&#x591F;&#x5927;&#x5927;&#x63D0;&#x9AD8;&#x6211;&#x4EEC;&#x7684;&#x6548;&#x7387;&#x3002;</p>
+<p><img src="/2017/10/31/CNN&#x4E4B;&#x5B9A;&#x4F4D;&#x68C0;&#x6D4B;/15.png" alt=""></p>
+<p>&#x73B0;&#x5728;&#x6211;&#x7684;&#x8F93;&#x51FA;&#x662F;&#x539F;&#x6765;&#x7684;&#x56DB;&#x500D;&#x5927;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x56DB;&#x500D;&#xFF0C;&#x56E0;&#x4E3A;&#x5982;&#x679C;&#x4F60;&#x8003;&#x8651;&#x4E24;&#x6B21;&#x8BA1;&#x7B97;&#x4E2D;&#x4E0D;&#x540C;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5176;&#x5B9E;&#x989D;&#x5916;&#x7684;&#x8BA1;&#x7B97;&#x91CF;&#x53EA;&#x53D1;&#x751F;&#x5728;&#x9EC4;&#x8272;&#x7684;&#x8FD9;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5341;&#x5206;&#x9AD8;&#x6548;&#x7684;&#x8BA1;&#x7B97;&#x4E86;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x5728;&#x4E0D;&#x540C;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5728;&#x8FD9;&#x540C;&#x65F6;&#x5E76;&#x6CA1;&#x6709;&#x5E26;&#x6765;&#x7279;&#x522B;&#x5927;&#x7684;&#x989D;&#x5916;&#x8BA1;&#x7B97;&#x91CF;&#x3002;</p>
+<h2 id="&#x8865;&#x5145;"><a href="#&#x8865;&#x5145;" class="headerlink" title="&#x8865;&#x5145;"></a>&#x8865;&#x5145;</h2><ul>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x7EDC;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x7F51;&#x7EDC;&#x5206;&#x522B;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#x548C;&#x5B9A;&#x4F4D;</li>
+<li>&#x5C3D;&#x91CF;&#x4E0D;&#x8981;&#x9009;&#x62E9;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7684;&#x7F51;&#x7EDC;</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/10/31/CNN之定位检测/">
+    <time datetime="2017-10-30T16:41:05.000Z" class="entry-date">
+        2017-10-31
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/10/27/CNN-Structure-2/" rel="next">CNN_Structure_2 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">58</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">helloyzy</a></li>
+
+
+<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/31/CNN之定位检测/">CNN之定位检测</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/27/CNN-Structure-2/">CNN_Structure_2</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/25/CNN-Structure/">CNN Structure -- 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/10/16/MapReduce-RDBMs/">MapReduce VS RDBMs</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/28/Cloud-Service-Models/">Cloud Service Models</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">9</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
