@@ -80,7 +80,7 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-红黑树C实现" class="post-红黑树C实现 post type-post status-publish format-standard hentry">
+    <article id="post-代码签名探析" class="post-代码签名探析 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -88,35 +88,141 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/16/红黑树C实现/">红黑树C实现</a>
+      <a class="article-title" href="/2016/11/06/代码签名探析/">代码签名探析</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/16/红黑树C实现/" data-id="cjbai21ag0099q4b35pm923aq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/代码签名探析/" data-id="cjbai2193005yq4b3mrvhfr3j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x7EA2;&#x9ED1;&#x6811;&#x662F;&#x4E00;&#x95E8;&#x7384;&#x5B66;&#xFF0C;&#x60F3;&#x6D3B;&#x7740;&#x5C31;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x60F3;&#x6211;&#x4E00;&#x6837;&#x53BB;&#x78B0;&#x4ED6;&#xFF08;&#x5410;&#x51FA;&#x4E00;&#x53E3;&#x8001;&#x8840;&#xFF09;
-</code></pre><p>&#x8FD9;&#x4E2A;&#x8F6E;&#x5B50;&#x662F;&#x6211;&#x5230;&#x76EE;&#x524D;&#x5199;&#x7684;&#x6700;&#x590D;&#x6742;&#x7684;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x8F6E;&#x5B50;&#xFF0C;&#x6CA1;&#x6709;&#x4E4B;&#x4E00;&#x3002;</p>
-<p>&#x5177;&#x4F53;&#x5173;&#x4E8E;&#x7EA2;&#x9ED1;&#x6811;&#x7684;&#x6587;&#x7AE0;&#x6211;&#x4F1A;&#x5728;&#x8FC7;&#x51E0;&#x5929;&#x6574;&#x7406;&#x51FA;&#x6765;&#x3002;</p>
-<p>&#x5148;&#x770B;&#x4EE3;&#x7801;&#x5427;&#xFF0C;&#x91CC;&#x9762;&#x6709;&#x6CE8;&#x91CA;&#x3002;</p>
+        <pre><code>&quot;&#x7528;&#x6237;&#x4F1A;&#x611F;&#x6FC0;&#x4EE3;&#x7801;&#x7B7E;&#x540D;&#x5E26;&#x6765;&#x7684;&#x597D;&#x5904;&quot; &#x2013; Apple Developer Library
+</code></pre><p>&#x5728; iOS &#x6216; macOS &#x5E73;&#x53F0;&#x4E0A;&#x8FDB;&#x884C;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x4F60;&#x6240;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684; API &#x5927;&#x591A;&#x8BBE;&#x8BA1;&#x5F97;&#x7B80;&#x6D01;&#x660E;&#x4E86;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x8F7B;&#x6613;&#x5730;&#x5B9E;&#x73B0;&#x9177;&#x70AB;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#xFF0C;&#x4FBF;&#x6377;&#x5730;&#x8FDB;&#x884C;&#x5E94;&#x7528;&#x53D1;&#x5E03;&#x524D;&#x6D4B;&#x8BD5;&#xFF0C;&#x6216;&#x662F;&#x7528; Core Data &#x5C06;&#x6570;&#x636E;&#x5B89;&#x5168;&#x7684;&#x5B58;&#x50A8;&#x5728;&#x672C;&#x5730;&#x3002;&#x4F46;&#x662F;&#x603B;&#x6709;&#x4E00;&#x5929;&#xFF0C;&#x4F60;&#x4F1A;&#x78B0;&#x4E0A;&#x4EE3;&#x7801;&#x7B7E;&#x540D; (code signing) &#x548C;&#x914D;&#x7F6E;&#x6587;&#x4EF6; (provisioning)&#xFF0C;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4F1A;&#x662F;&#x4F60;&#x5728;&#x5FC3;&#x91CC;&#x95EE;&#x5019;&#x67D0;&#x4E9B;&#x4EBA;&#x7956;&#x5B97;&#x7684;&#x5F00;&#x59CB;&#x3002;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/16/红黑树C实现/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/11/06/代码签名探析/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/16/红黑树C实现/">
-    <time datetime="2016-11-15T18:29:19.000Z" class="entry-date">
-        2016-11-16
+    <a href="/2016/11/06/代码签名探析/">
+    <time datetime="2016-11-06T03:11:53.000Z" class="entry-date">
+        2016-11-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-浅谈iOS高斯模糊" class="post-浅谈iOS高斯模糊 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/06/浅谈iOS高斯模糊/">浅谈iOS的模糊效果</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/浅谈iOS高斯模糊/" data-id="cjbai21ae0093q4b3506w3ghw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>iOS&#x7684;&#x6A21;&#x7CCA;&#x6548;&#x679C;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x6709;&#x597D;&#x51E0;&#x79CD;&#xFF0C;&#x57FA;&#x672C;&#x5206;&#x4E3A;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5C06;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x5C06;&#x6A21;&#x7CCA;&#x7684;&#x63A7;&#x4EF6;&#x653E;&#x5728;UI&#x754C;&#x9762;&#x4E0A;&#xFF0C;&#x4F7F;&#x63A7;&#x4EF6;&#x8986;&#x76D6;&#x7684;&#x533A;&#x57DF;&#x8FBE;&#x5230;&#x6A21;&#x7CCA;&#x7684;&#x6548;&#x679C;&#x3002;&#x6BCF;&#x79CD;&#x65B9;&#x5F0F;&#x6211;&#x5404;&#x9009;&#x4E86;2&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5B83;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4EE5;&#x53CA;&#x5BF9;&#x6BD4;&#x4E00;&#x4E0B;&#x5B83;&#x4EEC;&#x7684;&#x4F18;&#x7F3A;&#x70B9;&#x3002;</p>
+<h2 id="coreImage"><a href="#coreImage" class="headerlink" title="coreImage"></a>coreImage</h2>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/06/浅谈iOS高斯模糊/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/06/浅谈iOS高斯模糊/">
+    <time datetime="2016-11-06T02:17:53.000Z" class="entry-date">
+        2016-11-06
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-Huffman树以及Huffman编码" class="post-Huffman树以及Huffman编码 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/11/05/Huffman树以及Huffman编码/">Huffman树以及Huffman编码</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/Huffman树以及Huffman编码/" data-id="cjbai211k000zq4b3is578l9l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>Huffman&#x6811;&#x662F;&#x4E00;&#x79CD;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#xFF0C;&#x7531;&#x4E8E;&#x56FD;&#x5185;&#x6709;&#x7684;&#x8D44;&#x6599;&#x7FFB;&#x8BD1;&#x4E3A;&#x54C8;&#x592B;&#x66FC;&#x6216;&#x8005;&#x662F;&#x970D;&#x592B;&#x66FC;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x7B80;&#x5355;&#xFF08;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x61D2;&#x4E86;&#xFF09;&#x5C31;&#x662F;&#x7528;&#x82F1;&#x8BED;Huffman&#x4EE3;&#x66FF;&#x3002;</p>
+<p>&#x89E3;&#x51B3;Huffman&#x6811;&#x95EE;&#x9898;&#x662F;&#x5178;&#x578B;&#x7684;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;"><a href="#&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;" class="headerlink" title="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;"></a>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;</h2><p>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x53C8;&#x53EB;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#xFF0C;&#x662F;&#x6307;&#x5728;&#x5BF9;&#x95EE;&#x9898;&#x6C42;&#x89E3;&#x91CA;&#xFF0C;&#x603B;&#x662F;&#x505A;&#x51FA;&#x5F53;&#x524D;&#x770B;&#x6765;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x6027;&#x8D28;&#x65F6;&#x53EF;&#x4EE5;&#x7528;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x6C42;&#x89E3;&#xFF1A;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x6574;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x6700;&#x4F18;&#x89E3;&#x3002;</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/11/05/Huffman树以及Huffman编码/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/05/Huffman树以及Huffman编码/">
+    <time datetime="2016-11-05T13:28:42.000Z" class="entry-date">
+        2016-11-05
     </time>
 </a>
     
@@ -127,342 +233,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-从零开始学习Linux-9" class="post-从零开始学习Linux-9 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/15/从零开始学习Linux-9/">从零开始学习Linux-9</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/15/从零开始学习Linux-9/" data-id="cjbai218w005oq4b3tckot718" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <pre><code>&#x5C06;&#x4ECB;&#x7ECD;&#x8FD9;&#x51E0;&#x4E2A;&#x547D;&#x4EE4;tr&#xFF08;&#x6CE8;&#x610F;&#x4E0D;&#x662F;tar&#xFF09;&#xFF0C;col&#xFF0C;join&#xFF0C;paste&#x3002;&#x5B9E;&#x9645;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x662F;&#x5173;&#x4E8E;&#x80FD;&#x5B9E;&#x73B0;&#x7BA1;&#x9053;&#x64CD;&#x4F5C;&#x7684;&#x547D;&#x4EE4;&#x7684;&#x5EF6;&#x7EED;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x5C06;&#x7ED3;&#x5408;&#x7BA1;&#x9053;&#x6765;&#x719F;&#x6089;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x7684;&#x4F7F;&#x7528;&#x3002;
-</code></pre><h2 id="&#x6587;&#x672C;&#x5904;&#x7406;&#x547D;&#x4EE4;"><a href="#&#x6587;&#x672C;&#x5904;&#x7406;&#x547D;&#x4EE4;" class="headerlink" title="&#x6587;&#x672C;&#x5904;&#x7406;&#x547D;&#x4EE4;"></a>&#x6587;&#x672C;&#x5904;&#x7406;&#x547D;&#x4EE4;</h2><h2 id="tr-&#x547D;&#x4EE4;"><a href="#tr-&#x547D;&#x4EE4;" class="headerlink" title="tr &#x547D;&#x4EE4;"></a>tr &#x547D;&#x4EE4;</h2><p>tr &#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5220;&#x9664;&#x4E00;&#x6BB5;&#x6587;&#x672C;&#x4FE1;&#x606F;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x6587;&#x5B57;&#x3002;&#x6216;&#x8005;&#x5C06;&#x5176;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#x3002;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/15/从零开始学习Linux-9/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/15/从零开始学习Linux-9/">
-    <time datetime="2016-11-15T14:18:52.000Z" class="entry-date">
-        2016-11-15
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-当进程变为线程" class="post-当进程变为线程 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/15/当进程变为线程/">当进程变为线程</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/15/当进程变为线程/" data-id="cjbai219u007nq4b3jerm4y1q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <pre><code>&#x5931;&#x671B;&#x662F;&#x4E00;&#x5929;&#x5929;&#x79EF;&#x7D2F;&#x7684;&#xFF0C;&#x79BB;&#x5F00;&#x662F;&#x5F88;&#x957F;&#x7684;&#x51B3;&#x5B9A;&#x3002;
-</code></pre><p>&#x8FD9;&#x662F;&#x4E00;&#x7BC7;&#x81EA;&#x6211;&#x611F;&#x89C9;&#x5145;&#x6EE1;&#x8D1F;&#x80FD;&#x91CF;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x614E;&#x8BFB;&#x3002;&#x800C;&#x4E14;&#x73B0;&#x5728;&#x5FC3;&#x60C5;&#x76F8;&#x5F53;&#x4F4E;&#x843D;&#xFF0C;&#x6587;&#x7AE0;&#x7684;&#x7ED3;&#x6784;&#x4E5F;&#x5E94;&#x8BE5;&#x4F1A;&#x5F88;&#x4E71;&#x5427;&#xFF0C;&#x5475;&#x5475;</p>
-<p>&#x6700;&#x8FD1;&#x611F;&#x89C9;&#x662F;&#x6211;&#x8FD9;&#x201C;&#x6F2B;&#x957F;&#x201D;&#x7684;19&#x5E74;&#x7684;&#x4EBA;&#x751F;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x6700;&#x4E3A;&#x4F4E;&#x843D;&#x7684;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x5427;&#xFF0C;&#x9AD8;&#x8003;&#x6210;&#x7EE9;&#x51FA;&#x6765;&#x65F6;&#x611F;&#x89C9;&#x90FD;&#x4E0D;&#x5982;&#x73B0;&#x5728;&#x8FD9;&#x4E48;&#x96BE;&#x8FC7;&#x3002;&#x4E5F;&#x8BB8;&#x662F;&#x8BFB;&#x7684;&#x4E66;&#x6BD4;&#x8F83;&#x591A;&#x5427;&#xFF0C;&#x4EBA;&#x5C31;&#x4F1A;&#x53D8;&#x5F97;&#x77EB;&#x60C5;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E9B;&#x8BDD;&#x5835;&#x5728;&#x5FC3;&#x91CC;&#x786E;&#x5B9E;&#x4E0D;&#x8212;&#x670D;&#xFF0C;&#x8FD8;&#x4E0D;&#x5982;&#x5199;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x53CD;&#x6B63;&#x4E5F;&#x6CA1;&#x4EBA;&#x4F1A;&#x770B;&#x3002;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/15/当进程变为线程/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/15/当进程变为线程/">
-    <time datetime="2016-11-14T18:05:20.000Z" class="entry-date">
-        2016-11-15
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/LIFE/">LIFE</a>
-  </div>
-
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-从零开始学习Linux-8" class="post-从零开始学习Linux-8 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/14/从零开始学习Linux-8/">从零开始学习Linux-8</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/14/从零开始学习Linux-8/" data-id="cjbai218y005rq4b37aiehrpi" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <pre><code>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x3001;&#x9009;&#x62E9;&#x6267;&#x884C;&#x3001;&#x7BA1;&#x9053;&#x3001;cut &#x547D;&#x4EE4;&#x3001;grep &#x547D;&#x4EE4;&#x3001;wc &#x547D;&#x4EE4;&#x3001;sort &#x547D;&#x4EE4;&#x7B49;&#xFF0C;&#x9AD8;&#x6548;&#x7387;&#x4F7F;&#x7528; Linux &#x7684;&#x6280;&#x5DE7;&#x3002;
-</code></pre><h2 id="&#x987A;&#x5E8F;&#x6267;&#x884C;&#x591A;&#x6761;&#x547D;&#x4EE4;"><a href="#&#x987A;&#x5E8F;&#x6267;&#x884C;&#x591A;&#x6761;&#x547D;&#x4EE4;" class="headerlink" title="&#x987A;&#x5E8F;&#x6267;&#x884C;&#x591A;&#x6761;&#x547D;&#x4EE4;"></a>&#x987A;&#x5E8F;&#x6267;&#x884C;&#x591A;&#x6761;&#x547D;&#x4EE4;</h2><p>&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x6BCF;&#x6B21;&#x53EA;&#x80FD;&#x5728;&#x7EC8;&#x7AEF;&#x8F93;&#x5165;&#x4E00;&#x6761;&#x547D;&#x4EE4;&#xFF0C;&#x6309;&#x4E0B;&#x56DE;&#x8F66;&#x6267;&#x884C;&#xFF0C;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x518D;&#x8F93;&#x5165;&#x7B2C;&#x4E8C;&#x6761;&#x547D;&#x4EE4;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6309;&#x56DE;&#x8F66;&#x6267;&#x884C;&#x2026;&#x2026; &#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x9047;&#x5230;&#x5982;&#x4E0B;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;&#x6211;&#x9700;&#x8981;&#x4F7F;&#x7528;apt-get&#x5B89;&#x88C5;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#x7ACB;&#x5373;&#x8FD0;&#x884C;&#x5B89;&#x88C5;&#x7684;&#x8F6F;&#x4EF6;&#xFF08;&#x6216;&#x547D;&#x4EE4;&#x5DE5;&#x5177;&#xFF09;&#xFF0C;&#x53C8;&#x6070;&#x5DE7;&#x4F60;&#x7684;&#x4E3B;&#x673A;&#x624D;&#x66F4;&#x6362;&#x7684;&#x8F6F;&#x4EF6;&#x6E90;&#x8FD8;&#x6CA1;&#x6709;&#x66F4;&#x65B0;&#x8F6F;&#x4EF6;&#x5217;&#x8868;,&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5982;&#x4E0B;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#xFF1A;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/14/从零开始学习Linux-8/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/14/从零开始学习Linux-8/">
-    <time datetime="2016-11-14T15:14:05.000Z" class="entry-date">
-        2016-11-14
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-带你进入龙与地下城的世界" class="post-带你进入龙与地下城的世界 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/13/带你进入龙与地下城的世界/">带你进入龙与地下城的世界</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/13/带你进入龙与地下城的世界/" data-id="cjbai219t007kq4b303exz3op" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>D20&#xFF0C;&#x5168;&#x7A0B;Dice20&#x3002;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x6570;&#x4E3A;20&#x7684;&#x4E8C;&#x5341;&#x9762;&#x9AB0;&#x5B50;&#x3002;&#x5728;&#x8FC7;&#x53BB;&#x7684;&#x56DB;&#x5341;&#x5E74;&#x95F4;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x6210;&#x4E3A;&#x4E86;&#x5728;&#x7535;&#x5B50;&#x6E38;&#x620F;&#x754C;&#x4E43;&#x81F3;&#x4E16;&#x754C;&#x6E38;&#x620F;&#x53F2;&#x4E0A;&#x6700;&#x91CD;&#x8981;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x5F71;&#x54CD;&#x65E0;&#x6CD5;&#x4F30;&#x91CF;&#x3002;&#x800C;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;&#x662F;&#x73A9;&#x9F99;&#x4E0E;&#x5730;&#x4E0B;&#x57CE;&#x7684;&#x91CD;&#x8981;&#x9053;&#x5177;&#x3002;&#xFF08;&#x4E5F;&#x662F;&#x4E07;&#x667A;&#x7684;&#x4E3B;&#x8981;&#x9053;&#x5177;&#xFF09;</p>
-<p>&#x90A3;&#x4EC0;&#x4E48;&#x662F;&#x9F99;&#x4E0E;&#x5730;&#x4E0B;&#x57CE;&#x5462;&#xFF1F;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/13/带你进入龙与地下城的世界/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/13/带你进入龙与地下城的世界/">
-    <time datetime="2016-11-13T03:47:49.000Z" class="entry-date">
-        2016-11-13
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/御宅文化/">御宅文化</a>
-  </div>
-
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-普通二叉树基础C实现" class="post-普通二叉树基础C实现 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/12/普通二叉树基础C实现/">普通二叉树基础函数C语言实现</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/12/普通二叉树基础C实现/" data-id="cjbai21a00083q4b31xiohztb" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x4E86;&#x666E;&#x901A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x9012;&#x5F52;&#x904D;&#x5386;&#x3001;&#x975E;&#x9012;&#x5F52;&#x904D;&#x5386;&#x3001;&#x5C42;&#x6B21;&#x904D;&#x5386;&#x3001;&#x6309;&#x904D;&#x5386;&#x7ED3;&#x679C;&#x5EFA;&#x6811;&#x3001;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x67E5;&#x627E;&#x3001;&#x7EDF;&#x8BA1;&#x7ED3;&#x70B9;&#x4E2A;&#x6570;&#x3001;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6BD4;&#x8F83;&#x3001;&#x4E8C;&#x53C9;&#x6811;&#x6DF1;&#x5EA6;&#x7B49;&#x57FA;&#x7840;&#x51FD;&#x6570;</p>
-<p>&#x6CE8;&#x91CA;&#x4E2D;param&#x4E3A;&#x4F20;&#x53C2;&#xFF0C;return&#x4E3A;&#x8FD4;&#x56DE;&#x5185;&#x5BB9;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/12/普通二叉树基础C实现/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/12/普通二叉树基础C实现/">
-    <time datetime="2016-11-12T15:00:31.000Z" class="entry-date">
-        2016-11-12
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-动态查找表" class="post-动态查找表 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/11/动态查找表/">动态查找表</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/11/动态查找表/" data-id="cjbai219j006uq4b3d31xahpy" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>&#x7531;&#x9759;&#x6001;&#x67E5;&#x627E;&#x8868;&#x89C2;&#x5BDF;&#xFF0C;&#x53EF;&#x5F97;&#x4E00;&#x4E0B;&#x7ED3;&#x8BBA;</p>
-<ul>
-<li>&#x4ECE;&#x67E5;&#x627E;&#x6027;&#x80FD;&#x770B;&#xFF0C;&#x6700;&#x597D;&#x60C5;&#x51B5;&#x80FD;&#x8FBE;O(logn)&#xFF0C;&#x6B64;&#x65F6;&#x8981;&#x6C42;&#x8868;&#x6709;&#x5E8F;</li>
-<li>&#x4ECE;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x7684;&#x6027;&#x80FD;&#x6765;&#x770B;&#xFF0C;&#x6700;&#x597D;&#x60C5;&#x51B5;&#x80FD;&#x8FBE;O(1)&#xFF0C;&#x6B64;&#x65F6;&#x8981;&#x6C42;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x4E3A;&#x94FE;&#x8868;</li>
-</ul>
-<p>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x5BF9;&#x5404;&#x79CD;&#x67E5;&#x627E;&#x6811;&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF0C;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4F1A;&#x6162;&#x6162;&#x66F4;&#x65B0;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/11/动态查找表/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/11/动态查找表/">
-    <time datetime="2016-11-11T12:24:40.000Z" class="entry-date">
-        2016-11-11
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
 </article>
@@ -476,7 +247,7 @@
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2016/11/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2016/11/">1</a><a class="page-number" href="/archives/2016/11/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/2016/11/page/4/">4</a><a class="page-number" href="/archives/2016/11/page/5/">5</a><a class="page-number" href="/archives/2016/11/page/6/">6</a><a class="extend next" rel="next" href="/archives/2016/11/page/4/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/archives/2016/11/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2016/11/">1</a><a class="page-number" href="/archives/2016/11/page/2/">2</a><span class="page-number current">3</span>
       </nav>
     </nav>
   
@@ -497,7 +268,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">58</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -579,7 +350,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">9</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 
@@ -587,7 +358,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 SaberDa
+    <p>&copy; 2018 SaberDa
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>

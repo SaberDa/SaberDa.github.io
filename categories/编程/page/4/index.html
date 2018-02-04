@@ -80,7 +80,7 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
-    <article id="post-详探贪心算法" class="post-详探贪心算法 post type-post status-publish format-standard hentry">
+    <article id="post-树与二叉树（一）" class="post-树与二叉树（一） post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -88,32 +88,92 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/08/详探贪心算法/">详探贪心算法</a>
+      <a class="article-title" href="/2016/10/13/树与二叉树（一）/">树与二叉树（一）</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/08/详探贪心算法/" data-id="cjbai21an009uq4b3ox7nnyu9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/13/树与二叉树（一）/" data-id="cjbai21a3008cq4b32kifplkn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x672C;&#x5185;&#x5BB9;"><a href="#&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x672C;&#x5185;&#x5BB9;" class="headerlink" title="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x672C;&#x5185;&#x5BB9;"></a>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x672C;&#x5185;&#x5BB9;</h2><p>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x662F;&#x901A;&#x8FC7;&#x505A;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x9009;&#x62E9;&#x6765;&#x7ED9;&#x51FA;&#x67D0;&#x4E00;&#x95EE;&#x9898;&#x7684;&#x6700;&#x4F18;&#x89E3;&#x3002;&#x5BF9;&#x7B97;&#x6CD5;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x51B3;&#x7B56;&#x70B9;&#xFF0C;&#x505A;&#x4E00;&#x4E2A;&#x5F53;&#x65F6;&#x770B;&#x8D77;&#x6765;&#x662F;&#x6700;&#x4F73;&#x7684;&#x9009;&#x62E9;&#x3002;&#x8FD9;&#x79CD;&#x542F;&#x53D1;&#x5F0F;&#x7B56;&#x7565;&#x5E76;&#x4E0D;&#x662F;&#x603B;&#x80FD;&#x4EA7;&#x751F;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x4F46;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x5728;&#x54C8;&#x592B;&#x66FC;&#x95EE;&#x9898;&#x4E2D;&#x770B;&#x5230;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x5B83;&#x5E38;&#x5E38;&#x80FD;&#x7ED9;&#x51FA;&#x6700;&#x4F18;&#x89E3;&#x3002;&#x6B64;&#x7BC7;&#x6587;&#x7AE0;&#x6211;&#x4EEC;&#x6765;&#x8BA8;&#x8BBA;&#x8BA8;&#x8BBA;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x7684;&#x67D0;&#x4E9B;&#x4E00;&#x822C;&#x6027;&#x8D28;&#x3002;</p>
+        <pre><code>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x6811;&#x7CFB;&#x5217;&#x7684;&#x7B2C;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x6811;&#x7684;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x3001;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x7B49;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x7ED3;&#x6784;&#x3002;
+</code></pre><h2 id="&#x6811;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;"><a href="#&#x6811;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;" class="headerlink" title="&#x6811;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;"></a>&#x6811;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</h2><p>&#x6570;&#x636E;&#x5143;&#x7D20;D&#xFF1A;D&#x662F;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7279;&#x6027;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/08/详探贪心算法/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/10/13/树与二叉树（一）/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/08/详探贪心算法/">
-    <time datetime="2016-11-08T13:22:22.000Z" class="entry-date">
-        2016-11-08
+    <a href="/2016/10/13/树与二叉树（一）/">
+    <time datetime="2016-10-13T07:53:03.000Z" class="entry-date">
+        2016-10-13
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
+    <article id="post-谈一谈KMP算法" class="post-谈一谈KMP算法 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2016/10/13/谈一谈KMP算法/">谈一谈KMP算法</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/13/谈一谈KMP算法/" data-id="cjbai21at00a7q4b3qia40d9f" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>&#x5199;&#x8FD9;&#x7BC7;&#x535A;&#x5BA2;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x4ECA;&#x5929;&#x4E0A;&#x8BFE;&#x540E;&#x5BF9;kmp&#x7B97;&#x6CD5;&#x8FD8;&#x6709;&#x4E9B;&#x8BB8;&#x7591;&#x95EE;&#xFF0C;&#x8BFE;&#x540E;&#x4E0A;&#x7F51;&#x4E00;&#x67E5;&#x8D44;&#x6599;&#x624D;&#x53D1;&#x73B0;&#xFF0C;&#x8D35;&#x6821;&#x6709;&#x65F6;&#x5BF9;&#x4E13;&#x4E1A;&#x8BFE;&#x771F;&#x7684;&#x5F88;&#x4E0D;&#x8D1F;&#x8D23;&#x3002;</p>
+<p>&#x540C;&#x65F6;&#x4E5F;&#x7B97;&#x662F;&#x5F00;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x5751;&#x5427;&#xFF0C;&#x6211;&#x4F1A;&#x4E0D;&#x5B9A;&#x65F6;&#x7684;&#x8865;&#x5145;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x7B97;&#x6CD5;&#x7684;&#x65B0;&#x8D44;&#x6599;&#x3002;</p>
+<p>&#x8D35;&#x6821;&#x6559;&#x6750;&#x662F;1997&#x5E74;&#x51FA;&#x7248;&#x7684;&#xFF0C;&#x6709;&#x5F88;&#x591A;&#x9519;&#x8BEF;&#x6216;&#x8005;&#x662F;&#x5F88;&#x8001;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x8D35;&#x6821;&#x6559;&#x6750;&#x8FD8;&#x628A;&#x4ED6;&#x5217;&#x4E3A;&#x5FC5;&#x8003;&#x5185;&#x5BB9;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;SE&#x5B66;&#x751F;&#x6765;&#x8BF4;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x5C31;&#x90A3;kmp&#x7B97;&#x6CD5;&#x6765;&#x8A00;&#x8D35;&#x6821;&#x7684;&#x6559;&#x6750;&#x628A;next&#x548C;nextval&#x5E76;&#x5217;&#x800C;&#x8C08;&#xFF0C;&#x800C;&#x73B0;&#x5728;&#x7684;&#x4E3B;&#x6D41;kmp&#x7B97;&#x6CD5;&#x53EA;&#x6709;&#x4E00;&#x4E2A;next&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x7B97;&#x6CD5;&#x4E3A;&#x8D35;&#x6821;&#x7684;nextval&#x7B97;&#x6CD5;&#x7684;&#x4F18;&#x5316;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x6765;&#x7B80;&#x5355;&#x7684;&#x8C08;&#x4E00;&#x8C08;kmp&#x7B97;&#x6CD5;&#x3002;</p>
+        
+          <p class="article-more-link">
+            <a href="/2016/10/13/谈一谈KMP算法/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/13/谈一谈KMP算法/">
+    <time datetime="2016-10-12T16:20:23.000Z" class="entry-date">
+        2016-10-13
     </time>
 </a>
     
@@ -135,7 +195,7 @@
 
 
   
-    <article id="post-从零开始学习Linux-6" class="post-从零开始学习Linux-6 post type-post status-publish format-standard hentry">
+    <article id="post-栈基础函数C语言实现" class="post-栈基础函数C语言实现 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -143,33 +203,34 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/06/从零开始学习Linux-6/">从零开始学习Linux-6</a>
+      <a class="article-title" href="/2016/09/25/栈基础函数C语言实现/">栈基础函数C语言实现</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/06/从零开始学习Linux-6/" data-id="cjbai218u005kq4b3ue2oglbk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/25/栈基础函数C语言实现/" data-id="cjbai21a10086q4b3noht86w6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x6211;&#x4EEC;&#x65F6;&#x5E38;&#x4F7F;&#x7528; Linux &#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x5373;&#x4F7F;&#x4E0D;&#x80CC;&#x6211;&#x4EEC;&#x4E5F;&#x80FD;&#x8BB0;&#x4F4F;&#xFF0C;&#x800C;&#x4E00;&#x4E9B;&#x8F83;&#x957F;&#x7684;&#x547D;&#x4EE4;&#x6216;&#x662F;&#x4E00;&#x4E9B;&#x4E0D;&#x5E38;&#x7528;&#x7684;&#x53C2;&#x6570;&#x751A;&#x81F3;&#x662F;&#x4E0D;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x5230;&#x7528;&#x65F6;&#x600E;&#x4E48;&#x4E5F;&#x60F3;&#x4E0D;&#x51FA;&#x6765;&#x3002;&#x672C;&#x8BFE;&#x7A0B;&#x5C06;&#x5E26;&#x4F60;&#x597D;&#x597D;&#x5229;&#x7528; Linux &#x7CFB;&#x7EDF;&#x6240;&#x81EA;&#x5E26;&#x7684;&#x5E2E;&#x52A9;&#x5DE5;&#x5177;&#x4E0E;&#x6587;&#x6863;&#x4E86;&#x3002;</p>
-<h2 id="&#x5185;&#x5EFA;&#x547D;&#x4EE4;&#x4E0E;&#x5916;&#x90E8;&#x547D;&#x4EE4;"><a href="#&#x5185;&#x5EFA;&#x547D;&#x4EE4;&#x4E0E;&#x5916;&#x90E8;&#x547D;&#x4EE4;" class="headerlink" title="&#x5185;&#x5EFA;&#x547D;&#x4EE4;&#x4E0E;&#x5916;&#x90E8;&#x547D;&#x4EE4;"></a>&#x5185;&#x5EFA;&#x547D;&#x4EE4;&#x4E0E;&#x5916;&#x90E8;&#x547D;&#x4EE4;</h2><p>&#x4EC0;&#x4E48;&#x662F;&#x5185;&#x5EFA;&#x547D;&#x4EE4;&#xFF0C;&#x4EC0;&#x4E48;&#x662F;&#x5916;&#x90E8;&#x547D;&#x4EE4;&#x5462;&#xFF1F;&#x8FD9;&#x548C;&#x5E2E;&#x52A9;&#x547D;&#x4EE4;&#x53C8;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#x5462;&#xFF1F;</p>
+        <pre><code>&#x672C;demo&#x7684;&#x53D8;&#x91CF;&#x8BBE;&#x4E3A;elemType&#xFF0C;&#x82E5;&#x6709;&#x6539;&#x53D8;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5230;h&#x6587;&#x4EF6;&#x4E2D;&#x7684;typedef&#x4E2D;&#x6539;&#x53D8;&#x5373;&#x53EF;
+</code></pre><p>Talk is cheap;</p>
+<p>Show you the code;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/06/从零开始学习Linux-6/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/09/25/栈基础函数C语言实现/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/06/从零开始学习Linux-6/">
-    <time datetime="2016-11-06T15:44:13.000Z" class="entry-date">
-        2016-11-06
+    <a href="/2016/09/25/栈基础函数C语言实现/">
+    <time datetime="2016-09-25T14:50:12.000Z" class="entry-date">
+        2016-09-25
     </time>
 </a>
     
@@ -180,7 +241,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 
     </footer>
 </article>
@@ -191,7 +252,7 @@
 
 
   
-    <article id="post-从零开始学习Linux-5" class="post-从零开始学习Linux-5 post type-post status-publish format-standard hentry">
+    <article id="post-栈，队列，数组" class="post-栈，队列，数组 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -199,36 +260,34 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/05/从零开始学习Linux-5/">从零开始学习Linux-5</a>
+      <a class="article-title" href="/2016/09/24/栈，队列，数组/">栈，队列，数组</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-5/" data-id="cjbai218t005hq4b3zdv5m2zg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/24/栈，队列，数组/" data-id="cjbai21a20089q4b3yjpdlvxs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x64CD;&#x4F5C;&#x548C;&#x7B80;&#x5355;&#x7684;&#x78C1;&#x76D8;&#x7BA1;&#x7406;</p>
-<h2 id="1-&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x548C;&#x76EE;&#x5F55;&#x7684;&#x5BB9;&#x91CF;"><a href="#1-&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x548C;&#x76EE;&#x5F55;&#x7684;&#x5BB9;&#x91CF;" class="headerlink" title="1.&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x548C;&#x76EE;&#x5F55;&#x7684;&#x5BB9;&#x91CF;"></a>1.&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x548C;&#x76EE;&#x5F55;&#x7684;&#x5BB9;&#x91CF;</h2><ul>
-<li>&#x4F7F;&#x7528; df &#x547D;&#x4EE4;&#x67E5;&#x770B;&#x78C1;&#x76D8;&#x7684;&#x5BB9;&#x91CF;</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">df</div></pre></td></tr></table></figure>
+        <h2 id="&#x7EEA;&#x8BBA;"><a href="#&#x7EEA;&#x8BBA;" class="headerlink" title="&#x7EEA;&#x8BBA;"></a>&#x7EEA;&#x8BBA;</h2><pre><code>&#x901A;&#x5E38;&#x79F0;&#xFF0C;&#x6808;&#x548C;&#x961F;&#x5217;&#x662F;&#x9650;&#x5B9A;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x53EA;&#x80FD;&#x5728;&#x8868;&#x7684;&#x7AEF;&#x70B9;&#x8FDB;&#x884C;&#x7684;&#x7EBF;&#x6027;&#x8868;&#x3002;
+</code></pre><p><img src="/2016/09/24/&#x6808;&#xFF0C;&#x961F;&#x5217;&#xFF0C;&#x6570;&#x7EC4;/1.png" alt=""></p>
+<p>&#x6808;&#x548C;&#x961F;&#x5217;&#x662F;&#x4E24;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/05/从零开始学习Linux-5/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/09/24/栈，队列，数组/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/05/从零开始学习Linux-5/">
-    <time datetime="2016-11-05T15:11:44.000Z" class="entry-date">
-        2016-11-05
+    <a href="/2016/09/24/栈，队列，数组/">
+    <time datetime="2016-09-24T13:42:08.000Z" class="entry-date">
+        2016-09-24
     </time>
 </a>
     
@@ -239,7 +298,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 
     </footer>
 </article>
@@ -250,7 +309,7 @@
 
 
   
-    <article id="post-Huffman树以及Huffman编码" class="post-Huffman树以及Huffman编码 post type-post status-publish format-standard hentry">
+    <article id="post-线性表基础函数C语言实现" class="post-线性表基础函数C语言实现 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -258,35 +317,34 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/05/Huffman树以及Huffman编码/">Huffman树以及Huffman编码</a>
+      <a class="article-title" href="/2016/09/22/线性表基础函数C语言实现/">线性表基础函数C语言实现</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/Huffman树以及Huffman编码/" data-id="cjbai211k000zq4b3is578l9l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/22/线性表基础函数C语言实现/" data-id="cjbai21aj009iq4b3v35ejk9a" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Huffman&#x6811;&#x662F;&#x4E00;&#x79CD;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#xFF0C;&#x7531;&#x4E8E;&#x56FD;&#x5185;&#x6709;&#x7684;&#x8D44;&#x6599;&#x7FFB;&#x8BD1;&#x4E3A;&#x54C8;&#x592B;&#x66FC;&#x6216;&#x8005;&#x662F;&#x970D;&#x592B;&#x66FC;&#xFF0C;&#x8FD9;&#x91CC;&#x4E3A;&#x4E86;&#x7B80;&#x5355;&#xFF08;&#x5F53;&#x7136;&#x4E0D;&#x662F;&#x61D2;&#x4E86;&#xFF09;&#x5C31;&#x662F;&#x7528;&#x82F1;&#x8BED;Huffman&#x4EE3;&#x66FF;&#x3002;</p>
-<p>&#x89E3;&#x51B3;Huffman&#x6811;&#x95EE;&#x9898;&#x662F;&#x5178;&#x578B;&#x7684;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x95EE;&#x9898;&#x3002;</p>
-<h2 id="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;"><a href="#&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;" class="headerlink" title="&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;"></a>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;</h2><p>&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x53C8;&#x53EB;&#x8D2A;&#x5A6A;&#x7B97;&#x6CD5;&#xFF0C;&#x662F;&#x6307;&#x5728;&#x5BF9;&#x95EE;&#x9898;&#x6C42;&#x89E3;&#x91CA;&#xFF0C;&#x603B;&#x662F;&#x505A;&#x51FA;&#x5F53;&#x524D;&#x770B;&#x6765;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
-<p>&#x5F53;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x6027;&#x8D28;&#x65F6;&#x53EF;&#x4EE5;&#x7528;&#x8D2A;&#x5FC3;&#x7B97;&#x6CD5;&#x6C42;&#x89E3;&#xFF1A;&#x6BCF;&#x4E00;&#x6B65;&#x7684;&#x5C40;&#x90E8;&#x6700;&#x4F18;&#x89E3;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x6574;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x6700;&#x4F18;&#x89E3;&#x3002;</p>
+        <pre><code>&#x672C;dome&#x7684;&#x53D8;&#x91CF;&#x4E3A;elemType&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;.h&#x6587;&#x4EF6;&#x4E2D;&#x66F4;&#x6539;
+</code></pre><p>Talk is cheap;</p>
+<p>show you the code;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/05/Huffman树以及Huffman编码/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/09/22/线性表基础函数C语言实现/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/05/Huffman树以及Huffman编码/">
-    <time datetime="2016-11-05T13:28:42.000Z" class="entry-date">
-        2016-11-05
+    <a href="/2016/09/22/线性表基础函数C语言实现/">
+    <time datetime="2016-09-21T16:00:58.000Z" class="entry-date">
+        2016-09-22
     </time>
 </a>
     
@@ -297,7 +355,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 
     </footer>
 </article>
@@ -308,7 +366,7 @@
 
 
   
-    <article id="post-从零开始学习Linux-4" class="post-从零开始学习Linux-4 post type-post status-publish format-standard hentry">
+    <article id="post-O-n-解决三维数组赋值" class="post-O-n-解决三维数组赋值 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -316,33 +374,32 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/05/从零开始学习Linux-4/">从零开始学习Linux-4</a>
+      <a class="article-title" href="/2016/09/21/O-n-解决三维数组赋值/">O(n)解决三维数组赋值</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/05/从零开始学习Linux-4/" data-id="cjbai218r005aq4b3gwahujzp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/21/O-n-解决三维数组赋值/" data-id="cjbai2145002cq4b3m9fo3q09" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>Linux &#x4E0A;&#x5E38;&#x7528;&#x7684; &#x538B;&#x7F29;/&#x89E3;&#x538B; &#x5DE5;&#x5177;&#xFF0C;&#x4ECB;&#x7ECD;&#x4E86; zip&#xFF0C;rar&#xFF0C;tar &#x7684;&#x4F7F;&#x7528;
-</code></pre><h2 id="&#x6587;&#x4EF6;&#x6253;&#x5305;&#x548C;&#x89E3;&#x538B;&#x7F29;"><a href="#&#x6587;&#x4EF6;&#x6253;&#x5305;&#x548C;&#x89E3;&#x538B;&#x7F29;" class="headerlink" title="&#x6587;&#x4EF6;&#x6253;&#x5305;&#x548C;&#x89E3;&#x538B;&#x7F29;"></a>&#x6587;&#x4EF6;&#x6253;&#x5305;&#x548C;&#x89E3;&#x538B;&#x7F29;</h2><p>&#x5728;&#x8BB2; Linux &#x4E0A;&#x7684;&#x89E3;&#x538B;&#x7F29;&#x5DE5;&#x5177;&#x4E4B;&#x524D;&#xFF0C;&#x6709;&#x5FC5;&#x8981;&#x5148;&#x4E86;&#x89E3;&#x4EE5;&#x4E0B;&#x5E38;&#x89C1;&#x5E38;&#x7528;&#x7684;&#x538B;&#x7F29;&#x5305;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#x3002;&#x5728; Windows &#x4E0A;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x4E0D;&#x5916;&#x4E4E;&#x8FD9;&#x4E09;&#x79CD;*.zip,*.rar,*.7z&#x540E;&#x7F00;&#x7684;&#x538B;&#x7F29;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x5728; Linux &#x4E0A;&#x9762;&#x5E38;&#x89C1;&#x5E38;&#x7528;&#x7684;&#x9664;&#x4E86;&#x4EE5;&#x4E0A;&#x8FD9;&#x4E09;&#x79CD;&#x5916;&#xFF0C;&#x8FD8;&#x6709;*.gz,*.xz,*.bz2,*.tar,*.tar.gz,*.tar.xz,*tar.bz2&#xFF0C;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x5982;&#x4E0B;</p>
+        <h2 id="O-n-&#x89E3;&#x51B3;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;"><a href="#O-n-&#x89E3;&#x51B3;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;" class="headerlink" title="O(n)&#x89E3;&#x51B3;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;"></a>O(n)&#x89E3;&#x51B3;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;</h2><p>&#x6B63;&#x5E38;&#x601D;&#x7EF4;&#x521D;&#x59CB;&#x5316;&#x4E09;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x4E09;&#x4E2A;for&#x5FAA;&#x73AF;&#x5D4C;&#x5957;&#xFF0C;&#x5176;&#x5B9E;&#x7528;&#x4E00;&#x4E2A;&#x5DE7;&#x5999;&#x7684;&#x6570;&#x5B66;&#x516C;&#x5F0F;&#x5C31;&#x80FD;&#x5C06;&#x4E09;&#x6B21;&#x5FAA;&#x73AF;&#x7B80;&#x5316;&#x5230;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#xFF0C;&#x5373;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;O(n)</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/05/从零开始学习Linux-4/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/09/21/O-n-解决三维数组赋值/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/05/从零开始学习Linux-4/">
-    <time datetime="2016-11-04T16:10:29.000Z" class="entry-date">
-        2016-11-05
+    <a href="/2016/09/21/O-n-解决三维数组赋值/">
+    <time datetime="2016-09-21T06:57:45.000Z" class="entry-date">
+        2016-09-21
     </time>
 </a>
     
@@ -352,9 +409,6 @@
   </div>
 
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
     </footer>
 </article>
 
@@ -364,7 +418,7 @@
 
 
   
-    <article id="post-从零开始学习Linux-3" class="post-从零开始学习Linux-3 post type-post status-publish format-standard hentry">
+    <article id="post-freopen的重定向输入" class="post-freopen的重定向输入 post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -372,33 +426,33 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/03/从零开始学习Linux-3/">从零开始学习Linux-3</a>
+      <a class="article-title" href="/2016/09/18/freopen的重定向输入/">freopen的重定向输入</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/03/从零开始学习Linux-3/" data-id="cjbai218q0056q4b32s1nmgm0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/18/freopen的重定向输入/" data-id="cjbai215r0035q4b3p7bsdflc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x4ECB;&#x7ECD;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x4E0E;&#x7528;&#x6CD5;&#xFF0C;&#x53CA;&#x51E0;&#x79CD;&#x641C;&#x7D22;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5B66;&#x4F1A;&#x8FD9;&#x4E9B;&#x6280;&#x5DE7;&#x9AD8;&#x6548;&#x5730;&#x4F7F;&#x7528; Linux&#x3002;
-</code></pre><h2 id="&#x73AF;&#x5883;&#x53D8;&#x91CF;"><a href="#&#x73AF;&#x5883;&#x53D8;&#x91CF;" class="headerlink" title="&#x73AF;&#x5883;&#x53D8;&#x91CF;"></a>&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2><h2 id="1-&#x53D8;&#x91CF;"><a href="#1-&#x53D8;&#x91CF;" class="headerlink" title="1.&#x53D8;&#x91CF;"></a>1.&#x53D8;&#x91CF;</h2><p>&#x201C;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x5373;&#x53D8;&#x91CF;&#x7684;&#x6709;&#x6548;&#x8303;&#x56F4;&#xFF08;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x3001;&#x4E00;&#x4E2A;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#x6216;&#x8005;&#x5168;&#x5C40;&#x8303;&#x56F4;&#xFF09;&#xFF0C;&#x5728;&#x8BE5;&#x8303;&#x56F4;&#x5185;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x540C;&#x540D;&#x53D8;&#x91CF;&#x3002;&#x4E00;&#x65E6;&#x79BB;&#x5F00;&#x5219;&#x8BE5;&#x53D8;&#x91CF;&#x65E0;&#x6548;&#xFF0C;&#x5982;&#x540C;&#x4E0D;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x4E00;&#x822C;&#x3002;&#x201D;</p>
+        <h2 id="freopen&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x8F93;&#x5165;"><a href="#freopen&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x8F93;&#x5165;" class="headerlink" title="freopen&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x8F93;&#x5165;"></a>freopen&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x8F93;&#x5165;</h2><pre><code>&#x5728;&#x5237;OJ&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5F53;&#x4F60;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x6BCF;&#x6B21;&#x90FD;&#x8981;&#x8F93;&#x5165;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#xFF0C;&#x592A;&#x9EBB;&#x70E6;&#x4E86;&#xFF0C;&#x90A3;&#x6709;&#x6CA1;&#x6709;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x8F93;&#x5165;&#x7684;&#x8FC7;&#x7A0B;&#x5462;&#xFF1F;
+</code></pre><p>&#x53EF;&#x4EE5;&#x5C06;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5B58;&#x5165;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x7528;freopen&#x51FD;&#x6570;&#x5C06;&#x8F93;&#x5165;&#x7531;&#x952E;&#x76D8;&#x91CD;&#x5B9A;&#x5411;&#x4E3A;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x65F6;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x6570;&#x636E;&#x4E86;&#x3002;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/03/从零开始学习Linux-3/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/09/18/freopen的重定向输入/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/03/从零开始学习Linux-3/">
-    <time datetime="2016-11-03T15:13:59.000Z" class="entry-date">
-        2016-11-03
+    <a href="/2016/09/18/freopen的重定向输入/">
+    <time datetime="2016-09-18T15:38:44.000Z" class="entry-date">
+        2016-09-18
     </time>
 </a>
     
@@ -408,65 +462,6 @@
   </div>
 
     
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-从零开始学习Linux-2" class="post-从零开始学习Linux-2 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/02/从零开始学习Linux-2/">从零开始学习Linux-2</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/02/从零开始学习Linux-2/" data-id="cjbai218s005dq4b3e8bl2axs" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h2 id="Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><a href="#Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;" class="headerlink" title="Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;"></a>Linux&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2><pre><code>&#x4E0B;&#x9762;&#x8FD9;&#x4E24;&#x6BB5;&#x662F;&#x4E13;&#x95E8;&#x4E3A;windows&#x7528;&#x6237;&#x5199;&#x7684;
-</code></pre><p>&#x5728;&#x8BB2; Linux &#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x4E4B;&#x524D;&#xFF0C;&#x4F60;&#x9996;&#x5148;&#x8981;&#x6E05;&#x695A;&#x4E00;&#x70B9;&#x4E1C;&#x897F;&#xFF0C;&#x90A3;&#x5C31;&#x662F; Linux &#x7684;&#x76EE;&#x5F55;&#x4E0E; Windows &#x7684;&#x76EE;&#x5F55;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x6216;&#x8BB8;&#x5BF9;&#x4E8E;&#x4E00;&#x822C;&#x64CD;&#x4F5C;&#x4E0A;&#x7684;&#x611F;&#x53D7;&#x6765;&#x8BF4;&#x6CA1;&#x6709;&#x591A;&#x5927;&#x4E0D;&#x540C;&#xFF0C;&#x4F46;&#x4ECE;&#x5B83;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x6765;&#x8BF4;&#x662F;&#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x7684;&#x3002;</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/11/02/从零开始学习Linux-2/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2016/11/02/从零开始学习Linux-2/">
-    <time datetime="2016-11-02T11:13:57.000Z" class="entry-date">
-        2016-11-02
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/编程/">编程</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
     </footer>
 </article>
 
@@ -479,7 +474,7 @@
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/编程/page/3/">&laquo; Prev</a><a class="page-number" href="/categories/编程/">1</a><a class="page-number" href="/categories/编程/page/2/">2</a><a class="page-number" href="/categories/编程/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/编程/page/5/">5</a><a class="page-number" href="/categories/编程/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/categories/编程/page/9/">9</a><a class="extend next" rel="next" href="/categories/编程/page/5/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/categories/编程/page/3/">&laquo; Prev</a><a class="page-number" href="/categories/编程/">1</a><a class="page-number" href="/categories/编程/page/2/">2</a><a class="page-number" href="/categories/编程/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/编程/page/5/">5</a><a class="extend next" rel="next" href="/categories/编程/page/5/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -500,7 +495,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">58</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -582,7 +577,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">9</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 
@@ -590,7 +585,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 SaberDa
+    <p>&copy; 2018 SaberDa
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>

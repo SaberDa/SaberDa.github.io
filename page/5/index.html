@@ -425,7 +425,7 @@
 
 
   
-    <article id="post-入门MySQL（三）" class="post-入门MySQL（三） post type-post status-publish format-standard hentry">
+    <article id="post-如何使用VIM" class="post-如何使用VIM post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
@@ -433,34 +433,33 @@
         
   
     <h1 class="entry-title">
-      <a class="article-title" href="/2016/11/19/入门MySQL（三）/">入门MySQL（三）</a>
+      <a class="article-title" href="/2016/11/18/如何使用VIM/">如何使用Vim</a>
     </h1>
   
 
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/19/入门MySQL（三）/" data-id="cjbai21960069q4b311niziow" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/18/如何使用VIM/" data-id="cjbai219r007dq4b3kkb4i3wd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x8FD9;&#x662F;&#x6211;&#x5728;&#x5B66;&#x4E60;MySql&#x65F6;&#x505A;&#x7684;&#x7B14;&#x8BB0;&#x4E09;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x540E;&#x7684;&#x4E00;&#x7BC7;&#x7B14;&#x8BB0;&#xFF0C;&#x4E3B;&#x8981;&#x73AF;&#x5883;&#x4E3A;macOS&#xFF0C;&#x4F46;&#x662F;&#x7ECF;&#x5B9E;&#x8DF5;&#x8BC1;&#x660E;&#xFF0C;&#x9664;&#x4E86;&#x5B89;&#x88C5;&#x4E0E;&#x8FDB;&#x5165;MySQL&#x65F6;&#x547D;&#x4EE4;&#x4E0D;&#x540C;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x547D;&#x4EE4;&#x662F;&#x901A;&#x7528;&#x7684;
-</code></pre><p>&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5185;&#x5BB9;&#x505A;&#x4FEE;&#x6539;&#xFF0C;&#x5220;&#x9664;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x7B49;&#x64CD;&#x4F5C;&#x3002;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5176;&#x5B83;&#x64CD;&#x4F5C;&#xFF1A;&#x7D22;&#x5F15;&#x3001;&#x89C6;&#x56FE;&#xFF0C;&#x5BFC;&#x5165;&#x548C;&#x5BFC;&#x51FA;&#xFF0C;&#x5907;&#x4EFD;&#x548C;&#x6062;&#x590D;&#x7B49;&#x3002;</p>
-<h2 id="&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FEE;&#x6539;"><a href="#&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FEE;&#x6539;" class="headerlink" title="&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FEE;&#x6539;"></a>&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FEE;&#x6539;</h2><p>&#x4F7F;&#x7528;&#x547D;&#x4EE4; SHOW DATABASES; &#x53EF;&#x4EE5;&#x770B;&#x89C1;&#x76EE;&#x524D;&#x62E5;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;</p>
+        <p>Vim&#x5728;&#x7EBF;&#x624B;&#x518C;<a href="http://vimdoc.sourceforge.net/htmldoc/usr_toc.html">http://vimdoc.sourceforge.net/htmldoc/usr_toc.html</a></p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;Vim"><a href="#&#x4EC0;&#x4E48;&#x662F;Vim" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;Vim"></a>&#x4EC0;&#x4E48;&#x662F;Vim</h2><p>&#x4ECE;vi&#x6F14;&#x751F;&#x51FA;&#x6765;&#x7684;Vim&#x5177;&#x6709;&#x591A;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x79CD;&#x72EC;&#x7279;&#x7684;&#x8BBE;&#x8BA1;&#x5BB9;&#x6613;&#x4F7F;&#x521D;&#x5B66;&#x8005;&#x4EA7;&#x751F;&#x6DF7;&#x6DC6;&#x3002;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x90FD;&#x4F1A;&#x6709;&#x63D2;&#x5165;&#x548C;&#x6267;&#x884C;&#x547D;&#x4EE4;&#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x5927;&#x591A;&#x6570;&#x7684;&#x7F16;&#x8F91;&#x5668;&#x4F7F;&#x7528;&#x4E86;&#x4E0E;Vim&#x622A;&#x7136;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#xFF1A;&#x547D;&#x4EE4;&#x76EE;&#x5F55;&#xFF08;&#x9F20;&#x6807;&#x6216;&#x8005;&#x952E;&#x76D8;&#x9A71;&#x52A8;&#xFF09;&#xFF0C;&#x7EC4;&#x5408;&#x952E;&#xFF08;&#x901A;&#x5E38;&#x901A;&#x8FC7;control&#x952E;&#xFF08;CTRL&#xFF09;&#x548C;alt&#x952E;&#xFF08;ALT&#xFF09;&#x7EC4;&#x6210;&#xFF09;&#x6216;&#x8005;&#x9F20;&#x6807;&#x8F93;&#x5165;&#x3002;Vim&#x548C;vi&#x4E00;&#x6837;&#xFF0C;&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;&#x952E;&#x76D8;&#x6765;&#x5728;&#x8FD9;&#x4E9B;&#x6A21;&#x5F0F;&#x4E4B;&#x4E2D;&#x5207;&#x6362;&#x3002;&#x8FD9;&#x5C31;&#x4F7F;&#x5F97;Vim&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8FDB;&#x884C;&#x83DC;&#x5355;&#x6216;&#x8005;&#x9F20;&#x6807;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x6700;&#x5C0F;&#x5316;&#x7EC4;&#x5408;&#x952E;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x5BF9;&#x6587;&#x5B57;&#x5F55;&#x5165;&#x5458;&#x6216;&#x8005;&#x7A0B;&#x5E8F;&#x5458;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x589E;&#x5F3A;&#x901F;&#x5EA6;&#x548C;&#x6548;&#x7387;&#x3002;</p>
         
           <p class="article-more-link">
-            <a href="/2016/11/19/入门MySQL（三）/#more" class="more-link">More <span class="meta-nav">→</span></a>
+            <a href="/2016/11/18/如何使用VIM/#more" class="more-link">More <span class="meta-nav">→</span></a>
           </p>
         
       
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-    <a href="/2016/11/19/入门MySQL（三）/">
-    <time datetime="2016-11-19T12:32:32.000Z" class="entry-date">
-        2016-11-19
+    <a href="/2016/11/18/如何使用VIM/">
+    <time datetime="2016-11-18T15:08:02.000Z" class="entry-date">
+        2016-11-18
     </time>
 </a>
     
@@ -471,7 +470,7 @@
 
     
   <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
 
     </footer>
 </article>
@@ -485,7 +484,7 @@
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -506,7 +505,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">22</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">58</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -588,7 +587,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">9</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 
@@ -596,7 +595,7 @@
 </div>
       </div>
       <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 SaberDa
+    <p>&copy; 2018 SaberDa
     All rights reserved.</p>
     <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
 </footer>
