@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Extreme Multi-label Text Classification:Kim-CNN &amp; XML-CNN | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This passage is a learning note about a paper talking about the extreme multi-label text classification.
+IntroductionXMTC -&amp;gt; Extreme Multi-label Text Classification
+Finding each document its most r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Extreme Multi-label Text Classification:Kim-CNN & XML-CNN">
+<meta property="og:url" content="https://saberda.github.io/2018/03/23/EMTC-md/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="This passage is a learning note about a paper talking about the extreme multi-label text classification.
+IntroductionXMTC -&amp;gt; Extreme Multi-label Text Classification
+Finding each document its most r">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/1.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/2.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/3.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/4.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/5.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/6.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/7.png">
+<meta property="og:image" content="https://saberda.github.io/2018/03/23/EMTC-md/8.png">
+<meta property="og:updated_time" content="2018-03-23T08:58:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Extreme Multi-label Text Classification:Kim-CNN & XML-CNN">
+<meta name="twitter:description" content="This passage is a learning note about a paper talking about the extreme multi-label text classification.
+IntroductionXMTC -&amp;gt; Extreme Multi-label Text Classification
+Finding each document its most r">
+<meta name="twitter:image" content="https://saberda.github.io/2018/03/23/EMTC-md/1.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　iOS/ ML　　|　　二次元　　|　　saberda@qq.com　　|　　从花时间省钱到花钱省时间</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-EMTC-md" class="post-EMTC-md post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Extreme Multi-label Text Classification:Kim-CNN &amp; XML-CNN
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2018/03/23/EMTC-md/" data-id="cjf3p8jbt0000rhb3061f7s6z" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>This passage is a learning note about a paper talking about the extreme multi-label text classification.
+</code></pre><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>XMTC -&gt; Extreme Multi-label Text Classification</p>
+<p>Finding each document its most relevant subset of labels from an extremely large space of categories.</p>
+<p>Training data: {(x<sub>i</sub>, y<sub>i</sub>)}<sup>n</sup><sub>1</sub>, x<sub>i</sub> &#x2208; X, y<sub>i</sub> &#x2208; {0, 1}<sup>L</sup><br>X is the data, y is the label.</p>
+<p><strong>Goal</strong>:<br>Learning a mapping g: X -&gt; {0, 1}<sup>L</sup><br>Our goal is finding a mapping from x to y.</p>
+<a id="more"></a>
+<p>Each document x<sub>i</sub> is associated with a set of relevant labels, denoted by label vector y<sub>i</sub>.</p>
+<h2 id="Two-key-challenges-in-XMTC"><a href="#Two-key-challenges-in-XMTC" class="headerlink" title="Two key challenges in XMTC"></a>Two key challenges in XMTC</h2><p>When <em>n, L, D</em> are large:</p>
+<ol>
+<li>Scalability -&gt; both in training and testing (n -&gt; the number of document; D -&gt; the number of feature)</li>
+<li>Data sparsity</li>
+</ol>
+<p>So, how to extract richer features representation and how to exploit label correlations are the key challenges.</p>
+<h2 id="Related-works"><a href="#Related-works" class="headerlink" title="Related works"></a>Related works</h2><ul>
+<li>Target-embedding methods </li>
+</ul>
+<p>Compress label vectors in target space down to low-dimensional embeddings.</p>
+<ul>
+<li>Tree-based ensemble methods</li>
+</ul>
+<p>Recursively partitions instance space to induce a tree structure.</p>
+<ul>
+<li>Deep learning for text classification</li>
+</ul>
+<p>Automatically extract features from raw text.<br>Has been remarkable success in multi-class classification.</p>
+<h2 id="Kim-CNN"><a href="#Kim-CNN" class="headerlink" title="Kim-CNN"></a>Kim-CNN</h2><p><img src="/2018/03/23/EMTC-md/1.png" alt=""></p>
+<p>It instead of using just a bag-of-word features, the roll text is fed into the model.</p>
+<p>The resolution may not be that good, so here is a sequence of words, and each word is replaced by the word embedding. So you have a vector here. It&#x2019;s a word embedding with the associated word.</p>
+<p>So the input will form a <em>n</em> by <em>k</em> matrix, where <em>n</em> is number of words in a document, and <em>k</em> is dimension of the word embedding. You can think of this like image, and we are doing convolutional flitters on this image.</p>
+<p>Then, what they do is they place one deconvolution flitter sliding through the time dimension.</p>
+<p>So the first part is extracting a generalized version of the n-gram features, compared to the traditional bag-of-word or bigram or trigram features.</p>
+<p>The second part, the red box there, they are using the filter size of two, but you can also use three or four and so on. That&#x2019;s way, you are extracting more generalized bigram or trigram features. </p>
+<p>After that, you have a feature map, and what they do, they just do max pooling to extract the most strongest signal in that feature map and stack them all together. And finally is the fully connected layer.</p>
+<p>So this is a brief introduction of the current strongest method in multi-class classification. </p>
+<p>There are several different parts, roughly three.</p>
+<h2 id="XML-CNN-Extreme-Multi-label-CNN"><a href="#XML-CNN-Extreme-Multi-label-CNN" class="headerlink" title="XML-CNN (Extreme Multi-label CNN)"></a>XML-CNN (Extreme Multi-label CNN)</h2><p><img src="/2018/03/23/EMTC-md/2.png" alt=""></p>
+<p>The first is the convolution, The red box is the convolution filter. We slide through the convolution filter in another dimension. Here we do it opposite direction that we swipe through the convolution filter through the word embedding dimension. You can think in an image is a spatial dimension. So the motivation is like each filters is capturing Moore&#x2019;s global information, given the whole sequence.</p>
+<p>So flying through different dimension of the word embedding is like capturing the most salient features of word among the entire document. So we also have filter of size 248 et cetera that capturing different spatial relations among the embedding matrix. </p>
+<p>After that, we also have a feature map. What we do is not the traditional max pooling. What we do is like adaptive max pooling that extract, two to three most secure known features in the feature map. So if we are doing that, the final feature representation here will be even two to three times larger than the previous method. In the extreme multi-label setting, we know that the final output number of label here is very huge.</p>
+<p>At last, we need to make a low-rank matrix factorization here. So there is a safe 512th hidden representation in the middle that first project this long feature map to a lower dimension and then we do fully connect.</p>
+<h2 id="Memory-Consumption-A-case-study"><a href="#Memory-Consumption-A-case-study" class="headerlink" title="Memory Consumption: A case study"></a>Memory Consumption: A case study</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Vocabulary size: V(30k)</div><div class="line">Word embedding dimension: D(300) </div><div class="line">Document length: S(500) </div><div class="line">Number of labels: L(670K) </div><div class="line">Hidden = 512 </div><div class="line">Pooling units = 128Conv1D filters: 32</div><div class="line">filter sizes = [2, 4, 8]Total number of parameters: Embedding layer: V*D = 9MConv1D layer: S*32*(2+4+8) = 32K + 64K + 128K = 224KHidden layer: (128*32*3)*512 = 6.29MOutput layer: 512*670K = 343MTotal: 358.51M</div></pre></td></tr></table></figure>
+<p>If using floating precision, the memory for medal parameters is around 1.33GB.</p>
+<p>The analysis here is just the minimum of memory you use because when you are doing back propagation and the mini batches, that also depends on the mini batch size you use.</p>
+<h2 id="Choice-of-Loss"><a href="#Choice-of-Loss" class="headerlink" title="Choice of Loss"></a>Choice of Loss</h2><p>We know that if in the Multi-class classification, if you use Softmax, the model will favor only one label and pushing other label to zero.</p>
+<p><img src="/2018/03/23/EMTC-md/3.png" alt=""></p>
+<p>So in the XMTC setting, you mostly put zero probability output on the other labels. But actually, in this kind of dataset, because each document is only tag with the most relevant, say five or ten labels, it doesn&#xB0;&#xD8;t mean that other label is not relevant.</p>
+<p>Using Softmax may not be that good choice, so we consider the most naive Binary Cross-entropy using the Sigmoid.</p>
+<h2 id="So-how-do-we-learn-the-model-parameter-&#x3B8;"><a href="#So-how-do-we-learn-the-model-parameter-&#x3B8;" class="headerlink" title="So how do we learn the model parameter &#x3B8;?"></a>So how do we learn the model parameter &#x3B8;?</h2><p>We simply use the mean-square out less, the loss function here.</p>
+<pre><code>Denotes the loss function L(~, ~). The energy function is parameterized by a neural network E(y; x, &#x3B8;)
+</code></pre><p><img src="/2018/03/23/EMTC-md/4.png" alt=""></p>
+<p>First, we need to find out the prediction y<sub>i</sub> hat, by solving the inference problem and of the energy network, given the fixed model parameter &#x3B8;. So, exact solving the inference may not be feasible. Then what they do?</p>
+<pre><code>Exact solving the inference may be infeasible, solved approximately by gradient descent with fix iterations.
+</code></pre><p><img src="/2018/03/23/EMTC-md/5.png" alt=""></p>
+<p>They just do gradient descent with a fixed maximum iteration number, for instance, say just 5. So the do five times obtaining the prediction yi hat and fix that to calculate the gradient based on feature.</p>
+<h2 id="Test-time-Optimization"><a href="#Test-time-Optimization" class="headerlink" title="Test-time Optimization"></a>Test-time Optimization</h2><ul>
+<li>Computation Graph</li>
+</ul>
+<p>So actually calculating the gradient with respect to model parameter &#x3B8; could be somehow tricky. So, let&#x2019;s look at the computational graph here. This is the sketch on my note.</p>
+<p><img src="/2018/03/23/EMTC-md/6.png" alt=""></p>
+<p>The input is <em>x</em>, and you path this through some feature network. Use cache the feature and you will calculate, you first make a forward path based on this to calculate the prediction <em>y</em>. So you need to calculate the gradient with respect to <em>y</em> here in the 3rd box is a model part. And in the backward pass, you also want to calculate the gradient with respect to the model parameter &#x3B8;.</p>
+<p>Now you need to visit multiply times through the model box, for example, the first path it&#x2019;s like this, the upper part. And the second part is like that, the middle part, because the y<sub>i</sub> is sort of like the final prediction of <em>y</em> is a dependency among the previous state and previous stat is an input function.</p>
+<p>The last, you need to make the derivative multiple times path. But this is the detail and another work in the year is ICML.</p>
+<h2 id="ICML-Input-Convex-Neural-Networks"><a href="#ICML-Input-Convex-Neural-Networks" class="headerlink" title="ICML(Input Convex Neural Networks)"></a>ICML(Input Convex Neural Networks)</h2><p>ICML, which is very similar to the precious structure Prediction Energy Network, except one thing, The design architecture of energy network.</p>
+<p>In this work, they design the energy network to be convex with respect to the y. The benefit of that is when you do the test time optimization, solving inference problems put, this will have a global optimal solution.</p>
+<p>Of course, to design the network to be convex, you have some assumption or can say constraint need to be made on with parameter W. W<sup>(z)</sup><sub>1:k-1</sub> are non-negative, activation functions are convex and non-decreasing.</p>
+<p><img src="/2018/03/23/EMTC-md/7.png" alt=""></p>
+<h2 id="Something-to-say"><a href="#Something-to-say" class="headerlink" title="Something to say"></a>Something to say</h2><p>In recent months&#xFF0C;I have so much to do, such as TOEFL, GRE and final exam, that I don&#x2019;t have time to update my blog. At the same time, I find that that writing notes by hand is more convenient and comfortable than using Word&#xFF0C;which is another reason for reducing updates.</p>
+<p>The following photo is two pages of this motes, and please don&#x2019;t care about ugly handwritings.</p>
+<p><img src="/2018/03/23/EMTC-md/8.png" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/23/EMTC-md/">
+    <time datetime="2018-03-23T08:17:41.000Z" class="entry-date">
+        2018-03-23
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2017/12/17/FastRCNN-FasterRCNN/" rel="next">谈一谈 Fast R-CNN 和 Faster R-CNN <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">27</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/EMTC-md/">Extreme Multi-label Text Classification:Kim-CNN &amp; XML-CNN</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/17/FastRCNN-FasterRCNN/">谈一谈 Fast R-CNN 和 Faster R-CNN</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/01/循环神经网络-RNN/">循环神经网络_RNN</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
