@@ -27,16 +27,13 @@ Title: How to perform as machine learning">
 
 First of all, tell a joke.
 Title: How to perform as machine learning">
-<meta property="og:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/1.png">
-<meta property="og:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/2.png">
-<meta property="og:updated_time" content="2018-07-30T15:33:24.000Z">
+<meta property="og:updated_time" content="2018-07-30T15:45:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning & Self-Play">
 <meta name="twitter:description" content="Meta Learning &amp;amp; Self PlayThis passage is a learning note about a paper talking about the reinforcement learning and self play.
 
 First of all, tell a joke.
 Title: How to perform as machine learning">
-<meta name="twitter:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/1.png">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -126,10 +123,8 @@ lol
 <p>It&#x2019;s a super general framework because almost any problem you can think of can be describe as there is an agent that takes some actions and you want to take those actions which lead to the good rewards, the high rewards.</p>
 <p>Now, the reason that reinforcement learning is interesting is because this reasonably good reinforcement learning algorithms. I should say reasonably good, I should say interesting reinforcement learning algorithms that can sometimes solve problems. So in the formulation, the environment gives the agents the observations and the rewards, but in the real world, the agent need to figure out its own rewards from the observation.</p>
 <p>Humans and animals they are not being told by the world but something is good or bad, it&#x2019;s on us to figure it out of for ourselves.</p>
-<p>And this is how it looks like.</p>
 <pre><code>Agent = neural work
-</code></pre><p><img src="/2018/07/30/reinforcement-learning-and-self-play/1.png" alt=""></p>
-<p>This is how it looks like now at least where the observation come in and a little network or helpfully a big neural network does some processing and produces an action.</p>
+</code></pre><p>This is how it looks like now at least where the observation come in and a little network or helpfully a big neural network does some processing and produces an action.</p>
 <p>And I&#x2019;ll explain to you in this part the way in which the vast majority of reinforcement learning algorithms work.</p>
 <ul>
 <li>Add randomness to your actions</li>
@@ -181,7 +176,6 @@ lol
 <p>Another very nice thing about self play is that it has an natural or perfect curriculum because if you are good then your opponent is good, the table is difficult. You always vain on between 50% of the tome. So it does not matter how good you are or how bad you are. It&#x2019;s always challenging at the right level of challenge and so it means that you have a very smooth path of going from agents that don&#x2019;t do much to agents that potentially do a lot of things.</p>
 <h2 id="AI-Alignment-Learning-from-human-feedback"><a href="#AI-Alignment-Learning-from-human-feedback" class="headerlink" title="AI Alignment: Learning from human feedback"></a>AI Alignment: Learning from human feedback</h2><p>Here the question is that we are trying to address is really simple. You know as we train progressively more powerfully AI system it will be important to communicate to them goals of greater subtlety and intricacy and how can we do that.</p>
 <p>Well, in this work, we investigate one approach which is having humans judge the behavior of an algorithms and some be route be really efficient.</p>
-<p><img src="/2018/07/30/reinforcement-learning-and-self-play/2.png" alt=""></p>
 <p>The way it really works is that human judges provide feedback to the system. All of those bits of feedback are being cashed into a model of a reward using a triplet loss. It tries to come up with a single reward function that respects all the human feedback that was given to it.</p>
 
       
