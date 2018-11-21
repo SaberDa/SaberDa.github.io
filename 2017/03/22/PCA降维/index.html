@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,17 +15,19 @@
   
   <title>PCA降维 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x5173;&amp;#x4E8E;PCA&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x4ECB;&amp;#x7ECD;&amp;#x5728;&amp;#x4E0B;&amp;#x9762;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E2D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x6211;&amp;#x5C31;&amp;#x7B80;&amp;#x5355;&amp;#x4E">
+  <meta name="description" content="关于PCA算法的具体介绍在下面这篇文章中，这里我就简单介绍一下，如果大家想要完整的了解PCA，戳下面那个连接就是了 Machine Learning-8 本文中的代码以及数据文件在这里 代码与数据 在介绍PCA之前，先谈谈 什么是降维？举个例子，比如你现在再看手机，手机正在播放复联。众所周知，屏幕是由无数个像素点组成的，比如100W个吧，不算多。而你在看复联的时候你关注的是英雄的动作以及周围的场面">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PCA降维">
 <meta property="og:url" content="https://saberda.github.io/2017/03/22/PCA降维/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x5173;&amp;#x4E8E;PCA&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x4ECB;&amp;#x7ECD;&amp;#x5728;&amp;#x4E0B;&amp;#x9762;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E2D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x6211;&amp;#x5C31;&amp;#x7B80;&amp;#x5355;&amp;#x4E">
+<meta property="og:description" content="关于PCA算法的具体介绍在下面这篇文章中，这里我就简单介绍一下，如果大家想要完整的了解PCA，戳下面那个连接就是了 Machine Learning-8 本文中的代码以及数据文件在这里 代码与数据 在介绍PCA之前，先谈谈 什么是降维？举个例子，比如你现在再看手机，手机正在播放复联。众所周知，屏幕是由无数个像素点组成的，比如100W个吧，不算多。而你在看复联的时候你关注的是英雄的动作以及周围的场面">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://saberda.github.io/2017/03/22/PCA降维/1.png">
 <meta property="og:updated_time" content="2017-03-22T17:22:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PCA降维">
-<meta name="twitter:description" content="&amp;#x5173;&amp;#x4E8E;PCA&amp;#x7B97;&amp;#x6CD5;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x4ECB;&amp;#x7ECD;&amp;#x5728;&amp;#x4E0B;&amp;#x9762;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x4E2D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x91CC;&amp;#x6211;&amp;#x5C31;&amp;#x7B80;&amp;#x5355;&amp;#x4E">
+<meta name="twitter:description" content="关于PCA算法的具体介绍在下面这篇文章中，这里我就简单介绍一下，如果大家想要完整的了解PCA，戳下面那个连接就是了 Machine Learning-8 本文中的代码以及数据文件在这里 代码与数据 在介绍PCA之前，先谈谈 什么是降维？举个例子，比如你现在再看手机，手机正在播放复联。众所周知，屏幕是由无数个像素点组成的，比如100W个吧，不算多。而你在看复联的时候你关注的是英雄的动作以及周围的场面">
 <meta name="twitter:image" content="https://saberda.github.io/2017/03/22/PCA降维/1.png">
   
   
@@ -36,8 +38,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -96,88 +98,88 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/22/PCA降维/" data-id="cjk8fbksm002gu0b3ud5dwl95" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/22/PCA降维/" data-id="cjoqmj8vm002dr0b3b7iesn2u" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x5173;&#x4E8E;PCA&#x7B97;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#x5728;&#x4E0B;&#x9762;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x5C31;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x5927;&#x5BB6;&#x60F3;&#x8981;&#x5B8C;&#x6574;&#x7684;&#x4E86;&#x89E3;PCA&#xFF0C;&#x6233;&#x4E0B;&#x9762;&#x90A3;&#x4E2A;&#x8FDE;&#x63A5;&#x5C31;&#x662F;&#x4E86;</p>
-<p><a href="http://www.saberismywife.com/2016/12/31/Machine-Learning-8/" target="_blank" rel="external">Machine Learning-8</a></p>
-<p>&#x672C;&#x6587;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5728;&#x8FD9;&#x91CC;</p>
-<p><a href="https://github.com/SaberDa/PCA-in-python" target="_blank" rel="external">&#x4EE3;&#x7801;&#x4E0E;&#x6570;&#x636E;</a></p>
-<p>&#x5728;&#x4ECB;&#x7ECD;PCA&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x8C08;&#x8C08;</p>
-<h2 id="&#x4EC0;&#x4E48;&#x662F;&#x964D;&#x7EF4;&#xFF1F;"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x964D;&#x7EF4;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x964D;&#x7EF4;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x964D;&#x7EF4;&#xFF1F;</h2><p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x73B0;&#x5728;&#x518D;&#x770B;&#x624B;&#x673A;&#xFF0C;&#x624B;&#x673A;&#x6B63;&#x5728;&#x64AD;&#x653E;&#x590D;&#x8054;&#x3002;&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x5C4F;&#x5E55;&#x662F;&#x7531;&#x65E0;&#x6570;&#x4E2A;&#x50CF;&#x7D20;&#x70B9;&#x7EC4;&#x6210;&#x7684;&#xFF0C;&#x6BD4;&#x5982;100W&#x4E2A;&#x5427;&#xFF0C;&#x4E0D;&#x7B97;&#x591A;&#x3002;&#x800C;&#x4F60;&#x5728;&#x770B;&#x590D;&#x8054;&#x7684;&#x65F6;&#x5019;&#x4F60;&#x5173;&#x6CE8;&#x7684;&#x662F;&#x82F1;&#x96C4;&#x7684;&#x52A8;&#x4F5C;&#x4EE5;&#x53CA;&#x5468;&#x56F4;&#x7684;&#x573A;&#x9762;&#xFF0C;&#x8FD9;&#x662F;&#x4E2A;&#x4E09;&#x7EF4;&#x7684;&#x573A;&#x666F;&#x3002;</p>
-<p>&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4EBA;&#x8111;&#x5DF2;&#x7ECF;&#x5C06;&#x6570;&#x636E;&#x4ECE;100W&#x7EF4;&#x964D;&#x5230;&#x4E86;3&#x7EF4;&#x3002;</p>
-<p>&#x8FD9;&#x5C31;&#x662F;&#x964D;&#x7EF4;(dimensionality reduction)&#x3002;</p>
+        <p>关于PCA算法的具体介绍在下面这篇文章中，这里我就简单介绍一下，如果大家想要完整的了解PCA，戳下面那个连接就是了</p>
+<p><a href="http://www.saberismywife.com/2016/12/31/Machine-Learning-8/" target="_blank" rel="noopener">Machine Learning-8</a></p>
+<p>本文中的代码以及数据文件在这里</p>
+<p><a href="https://github.com/SaberDa/PCA-in-python" target="_blank" rel="noopener">代码与数据</a></p>
+<p>在介绍PCA之前，先谈谈</p>
+<h2 id="什么是降维？"><a href="#什么是降维？" class="headerlink" title="什么是降维？"></a>什么是降维？</h2><p>举个例子，比如你现在再看手机，手机正在播放复联。众所周知，屏幕是由无数个像素点组成的，比如100W个吧，不算多。而你在看复联的时候你关注的是英雄的动作以及周围的场面，这是个三维的场景。</p>
+<p>在这个过程中，人脑已经将数据从100W维降到了3维。</p>
+<p>这就是降维(dimensionality reduction)。</p>
 <a id="more"></a>
-<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x964D;&#x7EF4;&#xFF1F;"><a href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x964D;&#x7EF4;&#xFF1F;" class="headerlink" title="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x964D;&#x7EF4;&#xFF1F;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x964D;&#x7EF4;&#xFF1F;</h2><ul>
-<li>&#x4F7F;&#x5F97;&#x6570;&#x636E;&#x96C6;&#x66F4;&#x6613;&#x4F7F;&#x7528;</li>
-<li>&#x964D;&#x4F4E;&#x5F88;&#x591A;&#x7B97;&#x6CD5;&#x7684;&#x8BA1;&#x7B97;&#x5F00;&#x9500;</li>
-<li>&#x53BB;&#x9664;&#x566A;&#x58F0;</li>
-<li>&#x4F7F;&#x5F97;&#x7ED3;&#x679C;&#x6613;&#x61C2;</li>
-<li>&#x5C06;&#x5176;&#x7279;&#x5F81;&#x663E;&#x73B0;&#x51FA;&#x6765;&#xFF08;&#x5C06;&#x5176;&#x7279;&#x5F81;&#x663E;&#x73B0;&#x51FA;&#x6765;&#x901A;&#x5E38;&#x662F;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x7684;&#x7B2C;&#x4E00;&#x6B65;&#x3002;&#xFF09;</li>
+<h2 id="为什么要降维？"><a href="#为什么要降维？" class="headerlink" title="为什么要降维？"></a>为什么要降维？</h2><ul>
+<li>使得数据集更易使用</li>
+<li>降低很多算法的计算开销</li>
+<li>去除噪声</li>
+<li>使得结果易懂</li>
+<li>将其特征显现出来（将其特征显现出来通常是我们设计机器学习算法的第一步。）</li>
 </ul>
-<p>&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x6211;&#x5C06;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x672A;&#x6807;&#x6CE8;&#x6570;&#x636E;&#x96C6;&#x7684;&#x964D;&#x7EF4;&#x6280;&#x672F;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x8BE5;&#x6280;&#x672F;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x4E8E;&#x5DF2;&#x6807;&#x6CE8;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<h2 id="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x7B97;&#x6CD5;"><a href="#&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x7B97;&#x6CD5;"></a>&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x7B97;&#x6CD5;</h2><p>&#x7B2C;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x79F0;&#x4E3A;<strong>&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;(Principal Component Analysis)&#xFF0C;&#x7B80;&#x79F0;PCA</strong>&#x3002;</p>
-<p>&#x5728;PCA&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x4ECE;&#x539F;&#x6765;&#x7684;&#x5750;&#x6807;&#x7CFB;&#x8F6C;&#x6362;&#x5230;&#x4E86;&#x65B0;&#x7684;&#x5750;&#x6807;&#x7CFB;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B0;&#x5750;&#x6807;&#x7CFB;&#x7684;&#x9009;&#x62E9;&#x662F;&#x7531;&#x6570;&#x636E;&#x672C;&#x8EAB;&#x51B3;&#x5B9A;&#x7684;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x65B0;&#x5750;&#x6807;&#x8F74;&#x9009;&#x62E9;&#x7684;&#x662F;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x65B0;&#x5750;&#x6807;&#x8F74;&#x7684;&#x9009;&#x62E9;&#x548C;&#x7B2C;&#x4E00;&#x4E2A;&#x5750;&#x6807;&#x8F74;&#x6B63;&#x4EA4;&#x4E14;&#x5177;&#x6709;&#x6700;&#x5927;&#x65B9;&#x5DEE;&#x7684;&#x65B9;&#x5411;&#x3002;&#x8BE5;&#x8FC7;&#x7A0B;&#x4E00;&#x76F4;&#x91CD;&#x590D;&#xFF0C;&#x91CD;&#x590D;&#x6B21;&#x6570;&#x4E3A;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x7279;&#x5F81;&#x7684;&#x6570;&#x76EE;&#x3002;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x65B9;&#x5DEE;&#x90FD;&#x5305;&#x542B;&#x5728;&#x6700;&#x524D;&#x9762;&#x7684;&#x51E0;&#x4E2A;&#x65B0;&#x5750;&#x6807;&#x8F74;&#x4E2D;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x4F59;&#x4E0B;&#x7684;&#x5750;&#x6807;&#x8F74;&#xFF0C;&#x5373;&#x5BF9;&#x6570;&#x636E;&#x505A;&#x4E86;&#x964D;&#x7EF4;&#x5904;&#x7406;&#x3002;</p>
-<p>&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x662F;<strong>&#x56E0;&#x5B50;&#x5206;&#x6790;(Factor Analysis)&#x3002;</strong></p>
-<p>&#x5728;&#x56E0;&#x5B50;&#x5206;&#x6790;&#x4E2D;&#xFF0C;&#x6211;&#x4E48;&#x5047;&#x8BBE;&#x5728;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x7684;&#x751F;&#x6210;&#x4E2D;&#x542B;&#x6709;&#x4E00;&#x4E9B;&#x89C2;&#x6D4B;&#x4E0D;&#x5230;&#x7684;&#x9690;&#x53D8;&#x91CF;(latent variable)&#x3002;&#x5047;&#x8BBE;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x662F;&#x8FD9;&#x4E9B;&#x9690;&#x53D8;&#x91CF;&#x548C;&#x67D0;&#x4E9B;&#x566A;&#x58F0;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;&#x3002;&#x90A3;&#x4E48;&#x9690;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x6BD4;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x7684;&#x6570;&#x76EE;&#x8981;&#x5C11;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x901A;&#x8FC7;&#x627E;&#x5230;&#x9690;&#x53D8;&#x91CF;&#x5C31;&#x53EF;&#x4EE5;&#x662F;&#x5B9E;&#x73B0;&#x6570;&#x636E;&#x7684;&#x964D;&#x7EF4;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5DF2;&#x7ECF;&#x5E94;&#x7528;&#x4E8E;&#x793E;&#x4F1A;&#x79D1;&#x5B66;&#x3001;&#x91D1;&#x878D;&#x7B49;&#x9886;&#x57DF;&#x4E2D;&#x4E86;&#x3002;</p>
-<p>&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x964D;&#x7EF4;&#x7B97;&#x6CD5;&#x662F;<strong>&#x72EC;&#x7ACB;&#x6210;&#x5206;&#x5206;&#x6790;(Independent Component Analysis)&#xFF0C;&#x7B80;&#x79F0;ICA&#x3002;</strong></p>
-<p>ICA&#x5047;&#x8BBE;&#x6570;&#x636E;&#x662F;&#x4ECE;n&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x4E0E;&#x56E0;&#x5B50;&#x5206;&#x6790;&#x7C7B;&#x4F3C;&#x3002;&#x5047;&#x8BBE;&#x6570;&#x636E;&#x4E3A;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x6E90;&#x7684;&#x6DF7;&#x5408;&#x89C2;&#x5BDF;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x6E90;&#x4E4B;&#x95F4;&#x5728;&#x7EDF;&#x8BA1;&#x4E0A;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x800C;&#x5728;PCA&#x4E2D;&#x53EA;&#x5047;&#x8BBE;&#x6570;&#x636E;&#x662F;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x3002;&#x540C;&#x56E0;&#x5B50;&#x5206;&#x6790;&#x4E00;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x636E;&#x6E90;&#x7684;&#x6570;&#x76EE;&#x5C11;&#x4E8E;&#x89C2;&#x5BDF;&#x6570;&#x636E;&#x7684;&#x6570;&#x76EE;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x964D;&#x7EF4;&#x8FC7;&#x7A0B;&#x3002;</p>
-<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><p>&#x4F18;&#x70B9;&#xFF1A;&#x964D;&#x4F4E;&#x6570;&#x636E;&#x7684;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x8BC6;&#x522B;&#x6700;&#x91CD;&#x8981;&#x7684;&#x591A;&#x4E2A;&#x7279;&#x5F81;<br>&#x7F3A;&#x70B9;&#xFF1A;&#x4E0D;&#x4E00;&#x5B9A;&#x9700;&#x8981;&#xFF0C;&#x4E14;&#x6709;&#x53EF;&#x80FD;&#x635F;&#x5931;&#x6709;&#x7528;&#x4FE1;&#x606F;<br>&#x8BD5;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF1A;&#x6570;&#x503C;&#x578B;&#x6570;&#x636E;</p>
-<p><strong>&#x901A;&#x8FC7;PCA&#x8FDB;&#x884C;&#x964D;&#x7EF4;&#x5904;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x83B7;&#x5F97;SVM&#x548C;&#x51B3;&#x7B56;&#x6811;&#x7684;&#x4F18;&#x70B9;</strong>&#xFF1A;</p>
+<p>在这篇文章中我将主要介绍未标注数据集的降维技术，当然，该技术同样也可以应用于已标注的数据。</p>
+<h2 id="先介绍一些常见的算法"><a href="#先介绍一些常见的算法" class="headerlink" title="先介绍一些常见的算法"></a>先介绍一些常见的算法</h2><p>第一种降维算法称为<strong>主成分分析(Principal Component Analysis)，简称PCA</strong>。</p>
+<p>在PCA中，数据从原来的坐标系转换到了新的坐标系，这个新坐标系的选择是由数据本身决定的。第一个新坐标轴选择的是原始数据中方差最大的方向，第二个新坐标轴的选择和第一个坐标轴正交且具有最大方差的方向。该过程一直重复，重复次数为原始数据中特征的数目。之后我们会发现，大部分方差都包含在最前面的几个新坐标轴中。因此我们可以忽略余下的坐标轴，即对数据做了降维处理。</p>
+<p>另外一种降维算法是<strong>因子分析(Factor Analysis)。</strong></p>
+<p>在因子分析中，我么假设在观察数据的生成中含有一些观测不到的隐变量(latent variable)。假设观察数据是这些隐变量和某些噪声的线性组合。那么隐变量的数据可能比观察数据的数目要少，也就是说通过找到隐变量就可以是实现数据的降维。这种方法已经应用于社会科学、金融等领域中了。</p>
+<p>还有一种降维算法是<strong>独立成分分析(Independent Component Analysis)，简称ICA。</strong></p>
+<p>ICA假设数据是从n个数据源产生的，这一点与因子分析类似。假设数据为多个数据源的混合观察结果，这些数据源之间在统计上是相互独立的，而在PCA中只假设数据是不相关的。同因子分析一样，如果数据源的数目少于观察数据的数目，则可以实现降维过程。</p>
+<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><p>优点：降低数据的复杂性，识别最重要的多个特征<br>缺点：不一定需要，且有可能损失有用信息<br>试用数据类型：数值型数据</p>
+<p><strong>通过PCA进行降维处理，我们就可以同时获得SVM和决策树的优点</strong>：</p>
 <ul>
-<li>&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5F97;&#x5230;&#x4E86;&#x548C;&#x51B3;&#x7B56;&#x6811;&#x4E00;&#x6837;&#x7684;&#x5206;&#x7C7B;&#x5668;</li>
-<li>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5206;&#x7C7B;&#x95F4;&#x9694;&#x548C;SVM&#x4E00;&#x6837;&#x597D;</li>
+<li>一方面，得到了和决策树一样的分类器</li>
+<li>另一方面，分类间隔和SVM一样好</li>
 </ul>
-<p>&#x65E2;&#x7136;&#x53EB;&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;&#xFF0C;&#x90A3;&#x4E48;</p>
-<h2 id="&#x4E3B;&#x6210;&#x5206;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;"><a href="#&#x4E3B;&#x6210;&#x5206;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;" class="headerlink" title="&#x4E3B;&#x6210;&#x5206;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;"></a>&#x4E3B;&#x6210;&#x5206;&#x6709;&#x54EA;&#x4E9B;&#xFF1F;</h2><p>&#x7B2C;&#x4E00;&#x4E2A;&#x4E3B;&#x6210;&#x5206;&#x662F;&#x4ECE;&#x6570;&#x636E;&#x5DEE;&#x5F02;&#x6027;&#x6700;&#x5927;&#xFF08;&#x5373;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#xFF09;&#x7684;&#x65B9;&#x5411;&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#x7684;<br>&#x7B2C;&#x4E8C;&#x4E2A;&#x4E3B;&#x6210;&#x5206;&#x5219;&#x6765;&#x81EA;&#x4E0E;&#x6570;&#x636E;&#x5DEE;&#x5F02;&#x6027;&#x6B21;&#x5927;&#x7684;&#x65B9;&#x5411;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x65B9;&#x5411;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x4E3B;&#x6210;&#x5206;&#x65B9;&#x5411;&#x6B63;&#x4EA4;&#x3002;</p>
-<h2 id="&#x4E3B;&#x6210;&#x5206;&#x600E;&#x4E48;&#x83B7;&#x5F97;&#xFF1F;"><a href="#&#x4E3B;&#x6210;&#x5206;&#x600E;&#x4E48;&#x83B7;&#x5F97;&#xFF1F;" class="headerlink" title="&#x4E3B;&#x6210;&#x5206;&#x600E;&#x4E48;&#x83B7;&#x5F97;&#xFF1F;"></a>&#x4E3B;&#x6210;&#x5206;&#x600E;&#x4E48;&#x83B7;&#x5F97;&#xFF1F;</h2><p>&#x901A;&#x8FC7;&#x6570;&#x636E;&#x96C6;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x53CA;&#x5176;&#x7279;&#x5F81;&#x503C;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x51FA;&#x8FD9;&#x4E9B;&#x4E3B;&#x6210;&#x5206;&#x7684;&#x503C;</p>
-<p>&#x4E00;&#x65E6;&#x5F97;&#x5230;&#x4E86;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x4FDD;&#x7559;&#x6700;&#x5927;&#x7684;N&#x4E2A;&#x503C;&#x3002;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x4E5F;&#x7ED9;&#x51FA;&#x4E86;N&#x4E2A;&#x6700;&#x91CD;&#x8981;&#x7279;&#x5F81;&#x7684;&#x771F;&#x5B9E;&#x7ED3;&#x6784;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;&#x6570;&#x636E;&#x4E58;&#x4E0A;&#x8FD9;N&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x5C06;&#x5B83;&#x8F6C;&#x6362;&#x5230;&#x65B0;&#x7684;&#x5411;&#x91CF;&#x7A7A;&#x95F4;</p>
-<p><strong>&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x4E3A;N&#x4E2A;&#x4E3B;&#x6210;&#x5206;&#x7684;&#x5927;&#x6982;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;</strong></p>
+<p>既然叫主成分分析，那么</p>
+<h2 id="主成分有哪些？"><a href="#主成分有哪些？" class="headerlink" title="主成分有哪些？"></a>主成分有哪些？</h2><p>第一个主成分是从数据差异性最大（即方差最大）的方向中提取出来的<br>第二个主成分则来自与数据差异性次大的方向，并且该方向与第一个主成分方向正交。</p>
+<h2 id="主成分怎么获得？"><a href="#主成分怎么获得？" class="headerlink" title="主成分怎么获得？"></a>主成分怎么获得？</h2><p>通过数据集的协方差矩阵及其特征值分析，我们就可以得出这些主成分的值</p>
+<p>一旦得到了协方差矩阵的特征向量，我们就可以保留最大的N个值。这些特征向量也给出了N个最重要特征的真实结构。我们可以通过将数据乘上这N个特征向量将它转换到新的向量空间</p>
+<p><strong>将数据转换为N个主成分的大概步骤如下</strong></p>
 <ul>
-<li>&#x53BB;&#x9664;&#x5E73;&#x5747;&#x503C;</li>
-<li>&#x8BA1;&#x7B97;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;</li>
-<li>&#x8BA1;&#x7B97;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x7684;&#x7279;&#x5F81;&#x503C;&#x548C;&#x7279;&#x5F81;&#x5411;&#x91CF;</li>
-<li>&#x5C06;&#x7279;&#x5F81;&#x503C;&#x4ECE;&#x5927;&#x5230;&#x5C0F;&#x6392;&#x5E8F;</li>
-<li>&#x4FDD;&#x7559;&#x6700;&#x4E0A;&#x9762;&#x7684;N&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;</li>
-<li>&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x5230;&#x4E0A;&#x8BC9;N&#x4E2A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x6784;&#x5EFA;&#x7684;&#x65B0;&#x7A7A;&#x95F4;&#x4E2D;</li>
+<li>去除平均值</li>
+<li>计算协方差矩阵</li>
+<li>计算协方差矩阵的特征值和特征向量</li>
+<li>将特征值从大到小排序</li>
+<li>保留最上面的N个特征向量</li>
+<li>将数据转换到上诉N个特征向量构建的新空间中</li>
 </ul>
-<p>&#x5148;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;pca.py&#x7684;&#x6587;&#x4EF6;</p>
-<h2 id="&#x7136;&#x540E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;"><a href="#&#x7136;&#x540E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;" class="headerlink" title="&#x7136;&#x540E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;"></a>&#x7136;&#x540E;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</h2><p>&#x5F53;&#x7136;&#x7B2C;&#x4E00;&#x6B65;&#x8FD8;&#x662F;&#x5BFC;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E9B;&#x4E0D;&#x540C;&#x7684;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x4E24;&#x4E2A;list comprehension &#x6765;&#x6784;&#x5EFA;&#x77E9;&#x9635;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">from numpy import *</div><div class="line"></div><div class="line">def loadDataSet(fileName, delim = &apos;\t&apos;):</div><div class="line">    fr = open(fileName)</div><div class="line">    stringArr = [line.strip().split(delim) for line in fr.readlines()]</div><div class="line">    datArr = [map(float,line) for line in stringArr]</div><div class="line">    return mat(datArr)</div></pre></td></tr></table></figure>
-<p>pca&#x51FD;&#x6570;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p>
-<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7528;&#x4E8E;&#x8FDB;&#x884C;pca&#x64CD;&#x4F5C;&#x7684;&#x6570;&#x636E;&#x96C6;</p>
-<p>&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E2A;&#x53EF;&#x9009;&#x7279;&#x5F81;&#xFF0C;&#x5373;&#x5E94;&#x7528;&#x7684;N&#x4E2A;&#x7279;&#x5F81;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x6307;&#x5B9A;&#x8BE5;&#x7279;&#x5F81;&#xFF0C;&#x90A3;&#x4E48;&#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x524D;9999999&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x6216;&#x8005;&#x539F;&#x59CB;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x5168;&#x90E8;&#x7279;&#x5F81;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">def pca(dataMat, topNfeat = 9999999):</div><div class="line">    meanVals = mean(dataMat, axis = 0)</div><div class="line">    # &#x9996;&#x5148;&#x53BB;&#x5E73;&#x5747;&#x503C;</div><div class="line">    meanRemoved = dataMat - meanVals</div><div class="line">    covMat = cov(meanRemoved, rowvar =False)</div><div class="line">    eigVals, eigVects = linalg.eig(mat(covMat))</div><div class="line">    eigValInd = argsort(eigVals)</div><div class="line">    # &#x4ECE;&#x5C0F;&#x5230;&#x5927;&#x5BF9;N&#x4E2A;&#x503C;&#x6392;&#x5E8F;</div><div class="line">    eigValInd = eigValInd[: -(topNfeat+1) : -1]</div><div class="line">    redEigVects = eigVects[:, eigValInd]</div><div class="line">    # &#x5C06;&#x6570;&#x636E;&#x5207;&#x6362;&#x5230;&#x65B0;&#x7684;&#x7A7A;&#x95F4;</div><div class="line">    lowDDataMat = meanRemoved * redEigVects</div><div class="line">    reconMat = (lowDDataMat * redEigVects.T) + meanVals</div><div class="line">    return lowDDataMat, reconMat</div></pre></td></tr></table></figure>
-<p>&#x7136;&#x540E;&#x5728;&#x7EC8;&#x7AEF;&#x91CC;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x68C0;&#x9A8C;&#x4E00;&#x4E0B;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import pca</div><div class="line">from numpy import *</div><div class="line">dataMat = pca.loadDataSet(&apos;testSet.txt&apos;)</div><div class="line">lowDMat, reconMat = pca.pca(dataMat, 1)</div><div class="line">shape(lowDMat)</div><div class="line">import matplotlib</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">fig = figure()</div><div class="line">ax = fig.add_subplot(111)</div><div class="line">ax.scatter(dataMat[:,0].flatten().A[0], dataMat[:,1].flatten().A[0], marker = &apos;^&apos;, s = 90)</div><div class="line">ax.scatter(reconMat[:,0].flatten().A[0], reconMat[:,1].flatten().A[0], marker = &apos;o&apos;, s = 50, c = &apos;red&apos;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
-<p>&#x8FD0;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x5982;&#x4E0B;</p>
-<p><img src="/2017/03/22/PCA&#x964D;&#x7EF4;/1.png" alt=""></p>
-<h2 id="Matlab&#x5B9E;&#x73B0;"><a href="#Matlab&#x5B9E;&#x73B0;" class="headerlink" title="Matlab&#x5B9E;&#x73B0;"></a>Matlab&#x5B9E;&#x73B0;</h2><p>&#x4EE3;&#x7801;&#x5177;&#x4F53;&#x601D;&#x60F3;&#x89C1;&#x6211;&#x5728;&#x5F00;&#x7BC7;&#x65F6;&#x7684;&#x90A3;&#x7BC7;&#x94FE;&#x63A5;</p>
-<p>&#x7B97;&#x6CD5;&#x516C;&#x5F0F;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function [U, S] = pca(X)</div><div class="line"></div><div class="line">	[m, n] = size(X);</div><div class="line"></div><div class="line">	U = zeros(n);</div><div class="line">	S = zeros(n);</div><div class="line"></div><div class="line"></div><div class="line">	Sigma = 1 / m * X&apos; * X;</div><div class="line">	[U,S,V] = svd(Sigma);</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
-<p>&#x6570;&#x636E;&#x5904;&#x7406;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">function Z = projectData(X, U, K)</div><div class="line"></div><div class="line">	Z = zeros(size(X, 1), K);</div><div class="line"></div><div class="line">	for i = 1:size(X,1)</div><div class="line">  		x = X(i,:)&apos;;</div><div class="line">  		Z(i,:) = x&apos; * U(:,1:K);</div><div class="line">	end</div><div class="line"></div><div class="line">end</div><div class="line"></div><div class="line">function X_rec = recoverData(Z, U, K)</div><div class="line"></div><div class="line">X_rec = zeros(size(Z, 1), size(U, 1));</div><div class="line"></div><div class="line">	for i=1:size(Z, 1)</div><div class="line">		v = Z(i, :)&apos;;</div><div class="line">    	</div><div class="line">    		for j=1: size(U, 1)</div><div class="line">    		</div><div class="line">       	 	X_rec(i, j) = v&apos; * U(j, 1:K)&apos;;</div><div class="line">       	 	</div><div class="line">    		end</div><div class="line">	end</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
-<h2 id="&#x603B;&#x7ED3;"><a href="#&#x603B;&#x7ED3;" class="headerlink" title="&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2><p>&#x964D;&#x7EF4;&#x601D;&#x60F3;&#x4F7F;&#x5F97;&#x6570;&#x636E;&#x53D8;&#x5F97;&#x66F4;&#x5BB9;&#x6613;&#x4F7F;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x4ED6;&#x4EEC;&#x5F80;&#x5F80;&#x80FD;&#x591F;&#x53BB;&#x9664;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x566A;&#x58F0;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x4ED6;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x66F4;&#x52A0;&#x51C6;&#x786E;&#x3002;</p>
-<p>PCA&#x7B97;&#x6CD5;&#x7684;&#x672C;&#x8D28;&#x5C31;&#x662F;&#xFF1A;&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x8BC6;&#x522B;&#x5176;&#x4E3B;&#x8981;&#x7279;&#x5F81;&#xFF0C;&#x5B83;&#x662F;&#x901A;&#x8FC7;&#x6CBF;&#x7740;&#x6570;&#x636E;&#x6700;&#x5927;&#x65B9;&#x5DEE;&#x65B9;&#x5411;&#x65CB;&#x8F6C;&#x5750;&#x6807;&#x8F74;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x9009;&#x62E9;&#x65B9;&#x5DEE;&#x6700;&#x5927;&#x7684;&#x65B9;&#x5411;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x6761;&#x5750;&#x6807;&#x8F74;&#xFF0C;&#x540E;&#x7EED;&#x5750;&#x6807;&#x8F74;&#x5219;&#x4E0E;&#x524D;&#x9762;&#x7684;&#x5750;&#x6807;&#x8F74;&#x6B63;&#x4EA4;&#x3002;&#x534F;&#x65B9;&#x5DEE;&#x77E9;&#x9635;&#x4E0A;&#x7684;&#x7279;&#x5F81;&#x503C;&#x5206;&#x6790;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x6B63;&#x4EA4;&#x5750;&#x6807;&#x6765;&#x83B7;&#x53D6;&#x3002;</p>
-<h2 id="&#x5B9E;&#x6218;&#xFF1A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x4E2D;&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x90FD;&#x6709;NaN-Not-a-Number-&#x8BE5;&#x600E;&#x6837;&#x5904;&#x7406;"><a href="#&#x5B9E;&#x6218;&#xFF1A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x4E2D;&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x90FD;&#x6709;NaN-Not-a-Number-&#x8BE5;&#x600E;&#x6837;&#x5904;&#x7406;" class="headerlink" title="&#x5B9E;&#x6218;&#xFF1A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x4E2D;&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x90FD;&#x6709;NaN(Not a Number)&#x8BE5;&#x600E;&#x6837;&#x5904;&#x7406;"></a>&#x5B9E;&#x6218;&#xFF1A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x7279;&#x5F81;&#x4E2D;&#x51E0;&#x4E4E;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x90FD;&#x6709;NaN(Not a Number)&#x8BE5;&#x600E;&#x6837;&#x5904;&#x7406;</h2><p>&#x5173;&#x4E8E;&#x6709;&#x4E9B;&#x6570;&#x636E;&#x4E0D;&#x80FD;&#x7528;&#x7684;&#x5904;&#x7406;&#x65B9;&#x6CD5;&#x6211;&#x5728;&#x4E0A;&#x7BC7;&#x535A;&#x5BA2;&#x4E2D;&#x5DF2;&#x7ECF;&#x89E3;&#x91CA;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x662F;&#x8981;&#x56E0;&#x5730;&#x5236;&#x5B9C;&#x3002;&#x6240;&#x4EE5;&#x5C31;&#x62FF;&#x8FD9;&#x4E2A;&#x5B9E;&#x6218;&#x6570;&#x636E;&#x6765;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x3002;</p>
-<p>&#x9996;&#x5148;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x8FD9;&#x4E9B;&#x7279;&#x5F81;&#xFF08;&#x5171;590&#x4E2A;&#xFF09;&#x4E2D;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x6837;&#x672C;&#x90FD;&#x6709; NaN &#xFF0C;&#x56E0;&#x6B64;&#x9664;&#x53BB;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x6837;&#x672C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0D;&#x592A;&#x73B0;&#x5B9E;&#x3002;<br>&#x5176;&#x6B21;&#xFF0C;&#x5C3D;&#x7BA1;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;0&#x6765;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E9B;&#x503C;&#x7684;&#x610F;&#x4E49;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E5F;&#x662F;&#x4E2A;&#x4E0B;&#x7B56;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#x6765;&#x8BC1;&#x660E;&#x662F;&#x4E0B;&#x7B56;&#xFF0C;&#x6BD4;&#x5982;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x5F00;&#x6C0F;&#x6E29;&#x5EA6;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x5B83;&#x4EEC;&#x8BBE;&#x7F6E;&#x6210;0&#x672A;&#x514D;&#x6709;&#x4E9B;&#x592A;&#x626F;&#x6DE1;&#x4E86;&#x3002;</p>
-<p>&#x8FD9;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x7528;&#x5E73;&#x5747;&#x503C;&#x6765;&#x66FF;&#x4EE3;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
-<p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/secom/" target="_blank" rel="external">&#x8BE5;&#x5B9E;&#x6218;&#x7684;&#x6570;&#x636E;&#x6765;&#x6E90;</a></p>
-<p>&#x8FD9;&#x662F;&#x66FF;&#x4EE3;&#x4E3A;&#x5E73;&#x5747;&#x503C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;pca.py&#x6587;&#x4EF6;&#x4E2D;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def replaceNanWithMean():</div><div class="line">    dataMat = loadDataSet(&apos;secom.data.txt&apos;, &apos;&apos;)</div><div class="line">    numFeat = shape(dataMat)[1]</div><div class="line">    for i in range(numFeat):</div><div class="line">        # &#x8BA1;&#x7B97;&#x6240;&#x6709;&#x975E; NaN &#x7684;&#x5E73;&#x5747;&#x503C;</div><div class="line">        meanVal = mean(dataMat[nonzero(~isnan(dataMat[:,i].A))[0],i])</div><div class="line">        # &#x5C06;&#x6240;&#x6709; NaN &#x7F6E;&#x4E3A;&#x5E73;&#x5747;&#x503C;</div><div class="line">        dataMat[nonzero(isnan(dataMat[:,i].A))[0], i] = meanVal</div><div class="line">    return dataMat</div></pre></td></tr></table></figure>
-<p>&#x63A5;&#x4E0B;&#x6765;&#x5728;&#x7EC8;&#x7AEF;&#x91CC;&#x8F93;&#x5165;&#x5982;&#x4E0B;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">dataMat = pca.replaceNanWithMean()</div><div class="line">meanVals = mean(dataMat, axis = 0)</div><div class="line">meanRemoved = dataMat - meanVals</div><div class="line">covMat = cov(meanRemoved, rowvar = 0)</div><div class="line">eigVals, eigVects = linalg.eig(mat(covMat))</div><div class="line">eigVals</div></pre></td></tr></table></figure>
-<p>&#x8FD9;&#x6837;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6548;&#x679C;&#x4E86;</p>
-<h2 id="&#x53E6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E8B;"><a href="#&#x53E6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E8B;" class="headerlink" title="&#x53E6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E8B;"></a>&#x53E6;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x4E8B;</h2><p>PCA&#x4F1A;&#x7ED9;&#x51FA;&#x6570;&#x636E;&#x4E2D;&#x6240;&#x5305;&#x542B;&#x7684;&#x4FE1;&#x606F;&#x91CF;&#x3002;</p>
-<p>&#x9700;&#x8981;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF0C;<strong>&#x6570;&#x636E;(data)</strong>&#x548C;<strong>&#x4FE1;&#x606F;(information)</strong>&#x4E4B;&#x95F4;&#x6709;&#x7740;&#x5DE8;&#x5927;&#x7684;&#x5DEE;&#x522B;&#x3002;</p>
+<p>先建立一个名为pca.py的文件</p>
+<h2 id="然后代码如下："><a href="#然后代码如下：" class="headerlink" title="然后代码如下："></a>然后代码如下：</h2><p>当然第一步还是导入数据，这里有些不同的是使用了两个list comprehension 来构建矩阵</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line"></span><br><span class="line">def loadDataSet(fileName, delim = &apos;\t&apos;):</span><br><span class="line">    fr = open(fileName)</span><br><span class="line">    stringArr = [line.strip().split(delim) for line in fr.readlines()]</span><br><span class="line">    datArr = [map(float,line) for line in stringArr]</span><br><span class="line">    return mat(datArr)</span><br></pre></td></tr></table></figure>
+<p>pca函数有两个参数：</p>
+<p>第一个参数是用于进行pca操作的数据集</p>
+<p>第二个参数是个可选特征，即应用的N个特征。如果不指定该特征，那么函数会返回前9999999个特征，或者原始数据中的全部特征</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def pca(dataMat, topNfeat = 9999999):</span><br><span class="line">    meanVals = mean(dataMat, axis = 0)</span><br><span class="line">    # 首先去平均值</span><br><span class="line">    meanRemoved = dataMat - meanVals</span><br><span class="line">    covMat = cov(meanRemoved, rowvar =False)</span><br><span class="line">    eigVals, eigVects = linalg.eig(mat(covMat))</span><br><span class="line">    eigValInd = argsort(eigVals)</span><br><span class="line">    # 从小到大对N个值排序</span><br><span class="line">    eigValInd = eigValInd[: -(topNfeat+1) : -1]</span><br><span class="line">    redEigVects = eigVects[:, eigValInd]</span><br><span class="line">    # 将数据切换到新的空间</span><br><span class="line">    lowDDataMat = meanRemoved * redEigVects</span><br><span class="line">    reconMat = (lowDDataMat * redEigVects.T) + meanVals</span><br><span class="line">    return lowDDataMat, reconMat</span><br></pre></td></tr></table></figure>
+<p>然后在终端里输入以下命令检验一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import pca</span><br><span class="line">from numpy import *</span><br><span class="line">dataMat = pca.loadDataSet(&apos;testSet.txt&apos;)</span><br><span class="line">lowDMat, reconMat = pca.pca(dataMat, 1)</span><br><span class="line">shape(lowDMat)</span><br><span class="line">import matplotlib</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">fig = figure()</span><br><span class="line">ax = fig.add_subplot(111)</span><br><span class="line">ax.scatter(dataMat[:,0].flatten().A[0], dataMat[:,1].flatten().A[0], marker = &apos;^&apos;, s = 90)</span><br><span class="line">ax.scatter(reconMat[:,0].flatten().A[0], reconMat[:,1].flatten().A[0], marker = &apos;o&apos;, s = 50, c = &apos;red&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>运行的结果如下</p>
+<p><img src="/2017/03/22/PCA降维/1.png" alt=""></p>
+<h2 id="Matlab实现"><a href="#Matlab实现" class="headerlink" title="Matlab实现"></a>Matlab实现</h2><p>代码具体思想见我在开篇时的那篇链接</p>
+<p>算法公式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function [U, S] = pca(X)</span><br><span class="line"></span><br><span class="line">	[m, n] = size(X);</span><br><span class="line"></span><br><span class="line">	U = zeros(n);</span><br><span class="line">	S = zeros(n);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Sigma = 1 / m * X&apos; * X;</span><br><span class="line">	[U,S,V] = svd(Sigma);</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>数据处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function Z = projectData(X, U, K)</span><br><span class="line"></span><br><span class="line">	Z = zeros(size(X, 1), K);</span><br><span class="line"></span><br><span class="line">	for i = 1:size(X,1)</span><br><span class="line">  		x = X(i,:)&apos;;</span><br><span class="line">  		Z(i,:) = x&apos; * U(:,1:K);</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">function X_rec = recoverData(Z, U, K)</span><br><span class="line"></span><br><span class="line">X_rec = zeros(size(Z, 1), size(U, 1));</span><br><span class="line"></span><br><span class="line">	for i=1:size(Z, 1)</span><br><span class="line">		v = Z(i, :)&apos;;</span><br><span class="line">    	</span><br><span class="line">    		for j=1: size(U, 1)</span><br><span class="line">    		</span><br><span class="line">       	 	X_rec(i, j) = v&apos; * U(j, 1:K)&apos;;</span><br><span class="line">       	 	</span><br><span class="line">    		end</span><br><span class="line">	end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>降维思想使得数据变得更容易使用，并且他们往往能够去除数据中的噪声，使得其他的机器学习更加准确。</p>
+<p>PCA算法的本质就是：从数据中识别其主要特征，它是通过沿着数据最大方差方向旋转坐标轴来实现的。选择方差最大的方向作为第一条坐标轴，后续坐标轴则与前面的坐标轴正交。协方差矩阵上的特征值分析可以用一系列的正交坐标来获取。</p>
+<h2 id="实战：数据集中的特征中几乎每个特征都有NaN-Not-a-Number-该怎样处理"><a href="#实战：数据集中的特征中几乎每个特征都有NaN-Not-a-Number-该怎样处理" class="headerlink" title="实战：数据集中的特征中几乎每个特征都有NaN(Not a Number)该怎样处理"></a>实战：数据集中的特征中几乎每个特征都有NaN(Not a Number)该怎样处理</h2><p>关于有些数据不能用的处理方法我在上篇博客中已经解释了，但是还是要因地制宜。所以就拿这个实战数据来解释一下。</p>
+<p>首先，因为在这些特征（共590个）中，几乎所有样本都有 NaN ，因此除去不完整的样本这个方法不太现实。<br>其次，尽管我们可以用0来进行替换，但是由于我们不知道这些值的意义，所以这也是个下策。举个例子来证明是下策，比如它们都是开氏温度，那么将它们设置成0未免有些太扯淡了。</p>
+<p>这时，我们可以采用用平均值来替代这个方法来解决这个问题。</p>
+<p><a href="http://archive.ics.uci.edu/ml/machine-learning-databases/secom/" target="_blank" rel="noopener">该实战的数据来源</a></p>
+<p>这是替代为平均值的函数，添加到pca.py文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def replaceNanWithMean():</span><br><span class="line">    dataMat = loadDataSet(&apos;secom.data.txt&apos;, &apos;&apos;)</span><br><span class="line">    numFeat = shape(dataMat)[1]</span><br><span class="line">    for i in range(numFeat):</span><br><span class="line">        # 计算所有非 NaN 的平均值</span><br><span class="line">        meanVal = mean(dataMat[nonzero(~isnan(dataMat[:,i].A))[0],i])</span><br><span class="line">        # 将所有 NaN 置为平均值</span><br><span class="line">        dataMat[nonzero(isnan(dataMat[:,i].A))[0], i] = meanVal</span><br><span class="line">    return dataMat</span><br></pre></td></tr></table></figure>
+<p>接下来在终端里输入如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dataMat = pca.replaceNanWithMean()</span><br><span class="line">meanVals = mean(dataMat, axis = 0)</span><br><span class="line">meanRemoved = dataMat - meanVals</span><br><span class="line">covMat = cov(meanRemoved, rowvar = 0)</span><br><span class="line">eigVals, eigVects = linalg.eig(mat(covMat))</span><br><span class="line">eigVals</span><br></pre></td></tr></table></figure>
+<p>这样你就可以看到效果了</p>
+<h2 id="另需要注意的事"><a href="#另需要注意的事" class="headerlink" title="另需要注意的事"></a>另需要注意的事</h2><p>PCA会给出数据中所包含的信息量。</p>
+<p>需要特别强调的是，<strong>数据(data)</strong>和<strong>信息(information)</strong>之间有着巨大的差别。</p>
 <ul>
-<li>&#x6570;&#x636E;&#x662F;&#x6307;&#x63A5;&#x53D7;&#x7684;&#x539F;&#x59CB;&#x6750;&#x6599;&#xFF0C;&#x5176;&#x4E2D;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x566A;&#x58F0;&#x548C;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
-<li>&#x4FE1;&#x606F;&#x662F;&#x6307;&#x6570;&#x636E;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x90E8;&#x5206;&#x3002;</li>
+<li>数据是指接受的原始材料，其中可能包含噪声和不相关的信息。</li>
+<li>信息是指数据中的相关部分。</li>
 </ul>
-<p>&#x8FD9;&#x4E9B;&#x5E76;&#x975E;&#x662F;&#x62BD;&#x8C61;&#x6982;&#x5FF5;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9A;&#x91CF;&#x7684;&#x8BA1;&#x7B97;&#x6570;&#x636E;&#x4E2D;&#x6240;&#x5305;&#x542B;&#x7684;&#x4FE1;&#x606F;&#x5E76;&#x51B3;&#x5B9A;&#x4FDD;&#x7559;&#x7684;&#x6BD4;&#x4F8B;</p>
+<p>这些并非是抽象概念，我们还可以定量的计算数据中所包含的信息并决定保留的比例</p>
 
       
     </div><!-- .entry-content -->
@@ -224,8 +226,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -235,7 +237,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -258,7 +260,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -289,6 +291,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -304,10 +310,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -317,7 +319,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

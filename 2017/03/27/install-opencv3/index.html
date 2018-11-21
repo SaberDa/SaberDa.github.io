@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -16,11 +16,13 @@
   <title>Problems in Installing openCV on Mac | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="I have installed the openCV3 successfully yesterday. And I find there are lots of problems even wrong ways in the website. So I decide to write this article to tell others who ready to install openCV">
+<meta name="keywords" content="openCV">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Problems in Installing openCV on Mac">
 <meta property="og:url" content="https://saberda.github.io/2017/03/27/install-opencv3/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
 <meta property="og:description" content="I have installed the openCV3 successfully yesterday. And I find there are lots of problems even wrong ways in the website. So I decide to write this article to tell others who ready to install openCV">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://saberda.github.io/2017/03/27/install-opencv3/1.png">
 <meta property="og:image" content="https://saberda.github.io/2017/03/27/install-opencv3/2.png">
 <meta property="og:image" content="https://saberda.github.io/2017/03/27/install-opencv3/3.png">
@@ -38,8 +40,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -98,14 +100,14 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/27/install-opencv3/" data-id="cjk8fbku9003ou0b3ncjc0ieq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/03/27/install-opencv3/" data-id="cjoqmj8zy003or0b3cgkg49ht" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <p>I have installed the openCV3 successfully yesterday. And I find there are lots of problems even wrong ways in the website. So I decide to write this article to tell others who ready to install openCV after me so that you can use the simple and right way.</p>
-<p>Before I tell the details, there is a <a href="https://www.youtube.com/watch?v=U49CVY8yOxw" target="_blank" rel="external">video</a> which is easy to understand the the whole process on YouTube. </p>
+<p>Before I tell the details, there is a <a href="https://www.youtube.com/watch?v=U49CVY8yOxw" target="_blank" rel="noopener">video</a> which is easy to understand the the whole process on YouTube. </p>
 <p>In this article, I will tell you the steps of installing openCV and the details of these steps.Then, I will show you some common problems and their solutions.</p>
 <a id="more"></a>
 <h2 id="Installing-steps"><a href="#Installing-steps" class="headerlink" title="Installing steps"></a>Installing steps</h2><ul>
@@ -118,13 +120,13 @@
 </li>
 </ul>
 <h2 id="Download-Xcode"><a href="#Download-Xcode" class="headerlink" title="Download Xcode"></a>Download Xcode</h2><p>Open App Store, search and download.</p>
-<h2 id="Download-Cmake"><a href="#Download-Cmake" class="headerlink" title="Download Cmake"></a>Download Cmake</h2><p><a href="https://cmake.org" target="_blank" rel="external">Download</a> </p>
-<h2 id="Download-openCV"><a href="#Download-openCV" class="headerlink" title="Download openCV"></a>Download openCV</h2><p><a href="https://github.com/opencv/opencv/releases/tag/3.2.0" target="_blank" rel="external">Download</a></p>
+<h2 id="Download-Cmake"><a href="#Download-Cmake" class="headerlink" title="Download Cmake"></a>Download Cmake</h2><p><a href="https://cmake.org" target="_blank" rel="noopener">Download</a> </p>
+<h2 id="Download-openCV"><a href="#Download-openCV" class="headerlink" title="Download openCV"></a>Download openCV</h2><p><a href="https://github.com/opencv/opencv/releases/tag/3.2.0" target="_blank" rel="noopener">Download</a></p>
 <p>And now, you have already installed the Xcode, Cmake and openCV.zip.</p>
 <p>Unzip into the openCV directory and open the Terminal into the openCV directory, and then key these codes in terminal.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir release</div><div class="line">cd release</div><div class="line">cmake -G &quot;Unix Makefiles&quot; ..</div><div class="line">make</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir release</span><br><span class="line">cd release</span><br><span class="line">cmake -G &quot;Unix Makefiles&quot; ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
 <p>If you successfully build openCV with no error, then go ahead.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>Installation manual:</p>
 <ul>
 <li>/usr/local/lib </li>
@@ -133,34 +135,34 @@
 </ul>
 <p>Until now, you have successfully installed openCV.</p>
 <h2 id="Start-openCV-with-Xcode"><a href="#Start-openCV-with-Xcode" class="headerlink" title="Start openCV with Xcode"></a>Start openCV with Xcode</h2><ol>
-<li>Create the OSX&#x2019;s Command Line project, and add the openCV head file.</li>
+<li>Create the OSX’s Command Line project, and add the openCV head file.</li>
 </ol>
 <p><img src="/2017/03/27/install-opencv3/1.png" alt=""></p>
-<ol>
+<ol start="2">
 <li>Add the DLL into the project.</li>
 </ol>
 <p><img src="/2017/03/27/install-opencv3/2.png" alt=""></p>
 <p><img src="/2017/03/27/install-opencv3/3.png" alt=""></p>
-<ol>
+<ol start="3">
 <li>After that, you can use openCV in Xcode project.</li>
 </ol>
 <h2 id="The-Problems"><a href="#The-Problems" class="headerlink" title="The Problems"></a>The Problems</h2><p>And here are the problems I met.</p>
 <h2 id="Using-homebrew-to-install-openCV"><a href="#Using-homebrew-to-install-openCV" class="headerlink" title="Using homebrew to install openCV"></a>Using homebrew to install openCV</h2><p>There are lots of writers suggest use homebrew to install openCV. And at first, I used this way also. But I found a serious peoblem.</p>
-<p>The problem is when the homebrew showed that I have finish installing, but I could&#x2019;t find the source file, even I used the &#x201C;which opencv&#x201D;, it&#x2019;s nothing.</p>
-<p>Then I googled this problem, and the StackOverFlow tells me to use the &#x201C;&#x2013;HEAD&#x201D;, but it&#x2019;s useless.</p>
+<p>The problem is when the homebrew showed that I have finish installing, but I could’t find the source file, even I used the “which opencv”, it’s nothing.</p>
+<p>Then I googled this problem, and the StackOverFlow tells me to use the “–HEAD”, but it’s useless.</p>
 <p>So finally, I gave up this way.</p>
 <h2 id="About-QTKit-QTKit-h"><a href="#About-QTKit-QTKit-h" class="headerlink" title="About QTKit/QTKit.h"></a>About QTKit/QTKit.h</h2><p>When I build openCV source files, the terminal shows this error:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">XXX/cap_qtkit.mm:46:9: fatal error:</div><div class="line">&apos;QTKit/QTKit.h&apos; file not found</div><div class="line">#import&#xA0;</div><div class="line">^</div><div class="line">1 error generated.</div><div class="line">make[2]: *** [modulesideoio/CMakeFiles/opencv_videoio.dir/src/cap_qtkit.mm.o] Error 1</div><div class="line">make[1]: *** [modulesideoio/CMakeFiles/opencv_videoio.dir/all] Error 2</div><div class="line">make: *** [all] Error 2</div></pre></td></tr></table></figure>
-<p>So, I googled this and found the reason of it is the Mac&#x2019;s system.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">XXX/cap_qtkit.mm:46:9: fatal error:</span><br><span class="line">&apos;QTKit/QTKit.h&apos; file not found</span><br><span class="line">#import </span><br><span class="line">^</span><br><span class="line">1 error generated.</span><br><span class="line">make[2]: *** [modulesideoio/CMakeFiles/opencv_videoio.dir/src/cap_qtkit.mm.o] Error 1</span><br><span class="line">make[1]: *** [modulesideoio/CMakeFiles/opencv_videoio.dir/all] Error 2</span><br><span class="line">make: *** [all] Error 2</span><br></pre></td></tr></table></figure>
+<p>So, I googled this and found the reason of it is the Mac’s system.</p>
 <p>The OSX 10.12 has the QTKit.framework, but the macOS Sierra takes it into AVFoundation.</p>
 <p>And almost all the ways to solve it are very complex and difficult.</p>
 <p>But in the latest version of openCV has solved it. So if you have met this problem, the fastest way to solve it is downloading the latest version.</p>
 <h2 id="About-ippicv-macosx-20151201-tgz"><a href="#About-ippicv-macosx-20151201-tgz" class="headerlink" title="About ippicv_macosx_20151201.tgz"></a>About ippicv_macosx_20151201.tgz</h2><p>There are a lot of people facing this problem.</p>
-<p>The course is stopping at &#x201C;ICV: Downloading ippicv_macosx_20151201.tgz&#x2026;&#x201D; or &#x201C;ICV: Downloading ippicv_macosx_20141027.tgz&#x2026;&#x201D;</p>
+<p>The course is stopping at “ICV: Downloading ippicv_macosx_20151201.tgz…” or “ICV: Downloading ippicv_macosx_20141027.tgz…”</p>
 <p>There exists an easy way to solve it. Just download another file and replace the original file.</p>
-<p><a href="https://raw.githubusercontent.com/Itseez/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_macosx_20151201.tgz" target="_blank" rel="external">20151201</a></p>
-<p><a href="https://sourceforge.net/projects/opencvlibrary/files/3rdparty/ippicv/" target="_blank" rel="external">20141027</a></p>
-<p>And that&#x2019;s all.</p>
+<p><a href="https://raw.githubusercontent.com/Itseez/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_macosx_20151201.tgz" target="_blank" rel="noopener">20151201</a></p>
+<p><a href="https://sourceforge.net/projects/opencvlibrary/files/3rdparty/ippicv/" target="_blank" rel="noopener">20141027</a></p>
+<p>And that’s all.</p>
 
       
     </div><!-- .entry-content -->
@@ -207,8 +209,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -218,7 +220,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -241,7 +243,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -272,6 +274,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -287,10 +293,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -300,7 +302,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

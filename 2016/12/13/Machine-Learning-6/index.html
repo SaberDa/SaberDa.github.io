@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,20 +15,14 @@
   
   <title>Machine-Learning-6 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:
-
-Getting more training examples
-Trying smaller sets of features
-Trying additional feat">
+  <meta name="description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:  Getting more training examples Trying smaller sets of features Trying additional feat">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine-Learning-6">
 <meta property="og:url" content="https://saberda.github.io/2016/12/13/Machine-Learning-6/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:
-
-Getting more training examples
-Trying smaller sets of features
-Trying additional feat">
+<meta property="og:description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:  Getting more training examples Trying smaller sets of features Trying additional feat">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://saberda.github.io/2016/12/13/Machine-Learning-6/1.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/13/Machine-Learning-6/2.png">
 <meta property="og:image" content="https://saberda.github.io/2016/12/13/Machine-Learning-6/3.png">
@@ -46,11 +40,7 @@ Trying additional feat">
 <meta property="og:updated_time" content="2017-01-29T04:37:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine-Learning-6">
-<meta name="twitter:description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:
-
-Getting more training examples
-Trying smaller sets of features
-Trying additional feat">
+<meta name="twitter:description" content="Advice for Applying Machine LearningDeciding What to Try NextErrors in your predictions can be troubleshooted by:  Getting more training examples Trying smaller sets of features Trying additional feat">
 <meta name="twitter:image" content="https://saberda.github.io/2016/12/13/Machine-Learning-6/1.png">
   
   
@@ -61,8 +51,8 @@ Trying additional feat">
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -121,7 +111,7 @@ Trying additional feat">
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/13/Machine-Learning-6/" data-id="cjk8fbkrv001zu0b3mz05tfyg" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/13/Machine-Learning-6/" data-id="cjoqmj8ru001tr0b3z0fxo2uf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -133,16 +123,16 @@ Trying additional feat">
 <li>Trying smaller sets of features</li>
 <li>Trying additional features</li>
 <li>Trying polynomial features</li>
-<li>Increasing or decreasing &#x3BB;</li>
+<li>Increasing or decreasing λ</li>
 </ul>
 <a id="more"></a>
-<p>Don&#x2019;t just pick one of these avenues at random. We&#x2019;ll explore diagnostic techniques for choosing one of the above solutions in the following sections.</p>
+<p>Don’t just pick one of these avenues at random. We’ll explore diagnostic techniques for choosing one of the above solutions in the following sections.</p>
 <h2 id="Evaluating-a-Hypothesis"><a href="#Evaluating-a-Hypothesis" class="headerlink" title="Evaluating a Hypothesis"></a>Evaluating a Hypothesis</h2><p>A hypothesis may have low error for the training examples but still be inaccurate (because of overfitting).</p>
 <p>With a given dataset of training examples, we can split up the data into two sets: a <strong>training set</strong> and a <strong>test set</strong>.</p>
 <p>The new procedure using these two sets is then:</p>
 <ul>
-<li>Learn &#x398; and minimize J<sub>train</sub>(&#x398;) using the training set</li>
-<li>Compute the test set error J<sub>test</sub>(&#x398;)</li>
+<li>Learn Θ and minimize J<sub>train</sub>(Θ) using the training set</li>
+<li>Compute the test set error J<sub>test</sub>(Θ)</li>
 </ul>
 <h2 id="The-test-set-error"><a href="#The-test-set-error" class="headerlink" title="The test set error"></a>The test set error</h2><p>For linear regression:</p>
 <p><img src="/2016/12/13/Machine-Learning-6/1.png" alt=""></p>
@@ -159,9 +149,9 @@ Trying additional feat">
 <p>In order to choose the model of your hypothesis, you can test each degree of polynomial and look at the error result.</p>
 <pre><code>Without the Validation Set (note: this is a bad method - do not use it)
 </code></pre><ol>
-<li>Optimize the parameters in &#x398; using the training set for each polynomial degree.</li>
+<li>Optimize the parameters in Θ using the training set for each polynomial degree.</li>
 <li>Find the polynomial degree d with the least error using the test set.</li>
-<li>Estimate the generalization error also using the test set with J<sub>test</sub>(&#x398;<sup>(d)</sup>),(d = theta from polynomial with lower error)</li>
+<li>Estimate the generalization error also using the test set with J<sub>test</sub>(Θ<sup>(d)</sup>),(d = theta from polynomial with lower error)</li>
 </ol>
 <p>In this case, we have trained one variable, d, or the degree of the polynomial, using the test set. This will cause our error value to be greater for any other set of data.</p>
 <p><strong>Use of the CV set</strong></p>
@@ -175,12 +165,12 @@ Trying additional feat">
 <p>We can now calculate three separate error values for the three different sets.</p>
 <p><strong>With the Validation Set (note: this method presumes we do not also use the CV set for regularization)</strong></p>
 <ol>
-<li>Optimize the parameters in &#x398; using the training set for each polynomial degree.</li>
+<li>Optimize the parameters in Θ using the training set for each polynomial degree.</li>
 <li>Find the polynomial degree d with the least error using the cross validation set.</li>
-<li>Estimate the generalization error using the test set with J<sub>test</sub>(&#x398;<sup>(d)</sup>),(d = theta from polynomial with lower error)</li>
+<li>Estimate the generalization error using the test set with J<sub>test</sub>(Θ<sup>(d)</sup>),(d = theta from polynomial with lower error)</li>
 </ol>
 <p>his way, the degree of the polynomial d has not been trained using the test set.</p>
-<p>(Mentor note: be aware that using the CV set to select &#x2018;d&#x2019; means that we cannot also use it for the validation curve process of setting the lambda value).</p>
+<p>(Mentor note: be aware that using the CV set to select ‘d’ means that we cannot also use it for the validation curve process of setting the lambda value).</p>
 <h2 id="Diagnosing-Bias-vs-Variance"><a href="#Diagnosing-Bias-vs-Variance" class="headerlink" title="Diagnosing Bias vs. Variance"></a>Diagnosing Bias vs. Variance</h2><p>In this section we examine the relationship between the degree of the polynomial d and the underfitting or overfitting of our hypothesis.</p>
 <ul>
 <li>We need to distinguish whether <strong>bias</strong> or <strong>variance</strong> is the problem contributing to bad predictions.</li>
@@ -191,30 +181,30 @@ Trying additional feat">
 <p><img src="/2016/12/13/Machine-Learning-6/4.png" alt=""></p>
 <p>The is represented in the figure below:</p>
 <p><img src="/2016/12/13/Machine-Learning-6/5.png" alt=""></p>
-<h2 id="Regularization-and-Bias-Variance"><a href="#Regularization-and-Bias-Variance" class="headerlink" title="Regularization and Bias/Variance"></a>Regularization and Bias/Variance</h2><p>Instead of looking at the degree d contributing to bias/variance, now we will look at the regularization parameter &#x3BB;.</p>
+<h2 id="Regularization-and-Bias-Variance"><a href="#Regularization-and-Bias-Variance" class="headerlink" title="Regularization and Bias/Variance"></a>Regularization and Bias/Variance</h2><p>Instead of looking at the degree d contributing to bias/variance, now we will look at the regularization parameter λ.</p>
 <ul>
-<li>Large &#x3BB;: High bias (underfitting)</li>
-<li>Intermediate &#x3BB;: just right</li>
-<li>Small &#x3BB;: High variance (overfitting)</li>
+<li>Large λ: High bias (underfitting)</li>
+<li>Intermediate λ: just right</li>
+<li>Small λ: High variance (overfitting)</li>
 </ul>
-<p>A large lambda heavily penalizes all the &#x398; parameters, which greatly simplifies the line of our resulting function, so causes underfitting.</p>
-<p>The relationship of &#x3BB; to the training set and the variance set is as follows:</p>
+<p>A large lambda heavily penalizes all the Θ parameters, which greatly simplifies the line of our resulting function, so causes underfitting.</p>
+<p>The relationship of λ to the training set and the variance set is as follows:</p>
 <p><img src="/2016/12/13/Machine-Learning-6/6.png" alt=""></p>
 <p>The figure below illustrates the relationship between lambda and the hypothesis:</p>
 <p><img src="/2016/12/13/Machine-Learning-6/7.png" alt=""></p>
-<p>In order to choose the model and the regularization &#x3BB;, we need:</p>
+<p>In order to choose the model and the regularization λ, we need:</p>
 <ol>
-<li>Create a list of lambda (i.e. &#x3BB;&#x2208;{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
+<li>Create a list of lambda (i.e. λ∈{0,0.01,0.02,0.04,0.08,0.16,0.32,0.64,1.28,2.56,5.12,10.24});</li>
 <li>Select a lambda to compute;</li>
 <li>Create a model set like degree of the polynomial or others;</li>
-<li>Select a model to learn &#x398;;</li>
-<li>Learn the parameter &#x398; for the model selected, using J<sub>train</sub>(&#x398;) <strong>with</strong> &#x3BB; selected (this will learn &#x398; for the next step);</li>
-<li>Compute the train error using the learned &#x398; (computed with &#x3BB; ) on the J<sub>train</sub>(&#x398;) <strong>without</strong> regularization or &#x3BB; = 0;</li>
-<li>Compute the cross validation error using the learned &#x398; (computed with &#x3BB;) on the J<sub>CV</sub>(&#x398;) <strong>without</strong> regularization or &#x3BB; = 0;</li>
+<li>Select a model to learn Θ;</li>
+<li>Learn the parameter Θ for the model selected, using J<sub>train</sub>(Θ) <strong>with</strong> λ selected (this will learn Θ for the next step);</li>
+<li>Compute the train error using the learned Θ (computed with λ ) on the J<sub>train</sub>(Θ) <strong>without</strong> regularization or λ = 0;</li>
+<li>Compute the cross validation error using the learned Θ (computed with λ) on the J<sub>CV</sub>(Θ) <strong>without</strong> regularization or λ = 0;</li>
 <li>Do this for the entire model set and lambdas, then select the best combo that produces the lowest error on the cross validation set;</li>
-<li>Now if you need visualize to help you understand your decision, you can plot to the figure like above with: (&#x3BB; x Cost J<sub>train</sub>(&#x398;) and (&#x3BB; x Cost J<sub>CV</sub>(&#x398;));</li>
-<li>Now using the best combo &#x398; and &#x3BB;, apply it on J<sub>CV</sub>(&#x398;) to see if it has a good generalization of the problem.</li>
-<li>To help decide the best polynomial degree and &#x3BB; to use, we can diagnose with the learning curves, that is the next subject.</li>
+<li>Now if you need visualize to help you understand your decision, you can plot to the figure like above with: (λ x Cost J<sub>train</sub>(Θ) and (λ x Cost J<sub>CV</sub>(Θ));</li>
+<li>Now using the best combo Θ and λ, apply it on J<sub>CV</sub>(Θ) to see if it has a good generalization of the problem.</li>
+<li>To help decide the best polynomial degree and λ to use, we can diagnose with the learning curves, that is the next subject.</li>
 </ol>
 <h2 id="Learning-Curves"><a href="#Learning-Curves" class="headerlink" title="Learning Curves"></a>Learning Curves</h2><p>Training 3 examples will easily have 0 errors because we can always find a quadratic curve that exactly touches 3 points.</p>
 <ul>
@@ -232,20 +222,20 @@ Trying additional feat">
 <p><img src="/2016/12/13/Machine-Learning-6/11.png" alt=""></p>
 <h2 id="Deciding-What-to-Do-Next-Revisited"><a href="#Deciding-What-to-Do-Next-Revisited" class="headerlink" title="Deciding What to Do Next Revisited"></a>Deciding What to Do Next Revisited</h2><p>Our decision process can be broken down as follows:</p>
 <ul>
-<li>Getting more training examples &#x2013;&gt; Fixes high variance</li>
-<li>Trying smaller sets of features &#x2013;&gt; Fixes high variance</li>
-<li>Adding features &#x2013;&gt; Fixes high bias</li>
-<li>Adding polynomial features &#x2013;&gt; Fixes high bias</li>
-<li>Decreasing &#x3BB; &#x2013;&gt; Fixes high bias</li>
-<li>Increasing &#x3BB; &#x2013;&gt; Fixes high variance</li>
+<li>Getting more training examples –&gt; Fixes high variance</li>
+<li>Trying smaller sets of features –&gt; Fixes high variance</li>
+<li>Adding features –&gt; Fixes high bias</li>
+<li>Adding polynomial features –&gt; Fixes high bias</li>
+<li>Decreasing λ –&gt; Fixes high bias</li>
+<li>Increasing λ –&gt; Fixes high variance</li>
 </ul>
 <h2 id="Diagnosing-Neural-Networks"><a href="#Diagnosing-Neural-Networks" class="headerlink" title="Diagnosing Neural Networks"></a>Diagnosing Neural Networks</h2><ul>
 <li>A neural network with fewer parameters is <strong>prone to underfitting</strong>. It is also <strong>computationally cheaper</strong>.</li>
-<li>A large neural network with more parameters is <strong>prone to overfitting</strong>. It is also <strong>computationally expensive</strong>. In this case you can use regularization (increase &#x3BB;) to address the overfitting.</li>
+<li>A large neural network with more parameters is <strong>prone to overfitting</strong>. It is also <strong>computationally expensive</strong>. In this case you can use regularization (increase λ) to address the overfitting.</li>
 </ul>
 <p>Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using your cross validation set.</p>
 <h2 id="Model-Selection"><a href="#Model-Selection" class="headerlink" title="Model Selection:"></a>Model Selection:</h2><p>Choosing M the order of polynomials.</p>
-<p>How can we tell which parameters &#x398; to leave in the model (known as &#x201C;model selection&#x201D;)?</p>
+<p>How can we tell which parameters Θ to leave in the model (known as “model selection”)?</p>
 <p>There are several ways to solve this problem:</p>
 <ul>
 <li>Get more data (very difficult).</li>
@@ -255,12 +245,12 @@ Trying additional feat">
 <p><strong>Bias: approximation error (Difference between expected value and optimal value)</strong></p>
 <ul>
 <li>High Bias = UnderFitting (BU)</li>
-<li>J<sub>train</sub>(&#x398;) and J<sub>CV</sub>(&#x398;) both will be high and J<sub>train</sub>(&#x398;) &#x2248; J<sub>CV</sub>(&#x398;)</li>
+<li>J<sub>train</sub>(Θ) and J<sub>CV</sub>(Θ) both will be high and J<sub>train</sub>(Θ) ≈ J<sub>CV</sub>(Θ)</li>
 </ul>
 <p><strong>Variance: estimation error due to finite data</strong></p>
 <ul>
 <li>High Variance = OverFitting (VO)</li>
-<li>J<sub>train</sub>(&#x398;) is low and J<sub>train</sub>(&#x398;) &lt;&lt; J<sub>CV</sub>(&#x398;)</li>
+<li>J<sub>train</sub>(Θ) is low and J<sub>train</sub>(Θ) &lt;&lt; J<sub>CV</sub>(Θ)</li>
 </ul>
 <p><strong>Intuition for the bias-variance trade-off:</strong></p>
 <ul>
@@ -270,8 +260,8 @@ Trying additional feat">
 <p>One of the most important goals in learning: finding a model that is just right in the bias-variance trade-off.</p>
 <p><strong>Regularization Effects:</strong></p>
 <ul>
-<li>Small values of &#x3BB; allow model to become finely tuned to noise leading to large variance =&gt; overfitting.</li>
-<li>Large values of &#x3BB; pull weight parameters to zero leading to large bias =&gt; underfitting.</li>
+<li>Small values of λ allow model to become finely tuned to noise leading to large variance =&gt; overfitting.</li>
+<li>Large values of λ pull weight parameters to zero leading to large bias =&gt; underfitting.</li>
 </ul>
 <p><strong>Model Complexity Effects:</strong></p>
 <ul>
@@ -290,7 +280,7 @@ Trying additional feat">
 </ul>
 <h2 id="Machine-Learning-System-Design"><a href="#Machine-Learning-System-Design" class="headerlink" title="Machine Learning System Design"></a>Machine Learning System Design</h2><h2 id="Prioritizing-What-to-Work-On"><a href="#Prioritizing-What-to-Work-On" class="headerlink" title="Prioritizing What to Work On"></a>Prioritizing What to Work On</h2><p>Different ways we can approach a machine learning problem:</p>
 <ul>
-<li>Collect lots of data (for example &#x201C;honeypot&#x201D; project but doesn&#x2019;t always work)</li>
+<li>Collect lots of data (for example “honeypot” project but doesn’t always work)</li>
 <li>Develop sophisticated features (for example: using email header data in spam emails)</li>
 <li>Develop algorithms to process your input in different ways (recognizing misspellings in spam).</li>
 </ul>
@@ -301,18 +291,18 @@ Trying additional feat">
 <li>Plot learning curves to decide if more data, more features, etc. will help</li>
 <li>Error analysis: manually examine the errors on examples in the cross validation set and try to spot a trend.</li>
 </ul>
-<p>It&#x2019;s important to get error results as a single, numerical value. Otherwise it is difficult to assess your algorithm&#x2019;s performance.</p>
-<p>You may need to process your input before it is useful. For example, if your input is a set of words, you may want to treat the same word with different forms (fail/failing/failed) as one word, so must use &#x201C;stemming software&#x201D; to recognize them all as one.</p>
+<p>It’s important to get error results as a single, numerical value. Otherwise it is difficult to assess your algorithm’s performance.</p>
+<p>You may need to process your input before it is useful. For example, if your input is a set of words, you may want to treat the same word with different forms (fail/failing/failed) as one word, so must use “stemming software” to recognize them all as one.</p>
 <h2 id="Error-Metrics-for-Skewed-Classes"><a href="#Error-Metrics-for-Skewed-Classes" class="headerlink" title="Error Metrics for Skewed Classes"></a>Error Metrics for Skewed Classes</h2><p>It is sometimes difficult to tell whether a reduction in error is actually an improvement of the algorithm.</p>
 <p>For example: In predicting a cancer diagnoses where 0.5% of the examples have cancer, we find our learning algorithm has a 1% error. However, if we were to simply classify every single example as a 0, then our error would reduce to 0.5% even though we did not improve the algorithm.</p>
 <p>This usually happens with <strong>skewed classes</strong>; that is, when our class is very rare in the entire data set.</p>
 <p>Or to say it another way, when we have lot more examples from one class than from the other class.</p>
 <p>For this we can use <strong>Precision/Recall</strong>.</p>
 <ul>
-<li>Predicted: 1, Actual: 1 &#x2014; True positive</li>
-<li>Predicted: 0, Actual: 0 &#x2014; True negative</li>
-<li>Predicted: 0, Actual, 1 &#x2014; False negative</li>
-<li>Predicted: 1, Actual: 0 &#x2014; False positive</li>
+<li>Predicted: 1, Actual: 1 — True positive</li>
+<li>Predicted: 0, Actual: 0 — True negative</li>
+<li>Predicted: 0, Actual, 1 — False negative</li>
+<li>Predicted: 1, Actual: 0 — False positive</li>
 </ul>
 <p><img src="/2016/12/13/Machine-Learning-6/12.png" alt=""></p>
 <p><strong>Precision</strong>: of all patients we predicted where y=1, what fraction actually has cancer?</p>
@@ -322,18 +312,18 @@ Trying additional feat">
 <p>These two metrics give us a better sense of how our classifier is doing. We want both precision and recall to be high.</p>
 <p>In the example at the beginning of the section, if we classify all patients as 0, then our recall will be 0/(0+f)=0 , so despite having a lower error percentage, we can quickly see it has worse recall.</p>
 <p>Note 1: if an algorithm predicts only negatives like it does in one of exercises, the precision is not defined, it is impossible to divide by 0. F1 score will not be defined too.</p>
-<p>Note 2: a manual calculation of precision and other functions is a error prone process. it is very easy though to create an Excel file for this. Put into it a table 2*2 for all necessary input values, label them like &#x201C;TruePositives&#x201D;, &#x201C;FalsePositives&#x201D;, and on other cells of Excel add formulas like =SUM(TruePositive, FalsePositive, TrueNegative, FalseNegative), label this one AllExamples. Then on another cell label Accuracy and a formula: =SUM(TruePositive,TrueNegative)/AllExamples. The same with others. After 10 minutes you will have a spreadsheet for all examples and questions.</p>
+<p>Note 2: a manual calculation of precision and other functions is a error prone process. it is very easy though to create an Excel file for this. Put into it a table 2*2 for all necessary input values, label them like “TruePositives”, “FalsePositives”, and on other cells of Excel add formulas like =SUM(TruePositive, FalsePositive, TrueNegative, FalseNegative), label this one AllExamples. Then on another cell label Accuracy and a formula: =SUM(TruePositive,TrueNegative)/AllExamples. The same with others. After 10 minutes you will have a spreadsheet for all examples and questions.</p>
 <h2 id="Trading-Off-Precision-and-Recall"><a href="#Trading-Off-Precision-and-Recall" class="headerlink" title="Trading Off Precision and Recall"></a>Trading Off Precision and Recall</h2><p>We might want a <strong>confident</strong> prediction of two classes using logistic regression. One way is to increase our threshold:</p>
 <ul>
-<li>Predict 1 if: h<sub>&#x398;</sub> =&gt; 0.7</li>
-<li>Predict 0 if: h<sub>&#x398;</sub> &lt; 0.7</li>
+<li>Predict 1 if: h<sub>Θ</sub> =&gt; 0.7</li>
+<li>Predict 0 if: h<sub>Θ</sub> &lt; 0.7</li>
 </ul>
 <p>This way, we only predict cancer if the patient has a 70% chance.</p>
 <p>Doing this, we will have <strong>higher precision</strong> but <strong>lower recall</strong> (refer to the definitions in the previous section).</p>
 <p>In the opposite example, we can lower our threshold:</p>
 <ul>
-<li>Predict 1 if: h<sub>&#x398;</sub> =&gt; 0.3</li>
-<li>Predict 0 if: h<sub>&#x398;</sub> &lt; 0.3</li>
+<li>Predict 1 if: h<sub>Θ</sub> =&gt; 0.3</li>
+<li>Predict 0 if: h<sub>Θ</sub> &lt; 0.3</li>
 </ul>
 <p>That way, we get a very <strong>safe</strong> prediction. This will cause <strong>higher recall</strong> but <strong>lower precision</strong>.</p>
 <p>The greater the threshold, the greater the precision and the lower the recall.</p>
@@ -347,7 +337,7 @@ Trying additional feat">
 </code></pre><p>In order for the F Score to be large, both precision and recall must be large.</p>
 <p>We want to train precision and recall on the <strong>cross validation set</strong> so as not to bias our test set.</p>
 <h2 id="Data-for-Machine-Learning"><a href="#Data-for-Machine-Learning" class="headerlink" title="Data for Machine Learning"></a>Data for Machine Learning</h2><p>How much data should we train on?</p>
-<p>In certain cases, an &#x201C;inferior algorithm,&#x201D; if given enough data, can outperform a superior algorithm with less data.</p>
+<p>In certain cases, an “inferior algorithm,” if given enough data, can outperform a superior algorithm with less data.</p>
 <p>We must choose our features to have <strong>enough</strong> information. A useful test is: Given input x, would a human expert be able to confidently predict y?</p>
 <p><strong>Rationale for large data</strong>: if we have a <strong>low bias</strong> algorithm (many features or hidden units making a very complex function), then the larger the training set we use, the less we will have overfitting (and the more accurate the algorithm will be on the test set).</p>
 
@@ -396,8 +386,8 @@ Trying additional feat">
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -407,7 +397,7 @@ Trying additional feat">
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -430,7 +420,7 @@ Trying additional feat">
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -461,6 +451,10 @@ Trying additional feat">
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -476,10 +470,6 @@ Trying additional feat">
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -489,7 +479,7 @@ Trying additional feat">
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

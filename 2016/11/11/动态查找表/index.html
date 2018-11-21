@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,22 +15,18 @@
   
   <title>动态查找表 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x7531;&amp;#x9759;&amp;#x6001;&amp;#x67E5;&amp;#x627E;&amp;#x8868;&amp;#x89C2;&amp;#x5BDF;&amp;#xFF0C;&amp;#x53EF;&amp;#x5F97;&amp;#x4E00;&amp;#x4E0B;&amp;#x7ED3;&amp;#x8BBA;
-
-&amp;#x4ECE;&amp;#x67E5;&amp;#x627E;&amp;#x6027;&amp;#x80FD;&amp;#x770B;&amp;#xFF0C;&amp;#x6700;&amp;#x597D;&amp;#x60C">
+  <meta name="description" content="由静态查找表观察，可得一下结论  从查找性能看，最好情况能达O(logn)，此时要求表有序 从插入和删除的性能来看，最好情况能达O(1)，此时要求存储结构为链表  本篇文章是对各种查找树的一个简单概括，具体分析会慢慢更新">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动态查找表">
 <meta property="og:url" content="https://saberda.github.io/2016/11/11/动态查找表/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x7531;&amp;#x9759;&amp;#x6001;&amp;#x67E5;&amp;#x627E;&amp;#x8868;&amp;#x89C2;&amp;#x5BDF;&amp;#xFF0C;&amp;#x53EF;&amp;#x5F97;&amp;#x4E00;&amp;#x4E0B;&amp;#x7ED3;&amp;#x8BBA;
-
-&amp;#x4ECE;&amp;#x67E5;&amp;#x627E;&amp;#x6027;&amp;#x80FD;&amp;#x770B;&amp;#xFF0C;&amp;#x6700;&amp;#x597D;&amp;#x60C">
+<meta property="og:description" content="由静态查找表观察，可得一下结论  从查找性能看，最好情况能达O(logn)，此时要求表有序 从插入和删除的性能来看，最好情况能达O(1)，此时要求存储结构为链表  本篇文章是对各种查找树的一个简单概括，具体分析会慢慢更新">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-11-17T02:17:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态查找表">
-<meta name="twitter:description" content="&amp;#x7531;&amp;#x9759;&amp;#x6001;&amp;#x67E5;&amp;#x627E;&amp;#x8868;&amp;#x89C2;&amp;#x5BDF;&amp;#xFF0C;&amp;#x53EF;&amp;#x5F97;&amp;#x4E00;&amp;#x4E0B;&amp;#x7ED3;&amp;#x8BBA;
-
-&amp;#x4ECE;&amp;#x67E5;&amp;#x627E;&amp;#x6027;&amp;#x80FD;&amp;#x770B;&amp;#xFF0C;&amp;#x6700;&amp;#x597D;&amp;#x60C">
+<meta name="twitter:description" content="由静态查找表观察，可得一下结论  从查找性能看，最好情况能达O(logn)，此时要求表有序 从插入和删除的性能来看，最好情况能达O(1)，此时要求存储结构为链表  本篇文章是对各种查找树的一个简单概括，具体分析会慢慢更新">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -40,8 +36,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -100,101 +96,101 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/11/动态查找表/" data-id="cjk8fbkv00058u0b3t14wmszw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/11/动态查找表/" data-id="cjoqmj9130052r0b3no6cnpv7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x7531;&#x9759;&#x6001;&#x67E5;&#x627E;&#x8868;&#x89C2;&#x5BDF;&#xFF0C;&#x53EF;&#x5F97;&#x4E00;&#x4E0B;&#x7ED3;&#x8BBA;</p>
+        <p>由静态查找表观察，可得一下结论</p>
 <ul>
-<li>&#x4ECE;&#x67E5;&#x627E;&#x6027;&#x80FD;&#x770B;&#xFF0C;&#x6700;&#x597D;&#x60C5;&#x51B5;&#x80FD;&#x8FBE;O(logn)&#xFF0C;&#x6B64;&#x65F6;&#x8981;&#x6C42;&#x8868;&#x6709;&#x5E8F;</li>
-<li>&#x4ECE;&#x63D2;&#x5165;&#x548C;&#x5220;&#x9664;&#x7684;&#x6027;&#x80FD;&#x6765;&#x770B;&#xFF0C;&#x6700;&#x597D;&#x60C5;&#x51B5;&#x80FD;&#x8FBE;O(1)&#xFF0C;&#x6B64;&#x65F6;&#x8981;&#x6C42;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x4E3A;&#x94FE;&#x8868;</li>
+<li>从查找性能看，最好情况能达O(logn)，此时要求表有序</li>
+<li>从插入和删除的性能来看，最好情况能达O(1)，此时要求存储结构为链表</li>
 </ul>
-<p>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x5BF9;&#x5404;&#x79CD;&#x67E5;&#x627E;&#x6811;&#x7684;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x6982;&#x62EC;&#xFF0C;&#x5177;&#x4F53;&#x5206;&#x6790;&#x4F1A;&#x6162;&#x6162;&#x66F4;&#x65B0;</p>
+<p>本篇文章是对各种查找树的一个简单概括，具体分析会慢慢更新</p>
 <a id="more"></a>
-<h2 id="&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;"><a href="#&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;" class="headerlink" title="&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;"></a>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</h2><p>&#x5173;&#x4E8E;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x5177;&#x4F53;&#x4ECB;&#x7ECD;</p>
-<p><a href="http://www.saberismywife.com/2016/11/10/&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;/" target="_blank" rel="external">http://www.saberismywife.com/2016/11/10/&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;/</a></p>
-<p>1.&#x5B9A;&#x4E49;</p>
-<p>&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x6216;&#x8005;&#x662F;&#x4E00;&#x9897;&#x7A7A;&#x6811;&#xFF1B;&#x6216;&#x8005;&#x662F;&#x5177;&#x6709;&#x5982;&#x4E0B;&#x7279;&#x6027;&#x7684;&#x4E8C;&#x53C9;&#x6811;</p>
+<h2 id="二叉查找树"><a href="#二叉查找树" class="headerlink" title="二叉查找树"></a>二叉查找树</h2><p>关于二叉查找树的具体介绍</p>
+<p><a href="http://www.saberismywife.com/2016/11/10/二叉查找树/" target="_blank" rel="noopener">http://www.saberismywife.com/2016/11/10/二叉查找树/</a></p>
+<p>1.定义</p>
+<p>二叉查找树或者是一颗空树；或者是具有如下特性的二叉树</p>
 <ul>
-<li>&#x82E5;&#x4ED6;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x5DE6;&#x5B50;&#x6811;&#x4E0A;<strong>&#x6240;&#x6709;&#x7ED3;&#x70B9;</strong>&#x7684;&#x503C;&#x5747;&#x5C0F;&#x4E8E;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x503C;</li>
-<li>&#x82E5;&#x4ED6;&#x7684;&#x53F3;&#x5B50;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x53F3;&#x5B50;&#x6811;&#x4E0A;<strong>&#x6240;&#x6709;&#x7ED3;&#x70B9;</strong>&#x7684;&#x503C;&#x5747;&#x5927;&#x4E8E;&#x6839;&#x8282;&#x70B9;&#x7684;&#x503C;</li>
-<li>&#x4ED6;&#x7684;&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x4E5F;&#x5206;&#x522B;&#x4E3A;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</li>
+<li>若他的左子树不空，则左子树上<strong>所有结点</strong>的值均小于根结点的值</li>
+<li>若他的右子树不空，则右子树上<strong>所有结点</strong>的值均大于根节点的值</li>
+<li>他的左右子树也分别为二叉查找树</li>
 </ul>
-<p>&#x901A;&#x5E38;&#xFF0C;&#x53D6;&#x4E8C;&#x53C9;&#x94FE;&#x8868;&#x4F5C;&#x4E3A;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">typedef struct BiTNode {</div><div class="line">	//&#x7ED3;&#x70B9;&#x7ED3;&#x6784;</div><div class="line">	tElemType data;</div><div class="line">	struct BiTNode *lChild, *rchild;</div><div class="line">}BiTNode, *BiTree;</div></pre></td></tr></table></figure>
-<p>2.&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x67E5;&#x627E;&#x7B97;&#x6CD5;</p>
-<p>&#x82E5;&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x67E5;&#x627E;&#x4E0D;&#x6210;&#x529F;&#xFF1B;&#x5426;&#x5219;</p>
+<p>通常，取二叉链表作为二叉查找树的存储结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct BiTNode &#123;</span><br><span class="line">	//结点结构</span><br><span class="line">	tElemType data;</span><br><span class="line">	struct BiTNode *lChild, *rchild;</span><br><span class="line">&#125;BiTNode, *BiTree;</span><br></pre></td></tr></table></figure>
+<p>2.二叉查找树的查找算法</p>
+<p>若二叉排序树为空，则查找不成功；否则</p>
 <ul>
-<li>&#x82E5;&#x5F85;&#x67E5;&#x627E;&#x503C;&#x4E0E;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x5173;&#x952E;&#x5B57;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x67E5;&#x627E;&#x6210;&#x529F;</li>
-<li>&#x82E5;&#x5F85;&#x67E5;&#x627E;&#x503C;&#x5C0F;&#x4E8E;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5219;&#x7EE7;&#x7EED;&#x5728;&#x5DE6;&#x5B50;&#x6811;&#x4E0A;&#x8FDB;&#x884C;&#x67E5;&#x627E;</li>
-<li>&#x82E5;&#x5F85;&#x67E5;&#x627E;&#x503C;&#x5927;&#x4E8E;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5219;&#x7EE7;&#x7EED;&#x5728;&#x53F3;&#x5B50;&#x6811;&#x4E0A;&#x8FDB;&#x884C;&#x67E5;&#x627E;</li>
+<li>若待查找值与根结点的关键字相等，则查找成功</li>
+<li>若待查找值小于根结点的关键字，则继续在左子树上进行查找</li>
+<li>若待查找值大于根结点的关键字，则继续在右子树上进行查找</li>
 </ul>
-<p>&#x5728;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x751F;&#x6210;&#x4E86;&#x4E00;&#x6761;&#x67E5;&#x627E;&#x8DEF;&#x5F84;&#xFF1A;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6CBF;&#x7740;&#x5DE6;&#x5206;&#x652F;&#x6216;&#x8005;&#x53F3;&#x5206;&#x652F;&#x9010;&#x5C42;&#x5411;&#x4E0B;&#x7EB8;&#x8D28;&#x5173;&#x952E;&#x5B57;&#x7B49;&#x4E8E;&#x7ED9;&#x5B9A;&#x7ED3;&#x70B9;&#x7684;&#x503C;&#x7684;&#x7ED3;&#x70B9;&#x3002;&#xFF08;&#x67E5;&#x627E;&#x6210;&#x529F;&#xFF09;</p>
-<p>&#x6216;&#x8005;&#xFF0C;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6CBF;&#x7740;&#x5DE6;&#x5206;&#x652F;&#x6216;&#x8005;&#x53F3;&#x5206;&#x652F;&#x9010;&#x5C42;&#x5411;&#x4E0B;&#x76F4;&#x81F3;&#x6307;&#x9488;&#x6307;&#x5411;&#x7A7A;&#x6811;&#x4E3A;&#x6B62;&#x3002;&#xFF08;&#x67E5;&#x627E;&#x5931;&#x8D25;&#xFF09;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Status searchBST(BiTree T, keyType kval, BiTree f, BITree &amp;p) {</div><div class="line">	/*</div><div class="line">	&#x5728;&#x6839;&#x6307;&#x9488;T&#x6240;&#x6307;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x4E2D;&#x9012;&#x5F52;&#x7684;&#x67E5;&#x627E;&#x5176;&#x5173;&#x952E;&#x5B57;&#x7B49;&#x4E8E;kval&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;</div><div class="line">	&#x82E5;&#x67E5;&#x627E;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6307;&#x9488;p&#x6240;&#x6307;&#x5411;&#x7684;&#x8BE5;&#x6570;&#x636E;&#x5143;&#x7D20;&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x503C;TURE</div><div class="line">	&#x82E5;&#x67E5;&#x627E;&#x4E0D;&#x6210;&#x529F;&#xFF0C;&#x8FD4;&#x56DE;&#x6307;&#x9488;p&#x6307;&#x5411;&#x67E5;&#x627E;&#x8DEF;&#x5F84;&#x4E0A;&#x8BBF;&#x95EE;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x503C;&#x4E3A;FALSE</div><div class="line">	&#x5728;&#x4E0D;&#x6210;&#x529F;&#x7684;&#x540C;&#x65F6;&#x6307;&#x9488;f&#x6307;&#x5411;&#x5F53;&#x524D;&#x8BBF;&#x95EE;&#x7684;&#x7ED3;&#x70B9;&#x7684;&#x53CC;&#x4EB2;&#xFF0C;&#x5176;&#x521D;&#x59CB;&#x8C03;&#x7528;&#x503C;&#x4E3A;NULL</div><div class="line">	BiTree f &#x7684;&#x4F5C;&#x7528;&#x4E3A;&#xFF0C;&#x5F53;&#x67E5;&#x627E;&#x5931;&#x8D25;&#x65F6;&#x5C06;&#x6570;&#x636E;&#x5143;&#x7D20;&#x63D2;&#x5165;&#x5230;&#x5F53;&#x524D;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x4E2D;</div><div class="line">	*/</div><div class="line">	if (!T) {</div><div class="line">		//&#x67E5;&#x627E;&#x5931;&#x8D25;</div><div class="line">		return FLASE;</div><div class="line">	}</div><div class="line">	else if (kval == T-&gt;data.key) {</div><div class="line">		//&#x67E5;&#x627E;&#x6210;&#x529F;</div><div class="line">		p = T;</div><div class="line">		return TURE;</div><div class="line">	} </div><div class="line">	else if (kval &lt; T-&gt;data.key)</div><div class="line">		//&#x5728;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x7EE7;&#x7EED;&#x67E5;&#x627E;</div><div class="line">		return searchBTS(T -&gt; lChild, kval, T, p);</div><div class="line">	else</div><div class="line">		//&#x5728;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7EE7;&#x7EED;&#x67E5;&#x627E;</div><div class="line">		return searchBTS(T -&gt; rChild, kval, T, p);</div><div class="line">}		</div></pre></td></tr></table></figure>
-<p>3.&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x63D2;&#x5165;&#x7B97;&#x6CD5;</p>
+<p>在查找过程中，生成了一条查找路径：从根结点出发，沿着左分支或者右分支逐层向下纸质关键字等于给定结点的值的结点。（查找成功）</p>
+<p>或者，从根结点出发，沿着左分支或者右分支逐层向下直至指针指向空树为止。（查找失败）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Status searchBST(BiTree T, keyType kval, BiTree f, BITree &amp;p) &#123;</span><br><span class="line">	/*</span><br><span class="line">	在根指针T所指二叉搜索树中递归的查找其关键字等于kval的数据元素</span><br><span class="line">	若查找成功，则返回指针p所指向的该数据元素的结点，并返回函数值TURE</span><br><span class="line">	若查找不成功，返回指针p指向查找路径上访问的最后一个结点，并返回函数值为FALSE</span><br><span class="line">	在不成功的同时指针f指向当前访问的结点的双亲，其初始调用值为NULL</span><br><span class="line">	BiTree f 的作用为，当查找失败时将数据元素插入到当前二叉搜索树中</span><br><span class="line">	*/</span><br><span class="line">	if (!T) &#123;</span><br><span class="line">		//查找失败</span><br><span class="line">		return FLASE;</span><br><span class="line">	&#125;</span><br><span class="line">	else if (kval == T-&gt;data.key) &#123;</span><br><span class="line">		//查找成功</span><br><span class="line">		p = T;</span><br><span class="line">		return TURE;</span><br><span class="line">	&#125; </span><br><span class="line">	else if (kval &lt; T-&gt;data.key)</span><br><span class="line">		//在左子树中继续查找</span><br><span class="line">		return searchBTS(T -&gt; lChild, kval, T, p);</span><br><span class="line">	else</span><br><span class="line">		//在右子树中继续查找</span><br><span class="line">		return searchBTS(T -&gt; rChild, kval, T, p);</span><br><span class="line">&#125;		</span><br></pre></td></tr></table></figure>
+<p>3.二叉查找树的插入算法</p>
 <ul>
-<li>&#x6839;&#x636E;&#x52A8;&#x6001;&#x67E5;&#x627E;&#x8868;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;<strong>&#x63D2;&#x5165;</strong>&#x64CD;&#x4F5C;&#x5728;&#x67E5;&#x627E;&#x4E0D;&#x6210;&#x529F;&#x65F6;&#x624D;&#x8FDB;&#x884C;</li>
-<li>&#x82E5;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E3A;&#x7A7A;&#x6811;&#x65F6;&#xFF0C;&#x5219;&#x63D2;&#x5165;&#x65B0;&#x7684;&#x7ED3;&#x70B9;&#x4E3A;&#x65B0;&#x7684;&#x6839;&#x7ED3;&#x70B9;&#xFF1B;&#x5426;&#x5219;&#xFF0C;&#x65B0;&#x63D2;&#x5165;&#x7684;&#x7ED3;&#x70B9;&#x6BD5;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5176;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;&#x7531;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;&#x5F97;&#x5230;&#x3002;</li>
+<li>根据动态查找表的定义，<strong>插入</strong>操作在查找不成功时才进行</li>
+<li>若二叉查找树为空树时，则插入新的结点为新的根结点；否则，新插入的结点毕为一个新的叶子结点，其插入位置由查找过程得到。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">Status insertBTS(BiTree T, elemType e) {</div><div class="line">	/*</div><div class="line">	&#x5F53;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x5173;&#x952E;&#x5B57;&#x7B49;&#x4E8E;e.key&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x65F6;</div><div class="line">	&#x63D2;&#x5165;&#x5143;&#x7D20;&#x503C;&#x4E3A;e&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;TRUE</div><div class="line">	&#x5426;&#x5219;&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x63D2;&#x5165;&#x5E76;&#x8FD4;&#x56DE;FALSE</div><div class="line">	*/</div><div class="line">	if (!searchBTS(T, e.key, NULL, p)) {</div><div class="line">		//&#x4E3A;&#x65B0;&#x7ED3;&#x70B9;&#x5206;&#x914D;&#x7A7A;&#x95F4;</div><div class="line">		s = new BiTNode;</div><div class="line">		s -&gt; data = e;</div><div class="line">		s -&gt; lChild = s -&gt; rChild = NULL;</div><div class="line">		if (!p)</div><div class="line">			//&#x63D2;&#x5165;s&#x4E3A;&#x65B0;&#x7684;&#x6839;&#x7ED3;&#x70B9;</div><div class="line">			T = s;</div><div class="line">		else if (e.key &lt; p -&gt; data.key) </div><div class="line">			//&#x63D2;&#x5165;*s&#x4E3A;*p&#x7684;&#x5DE6;&#x5B69;&#x5B50;</div><div class="line">			p -&gt; lChild = s;</div><div class="line">		else</div><div class="line">			//&#x63D2;&#x5165;*s&#x4E3A;*p&#x7684;&#x53F3;&#x5B69;&#x5B50;</div><div class="line">			p -&gt; rChild = s;</div><div class="line">	} else</div><div class="line">		return FLASE;</div><div class="line">	return TURE;</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>4.&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x5220;&#x9664;&#x7B97;&#x6CD5;</p>
-<p>&#x548C;&#x63D2;&#x5165;&#x76F8;&#x53CD;&#xFF0C;&#x5220;&#x9664;&#x5728;&#x67E5;&#x627E;&#x6210;&#x529F;&#x540E;&#x8FDB;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x6C42;&#x5728;&#x5220;&#x9664;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E0A;&#x67D0;&#x4E2A;&#x7ED3;&#x70B9;&#x540E;&#xFF0C;&#x4ECD;&#x7136;&#x4FDD;&#x6301;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x7279;&#x6027;</p>
-<p>&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x770B;&#x6211;&#x7684;&#x53E6;&#x5916;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;&#x90A3;&#x91CC;&#x5199;&#x7684;&#x5F88;&#x6E05;&#x695A;&#x4E86;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x518D;&#x8FDB;&#x884C;&#x91CD;&#x590D;&#x7684;&#x63CF;&#x8FF0;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">Status deleteBTS(BiTree T, ketType kval) {</div><div class="line">	//&#x82E5;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;T&#x4E2D;&#x5B58;&#x5728;&#x5176;&#x5173;&#x952E;&#x5B57;&#x7B49;&#x4E8E;kval&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x5220;&#x9664;&#x8BE5;&#x5143;&#x7D20;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;TRUE&#xFF0C;&#x5426;&#x5219;FLASE</div><div class="line">	if (!t)</div><div class="line">		return FALSE;</div><div class="line">	else {</div><div class="line">		if (kval == T-&gt;data.key) {</div><div class="line">			//&#x627E;&#x5230;&#x5173;&#x952E;&#x5B57;&#x7B49;&#x4E8E;key&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;</div><div class="line">			delete(T);</div><div class="line">			return TRUE;</div><div class="line">		}</div><div class="line">		else if (kval &lt; T-&gt;data.key) </div><div class="line">			//&#x7EE7;&#x7EED;&#x5728;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x627E;</div><div class="line">			return deleteBTS(T -&gt; lChild, kval);</div><div class="line">		else</div><div class="line">			//&#x7EE7;&#x7EED;&#x5728;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x627E;</div><div class="line">			return deleteBTS(T -&gt; rChild, kval);</div><div class="line">	}</div><div class="line">}</div><div class="line"></div><div class="line">//&#x5220;&#x9664;&#x64CD;&#x4F5C;</div><div class="line">void delete(BiTree &amp;p) {</div><div class="line">	//&#x4ECE;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x4E2D;&#x5220;&#x9664;&#x7ED3;&#x70B9;p&#xFF0C;&#x5E76;&#x91CD;&#x63A5;&#x5B83;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x6216;&#x8005;&#x53F3;&#x5B50;&#x6811;</div><div class="line">	if (!p -&gt; rChild) {</div><div class="line">		</div><div class="line">	} else if (!p -&gt; lChild) {</div><div class="line">	</div><div class="line">	} else</div><div class="line">	</div><div class="line">}</div></pre></td></tr></table></figure>
-<h2 id="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;"><a href="#&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;" class="headerlink" title="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;"></a>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;</h2><p>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x5176;&#x7279;&#x70B9;&#x4E3A;&#xFF1A;</p>
-<p>&#x6811;&#x4E2D;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x5DE6;&#x53F3;&#x5B50;&#x6811;&#x6DF1;&#x5EA6;&#x4E4B;&#x5DEE;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#x4E0D;&#x5927;&#x4E8E;1</p>
-<p>&#x6784;&#x9020;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;<strong>&#x5728;&#x63D2;&#x5165;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x91C7;&#x7528;&#x5E73;&#x8861;&#x65CB;&#x8F6C;&#x6280;&#x672F;</strong>(LL,RR,LR,RL)</p>
-<p>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4EE3;&#x8868;&#x5C31;&#x662F;&#x7EA2;&#x9ED1;&#x6811;&#x4E86;</p>
-<p>&#x5173;&#x4E8E;&#x7EA2;&#x9ED1;&#x6811;&#x6211;&#x4F1A;&#x5728;&#x4E4B;&#x540E;&#x51E0;&#x5929;&#x5185;&#x6574;&#x7406;&#x51FA;&#x6765;</p>
-<h2 id="B-&#x6811;"><a href="#B-&#x6811;" class="headerlink" title="B-&#x6811;"></a>B-&#x6811;</h2><ul>
-<li>B-&#x6811;&#x7684;&#x5B9A;&#x4E49;</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Status insertBTS(BiTree T, elemType e) &#123;</span><br><span class="line">	/*</span><br><span class="line">	当二叉查找树中不存在关键字等于e.key的数据元素时</span><br><span class="line">	插入元素值为e的结点，并返回TRUE</span><br><span class="line">	否则，不进行插入并返回FALSE</span><br><span class="line">	*/</span><br><span class="line">	if (!searchBTS(T, e.key, NULL, p)) &#123;</span><br><span class="line">		//为新结点分配空间</span><br><span class="line">		s = new BiTNode;</span><br><span class="line">		s -&gt; data = e;</span><br><span class="line">		s -&gt; lChild = s -&gt; rChild = NULL;</span><br><span class="line">		if (!p)</span><br><span class="line">			//插入s为新的根结点</span><br><span class="line">			T = s;</span><br><span class="line">		else if (e.key &lt; p -&gt; data.key) </span><br><span class="line">			//插入*s为*p的左孩子</span><br><span class="line">			p -&gt; lChild = s;</span><br><span class="line">		else</span><br><span class="line">			//插入*s为*p的右孩子</span><br><span class="line">			p -&gt; rChild = s;</span><br><span class="line">	&#125; else</span><br><span class="line">		return FLASE;</span><br><span class="line">	return TURE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.二叉查找树的删除算法</p>
+<p>和插入相反，删除在查找成功后进行，并且要求在删除二叉查找树上某个结点后，仍然保持二叉查找树的特性</p>
+<p>具体情况看我的另外一篇文章，那里写的很清楚了，这里不再进行重复的描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Status deleteBTS(BiTree T, ketType kval) &#123;</span><br><span class="line">	//若二叉查找树T中存在其关键字等于kval的数据元素，则删除该元素结点，并返回TRUE，否则FLASE</span><br><span class="line">	if (!t)</span><br><span class="line">		return FALSE;</span><br><span class="line">	else &#123;</span><br><span class="line">		if (kval == T-&gt;data.key) &#123;</span><br><span class="line">			//找到关键字等于key的数据元素</span><br><span class="line">			delete(T);</span><br><span class="line">			return TRUE;</span><br><span class="line">		&#125;</span><br><span class="line">		else if (kval &lt; T-&gt;data.key) </span><br><span class="line">			//继续在左子树中进行查找</span><br><span class="line">			return deleteBTS(T -&gt; lChild, kval);</span><br><span class="line">		else</span><br><span class="line">			//继续在右子树中进行查找</span><br><span class="line">			return deleteBTS(T -&gt; rChild, kval);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//删除操作</span><br><span class="line">void delete(BiTree &amp;p) &#123;</span><br><span class="line">	//从二叉查找树中删除结点p，并重接它的左子树或者右子树</span><br><span class="line">	if (!p -&gt; rChild) &#123;</span><br><span class="line">		</span><br><span class="line">	&#125; else if (!p -&gt; lChild) &#123;</span><br><span class="line">	</span><br><span class="line">	&#125; else</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>平衡二叉树是二叉搜索树的另一种形式，其特点为：</p>
+<p>树中每个结点的左右子树深度之差的绝对值不大于1</p>
+<p>构造平衡二叉树的方法是：<strong>在插入过程中，采用平衡旋转技术</strong>(LL,RR,LR,RL)</p>
+<p>平衡二叉树的代表就是红黑树了</p>
+<p>关于红黑树我会在之后几天内整理出来</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h2><ul>
+<li>B-树的定义</li>
 </ul>
-<p>B-&#x6811;&#x662F;&#x4E00;&#x79CD;<strong>&#x5E73;&#x8861;&#x7684;&#x591A;&#x8DEF;&#x67E5;&#x627E;&#x6811;</strong></p>
-<p>&#x5728;m&#x9636;&#x7684;B-&#x6811;&#x4E0A;&#xFF0C;&#x6BCF;&#x4E2A;&#x975E;&#x7EC8;&#x7AEF;&#x7ED3;&#x70B9;&#x53EF;&#x80FD;&#x542B;&#x6709;&#xFF1A;</p>
-<p>1.n&#x4E2A;&#x5173;&#x952E;&#x5B57;Ki(1 &lt;= i &lt;= n, n &lt; m)</p>
-<p>2.n&#x4E2A;&#x6307;&#x5411;&#x8BB0;&#x5F55;&#x7684;&#x6307;&#x9488;Di(1 &lt;= i &lt;= n)</p>
-<p>3.n+1&#x4E2A;&#x6307;&#x5411;&#x5B50;&#x6811;&#x7684;&#x6307;&#x9488;Ai(0 &lt;= i &lt;= n)</p>
+<p>B-树是一种<strong>平衡的多路查找树</strong></p>
+<p>在m阶的B-树上，每个非终端结点可能含有：</p>
+<p>1.n个关键字Ki(1 &lt;= i &lt;= n, n &lt; m)</p>
+<p>2.n个指向记录的指针Di(1 &lt;= i &lt;= n)</p>
+<p>3.n+1个指向子树的指针Ai(0 &lt;= i &lt;= n)</p>
 <ul>
-<li>&#x641C;&#x7D22;&#x6811;&#x7684;&#x7279;&#x6027;</li>
+<li>搜索树的特性</li>
 </ul>
-<p>&#x975E;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2D;&#x7684;&#x591A;&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x5747;&#x81EA;&#x5C0F;&#x5230;&#x5927;&#x6709;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5373;K1&lt;K2&lt;K3&lt;&#x2026;&lt;Kn</p>
-<p>&#x4E14;A(i-1)&#x6240;&#x6307;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x5173;&#x952E;&#x5B57;&#x5747;&#x5C0F;&#x4E8E;Ki&#xFF1B;Ai&#x6240;&#x6307;&#x5B50;&#x6811;&#x4E0A;&#x6240;&#x6709;&#x5173;&#x952E;&#x5B57;&#x5747;&#x5927;&#x4E8E;Ki</p>
+<p>非叶子结点中的多个关键字均自小到大有序排列，即K1&lt;K2&lt;K3&lt;…&lt;Kn</p>
+<p>且A(i-1)所指子树上所有关键字均小于Ki；Ai所指子树上所有关键字均大于Ki</p>
 <ul>
-<li>&#x5E73;&#x8861;&#x6811;&#x7684;&#x7279;&#x6027;</li>
+<li>平衡树的特性</li>
 </ul>
-<p>&#x6811;&#x4E2D;&#x6240;&#x6709;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x5747;&#x4E0D;&#x5E26;&#x4FE1;&#x606F;&#xFF0C;&#x4E14;&#x5728;&#x6811;&#x4E2D;&#x7684;&#x540C;&#x4E00;&#x5C42;&#x6B21;&#x4E0A;</p>
-<p>&#x6839;&#x7ED3;&#x70B9;&#x6216;&#x4E3A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x6216;&#x81F3;&#x5C11;&#x542B;&#x6709;&#x4E24;&#x68F5;&#x5B50;&#x6811;</p>
-<p>&#x5176;&#x4F59;&#x6240;&#x6709;&#x975E;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x5747;&#x81F3;&#x5C11;&#x542B;&#x6709;m/2(&#x5E76;&#x5411;&#x4E0A;&#x53D6;&#x6574;)&#x68F5;&#x5B50;&#x6811;&#xFF0C;&#x81F3;&#x591A;&#x542B;&#x6709;m&#x68F5;&#x5B50;&#x6811;</p>
+<p>树中所有叶子结点均不带信息，且在树中的同一层次上</p>
+<p>根结点或为叶子结点，或至少含有两棵子树</p>
+<p>其余所有非叶子结点，均至少含有m/2(并向上取整)棵子树，至多含有m棵子树</p>
 <ul>
-<li>B-&#x6811;&#x7684;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;</li>
+<li>B-树的查找过程</li>
 </ul>
-<p>1.&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6CBF;&#x6307;&#x9488;&#x641C;&#x7D22;&#x7ED3;&#x70B9;&#x548C;&#x5728;&#x7ED3;&#x70B9;&#x5185;&#x8FDB;&#x884C;&#x987A;&#x5E8F;&#xFF08;&#x6216;&#x6298;&#x534A;&#xFF09;&#x67E5;&#x627E;&#xFF0C;&#x4E24;&#x4E2A;&#x8FC7;&#x7A0B;&#x4EA4;&#x53C9;&#x8FDB;&#x884C;</p>
-<p>2.&#x82E5;&#x67E5;&#x627E;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x88AB;&#x67E5;&#x5173;&#x952E;&#x5B57;&#x6240;&#x5728;&#x7ED3;&#x70B9;&#x7684;&#x6307;&#x9488;&#x548C;&#x5173;&#x952E;&#x5B57;&#x5728;&#x7ED3;&#x70B9;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;</p>
-<p>3.&#x82E5;&#x67E5;&#x627E;&#x4E0D;&#x6210;&#x529F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;</p>
+<p>1.从根结点出发，沿指针搜索结点和在结点内进行顺序（或折半）查找，两个过程交叉进行</p>
+<p>2.若查找成功，则返回指向被查关键字所在结点的指针和关键字在结点中的位置</p>
+<p>3.若查找不成功，则返回插入位置</p>
 <ul>
-<li>&#x6027;&#x80FD;&#x5206;&#x6790;</li>
+<li>性能分析</li>
 </ul>
-<p>&#x8FD9;&#x91CC;&#x4F1A;&#x5728;&#x51E0;&#x5929;&#x540E;&#x7684;&#x5173;&#x4E8E;B&#x6811;&#x7684;&#x6587;&#x7AE0;&#x4E2D;&#x8FDB;&#x884C;&#x5177;&#x4F53;&#x5206;&#x6790;</p>
-<h2 id="B-&#x6811;-1"><a href="#B-&#x6811;-1" class="headerlink" title="B+&#x6811;"></a>B+&#x6811;</h2><p>B+&#x6811;&#x662F;B-&#x6811;&#x7684;&#x4E00;&#x4E2A;&#x53D8;&#x5F62;</p>
+<p>这里会在几天后的关于B树的文章中进行具体分析</p>
+<h2 id="B-树-1"><a href="#B-树-1" class="headerlink" title="B+树"></a>B+树</h2><p>B+树是B-树的一个变形</p>
 <ul>
-<li>B+&#x6811;&#x7684;&#x7ED3;&#x6784;&#x7279;&#x70B9;</li>
+<li>B+树的结构特点</li>
 </ul>
-<p>&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2D;&#x542B;&#x6709;n&#x4E2A;&#x5173;&#x952E;&#x5B57;&#x548C;n&#x4E2A;&#x6307;&#x5411;&#x8BB0;&#x5F55;&#x7684;&#x6307;&#x9488;</p>
-<p>&#x5E76;&#x4E14;&#xFF0C;&#x6240;&#x6709;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x76F8;&#x4E92;&#x8FDE;&#x63A5;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x94FE;&#x8868;&#xFF0C;&#x5176;&#x5934;&#x6307;&#x9488;&#x6307;&#x5411;&#x542B;&#x6700;&#x5C0F;&#x5173;&#x952E;&#x5B57;&#x7684;&#x7ED3;&#x70B9;</p>
-<p>&#x6BCF;&#x4E2A;&#x975E;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2D;&#x7684;&#x5173;&#x952E;&#x5B57;Ki&#x5373;&#x4E3A;&#x5176;&#x76F8;&#x5E94;&#x6307;&#x9488;Ai&#x6240;&#x6307;&#x5B50;&#x6811;&#x4E2D;&#x5173;&#x952E;&#x5B57;&#x7684;&#x6700;&#x5927;&#x503C;</p>
-<p>&#x6240;&#x6709;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x90FD;&#x5904;&#x5728;&#x540C;&#x4E00;&#x5C42;&#x6B21;&#x4E0A;&#xFF0C;&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2D;&#x5173;&#x952E;&#x5B57;&#x7684;&#x4E2A;&#x6570;&#x5747;&#x4ECB;&#x4E8E;m/2(&#x5411;&#x4E0A;&#x53D6;&#x6574;)&#x548C;m&#x4E4B;&#x95F4;</p>
-<p>&#x4E25;&#x683C;&#x7684;&#x6765;&#x8BB2;&#xFF0C;B+&#x6811;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;&#x4E00;&#x79CD;&#x6811;&#x7ED3;&#x6784;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x628A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x90FD;&#x94FE;&#x63A5;&#x4E0A;&#x4E86;</p>
+<p>每个叶子结点中含有n个关键字和n个指向记录的指针</p>
+<p>并且，所有叶子结点相互连接构成一个有序链表，其头指针指向含最小关键字的结点</p>
+<p>每个非叶子结点中的关键字Ki即为其相应指针Ai所指子树中关键字的最大值</p>
+<p>所有叶子结点都处在同一层次上，每个叶子结点中关键字的个数均介于m/2(向上取整)和m之间</p>
+<p>严格的来讲，B+树已经不是一种树结构了，因为它把叶子结点都链接上了</p>
 <ul>
-<li>B+&#x6811;&#x7684;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;</li>
+<li>B+树的查找过程</li>
 </ul>
-<p>&#x5728;B+&#x6811;&#x4E0A;&#xFF0C;&#x65E2;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7F29;&#x5C0F;&#x8303;&#x56F4;&#x7684;&#x67E5;&#x627E;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x987A;&#x5E8F;&#x67E5;&#x627E;</p>
-<p>&#x5728;&#x8FDB;&#x884C;&#x7F29;&#x5C0F;&#x8303;&#x56F4;&#x67E5;&#x627E;&#x65F6;&#xFF0C;&#x4E0D;&#x7BA1;&#x6210;&#x529F;&#x4E0E;&#x5426;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x67E5;&#x5230;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x624D;&#x80FD;&#x7ED3;&#x675F;</p>
-<p>&#x82E5;&#x5728;&#x7ED3;&#x70B9;&#x5185;&#x67E5;&#x627E;&#x65F6;&#xFF0C;&#x5F85;&#x67E5;&#x627E;&#x503C;&lt;=Ki&#xFF0C;&#x5219;&#x5E94;&#x7EE7;&#x7EED;&#x5728;Ai&#x6240;&#x6307;&#x5B50;&#x6811;&#x4E2D;&#x8FDB;&#x884C;&#x67E5;&#x627E;</p>
-<p>eg:<br>&#x4E0B;&#x9762;&#x5173;&#x4E8E;B-&#x6811;&#x4E0E;B+&#x6811;&#x7684;&#x53D9;&#x8FF0;&#x4E2D;&#xFF0C;&#x9519;&#x8BEF;&#x7684;&#x662F;&#xFF08; &#xFF09;<br>A. B-&#x6811;&#x4E0E;B+&#x6811;&#x90FD;&#x662F;&#x5E73;&#x8861;&#x7684;&#x591A;&#x5206;&#x6811;<br>B. B-&#x6811;&#x4E0E;B+&#x6811;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6587;&#x4EF6;&#x7684;&#x7D22;&#x5F15;&#x7ED3;&#x6784;<br>C. B-&#x6811;&#x4E0E;B+&#x6811;&#x90FD;&#x80FD;&#x6709;&#x6548;&#x7684;&#x652F;&#x6301;&#x968F;&#x673A;&#x68C0;&#x7D22;<br>D. B-&#x6811;&#x4E0E;B+&#x6811;&#x90FD;&#x80FD;&#x6709;&#x6548;&#x7684;&#x652F;&#x6301;&#x987A;&#x5E8F;&#x68C0;&#x7D22;</p>
-<p>&#x5206;&#x6790;&#xFF1A;&#x56E0;&#x4E3A;B+&#x6811;&#x6240;&#x6709;&#x7684;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x5168;&#x90E8;&#x5173;&#x952E;&#x5B57;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x6307;&#x5411;&#x542B;&#x6709;&#x8FD9;&#x4E9B;&#x5173;&#x952E;&#x5B57;&#x8BB0;&#x5F55;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x4E14;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x672C;&#x8EAB;&#x4F9D;&#x5173;&#x952E;&#x5B57;&#x7ED3;&#x70B9;&#x7684;&#x5927;&#x5C0F;&#x81EA;&#x5C0F;&#x800C;&#x5927;&#x987A;&#x5E8F;&#x94FE;&#x63A5;&#xFF0C;&#x6240;&#x4EE5;&#x652F;&#x6301;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x968F;&#x673A;&#x68C0;&#x7D22;&#x548C;&#x76F4;&#x63A5;&#x4ECE;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x5F00;&#x59CB;&#x7684;&#x987A;&#x5E8F;&#x68C0;&#x7D22;&#xFF0C;&#x4F46;&#x662F;B-&#x6811;&#x4E0D;&#x5177;&#x6709;&#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x7279;&#x6027;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x652F;&#x6301;&#x4ECE;&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x968F;&#x673A;&#x68C0;&#x7D22;&#xFF0C;&#x800C;&#x4E0D;&#x652F;&#x6301;&#x4ECE;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x5F00;&#x59CB;&#x7684;&#x987A;&#x5E8F;&#x68C0;&#x7D22;&#x3002;<br>&#x6240;&#x4EE5;&#x9009;&#x62E9;D</p>
+<p>在B+树上，既可以进行缩小范围的查找，也可以进行顺序查找</p>
+<p>在进行缩小范围查找时，不管成功与否，都必须查到叶子结点才能结束</p>
+<p>若在结点内查找时，待查找值&lt;=Ki，则应继续在Ai所指子树中进行查找</p>
+<p>eg:<br>下面关于B-树与B+树的叙述中，错误的是（ ）<br>A. B-树与B+树都是平衡的多分树<br>B. B-树与B+树都可以用于文件的索引结构<br>C. B-树与B+树都能有效的支持随机检索<br>D. B-树与B+树都能有效的支持顺序检索</p>
+<p>分析：因为B+树所有的叶子结点中包含了全部关键字信息，以及指向含有这些关键字记录的指针，且叶子结点本身依关键字结点的大小自小而大顺序链接，所以支持从根结点的随机检索和直接从叶子结点开始的顺序检索，但是B-树不具有这种结构特性，所以只支持从根结点的随机检索，而不支持从叶子结点开始的顺序检索。<br>所以选择D</p>
 
       
     </div><!-- .entry-content -->
@@ -241,8 +237,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -252,7 +248,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -275,7 +271,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -306,6 +302,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -321,10 +321,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -334,7 +330,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

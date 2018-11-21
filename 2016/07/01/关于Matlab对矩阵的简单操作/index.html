@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,12 +15,14 @@
   
   <title>关于Matlab对矩阵的简单操作 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x7531;&amp;#x4E8E;&amp;#x660E;&amp;#x5929;&amp;#x7684;&amp;#x7EBF;&amp;#x4EE3;&amp;#x673A;&amp;#x8003;&amp;#xFF0C;&amp;#x73B0;&amp;#x6574;&amp;#x7406;&amp;#x4E00;&amp;#x4E9B;&amp;#x80FD;&amp;#x7528;&amp;#x4E0A;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x64CD;&amp;#x4F5C;&amp;#x4EE5;&amp;#x65B9;">
+  <meta name="description" content="由于明天的线代机考，现整理一些能用上的简单操作以方便记忆 基础命令：求矩阵的逆： 1inv 求矩阵对应的行列式的值： 1det">
+<meta name="keywords" content="Matlab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Matlab对矩阵的简单操作">
 <meta property="og:url" content="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x7531;&amp;#x4E8E;&amp;#x660E;&amp;#x5929;&amp;#x7684;&amp;#x7EBF;&amp;#x4EE3;&amp;#x673A;&amp;#x8003;&amp;#xFF0C;&amp;#x73B0;&amp;#x6574;&amp;#x7406;&amp;#x4E00;&amp;#x4E9B;&amp;#x80FD;&amp;#x7528;&amp;#x4E0A;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x64CD;&amp;#x4F5C;&amp;#x4EE5;&amp;#x65B9;">
+<meta property="og:description" content="由于明天的线代机考，现整理一些能用上的简单操作以方便记忆 基础命令：求矩阵的逆： 1inv 求矩阵对应的行列式的值： 1det">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/1.png">
 <meta property="og:image" content="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/2.png">
 <meta property="og:image" content="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/3.png">
@@ -34,7 +36,7 @@
 <meta property="og:updated_time" content="2016-09-29T09:50:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Matlab对矩阵的简单操作">
-<meta name="twitter:description" content="&amp;#x7531;&amp;#x4E8E;&amp;#x660E;&amp;#x5929;&amp;#x7684;&amp;#x7EBF;&amp;#x4EE3;&amp;#x673A;&amp;#x8003;&amp;#xFF0C;&amp;#x73B0;&amp;#x6574;&amp;#x7406;&amp;#x4E00;&amp;#x4E9B;&amp;#x80FD;&amp;#x7528;&amp;#x4E0A;&amp;#x7684;&amp;#x7B80;&amp;#x5355;&amp;#x64CD;&amp;#x4F5C;&amp;#x4EE5;&amp;#x65B9;">
+<meta name="twitter:description" content="由于明天的线代机考，现整理一些能用上的简单操作以方便记忆 基础命令：求矩阵的逆： 1inv 求矩阵对应的行列式的值： 1det">
 <meta name="twitter:image" content="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/1.png">
   
   
@@ -45,8 +47,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -105,113 +107,113 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/" data-id="cjk8fbkuu004ou0b3dzm7unk8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/07/01/关于Matlab对矩阵的简单操作/" data-id="cjoqmj90z004wr0b32qfiamhz" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x7531;&#x4E8E;&#x660E;&#x5929;&#x7684;&#x7EBF;&#x4EE3;&#x673A;&#x8003;&#xFF0C;&#x73B0;&#x6574;&#x7406;&#x4E00;&#x4E9B;&#x80FD;&#x7528;&#x4E0A;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;&#x4EE5;&#x65B9;&#x4FBF;&#x8BB0;&#x5FC6;
-</code></pre><h2 id="&#x57FA;&#x7840;&#x547D;&#x4EE4;&#xFF1A;"><a href="#&#x57FA;&#x7840;&#x547D;&#x4EE4;&#xFF1A;" class="headerlink" title="&#x57FA;&#x7840;&#x547D;&#x4EE4;&#xFF1A;"></a>&#x57FA;&#x7840;&#x547D;&#x4EE4;&#xFF1A;</h2><p>&#x6C42;&#x77E9;&#x9635;&#x7684;&#x9006;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inv</div></pre></td></tr></table></figure>
-<p>&#x6C42;&#x77E9;&#x9635;&#x5BF9;&#x5E94;&#x7684;&#x884C;&#x5217;&#x5F0F;&#x7684;&#x503C;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">det</div></pre></td></tr></table></figure>
+        <pre><code>由于明天的线代机考，现整理一些能用上的简单操作以方便记忆
+</code></pre><h2 id="基础命令："><a href="#基础命令：" class="headerlink" title="基础命令："></a>基础命令：</h2><p>求矩阵的逆：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inv</span><br></pre></td></tr></table></figure>
+<p>求矩阵对应的行列式的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">det</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>&#x6C42;&#x77E9;&#x9635;A&#x7684;&#x8F6C;&#x7F6E;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">A&#x2019;</div></pre></td></tr></table></figure>
-<p>&#x6C42;&#x77E9;&#x9635;&#x7684;&#x79E9;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rank</div></pre></td></tr></table></figure>
-<p>&#x8BB2;&#x77E9;&#x9635;&#x5316;&#x4E3A;&#x6700;&#x7B80;&#x9636;&#x68AF;&#x578B;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rref</div></pre></td></tr></table></figure>
-<p>&#x5C06;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#x5316;&#x4E3A;&#x5206;&#x6570;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">format rat</div></pre></td></tr></table></figure>
-<p>&#x8BBE;&#x7F6E;&#x672A;&#x77E5;&#x6570;x&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">syms x</div></pre></td></tr></table></figure>
-<h2 id="&#x6C42;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;"><a href="#&#x6C42;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;" class="headerlink" title="&#x6C42;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;"></a>&#x6C42;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;</h2><p>&#x5DF2;&#x77E5;&#x77E9;&#x9635;A</p>
-<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;r = rank(A)</p>
-<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;y = null(A,&#x2019;r&#x2019;)</p>
-<p>&#x6240;&#x6C42;&#x51FA;&#x7684;&#x77E9;&#x9635;&#x7684;&#x5217;&#x5411;&#x91CF;&#x5C31;&#x662F;&#x57FA;&#x7840;&#x89E3;&#x7CFB;</p>
-<p>eg:<br>&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;&#x7684;&#x77E9;&#x9635;A</p>
-<p><img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/1.png" alt=""></p>
-<p>&#x6C42;&#x79E9;</p>
-<p><img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/2.png" alt=""></p>
-<p>&#x89E3;&#x5F97;</p>
-<p><img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/3.png" alt=""></p>
-<p>&#x6240;&#x4EE5;&#x57FA;&#x7840;&#x89E3;&#x7CFB;&#x4E3A;</p>
-<p>x1 = <img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/4.png" alt="">  x2 = <img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/5.png" alt="">  x3 = <img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/6.png" alt=""></p>
-<h2 id="&#x6C42;&#x975E;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;"><a href="#&#x6C42;&#x975E;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;" class="headerlink" title="&#x6C42;&#x975E;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;"></a>&#x6C42;&#x975E;&#x9F50;&#x6B21;&#x65B9;&#x7A0B;&#x7EC4;</h2><p>&#x5DF2;&#x77E5;&#x589E;&#x5E7F;&#x77E9;&#x9635;A</p>
-<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;r = rank(A)</p>
-<p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;y = null(A,&#x2019;r&#x2019;)</p>
-<p>&#x6240;&#x5F97;&#x77E9;&#x9635;&#x5217;&#x5411;&#x91CF;&#x5F00;&#x59CB;&#x5411;&#x4E0B;&#x6570;&#xFF0C;&#x6709;&#x51E0;&#x4E2A;&#x672A;&#x77E5;&#x6570;&#x5C31;&#x6570;&#x51E0;&#x4F4D;&#xFF0C;&#x8FD9;&#x662F;&#x901A;&#x89E3;</p>
-<p>&#x6700;&#x540E;&#x4E00;&#x5217;&#x4E3A;&#x7279;&#x89E3;&#xFF0C;&#x786E;&#x5B9A;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#x540C;&#x4E0A;</p>
-<p>eg:&#x589E;&#x5E7F;&#x77E9;&#x9635;A</p>
-<p><img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/7.png" alt=""></p>
-<p>&#x89E3;&#x5F97;</p>
-<p><img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/8.png" alt=""></p>
-<p>&#x5176;&#x9F50;&#x6B21;&#x901A;&#x89E3;&#x4E3A;</p>
-<p>x &#xFF1D; <img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/9.png" alt=""></p>
-<p>&#x7279;&#x89E3;&#x4E3A;</p>
-<p>k2 = <img src="/2016/07/01/&#x5173;&#x4E8E;Matlab&#x5BF9;&#x77E9;&#x9635;&#x7684;&#x7B80;&#x5355;&#x64CD;&#x4F5C;/10.png" alt=""></p>
-<p>&#x6240;&#x4EE5;&#x539F;&#x65B9;&#x7A0B;&#x901A;&#x89E3;&#x4E3A;</p>
+<p>求矩阵A的转置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A’</span><br></pre></td></tr></table></figure>
+<p>求矩阵的秩：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rank</span><br></pre></td></tr></table></figure>
+<p>讲矩阵化为最简阶梯型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rref</span><br></pre></td></tr></table></figure>
+<p>将输出格式化为分数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">format rat</span><br></pre></td></tr></table></figure>
+<p>设置未知数x：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">syms x</span><br></pre></td></tr></table></figure>
+<h2 id="求齐次方程组"><a href="#求齐次方程组" class="headerlink" title="求齐次方程组"></a>求齐次方程组</h2><p>已知矩阵A</p>
+<p>第一步：r = rank(A)</p>
+<p>第二步：y = null(A,’r’)</p>
+<p>所求出的矩阵的列向量就是基础解系</p>
+<p>eg:<br>齐次方程组的矩阵A</p>
+<p><img src="/2016/07/01/关于Matlab对矩阵的简单操作/1.png" alt=""></p>
+<p>求秩</p>
+<p><img src="/2016/07/01/关于Matlab对矩阵的简单操作/2.png" alt=""></p>
+<p>解得</p>
+<p><img src="/2016/07/01/关于Matlab对矩阵的简单操作/3.png" alt=""></p>
+<p>所以基础解系为</p>
+<p>x1 = <img src="/2016/07/01/关于Matlab对矩阵的简单操作/4.png" alt="">  x2 = <img src="/2016/07/01/关于Matlab对矩阵的简单操作/5.png" alt="">  x3 = <img src="/2016/07/01/关于Matlab对矩阵的简单操作/6.png" alt=""></p>
+<h2 id="求非齐次方程组"><a href="#求非齐次方程组" class="headerlink" title="求非齐次方程组"></a>求非齐次方程组</h2><p>已知增广矩阵A</p>
+<p>第一步：r = rank(A)</p>
+<p>第二步：y = null(A,’r’)</p>
+<p>所得矩阵列向量开始向下数，有几个未知数就数几位，这是通解</p>
+<p>最后一列为特解，确定元素的个数同上</p>
+<p>eg:增广矩阵A</p>
+<p><img src="/2016/07/01/关于Matlab对矩阵的简单操作/7.png" alt=""></p>
+<p>解得</p>
+<p><img src="/2016/07/01/关于Matlab对矩阵的简单操作/8.png" alt=""></p>
+<p>其齐次通解为</p>
+<p>x ＝ <img src="/2016/07/01/关于Matlab对矩阵的简单操作/9.png" alt=""></p>
+<p>特解为</p>
+<p>k2 = <img src="/2016/07/01/关于Matlab对矩阵的简单操作/10.png" alt=""></p>
+<p>所以原方程通解为</p>
 <p>y = k1*x1 +k2</p>
-<h2 id="&#x6C42;A&#x7684;&#x4F34;&#x968F;&#x77E9;&#x9635;"><a href="#&#x6C42;A&#x7684;&#x4F34;&#x968F;&#x77E9;&#x9635;" class="headerlink" title="&#x6C42;A&#x7684;&#x4F34;&#x968F;&#x77E9;&#x9635;"></a>&#x6C42;A&#x7684;&#x4F34;&#x968F;&#x77E9;&#x9635;</h2><p>A<em> = det(A) </em> inv(A)</p>
-<h2 id="&#x6C42;AX-&#xFF1D;-B-&#x4E2D;&#x7684;&#x77E9;&#x9635;X"><a href="#&#x6C42;AX-&#xFF1D;-B-&#x4E2D;&#x7684;&#x77E9;&#x9635;X" class="headerlink" title="&#x6C42;AX &#xFF1D; B &#x4E2D;&#x7684;&#x77E9;&#x9635;X"></a>&#x6C42;AX &#xFF1D; B &#x4E2D;&#x7684;&#x77E9;&#x9635;X</h2><p>X = inv(A) * B</p>
-<h2 id="&#x6C42;&#x8FC7;&#x6E21;&#x77E9;&#x9635;"><a href="#&#x6C42;&#x8FC7;&#x6E21;&#x77E9;&#x9635;" class="headerlink" title="&#x6C42;&#x8FC7;&#x6E21;&#x77E9;&#x9635;"></a>&#x6C42;&#x8FC7;&#x6E21;&#x77E9;&#x9635;</h2><p>&#x5DF2;&#x77E5;&#x77E9;&#x9635;A&#x548C;B&#xFF0C;&#x5219;C&#x662F;&#x4ECE;A&#x8FC7;&#x6E21;&#x5230;B&#x7684;&#x8FC7;&#x6E21;&#x77E9;&#x9635;</p>
+<h2 id="求A的伴随矩阵"><a href="#求A的伴随矩阵" class="headerlink" title="求A的伴随矩阵"></a>求A的伴随矩阵</h2><p>A<em> = det(A) </em> inv(A)</p>
+<h2 id="求AX-＝-B-中的矩阵X"><a href="#求AX-＝-B-中的矩阵X" class="headerlink" title="求AX ＝ B 中的矩阵X"></a>求AX ＝ B 中的矩阵X</h2><p>X = inv(A) * B</p>
+<h2 id="求过渡矩阵"><a href="#求过渡矩阵" class="headerlink" title="求过渡矩阵"></a>求过渡矩阵</h2><p>已知矩阵A和B，则C是从A过渡到B的过渡矩阵</p>
 <p>C = inv(A) * B</p>
-<h2 id="&#x5BF9;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x57FA;&#x5750;&#x6807;&#x8F6C;&#x6362;"><a href="#&#x5BF9;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x57FA;&#x5750;&#x6807;&#x8F6C;&#x6362;" class="headerlink" title="&#x5BF9;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x57FA;&#x5750;&#x6807;&#x8F6C;&#x6362;"></a>&#x5BF9;&#x5411;&#x91CF;&#x8FDB;&#x884C;&#x57FA;&#x5750;&#x6807;&#x8F6C;&#x6362;</h2><p>&#x5DF2;&#x77E5;&#x7531;&#x4E00;&#x7EC4;&#x57FA;&#x7EC4;&#x6210;&#x7684;&#x77E9;&#x9635;A&#xFF0C;&#x548C;&#x9700;&#x8981;&#x8F6C;&#x6362;&#x7684;&#x5411;&#x91CF;b</p>
-<p>&#x5219;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x5411;&#x91CF;a</p>
+<h2 id="对向量进行基坐标转换"><a href="#对向量进行基坐标转换" class="headerlink" title="对向量进行基坐标转换"></a>对向量进行基坐标转换</h2><p>已知由一组基组成的矩阵A，和需要转换的向量b</p>
+<p>则转换后的向量a</p>
 <p>a = inv(A) * b</p>
-<h2 id="&#x4E00;&#x4E2A;&#x5C0F;&#x6CE8;&#x610F;"><a href="#&#x4E00;&#x4E2A;&#x5C0F;&#x6CE8;&#x610F;" class="headerlink" title="&#x4E00;&#x4E2A;&#x5C0F;&#x6CE8;&#x610F;"></a>&#x4E00;&#x4E2A;&#x5C0F;&#x6CE8;&#x610F;</h2><p>&#x5F53;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x5E26;&#x6709;&#x201C;*&#x201D;&#x53F7;&#x65F6;&#xFF0C;&#x662F;&#x6307;&#x4E00;&#x4E2A;&#x65E0;&#x9650;&#x63A5;&#x8FD1;&#x4E0E;0&#x7684;&#x6570;&#xFF0C;&#x76F4;&#x63A5;&#x5199;&#x6210;0&#x5373;&#x53EF;</p>
-<p>###&#x524D;&#x6587;&#x662F;&#x8003;&#x8BD5;&#x5185;&#x5BB9;&#xFF08;1&#xFF5E;4&#x7AE0;&#xFF09;</p>
-<p>###&#x5F53;&#x65F6;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x987A;&#x4FBF;&#x628A;&#x540E;&#x9762;&#x7684;&#x4E5F;&#x6574;&#x7406;&#x4E86;&#x4E00;&#x4E0B;&#xFF08;&#x54CE;&#x2026;&#xFF09;</p>
-<h2 id="&#x6C42;&#x7279;&#x5F81;&#x503C;"><a href="#&#x6C42;&#x7279;&#x5F81;&#x503C;" class="headerlink" title="&#x6C42;&#x7279;&#x5F81;&#x503C;"></a>&#x6C42;&#x7279;&#x5F81;&#x503C;</h2><p>&#x5DF2;&#x77E5;&#x77E9;&#x9635;A</p>
-<p>&#x7279;&#x5F81;&#x503C;&#x4E3A;eig(A)</p>
-<h2 id="&#x6C42;&#x7279;&#x5F81;&#x5411;&#x91CF;"><a href="#&#x6C42;&#x7279;&#x5F81;&#x5411;&#x91CF;" class="headerlink" title="&#x6C42;&#x7279;&#x5F81;&#x5411;&#x91CF;"></a>&#x6C42;&#x7279;&#x5F81;&#x5411;&#x91CF;</h2><p>&#x5DF2;&#x77E5;&#x77E9;&#x9635;A</p>
-<p>&#x6C42;&#x51FA;&#x7279;&#x5F81;&#x503C;&#x540E;&#xFF0C;&#x6C42;&#x51FA;|&#x3BB;E+A|=0&#x7684;&#x901A;&#x89E3;&#x5373;&#x53EF;</p>
-<h2 id="&#x5224;&#x65AD;&#x77E9;&#x9635;A&#x662F;&#x5426;&#x6B63;&#x5B9A;"><a href="#&#x5224;&#x65AD;&#x77E9;&#x9635;A&#x662F;&#x5426;&#x6B63;&#x5B9A;" class="headerlink" title="&#x5224;&#x65AD;&#x77E9;&#x9635;A&#x662F;&#x5426;&#x6B63;&#x5B9A;"></a>&#x5224;&#x65AD;&#x77E9;&#x9635;A&#x662F;&#x5426;&#x6B63;&#x5B9A;</h2><p>&#x5DF2;&#x77E5;&#x77E9;&#x9635;A</p>
-<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;eig(A)</p>
-<p>&#x5F53;&#x6240;&#x6709;&#x7279;&#x5F81;&#x503C;&#x90FD;&#x662F;&#x6B63;&#x6570;&#x65F6;&#x5C31;&#x6B63;&#x5B9A;</p>
-<p>&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x6CD5;&#xFF1A;chol(A)</p>
-<p>&#x5F53;&#x77E9;&#x9635;&#x4E0D;&#x662F;&#x6B63;&#x5B9A;&#x65F6;&#x4ED6;&#x4F1A;&#x62A5;&#x9519;</p>
-<h2 id="&#x5C06;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;"><a href="#&#x5C06;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;" class="headerlink" title="&#x5C06;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;"></a>&#x5C06;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;</h2><p>matlab&#x4E0B;&#x5C06;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x8BED;&#x53E5;&#x4E0E;c&#x8BED;&#x8A00;&#x7684;&#x6587;&#x4EF6;&#x8BED;&#x53E5;&#x57FA;&#x672C;&#x662F;&#x4E00;&#x6837;&#x7684;</p>
-<pre><code>&#x6587;&#x4EF6;&#x7684;&#x6253;&#x5F00;&#x4E0E;&#x5173;&#x95ED;
-</code></pre><p>1.&#x6253;&#x5F00;&#x6587;&#x4EF6;</p>
-<p>&#x5728;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x4E4B;&#x524D;&#xFF0C;&#x5FC5;&#x987B;&#x5148;&#x7528;fopen&#x51FD;&#x6570;&#x6253;&#x5F00;&#x6216;&#x8005;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x8BE5;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x3002;</p>
-<p>fopen&#x7684;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fid=fopen&#xFF08;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x2018;&#x6253;&#x5F00;&#x65B9;&#x5F0F;&#x2019;&#xFF09;</div></pre></td></tr></table></figure>
-<p>[&#x8BF4;&#x660E;]&#x5176;&#x4E2D;fid&#x7528;&#x4E8E;&#x5B58;&#x50A8;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x53E5;&#x67C4;&#x503C;&#x5927;&#x4E8E;0&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x6587;&#x4EF6;&#x6253;&#x5F00;&#x6210;&#x529F;&#x3002;&#x6587;&#x4EF6;&#x540D;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#xFF0C;&#x8868;&#x793A;&#x5F85;&#x6253;&#x5F00;&#x7684;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#x2018;r&#x2019;&#xFF1A;&#x53EA;&#x8BFB;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF08;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x5F0F;&#xFF09;&#xFF0C;&#x8BE5;&#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x5DF2;&#x5B58;&#x5728;&#x3002;</div><div class="line">&#x2018;r+&#x2019;&#xFF1A;&#x8BFB;&#x5199;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF0C;&#x6253;&#x5F00;&#x540E;&#x5148;&#x8BFB;&#x540E;&#x5199;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x5DF2;&#x5B58;&#x5728;&#x3002;</div><div class="line">&#x2018;w&#x2019;&#xFF1A;&#x6253;&#x5F00;&#x540E;&#x5199;&#x5165;&#x6570;&#x636E;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x66F4;&#x65B0;&#xFF1B;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x3002;</div><div class="line">&#x2018;w+&#x2019;&#xFF1A;&#x8BFB;&#x5199;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x3002;&#x5148;&#x8BFB;&#x540E;&#x5199;&#x3002;&#x8BE5;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x66F4;&#x65B0;&#xFF1B;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x3002;</div><div class="line">&#x2018;a&#x2019;&#xFF1A;&#x5728;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x672B;&#x7AEF;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x3002;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x3002;</div><div class="line">&#x2018;a+&#x2019;&#xFF1A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x5148;&#x8BFB;&#x5165;&#x6570;&#x636E;&#x518D;&#x6DFB;&#x52A0;&#x6570;&#x636E;&#x3002;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x3002;</div><div class="line">//&#x53E6;&#x5916;&#xFF0C;&#x5728;&#x8FD9;&#x4E9B;&#x5B57;&#x7B26;&#x4E32;&#x540E;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x201C;t&#x201D;&#xFF0C;&#x5982;&#x2018;rt&#x2019;&#x6216;&#x2018;wt+&#x2019;&#xFF0C;&#x5219;&#x5C06;&#x8BE5;&#x6587;&#x4EF6;&#x4EE5;&#x6587;&#x672C;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#xFF1B;&#x5982;&#x679C;&#x6DFB;&#x52A0;&#x7684;&#x662F;&#x201C;b&#x201D;&#xFF0C;&#x5219;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x683C;&#x5F0F;&#x6253;&#x5F00;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;fopen&#x51FD;&#x6570;&#x9ED8;&#x8BA4;&#x7684;&#x6253;&#x5F00;&#x65B9;&#x5F0F;&#x3002;</div></pre></td></tr></table></figure>
-<p> 2.&#x5173;&#x95ED;&#x6587;&#x4EF6;</p>
-<p> &#x6587;&#x4EF6;&#x5728;&#x8FDB;&#x884C;&#x5B8C;&#x8BFB;&#x3001;&#x5199;&#x7B49;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x5E94;&#x53CA;&#x65F6;&#x5173;&#x95ED;&#xFF0C;&#x4EE5;&#x514D;&#x6570;&#x636E;&#x4E22;&#x5931;&#x3002;</p>
-<p> &#x5173;&#x95ED;&#x6587;&#x4EF6;&#x7528;fclose&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sta&#xFF1D;fclose(fid)</div></pre></td></tr></table></figure>
-<p> [&#x8BF4;&#x660E;]&#x8BE5;&#x51FD;&#x6570;&#x5173;&#x95ED;fid&#x6240;&#x8868;&#x793A;&#x7684;&#x6587;&#x4EF6;&#x3002;sta&#x8868;&#x793A;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x7684;&#x8FD4;&#x56DE;&#x4EE3;&#x7801;&#xFF0C;&#x82E5;&#x5173;&#x95ED;&#x6210;&#x529F;&#xFF0C;&#x8FD4;&#x56DE;0&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;-1&#x3002;&#x5982;&#x679C;&#x8981;&#x5173;&#x95ED;&#x6240;&#x6709;&#x5DF2;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x7528;fclose(&#x2018;all&#x2019;)&#x3002;</p>
-<pre><code>&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;
-</code></pre><p> 1.&#x5199;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;</p>
-<p> fwrite&#x51FD;&#x6570;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x7CBE;&#x5EA6;&#x5C06;&#x77E9;&#x9635;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x5176;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COUNT&#xFF1D;fwrite&#xFF08;fid&#xFF0C;A&#xFF0C;precision&#xFF09;</div></pre></td></tr></table></figure>
-<p> [&#x8BF4;&#x660E;]&#x5176;&#x4E2D;COUNT&#x8FD4;&#x56DE;&#x6240;&#x5199;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#xFF08;&#x53EF;&#x7F3A;&#x7701;&#xFF09;&#xFF0C;fid&#x4E3A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;A&#x7528;&#x6765;&#x5B58;&#x653E;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#xFF0C;precision&#x4EE3;&#x8868;&#x6570;&#x636E;&#x7CBE;&#x5EA6;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x6570;&#x636E;&#x7CBE;&#x5EA6;&#x6709;&#xFF1A;char&#x3001;uchar&#x3001;int&#x3001;long&#x3001;float&#x3001;double&#x7B49;&#x3002;&#x7F3A;&#x7701;&#x6570;&#x636E;&#x7CBE;&#x5EA6;&#x4E3A;uchar&#xFF0C;&#x5373;&#x65E0;&#x7B26;&#x53F7;&#x5B57;&#x7B26;&#x683C;&#x5F0F;&#x3002;</p>
-<p> &#x4F8B; &#x5C06;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x77E9;&#x9635;&#x5B58;&#x5165;&#x78C1;&#x76D8;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> %&#x662F;matlab&#x4E0B;&#x7684;&#x6CE8;&#x91CA;&#x7B26;</div><div class="line">&gt;&gt; a=[1 2 3 4 5 6 7 8 9];</div><div class="line">&gt;&gt; fid=fopen(&apos;d:\test.bin&apos;,&apos;wb&apos;) %&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x5199;&#x5165;&#x65B9;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;</div><div class="line">fid = 3 %&#x5176;&#x503C;&#x5927;&#x4E8E;0&#xFF0C;&#x8868;&#x793A;&#x6253;&#x5F00;&#x6210;&#x529F;</div><div class="line">&gt;&gt; fwrite(fid,a,&apos;double&apos;)</div><div class="line">ans = 9 %&#x8868;&#x793A;&#x5199;&#x5165;&#x4E86;9&#x4E2A;&#x6570;&#x636E;</div><div class="line">&gt;&gt; fclose(fid)</div><div class="line">ans = 0 %&#x8868;&#x793A;&#x5173;&#x95ED;&#x6210;&#x529F; </div></pre></td></tr></table></figure>
-<p>2.&#x8BFB;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;</p>
-<p>fread&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x5165;&#x77E9;&#x9635;&#x3002;&#x5176;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[A&#xFF0C;COUNT]=fread(fid&#xFF0C;size&#xFF0C;precision)</div></pre></td></tr></table></figure>
-<p>[&#x8BF4;&#x660E;]&#x5176;&#x4E2D;A&#x662F;&#x7528;&#x4E8E;&#x5B58;&#x653E;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x77E9;&#x9635;&#x3001;COUNT&#x662F;&#x8FD4;&#x56DE;&#x6240;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x3001;fid&#x4E3A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x3001;size&#x4E3A;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x82E5;&#x4E0D;&#x9009;&#x7528;&#x5219;&#x8BFB;&#x53D6;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#xFF1B;&#x82E5;&#x9009;&#x7528;&#x5219;&#x5B83;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4E0B;&#x5217;&#x503C;&#xFF1A;N&#xFF08;&#x8BFB;&#x53D6;N&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x4E00;&#x4E2A;&#x5217;&#x5411;&#x91CF;&#xFF09;&#x3001;inf&#xFF08;&#x8BFB;&#x53D6;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#x3001;[M&#xFF0C;N]&#xFF08;&#x8BFB;&#x6570;&#x636E;&#x5230;M&#xD7;N&#x7684;&#x77E9;&#x9635;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x6309;&#x5217;&#x5B58;&#x653E;&#xFF09;&#x3002;precision&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x6240;&#x5199;&#x6570;&#x636E;&#x7684;&#x7CBE;&#x5EA6;&#xFF0C;&#x5176;&#x5F62;&#x5F0F;&#x4E0E;fwrite&#x51FD;&#x6570;&#x76F8;&#x540C;&#x3002;</p>
-<pre><code>&#x6587;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;
-</code></pre><p>1.&#x8BFB;&#x6587;&#x672C;&#x6587;&#x4EF6;</p>
-<p>fscanf&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x5E76;&#x6309;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5B58;&#x5165;&#x77E9;&#x9635;&#x3002;&#x5176;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[A&#xFF0C;COUNT]=fscanf(fid&#xFF0C;format&#xFF0C;size)</div></pre></td></tr></table></figure>
-<p>[&#x8BF4;&#x660E;]&#x5176;&#x4E2D;A&#x7528;&#x6765;&#x5B58;&#x653E;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#xFF0C;COUNT&#x8FD4;&#x56DE;&#x6240;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#xFF0C;fid&#x4E3A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;format&#x7528;&#x6765;&#x63A7;&#x5236;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF0C;&#x7531;%&#x52A0;&#x4E0A;&#x683C;&#x5F0F;&#x7B26;&#x7EC4;&#x6210;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x683C;&#x5F0F;&#x7B26;&#x6709;&#xFF1A;d&#xFF08;&#x6574;&#x578B;&#xFF09;&#x3001;f&#xFF08;&#x6D6E;&#x70B9;&#x578B;&#xFF09;&#x3001;s&#xFF08;&#x5B57;&#x7B26;&#x4E32;&#x578B;&#xFF09;&#x3001;c&#xFF08;&#x5B57;&#x7B26;&#x578B;&#xFF09;&#x7B49;&#xFF0C;&#x5728;%&#x4E0E;&#x683C;&#x5F0F;&#x7B26;&#x4E4B;&#x95F4;&#x8FD8;&#x53EF;&#x4EE5;&#x63D2;&#x5165;&#x9644;&#x52A0;&#x683C;&#x5F0F;&#x8BF4;&#x660E;&#x7B26;&#xFF0C;&#x5982;&#x6570;&#x636E;&#x5BBD;&#x5EA6;&#x8BF4;&#x660E;&#x7B49;&#x3002;size&#x4E3A;&#x53EF;&#x9009;&#x9879;&#xFF0C;&#x51B3;&#x5B9A;&#x77E9;&#x9635;A&#x4E2D;&#x6570;&#x636E;&#x7684;&#x6392;&#x5217;&#x5F62;&#x5F0F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x53D6;&#x4E0B;&#x5217;&#x503C;&#xFF1A;N&#xFF08;&#x8BFB;&#x53D6;N&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x4E00;&#x4E2A;&#x5217;&#x5411;&#x91CF;&#xFF09;&#x3001;inf&#xFF08;&#x8BFB;&#x53D6;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#x3001;[M&#xFF0C;N]&#xFF08;&#x8BFB;&#x6570;&#x636E;&#x5230;M&#xD7;N&#x7684;&#x77E9;&#x9635;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x6309;&#x5217;&#x5B58;&#x653E;&#xFF09;&#x3002;</p>
-<p>2.&#x5199;&#x6587;&#x672C;&#x6587;&#x4EF6;</p>
-<p>fprintf&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x6309;&#x6307;&#x5B9A;&#x683C;&#x5F0F;&#x5199;&#x5165;&#x5230;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x5176;&#x8C03;&#x7528;&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fprintf&#xFF08;fid&#xFF0C;format&#xFF0C;A&#xFF09;</div></pre></td></tr></table></figure>
-<p>[&#x8BF4;&#x660E;]fid&#x4E3A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#xFF0C;&#x6307;&#x5B9A;&#x8981;&#x5199;&#x5165;&#x6570;&#x636E;&#x7684;&#x6587;&#x4EF6;&#xFF0C;format&#x662F;&#x7528;&#x6765;&#x63A7;&#x5236;&#x6240;&#x5199;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x7684;&#x683C;&#x5F0F;&#x7B26;&#xFF0C;&#x4E0E;fscanf&#x51FD;&#x6570;&#x76F8;&#x540C;&#xFF0C;A&#x662F;&#x7528;&#x6765;&#x5B58;&#x653E;&#x6570;&#x636E;&#x7684;&#x77E9;&#x9635;&#x3002;</p>
-<p>&#x4F8B; &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x77E9;&#x9635;&#x5E76;&#x5B58;&#x5165;&#x78C1;&#x76D8;&#xFF0C;&#x518D;&#x8BFB;&#x51FA;&#x8D4B;&#x503C;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x77E9;&#x9635;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;&gt; a=&apos;string&apos;;</div><div class="line">&gt;&gt; fid=fopen(&apos;d:\char1.txt&apos;,&apos;w&apos;);</div><div class="line">&gt;&gt; fprintf(fid,&apos;%s&apos;,a);</div><div class="line">&gt;&gt; fclose(fid);</div><div class="line">&gt;&gt; fid1=fopen(&apos;d:\char1.txt&apos;,&apos;rt&apos;);</div><div class="line">&gt;&gt; fid1=fopen(&apos;d:\char1.txt&apos;,&apos;rt&apos;);</div><div class="line">&gt;&gt; b=fscanf(fid1,&apos;%s&apos;)</div><div class="line">b = string </div></pre></td></tr></table></figure>
-<p>&#x4F8B; matlab&#x8BFB;txt&#x6587;&#x4EF6;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fid=fopen(&apos;fx.txt&apos;,&apos;r&apos;); %&#x5F97;&#x5230;&#x6587;&#x4EF6;&#x53F7;</div><div class="line">[f,count]=fscanf(fid,&apos;%f %f&apos;,[12,90]);</div><div class="line">%&#x628A;&#x6587;&#x4EF6;&#x53F7;1&#x7684;&#x6570;&#x636E;&#x8BFB;&#x5230;f&#x4E2D;&#x3002;&#x5176;&#x4E2D;f&#x662F;[12 90]&#x7684;&#x77E9;&#x9635;</div><div class="line">%&#x8FD9;&#x91CC;&apos;%f %f&apos;&#x8868;&#x793A;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x5F62;&#x52BF;&#xFF0C;&#x4ED6;&#x662F;&#x6309;&#x539F;&#x59CB;&#x6570;&#x636E;&#x578B;&#x8BFB;&#x51FA;</div><div class="line">fclose(fid);</div><div class="line">%&#x5173;&#x95ED;&#x6587;&#x4EF6;</div><div class="line">%&#x53E6;&#x5916;&#x6709;&#x7684;txt&#x6587;&#x4EF6;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;load&#x6765;&#x6253;&#x5F00;,&#x5176;&#x8BED;&#x53E5;&#x4E3A;:f=load(&apos;fx.txt)</div></pre></td></tr></table></figure>
-<p>&#x4F8B; matlab&#x5199;txt&#x6587;&#x4EF6;&#x7684;&#x5C0F;&#x4F8B;&#x5B50;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">N=100;</div><div class="line">R=rand(1,N);</div><div class="line">fid = fopen(&apos;tt.txt&apos;,&apos;wt&apos;);</div><div class="line">for k=1:N;</div><div class="line">p=num2str(R(k));</div><div class="line">fprintf(fid,&apos;%c&apos;,p);</div><div class="line">fprintf(fid,&apos;%c\n&apos;,&apos; &apos;);</div><div class="line">end</div><div class="line">fclose(fid); </div></pre></td></tr></table></figure>
+<h2 id="一个小注意"><a href="#一个小注意" class="headerlink" title="一个小注意"></a>一个小注意</h2><p>当输出的结果带有“*”号时，是指一个无限接近与0的数，直接写成0即可</p>
+<p>###前文是考试内容（1～4章）</p>
+<p>###当时不知道，顺便把后面的也整理了一下（哎…）</p>
+<h2 id="求特征值"><a href="#求特征值" class="headerlink" title="求特征值"></a>求特征值</h2><p>已知矩阵A</p>
+<p>特征值为eig(A)</p>
+<h2 id="求特征向量"><a href="#求特征向量" class="headerlink" title="求特征向量"></a>求特征向量</h2><p>已知矩阵A</p>
+<p>求出特征值后，求出|λE+A|=0的通解即可</p>
+<h2 id="判断矩阵A是否正定"><a href="#判断矩阵A是否正定" class="headerlink" title="判断矩阵A是否正定"></a>判断矩阵A是否正定</h2><p>已知矩阵A</p>
+<p>第一种方法：eig(A)</p>
+<p>当所有特征值都是正数时就正定</p>
+<p>第二种方法：chol(A)</p>
+<p>当矩阵不是正定时他会报错</p>
+<h2 id="将数据输出到文件"><a href="#将数据输出到文件" class="headerlink" title="将数据输出到文件"></a>将数据输出到文件</h2><p>matlab下将数据输出到文件的语句与c语言的文件语句基本是一样的</p>
+<pre><code>文件的打开与关闭
+</code></pre><p>1.打开文件</p>
+<p>在读写文件之前，必须先用fopen函数打开或者创建文件，并指定该文件进行的操作方式。</p>
+<p>fopen的调用格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fid=fopen（文件名，‘打开方式’）</span><br></pre></td></tr></table></figure>
+<p>[说明]其中fid用于存储文件句柄值，如果返回的句柄值大于0，则说明文件打开成功。文件名用字符串形式，表示待打开的数据文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">‘r’：只读方式打开文件（默认的方式），该文件必须已存在。</span><br><span class="line">‘r+’：读写方式打开文件，打开后先读后写。该文件必须已存在。</span><br><span class="line">‘w’：打开后写入数据。该文件已存在则更新；不存在则创建。</span><br><span class="line">‘w+’：读写方式打开文件。先读后写。该文件已存在则更新；不存在则创建。</span><br><span class="line">‘a’：在打开的文件末端添加数据。文件不存在则创建。</span><br><span class="line">‘a+’：打开文件后，先读入数据再添加数据。文件不存在则创建。</span><br><span class="line">//另外，在这些字符串后添加一个“t”，如‘rt’或‘wt+’，则将该文件以文本方式打开；如果添加的是“b”，则以二进制格式打开，这也是fopen函数默认的打开方式。</span><br></pre></td></tr></table></figure>
+<p> 2.关闭文件</p>
+<p> 文件在进行完读、写等操作后，应及时关闭，以免数据丢失。</p>
+<p> 关闭文件用fclose函数，调用格式为：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sta＝fclose(fid)</span><br></pre></td></tr></table></figure>
+<p> [说明]该函数关闭fid所表示的文件。sta表示关闭文件操作的返回代码，若关闭成功，返回0，否则返回-1。如果要关闭所有已打开的文件用fclose(‘all’)。</p>
+<pre><code>二进制文件的读写操作
+</code></pre><p> 1.写二进制文件</p>
+<p> fwrite函数按照指定的数据精度将矩阵中的元素写入到文件中。其调用格式为：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COUNT＝fwrite（fid，A，precision）</span><br></pre></td></tr></table></figure>
+<p> [说明]其中COUNT返回所写的数据元素个数（可缺省），fid为文件句柄，A用来存放写入文件的数据，precision代表数据精度，常用的数据精度有：char、uchar、int、long、float、double等。缺省数据精度为uchar，即无符号字符格式。</p>
+<p> 例 将一个二进制矩阵存入磁盘文件中。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> %是matlab下的注释符</span><br><span class="line">&gt;&gt; a=[1 2 3 4 5 6 7 8 9];</span><br><span class="line">&gt;&gt; fid=fopen(&apos;d:\test.bin&apos;,&apos;wb&apos;) %以二进制数据写入方式打开文件</span><br><span class="line">fid = 3 %其值大于0，表示打开成功</span><br><span class="line">&gt;&gt; fwrite(fid,a,&apos;double&apos;)</span><br><span class="line">ans = 9 %表示写入了9个数据</span><br><span class="line">&gt;&gt; fclose(fid)</span><br><span class="line">ans = 0 %表示关闭成功 </span><br></pre></td></tr></table></figure>
+<p>2.读二进制文件</p>
+<p>fread函数可以读取二进制文件的数据，并将数据存入矩阵。其调用格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[A，COUNT]=fread(fid，size，precision)</span><br></pre></td></tr></table></figure>
+<p>[说明]其中A是用于存放读取数据的矩阵、COUNT是返回所读取的数据元素个数、fid为文件句柄、size为可选项，若不选用则读取整个文件内容；若选用则它的值可以是下列值：N（读取N个元素到一个列向量）、inf（读取整个文件）、[M，N]（读数据到M×N的矩阵中，数据按列存放）。precision用于控制所写数据的精度，其形式与fwrite函数相同。</p>
+<pre><code>文本文件的读写操作
+</code></pre><p>1.读文本文件</p>
+<p>fscanf函数可以读取文本文件的内容，并按指定格式存入矩阵。其调用格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[A，COUNT]=fscanf(fid，format，size)</span><br></pre></td></tr></table></figure>
+<p>[说明]其中A用来存放读取的数据，COUNT返回所读取的数据元素个数，fid为文件句柄，format用来控制读取的数据格式，由%加上格式符组成，常见的格式符有：d（整型）、f（浮点型）、s（字符串型）、c（字符型）等，在%与格式符之间还可以插入附加格式说明符，如数据宽度说明等。size为可选项，决定矩阵A中数据的排列形式，它可以取下列值：N（读取N个元素到一个列向量）、inf（读取整个文件）、[M，N]（读数据到M×N的矩阵中，数据按列存放）。</p>
+<p>2.写文本文件</p>
+<p>fprintf函数可以将数据按指定格式写入到文本文件中。其调用格式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fprintf（fid，format，A）</span><br></pre></td></tr></table></figure>
+<p>[说明]fid为文件句柄，指定要写入数据的文件，format是用来控制所写数据格式的格式符，与fscanf函数相同，A是用来存放数据的矩阵。</p>
+<p>例 创建一个字符矩阵并存入磁盘，再读出赋值给另一个矩阵。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; a=&apos;string&apos;;</span><br><span class="line">&gt;&gt; fid=fopen(&apos;d:\char1.txt&apos;,&apos;w&apos;);</span><br><span class="line">&gt;&gt; fprintf(fid,&apos;%s&apos;,a);</span><br><span class="line">&gt;&gt; fclose(fid);</span><br><span class="line">&gt;&gt; fid1=fopen(&apos;d:\char1.txt&apos;,&apos;rt&apos;);</span><br><span class="line">&gt;&gt; fid1=fopen(&apos;d:\char1.txt&apos;,&apos;rt&apos;);</span><br><span class="line">&gt;&gt; b=fscanf(fid1,&apos;%s&apos;)</span><br><span class="line">b = string </span><br></pre></td></tr></table></figure>
+<p>例 matlab读txt文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fid=fopen(&apos;fx.txt&apos;,&apos;r&apos;); %得到文件号</span><br><span class="line">[f,count]=fscanf(fid,&apos;%f %f&apos;,[12,90]);</span><br><span class="line">%把文件号1的数据读到f中。其中f是[12 90]的矩阵</span><br><span class="line">%这里&apos;%f %f&apos;表示读取数据的形势，他是按原始数据型读出</span><br><span class="line">fclose(fid);</span><br><span class="line">%关闭文件</span><br><span class="line">%另外有的txt文件还可以用load来打开,其语句为:f=load(&apos;fx.txt)</span><br></pre></td></tr></table></figure>
+<p>例 matlab写txt文件的小例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">N=100;</span><br><span class="line">R=rand(1,N);</span><br><span class="line">fid = fopen(&apos;tt.txt&apos;,&apos;wt&apos;);</span><br><span class="line">for k=1:N;</span><br><span class="line">p=num2str(R(k));</span><br><span class="line">fprintf(fid,&apos;%c&apos;,p);</span><br><span class="line">fprintf(fid,&apos;%c\n&apos;,&apos; &apos;);</span><br><span class="line">end</span><br><span class="line">fclose(fid); </span><br></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->
@@ -258,8 +260,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -269,7 +271,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -292,7 +294,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -323,6 +325,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -338,10 +344,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -351,7 +353,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

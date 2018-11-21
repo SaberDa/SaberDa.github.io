@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,16 +15,17 @@
   
   <title>关于OC中的for in循环 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;for in&amp;#x5FAA;&amp;#x73AF;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;123for (type *object in collection) {        statements    }">
+  <meta name="description" content="先看一下for in循环默认的语法123for (type *object in collection) &amp;#123;        statements    &amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于OC中的for in循环">
 <meta property="og:url" content="https://saberda.github.io/2016/10/09/关于OC中的for-in循环/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;for in&amp;#x5FAA;&amp;#x73AF;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;123for (type *object in collection) {        statements    }">
+<meta property="og:description" content="先看一下for in循环默认的语法123for (type *object in collection) &amp;#123;        statements    &amp;#125;">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-10-10T02:22:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于OC中的for in循环">
-<meta name="twitter:description" content="&amp;#x5148;&amp;#x770B;&amp;#x4E00;&amp;#x4E0B;for in&amp;#x5FAA;&amp;#x73AF;&amp;#x9ED8;&amp;#x8BA4;&amp;#x7684;&amp;#x8BED;&amp;#x6CD5;123for (type *object in collection) {        statements    }">
+<meta name="twitter:description" content="先看一下for in循环默认的语法123for (type *object in collection) &amp;#123;        statements    &amp;#125;">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -34,8 +35,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -94,25 +95,25 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/09/关于OC中的for-in循环/" data-id="cjk8fbkuv004tu0b3eg6xy51s" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/09/关于OC中的for-in循环/" data-id="cjoqmj90u004pr0b32vo6vl87" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <h2 id="&#x5148;&#x770B;&#x4E00;&#x4E0B;for-in&#x5FAA;&#x73AF;&#x9ED8;&#x8BA4;&#x7684;&#x8BED;&#x6CD5;"><a href="#&#x5148;&#x770B;&#x4E00;&#x4E0B;for-in&#x5FAA;&#x73AF;&#x9ED8;&#x8BA4;&#x7684;&#x8BED;&#x6CD5;" class="headerlink" title="&#x5148;&#x770B;&#x4E00;&#x4E0B;for in&#x5FAA;&#x73AF;&#x9ED8;&#x8BA4;&#x7684;&#x8BED;&#x6CD5;"></a>&#x5148;&#x770B;&#x4E00;&#x4E0B;for in&#x5FAA;&#x73AF;&#x9ED8;&#x8BA4;&#x7684;&#x8BED;&#x6CD5;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for (type *object in collection) {</div><div class="line">        statements</div><div class="line">    }</div></pre></td></tr></table></figure>
+        <h2 id="先看一下for-in循环默认的语法"><a href="#先看一下for-in循环默认的语法" class="headerlink" title="先看一下for in循环默认的语法"></a>先看一下for in循环默认的语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (type *object in collection) &#123;</span><br><span class="line">        statements</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="for-in-&#x904D;&#x5386;&#x7684;&#x672C;&#x8D28;"><a href="#for-in-&#x904D;&#x5386;&#x7684;&#x672C;&#x8D28;" class="headerlink" title="for in &#x904D;&#x5386;&#x7684;&#x672C;&#x8D28;"></a>for in &#x904D;&#x5386;&#x7684;&#x672C;&#x8D28;</h2><p>forin&#x5728;&#x904D;&#x5386;&#x6570;&#x7EC4;&#x65F6;,&#x904D;&#x5386;&#x7684;&#x662F;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;, &#x5728;&#x5BF9;&#x5B57;&#x5178;&#x5FEB;&#x901F;&#x904D;&#x5386;&#x65F6;,&#x904D;&#x5386;&#x7684;&#x662F;&#x5B57;&#x5178;&#x4E2D;&#x7684;key,&#x7136;&#x540E;&#x901A;&#x8FC7;key&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;value&#x503C;  &#x56E0;&#x6B64;forin &#x91CC;type&#x5BF9;&#x5E94;&#x7684;&#x7C7B;&#x578B;&#x662F;key&#x5BF9;&#x5E94;&#x7684;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</p>
-<h2 id="for-in-&#x4E0E;-for-&#x7684;&#x533A;&#x522B;"><a href="#for-in-&#x4E0E;-for-&#x7684;&#x533A;&#x522B;" class="headerlink" title="for in &#x4E0E; for &#x7684;&#x533A;&#x522B;"></a>for in &#x4E0E; for &#x7684;&#x533A;&#x522B;</h2><p>&#x4E24;&#x8005;&#x5728;&#x904D;&#x5386;&#x65F6;&#x770B;&#x7740;&#x662F;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//for in</div><div class="line">for (NSString* str in arr) {</div><div class="line">	NSLog(@&quot;%@&quot;, str);</div><div class="line">}</div><div class="line"></div><div class="line">//for</div><div class="line">for (int i = 0; i &lt; arr.count; i ++) {</div><div class="line">	NSString* str = [arr objectAtIndex:i];</div><div class="line">	NSLog(@&quot;%@&quot;, str);</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x4F46;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x6709;&#x5F88;&#x5927;&#x533A;&#x522B;&#x7684;&#x3002;for in&#x5B9E;&#x9645;&#x4E0A;&#x662F;<em>&#x5FEB;&#x901F;&#x679A;&#x4E3E;</em>&#xFF0C;&#x8DDF;for&#x5FAA;&#x73AF;&#x610F;&#x4E49;&#x4E0A;&#x8FD8;&#x662F;&#x6709;&#x533A;&#x522B;&#x7684;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x5728;for in &#x5FAA;&#x73AF;&#x91CC;&#xFF0C;&#x5BF9;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#x7684;&#x8BDD;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x589E;&#xFF0C;&#x5220;&#xFF0C;&#x4FEE;&#x6539;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#xFF0C;&#x90FD;&#x4F1A;&#x6254;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x51FA;&#x6765;&#xFF0C;&#x9519;&#x8BEF;&#x662F;&#x679A;&#x4E3E;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6570;&#x7EC4;&#x53D1;&#x751F;&#x4E86;&#x7A81;&#x53D8;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//&#x9519;&#x8BEF;&#x63D0;&#x793A;&#xFF1A;&#x679A;&#x4E3E;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6570;&#x7EC4;&#x53D1;&#x751F;&#x4E86;&#x7A81;&#x53D8;</div><div class="line">&lt;__NSArrayM: 0xa4fc000&gt; was mutated while being enumerated.</div></pre></td></tr></table></figure>
-<p>&#x539F;&#x56E0;&#x5982;&#x4E0B;&#xFF1A;</p>
-<p>1.NSArray&#x7684;&#x679A;&#x4E3E;&#x64CD;&#x4F5C;&#x4E2D;&#x6709;&#x4E00;&#x6761;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x53EF;&#x53D8;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x679A;&#x4E3E;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#x5BF9;&#x8C61;&#x8FD9;&#x7C7B;&#x64CD;&#x4F5C;&#x6765;&#x6539;&#x53D8;&#x6570;&#x7EC4;&#x5BB9;&#x5668;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8FD9;&#x4E48;&#x505A;&#x4E86;&#xFF0C;&#x679A;&#x4E3E;&#x5668;&#x4F1A;&#x5F88;&#x56F0;&#x60D1;&#xFF0C;&#x800C;&#x4F60;&#x5C06;&#x5F97;&#x5230;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
-<p>2.&#x800C;&#x672C;&#x8EAB;&#x8FD9;&#x79CD;&#x64CD;&#x4F5C;&#x4E5F;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x6570;&#x7EC4;&#x5BB9;&#x5668;&#x5DF2;&#x7ECF;&#x6539;&#x53D8;&#xFF0C;&#x53EF;&#x80FD;&#x904D;&#x5386;&#x5230;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7528;for&#x5FAA;&#x73AF;&#x673A;&#x5668;&#x4E0D;&#x80FD;&#x81EA;&#x5DF1;&#x5BDF;&#x89C9;&#xFF0C;&#x4F46;&#x662F;&#x679A;&#x4E3E;&#x5668;&#x53EF;&#x4EE5;&#x5BDF;&#x89C9;&#x3002;</p>
-<h2 id="&#x4E00;&#x70B9;&#x5C0F;&#x8865;&#x5145;"><a href="#&#x4E00;&#x70B9;&#x5C0F;&#x8865;&#x5145;" class="headerlink" title="&#x4E00;&#x70B9;&#x5C0F;&#x8865;&#x5145;"></a>&#x4E00;&#x70B9;&#x5C0F;&#x8865;&#x5145;</h2><p>&#x5728;&#x4F7F;&#x7528;UIView&#x5BF9;&#x8C61;&#x7684;subview&#x6570;&#x7EC4;&#x904D;&#x5386;&#x65F6;&#xFF0C;&#x5C31;&#x7B97;removeFromSurperview&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x4E0A;&#x9762;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x539F;&#x56E0;&#xFF1A;&#x4E00;&#x65E6;&#x5C06;UIView&#x5BF9;&#x8C61;&#x7684;subview removeFromSurperview&#x4E4B;&#x540E;&#xFF0C;UIView&#x5BF9;&#x8C61;&#x7684;subviews&#x6570;&#x7EC4;&#xFF0C;&#x6574;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x4E0D;&#x540C;&#x4E86;&#x3002;&#xFF08;&#x4ECE;&#x5BF9;&#x8C61;&#x6307;&#x9488;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#x6765;&#xFF09;&#x5E76;&#x4E0D;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x5C06;subview&#x4ECE;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#x79FB;&#x9664;&#x6389;&#x3002;</p>
+<h2 id="for-in-遍历的本质"><a href="#for-in-遍历的本质" class="headerlink" title="for in 遍历的本质"></a>for in 遍历的本质</h2><p>forin在遍历数组时,遍历的是数组中的每个元素, 在对字典快速遍历时,遍历的是字典中的key,然后通过key获取对应的value值  因此forin 里type对应的类型是key对应的对象类型</p>
+<h2 id="for-in-与-for-的区别"><a href="#for-in-与-for-的区别" class="headerlink" title="for in 与 for 的区别"></a>for in 与 for 的区别</h2><p>两者在遍历时看着是完全一致的，比如下面这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//for in</span><br><span class="line">for (NSString* str in arr) &#123;</span><br><span class="line">	NSLog(@&quot;%@&quot;, str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//for</span><br><span class="line">for (int i = 0; i &lt; arr.count; i ++) &#123;</span><br><span class="line">	NSString* str = [arr objectAtIndex:i];</span><br><span class="line">	NSLog(@&quot;%@&quot;, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但本质上是有很大区别的。for in实际上是<em>快速枚举</em>，跟for循环意义上还是有区别的。</p>
+<p>如果在for in 循环里，对这个数组进行了修改的话，无论是增，删，修改数组元素位置，都会扔一个异常出来，错误是枚举的过程中数组发生了突变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//错误提示：枚举的过程中数组发生了突变</span><br><span class="line">&lt;__NSArrayM: 0xa4fc000&gt; was mutated while being enumerated.</span><br></pre></td></tr></table></figure>
+<p>原因如下：</p>
+<p>1.NSArray的枚举操作中有一条需要注意：对于可变数组进行枚举操作时，你不能通过添加或删除对象这类操作来改变数组容器。如果你这么做了，枚举器会很困惑，而你将得到未定义的结果。</p>
+<p>2.而本身这种操作也是有问题的，数组容器已经改变，可能遍历到没有分配的位置，用for循环机器不能自己察觉，但是枚举器可以察觉。</p>
+<h2 id="一点小补充"><a href="#一点小补充" class="headerlink" title="一点小补充"></a>一点小补充</h2><p>在使用UIView对象的subview数组遍历时，就算removeFromSurperview，也不会出现上面的问题。</p>
+<p>原因：一旦将UIView对象的subview removeFromSurperview之后，UIView对象的subviews数组，整个对象都不同了。（从对象指针可以看出来）并不是单纯的将subview从数组里面移除掉。</p>
 
       
     </div><!-- .entry-content -->
@@ -156,8 +157,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -167,7 +168,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -190,7 +191,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -221,6 +222,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -236,10 +241,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -249,7 +250,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

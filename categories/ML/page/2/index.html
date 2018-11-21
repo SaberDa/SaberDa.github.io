@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -21,6 +21,7 @@
 <meta property="og:url" content="https://saberda.github.io/categories/ML/page/2/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
 <meta property="og:description" content="阿尔托利亚是我老婆~">
+<meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SaberDa的幻想乡">
 <meta name="twitter:description" content="阿尔托利亚是我老婆~">
@@ -33,8 +34,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -80,6 +81,63 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-CNN-Structure-2" class="post-CNN-Structure-2 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/10/27/CNN-Structure-2/">CNN_Structure_2</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/27/CNN-Structure-2/" data-id="cjoqmj8j50003r0b3mm55l573" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>这篇文章还是一篇在学习中整理的笔记，不想做优化，就是这么任性</p>
+<h2 id="CNN如何做到的可视化？"><a href="#CNN如何做到的可视化？" class="headerlink" title="CNN如何做到的可视化？"></a>CNN如何做到的可视化？</h2><p>在第一层，将权重可视化，因为他们直接和图像相关。那我们如何将后面的卷积层可视化？<strong>这些可视化方法都是对神经元的反应做出的可视化，而不是对滤波器本身</strong>，实际上目前并没有好的方法对滤波器本身做可视化，所以在<a href="http://cs.stanford.edu/people/karpathy/convnetjs/demo/cifar10.html" target="_blank" rel="noopener">ConventnetJS</a>中你可以找到权重，但是并不能直接对他们做出很好的解释。因为权重自己没有很好的解释意义</p>
+<h2 id="Pooling-Layer-的真正目的以及这么处理的原因"><a href="#Pooling-Layer-的真正目的以及这么处理的原因" class="headerlink" title="Pooling Layer 的真正目的以及这么处理的原因"></a>Pooling Layer 的真正目的以及这么处理的原因</h2>
+        
+          <p class="article-more-link">
+            <a href="/2017/10/27/CNN-Structure-2/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/10/27/CNN-Structure-2/">
+    <time datetime="2017-10-26T18:06:59.000Z" class="entry-date">
+        2017-10-27
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-CNN-Structure" class="post-CNN-Structure post type-post status-publish format-standard hentry">
     <!---->
 
@@ -95,19 +153,19 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/25/CNN-Structure/" data-id="cjk8fbkoj0004u0b3fci9jvga" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/25/CNN-Structure/" data-id="cjoqmj8ji0005r0b3wx0sq6ls" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x52A0;&#x5F3A;&#x8BB0;&#x5FC6;&#x7684;&#x7B14;&#x8BB0;&#xFF0C;&#x6CA1;&#x505A;&#x4F18;&#x5316;</p>
-<h2 id="ConV&#x5C42;&#xFF1A;"><a href="#ConV&#x5C42;&#xFF1A;" class="headerlink" title="ConV&#x5C42;&#xFF1A;"></a>ConV&#x5C42;&#xFF1A;</h2><ul>
+        <p>一个简单的加强记忆的笔记，没做优化</p>
+<h2 id="ConV层："><a href="#ConV层：" class="headerlink" title="ConV层："></a>ConV层：</h2><ul>
 <li><p>Output size: </p>
 <p>  <strong>(N - F) / stride + 1</strong></p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">N: &#x56FE;&#x50CF;&#x50CF;&#x7D20;</div><div class="line">F: &#x6EE4;&#x6CE2;&#x5668;&#x50CF;&#x7D20;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">N: 图像像素</span><br><span class="line">F: 滤波器像素</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2017/10/25/CNN-Structure/#more" class="more-link">More <span class="meta-nav">→</span></a>
@@ -156,13 +214,13 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/16/MapReduce-RDBMs/" data-id="cjk8fbks10022u0b3tlbkl97d" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/16/MapReduce-RDBMs/" data-id="cjoqmj8z5003dr0b3vltbc71p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Now, <strong>the RDBMs &#x2013; Rational Database Management Systems</strong>, is good for updating a small portion of a big database. RDBMs uses a traditional <strong>B-Tree</strong>, which is highly dependent on the time required to perform seek operations. </p>
+        <p>Now, <strong>the RDBMs – Rational Database Management Systems</strong>, is good for updating a small portion of a big database. RDBMs uses a traditional <strong>B-Tree</strong>, which is highly dependent on the time required to perform seek operations. </p>
 <p>Compared to this, MapReduce is good for updating all, or a majority of a big database. MapReduce uses <strong>sort and merge</strong> to rebuild the database which depends more on transfer operations. </p>
 <p>RDBMs is good for applications that required the data sets if the database to be very frequently updated such as in point queries or small dataset updates. MapReduce is better for <strong>WORM, which is a write once and read many times</strong> based data applications. </p>
         
@@ -213,7 +271,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/09/28/Cloud-Service-Models/" data-id="cjk8fbkpf000hu0b3riuttnb2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/09/28/Cloud-Service-Models/" data-id="cjoqmj8k8000ar0b3jud8urde" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -269,7 +327,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/09/18/Cloud-Introduction/" data-id="cjk8fbkp10009u0b30wtrtsi6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/09/18/Cloud-Introduction/" data-id="cjoqmj8jz0008r0b3xw0lush1" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -325,15 +383,15 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/07/19/MapReduce-and-Hadoop/" data-id="cjk8fbks70026u0b32uw8xkly" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/07/19/MapReduce-and-Hadoop/" data-id="cjoqmj8um0026r0b3yfkgy2rn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>Hadoop &#x662F;&#x4EC0;&#x4E48;&#xFF1F;Hadoop &#x53C8;&#x4E0E; MapReduce &#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#xFF1F;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x4F1A;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x7B97;&#x662F;&#x81EA;&#x5DF1;&#x5728;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x505A;&#x7684;&#x7B14;&#x8BB0;&#x5427;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x5728;&#x7EC3;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x5C31;&#x4F7F;&#x7528;&#x51E0;M&#x7684;&#x6570;&#x636E;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x771F;&#x6B63;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x6211;&#x4EEC;&#x63A5;&#x89E6;&#x7684;&#x6570;&#x636E;&#x53EF;&#x6BD4;&#x8FD9;&#x5927;&#x5F97;&#x591A;&#xFF0C;&#x8FD9;&#x662F;&#x5982;&#x679C;&#x8FD8;&#x4F7F;&#x7528;&#x4E00;&#x53F0;&#x7535;&#x8111;&#x8FDB;&#x884C;&#x8FD0;&#x7B97;&#x7684;&#x8BDD;&#x5C31;&#x663E;&#x5F97;&#x5341;&#x5206;&#x7B28;&#x62D9;&#xFF0C;&#x5E76;&#x4E14;&#x5B9E;&#x9645;&#x4E0A;&#x8FDC;&#x8FDC;&#x8D85;&#x51FA;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x8BA1;&#x7B97;&#x80FD;&#x529B;&#x3002;&#x5E78;&#x8FD0;&#x7684;&#x662F;&#x4E00;&#x4E9B;&#x5F00;&#x6E90;&#x7684;&#x8F6F;&#x4EF6;&#x9879;&#x76EE;&#x63D0;&#x4F9B;&#x4E86;&#x5904;&#x7406;&#x6D77;&#x91CF;&#x6570;&#x636E;&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x5C31;&#x662F; Hadoop&#xFF0C;&#x5B83;&#x91C7;&#x7528;JAVA&#x8BED;&#x8A00;&#x7F16;&#x5199;&#xFF0C;&#x652F;&#x6301;&#x5728;&#x5927;&#x91CF;&#x673A;&#x5668;&#x4E0A;&#x5206;&#x5E03;&#x5904;&#x7406;&#x6570;&#x636E;&#x3002;</p>
-<p>Hadoop &#x662F; MapReduce &#x6846;&#x67B6;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#x3002;&#x672C;&#x7BC7;&#x7B14;&#x8BB0;&#x7B80;&#x5355;&#x4ECB;&#x7ECD; MapReduce &#x548C; Hadoop &#x9879;&#x76EE;&#x3002;</p>
+        <p>Hadoop 是什么？Hadoop 又与 MapReduce 有什么关系？本篇文章会简单介绍两者之间的关系，算是自己在学习过程中做的笔记吧。</p>
+<p>我们在练习过程中可能就使用几M的数据量，但是真正在实践中我们接触的数据可比这大得多，这是如果还使用一台电脑进行运算的话就显得十分笨拙，并且实际上远远超出了我们的计算能力。幸运的是一些开源的软件项目提供了处理海量数据的方案，其中一个项目就是 Hadoop，它采用JAVA语言编写，支持在大量机器上分布处理数据。</p>
+<p>Hadoop 是 MapReduce 框架的一个开源实现。本篇笔记简单介绍 MapReduce 和 Hadoop 项目。</p>
         
           <p class="article-more-link">
             <a href="/2017/07/19/MapReduce-and-Hadoop/#more" class="more-link">More <span class="meta-nav">→</span></a>
@@ -382,15 +440,15 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/04/21/模拟退火/" data-id="cjk8fbkvo0072u0b3v2ut4jyr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/04/21/模拟退火/" data-id="cjoqmj92d0074r0b37dmo9uf3" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <p>&#x6A21;&#x62DF;&#x9000;&#x706B;&#x662F;&#x4E00;&#x79CD;&#x901A;&#x7528;&#x6982;&#x7387;&#x7B97;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x5728;&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x5185;&#x5BFB;&#x6C42;&#x4E00;&#x4E2A;&#x5927;&#x7684;&#x5BFB;&#x627E;&#x7A7A;&#x95F4;&#x5185;&#x627E;&#x5230;&#x7684;&#x6700;&#x4F18;&#x89E3;&#x3002;</p>
-<h2 id="&#x7B80;&#x4ECB;"><a href="#&#x7B80;&#x4ECB;" class="headerlink" title="&#x7B80;&#x4ECB;"></a>&#x7B80;&#x4ECB;</h2><p>&#x6A21;&#x62DF;&#x9000;&#x706B;&#x6765;&#x81EA;&#x51B6;&#x91D1;&#x5B66;&#x7684;&#x4E13;&#x6709;&#x540D;&#x8BCD;&#x9000;&#x706B;&#x3002;&#x9000;&#x706B;&#x662F;&#x5C06;&#x6750;&#x6599;&#x52A0;&#x70ED;&#x540E;&#x518D;&#x7ECF;&#x7279;&#x5B9A;&#x901F;&#x7387;&#x51B7;&#x5374;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x589E;&#x5927;&#x6676;&#x7C92;&#x4F53;&#x79EF;&#xFF0C;&#x5E76;&#x4E14;&#x51CF;&#x5C11;&#x6676;&#x683C;&#x4E2D;&#x7684;&#x7F3A;&#x9677;&#x3002;&#x6750;&#x6599;&#x4E2D;&#x7684;&#x539F;&#x5B50;&#x539F;&#x6765;&#x4F1A;&#x505C;&#x7559;&#x5728;&#x4F7F;&#x5185;&#x80FD;&#x6709;&#x5C40;&#x90E8;&#x6700;&#x5C0F;&#x503C;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x800C;&#x968F;&#x673A;&#x5728;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x4E2D;&#x79FB;&#x52A8;&#x3002;&#x9000;&#x706B;&#x51B7;&#x5374;&#x65F6;&#x901F;&#x5EA6;&#x8F83;&#x6162;&#xFF0C;&#x4F7F;&#x5F97;&#x539F;&#x5B50;&#x6709;&#x8F83;&#x591A;&#x53EF;&#x80FD;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x5185;&#x80FD;&#x6BD4;&#x539F;&#x6765;&#x66F4;&#x4F4E;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
-<p>&#x6A21;&#x62DF;&#x9000;&#x706B;&#x7684;&#x539F;&#x7406;&#x4E5F;&#x548C;&#x91D1;&#x5C5E;&#x9000;&#x706B;&#x7684;&#x539F;&#x7406;&#x8FD1;&#x4F3C;&#xFF1A;&#x6211;&#x4EEC;&#x5C06;&#x70ED;&#x529B;&#x5B66;&#x7684;&#x7406;&#x8BBA;&#x5957;&#x7528;&#x5230;&#x7EDF;&#x8BA1;&#x5B66;&#x4E0A;&#xFF0C;&#x5C06;&#x641C;&#x5BFB;&#x7A7A;&#x95F4;&#x5185;&#x6BCF;&#x4E00;&#x70B9;&#x60F3;&#x50CF;&#x6210;&#x7A7A;&#x6C14;&#x5185;&#x7684;&#x5206;&#x5B50;&#xFF1B;&#x5206;&#x5B50;&#x7684;&#x80FD;&#x91CF;&#xFF0C;&#x5C31;&#x662F;&#x5B83;&#x672C;&#x8EAB;&#x7684;&#x52A8;&#x80FD;&#xFF1B;&#x800C;&#x641C;&#x5BFB;&#x7A7A;&#x95F4;&#x5185;&#x7684;&#x6BCF;&#x4E00;&#x70B9;&#xFF0C;&#x4E5F;&#x50CF;&#x7A7A;&#x6C14;&#x5206;&#x5B50;&#x4E00;&#x6837;&#x5E26;&#x6709;&#x201C;&#x80FD;&#x91CF;&#x201D;&#xFF0C;&#x4EE5;&#x8868;&#x793A;&#x8BE5;&#x70B9;&#x5BF9;&#x547D;&#x9898;&#x7684;&#x5408;&#x9002;&#x7A0B;&#x5EA6;&#x3002;&#x7B97;&#x6CD5;&#x5148;&#x4EE5;&#x641C;&#x5BFB;&#x7A7A;&#x95F4;&#x5185;&#x4E00;&#x4E2A;&#x4EFB;&#x610F;&#x70B9;&#x4F5C;&#x8D77;&#x59CB;&#xFF1A;&#x6BCF;&#x4E00;&#x6B65;&#x5148;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x201C;&#x90BB;&#x5C45;&#x201D;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8BA1;&#x7B97;&#x4ECE;&#x73B0;&#x6709;&#x4F4D;&#x7F6E;&#x5230;&#x8FBE;&#x201C;&#x90BB;&#x5C45;&#x201D;&#x7684;&#x6982;&#x7387;&#x3002;</p>
+        <p>模拟退火是一种通用概率算法，用来在固定时间内寻求一个大的寻找空间内找到的最优解。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>模拟退火来自冶金学的专有名词退火。退火是将材料加热后再经特定速率冷却，目的是增大晶粒体积，并且减少晶格中的缺陷。材料中的原子原来会停留在使内能有局部最小值的位置，而随机在其他位置中移动。退火冷却时速度较慢，使得原子有较多可能可以找到内能比原来更低的位置。</p>
+<p>模拟退火的原理也和金属退火的原理近似：我们将热力学的理论套用到统计学上，将搜寻空间内每一点想像成空气内的分子；分子的能量，就是它本身的动能；而搜寻空间内的每一点，也像空气分子一样带有“能量”，以表示该点对命题的合适程度。算法先以搜寻空间内一个任意点作起始：每一步先选择一个“邻居”，然后再计算从现有位置到达“邻居”的概率。</p>
         
           <p class="article-more-link">
             <a href="/2017/04/21/模拟退火/#more" class="more-link">More <span class="meta-nav">→</span></a>
@@ -424,69 +482,10 @@
 
 
   
-    <article id="post-支持向量机" class="post-支持向量机 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/04/17/支持向量机/">支持向量机与核函数</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/04/17/支持向量机/" data-id="cjk8fbkva0061u0b3anvx2l5i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;&#xFF0C;support vector machines&#xFF0C;&#x7B80;&#x79F0;SVM&#x3002;&#x4E00;&#x4E0B;&#x5168;&#x6587;&#x57FA;&#x672C;&#x90FD;&#x662F;&#x7528;SVM&#x4E00;&#x8BCD;&#x3002;</p>
-<p>&#x5148;&#x5C06;&#x8FD9;&#x4E2A;&#x590D;&#x6742;&#x7684;&#x6982;&#x5FF5;&#x5316;&#x5C0F;&#xFF0C;&#x4E2A;&#x4EBA;&#x7406;&#x89E3;&#xFF0C;SVM&#x5C31;&#x662F;&#x5F88;&#x597D;&#x7684;&#x73B0;&#x6210;&#x7684;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x201C;&#x73B0;&#x6210;&#x201D;&#x6307;&#x7684;&#x662F;&#x5206;&#x7C7B;&#x5668;&#x4E0D;&#x52A0;&#x4FEE;&#x6539;&#x5373;&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6570;&#x636E;&#x4E0A;&#x5E94;&#x7528;&#x57FA;&#x672C;&#x5F62;&#x5F0F;&#x7684;SVM&#x5206;&#x7C7B;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4F4E;&#x9519;&#x8BEF;&#x7387;&#x7684;&#x7ED3;&#x679C;&#x3002;SVM&#x80FD;&#x591F;&#x5BF9;&#x8BAD;&#x7EC3;&#x96C6;&#x4E4B;&#x5916;&#x7684;&#x6570;&#x636E;&#x70B9;&#x505A;&#x51FA;&#x5F88;&#x597D;&#x7684;&#x5206;&#x7C7B;&#x51B3;&#x7B56;&#x3002;</p>
-<p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x5F53;&#x524D;&#x6BD4;&#x8F83;&#x6D41;&#x884C;&#x7684;SMO&#x7B97;&#x6CD5;&#x4E0E;&#x6838;&#x51FD;&#x6570;&#x3002;</p>
-<p>&#x5173;&#x4E8E;&#x5177;&#x4F53;&#x7684;SVM&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x6211;&#x7684;&#x8FD9;&#x7BC7;&#x7B14;&#x8BB0;<br><a href="http://www.saberismywife.com/2016/12/19/Machine-Learning-7/">SVM and Kernels</a></p>
-<h2 id="&#x539F;&#x7406;&#x2013;&#x57FA;&#x4E8E;&#x6700;&#x5927;&#x95F4;&#x9694;&#x5206;&#x9694;&#x6570;&#x636E;"><a href="#&#x539F;&#x7406;&#x2013;&#x57FA;&#x4E8E;&#x6700;&#x5927;&#x95F4;&#x9694;&#x5206;&#x9694;&#x6570;&#x636E;" class="headerlink" title="&#x539F;&#x7406;&#x2013;&#x57FA;&#x4E8E;&#x6700;&#x5927;&#x95F4;&#x9694;&#x5206;&#x9694;&#x6570;&#x636E;"></a>&#x539F;&#x7406;&#x2013;&#x57FA;&#x4E8E;&#x6700;&#x5927;&#x95F4;&#x9694;&#x5206;&#x9694;&#x6570;&#x636E;</h2>
-        
-          <p class="article-more-link">
-            <a href="/2017/04/17/支持向量机/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/04/17/支持向量机/">
-    <time datetime="2017-04-17T08:53:54.000Z" class="entry-date">
-        2017-04-17
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/ML/">ML</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/categories/ML/">&laquo; Prev</a><a class="page-number" href="/categories/ML/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/ML/page/3/">3</a><a class="page-number" href="/categories/ML/page/4/">4</a><a class="extend next" rel="next" href="/categories/ML/page/3/">Next &raquo;</a>
+        <a class="extend prev" rel="prev" href="/categories/ML/">&laquo; Prev</a><a class="page-number" href="/categories/ML/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/ML/page/3/">3</a><a class="page-number" href="/categories/ML/page/4/">4</a><a class="page-number" href="/categories/ML/page/5/">5</a><a class="extend next" rel="next" href="/categories/ML/page/3/">Next &raquo;</a>
       </nav>
     </nav>
   
@@ -496,8 +495,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -507,7 +506,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -530,7 +529,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -561,6 +560,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -576,10 +579,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -589,7 +588,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,16 +15,18 @@
   
   <title>指针的初始化 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x672C;&amp;#x6587;&amp;#x53EA;&amp;#x662F;&amp;#x7B14;&amp;#x8005;&amp;#x65B9;&amp;#x4FBF;&amp;#x8BB0;&amp;#x5FC6;&amp;#x800C;&amp;#x6574;&amp;#x7406;&amp;#x7684;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;c&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x7528;&amp;#x9014;&amp;#x7F51">
+  <meta name="description" content="本文只是笔者方便记忆而整理的，关于c指针的具体用途网上有很多很棒的博客，我这只是晨星之比皓月而已 指针变量的初始化方法：指针变量的初始化的方法有两种：定义的同时初始化和定义后再初始化。">
+<meta name="keywords" content="指针">
 <meta property="og:type" content="article">
 <meta property="og:title" content="指针的初始化">
 <meta property="og:url" content="https://saberda.github.io/2016/09/17/指针的初始化/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x672C;&amp;#x6587;&amp;#x53EA;&amp;#x662F;&amp;#x7B14;&amp;#x8005;&amp;#x65B9;&amp;#x4FBF;&amp;#x8BB0;&amp;#x5FC6;&amp;#x800C;&amp;#x6574;&amp;#x7406;&amp;#x7684;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;c&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x7528;&amp;#x9014;&amp;#x7F51">
+<meta property="og:description" content="本文只是笔者方便记忆而整理的，关于c指针的具体用途网上有很多很棒的博客，我这只是晨星之比皓月而已 指针变量的初始化方法：指针变量的初始化的方法有两种：定义的同时初始化和定义后再初始化。">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-09-29T09:56:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="指针的初始化">
-<meta name="twitter:description" content="&amp;#x672C;&amp;#x6587;&amp;#x53EA;&amp;#x662F;&amp;#x7B14;&amp;#x8005;&amp;#x65B9;&amp;#x4FBF;&amp;#x8BB0;&amp;#x5FC6;&amp;#x800C;&amp;#x6574;&amp;#x7406;&amp;#x7684;&amp;#xFF0C;&amp;#x5173;&amp;#x4E8E;c&amp;#x6307;&amp;#x9488;&amp;#x7684;&amp;#x5177;&amp;#x4F53;&amp;#x7528;&amp;#x9014;&amp;#x7F51">
+<meta name="twitter:description" content="本文只是笔者方便记忆而整理的，关于c指针的具体用途网上有很多很棒的博客，我这只是晨星之比皓月而已 指针变量的初始化方法：指针变量的初始化的方法有两种：定义的同时初始化和定义后再初始化。">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -34,8 +36,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -94,25 +96,25 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/17/指针的初始化/" data-id="cjk8fbkv4005ju0b3h8bwla4e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/17/指针的初始化/" data-id="cjoqmj91n0061r0b37xjnkfrk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x672C;&#x6587;&#x53EA;&#x662F;&#x7B14;&#x8005;&#x65B9;&#x4FBF;&#x8BB0;&#x5FC6;&#x800C;&#x6574;&#x7406;&#x7684;&#xFF0C;&#x5173;&#x4E8E;c&#x6307;&#x9488;&#x7684;&#x5177;&#x4F53;&#x7528;&#x9014;&#x7F51;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x5F88;&#x68D2;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x6211;&#x8FD9;&#x53EA;&#x662F;&#x6668;&#x661F;&#x4E4B;&#x6BD4;&#x7693;&#x6708;&#x800C;&#x5DF2;
-</code></pre><h2 id="&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;"><a href="#&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;" class="headerlink" title="&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;"></a>&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;</h2><p>&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7684;&#x521D;&#x59CB;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x548C;&#x5B9A;&#x4E49;&#x540E;&#x518D;&#x521D;&#x59CB;&#x5316;&#x3002;<br><a id="more"></a></p>
-<p>1.&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x65F6;&#x521D;&#x59CB;&#x5316;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int a = 233;</div><div class="line">int *p = &amp;a;</div></pre></td></tr></table></figure></p>
-<p>2.&#x5148;&#x5B9A;&#x4E49;&#x540E;&#x521D;&#x59CB;&#x5316;&#xFF1A;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a = 233;</div><div class="line">int *p;</div><div class="line">p = &amp;a;</div></pre></td></tr></table></figure></p>
-<p>3.&#x628A;&#x6307;&#x9488;&#x521D;&#x59CB;&#x5316;&#x4E3A;NULL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int *p = NULL;</div><div class="line">*p = 233;</div></pre></td></tr></table></figure></p>
-<h2 id="&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;"><a href="#&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;" class="headerlink" title="&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;"></a>&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF1A;</h2><p>1.&#x6307;&#x9488;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x88AB;&#x8D4B;&#x4E88;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x503C;&#xFF08;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x6574;&#x5F62;&#x5E38;&#x4EAE;&#x662F;&#x5185;&#x5B58;&#x7684;&#x90A3;&#x5FEB;&#x5730;&#x5740;&#xFF09;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int *p;</div><div class="line">p = 233; 	//&#x9519;&#x8BEF;&#x5199;&#x6CD5;</div></pre></td></tr></table></figure></p>
-<p>2.&#x88AB;&#x8D4B;&#x503C;&#x7684;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x524D;&#x4E0D;&#x80FD;&#x518D;&#x52A0;&#x201C;*&#x201D;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int *p, a = 233;</div><div class="line">*p = &amp;a;	//&#x9519;&#x8BEF;&#x5199;&#x6CD5; </div></pre></td></tr></table></figure></p>
-<h2 id="&#x6CE8;&#x610F;&#xFF1A;"><a href="#&#x6CE8;&#x610F;&#xFF1A;" class="headerlink" title="&#x6CE8;&#x610F;&#xFF1A;"></a>&#x6CE8;&#x610F;&#xFF1A;</h2><p>1.&#x591A;&#x4E2A;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x53EF;&#x4EE5;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x5740;</p>
-<p>2.&#x6307;&#x9488;&#x7684;&#x6307;&#x5411;&#x662F;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x7684;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int a = 233;</div><div class="line">int *p = &amp;a;</div><div class="line">int b = 2333;</div><div class="line">p = &amp;b;		//&#x4FEE;&#x6539;&#x65B9;&#x5411;</div></pre></td></tr></table></figure>
-<p>3.&#x6307;&#x9488;&#x6CA1;&#x6709;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x91CC;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x5783;&#x573E;&#x503C;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x91CE;&#x6307;&#x9488;</p>
-<p>&#x91CE;&#x6307;&#x9488;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;</p>
-<p>&#x91CE;&#x6307;&#x9488;&#x53EF;&#x80FD;&#x4F1A;&#x8BBF;&#x95EE;&#x4F60;&#x4E0D;&#x8BE5;&#x8BBF;&#x95EE;&#x7684;&#x5730;&#x5740;</p>
+        <pre><code>本文只是笔者方便记忆而整理的，关于c指针的具体用途网上有很多很棒的博客，我这只是晨星之比皓月而已
+</code></pre><h2 id="指针变量的初始化方法："><a href="#指针变量的初始化方法：" class="headerlink" title="指针变量的初始化方法："></a>指针变量的初始化方法：</h2><p>指针变量的初始化的方法有两种：定义的同时初始化和定义后再初始化。<br><a id="more"></a></p>
+<p>1.定义的同时初始化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>2.先定义后初始化：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p;</span><br><span class="line">p = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>3.把指针初始化为NULL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p = NULL;</span><br><span class="line">*p = 233;</span><br></pre></td></tr></table></figure></p>
+<h2 id="不合法的初始化："><a href="#不合法的初始化：" class="headerlink" title="不合法的初始化："></a>不合法的初始化：</h2><p>1.指针变量不能被赋予一个整数值（因为我们不知道这个整形常亮是内存的那快地址）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p;</span><br><span class="line">p = 233; 	//错误写法</span><br></pre></td></tr></table></figure></p>
+<p>2.被赋值的指针变量前不能再加“*”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int *p, a = 233;</span><br><span class="line">*p = &amp;a;	//错误写法 </span><br></pre></td></tr></table></figure></p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>1.多个指针变量可以指向同一个地址</p>
+<p>2.指针的指向是可以改变的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a = 233;</span><br><span class="line">int *p = &amp;a;</span><br><span class="line">int b = 2333;</span><br><span class="line">p = &amp;b;		//修改方向</span><br></pre></td></tr></table></figure>
+<p>3.指针没有初始化时里面是一个垃圾值，这时候我们这是一个野指针</p>
+<p>野指针可能会导致程序崩溃</p>
+<p>野指针可能会访问你不该访问的地址</p>
 
       
     </div><!-- .entry-content -->
@@ -159,8 +161,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -170,7 +172,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -193,7 +195,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -224,6 +226,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -239,10 +245,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -252,7 +254,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

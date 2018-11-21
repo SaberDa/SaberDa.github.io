@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,16 +15,18 @@
   
   <title>树与二叉树（五） | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x6811;&amp;#x548C;&amp;#x68EE;&amp;#x6797;&amp;#x7684;&amp;#x8868;&amp;#x793A;&amp;#x65B9;&amp;#x6CD5;&amp;#x3001;&amp;#x68EE;&amp;#x6797;&amp;#x4E0E;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;">
+  <meta name="description" content="本篇文章简单介绍树和森林的表示方法、森林与二叉树的关系以及树和森林的简单遍历 树和森林的表示方法树的三种存储结构 123双亲表示法孩子链表表示法树的二叉链表（孩子-兄弟）存储表示法">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树与二叉树（五）">
 <meta property="og:url" content="https://saberda.github.io/2016/10/17/树与二叉树（五）/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x6811;&amp;#x548C;&amp;#x68EE;&amp;#x6797;&amp;#x7684;&amp;#x8868;&amp;#x793A;&amp;#x65B9;&amp;#x6CD5;&amp;#x3001;&amp;#x68EE;&amp;#x6797;&amp;#x4E0E;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;">
+<meta property="og:description" content="本篇文章简单介绍树和森林的表示方法、森林与二叉树的关系以及树和森林的简单遍历 树和森林的表示方法树的三种存储结构 123双亲表示法孩子链表表示法树的二叉链表（孩子-兄弟）存储表示法">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2016-10-17T12:27:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树与二叉树（五）">
-<meta name="twitter:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x7B80;&amp;#x5355;&amp;#x4ECB;&amp;#x7ECD;&amp;#x6811;&amp;#x548C;&amp;#x68EE;&amp;#x6797;&amp;#x7684;&amp;#x8868;&amp;#x793A;&amp;#x65B9;&amp;#x6CD5;&amp;#x3001;&amp;#x68EE;&amp;#x6797;&amp;#x4E0E;&amp;#x4E8C;&amp;#x53C9;&amp;#x6811;&amp;#x7684;">
+<meta name="twitter:description" content="本篇文章简单介绍树和森林的表示方法、森林与二叉树的关系以及树和森林的简单遍历 树和森林的表示方法树的三种存储结构 123双亲表示法孩子链表表示法树的二叉链表（孩子-兄弟）存储表示法">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -34,8 +36,8 @@
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -94,89 +96,89 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/17/树与二叉树（五）/" data-id="cjk8fbkvk006qu0b32k618f7i" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/17/树与二叉树（五）/" data-id="cjoqmj926006pr0b377pn3do6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
-        <pre><code>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x3001;&#x68EE;&#x6797;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;&#x4EE5;&#x53CA;&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x7B80;&#x5355;&#x904D;&#x5386;
-</code></pre><h2 id="&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;"><a href="#&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;" class="headerlink" title="&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;"></a>&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;</h2><p>&#x6811;&#x7684;&#x4E09;&#x79CD;&#x5B58;&#x50A8;&#x7ED3;&#x6784;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x53CC;&#x4EB2;&#x8868;&#x793A;&#x6CD5;</div><div class="line">&#x5B69;&#x5B50;&#x94FE;&#x8868;&#x8868;&#x793A;&#x6CD5;</div><div class="line">&#x6811;&#x7684;&#x4E8C;&#x53C9;&#x94FE;&#x8868;&#xFF08;&#x5B69;&#x5B50;-&#x5144;&#x5F1F;&#xFF09;&#x5B58;&#x50A8;&#x8868;&#x793A;&#x6CD5;</div></pre></td></tr></table></figure>
+        <pre><code>本篇文章简单介绍树和森林的表示方法、森林与二叉树的关系以及树和森林的简单遍历
+</code></pre><h2 id="树和森林的表示方法"><a href="#树和森林的表示方法" class="headerlink" title="树和森林的表示方法"></a>树和森林的表示方法</h2><p>树的三种存储结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">双亲表示法</span><br><span class="line">孩子链表表示法</span><br><span class="line">树的二叉链表（孩子-兄弟）存储表示法</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
-<li>&#x53CC;&#x4EB2;&#x8868;&#x793A;&#x6CD5;:&#x6570;&#x7EC4;&#x7684;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x4E00;&#x90E8;&#x5206;&#x5B58;&#x50A8;data&#xFF0C;&#x53E6;&#x4E00;&#x90E8;&#x5206;&#x5B58;&#x50A8;&#x53CC;&#x4EB2;&#x7684;&#x4E0B;&#x6807;</li>
+<li>双亲表示法:数组的两部分，一部分存储data，另一部分存储双亲的下标</li>
 </ul>
-<p>&#x7ED3;&#x70B9;&#x7ED3;&#x6784;&#xFF1A; data | parent</p>
-<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define MAX_TREE_ZISE 100</div><div class="line">typedef struct PTNode {</div><div class="line">	elem data;</div><div class="line">	int parent;	//&#x53CC;&#x4EB2;&#x4F4D;&#x7F6E;&#x57DF;</div><div class="line">}PTNode;</div></pre></td></tr></table></figure>
-<p>&#x6811;&#x7ED3;&#x6784;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">typedef struct {</div><div class="line">	PTNode nodes[MAX_TREE_SIZE];</div><div class="line">	int r;		//&#x6839;&#x7ED3;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;</div><div class="line">	int n;		//&#x7ED3;&#x70B9;&#x4E2A;&#x6570;</div><div class="line">}PTree;</div></pre></td></tr></table></figure>
+<p>结点结构： data | parent</p>
+<p>类型描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#define MAX_TREE_ZISE 100</span><br><span class="line">typedef struct PTNode &#123;</span><br><span class="line">	elem data;</span><br><span class="line">	int parent;	//双亲位置域</span><br><span class="line">&#125;PTNode;</span><br></pre></td></tr></table></figure>
+<p>树结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">	PTNode nodes[MAX_TREE_SIZE];</span><br><span class="line">	int r;		//根结点的位置</span><br><span class="line">	int n;		//结点个数</span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>&#x5B69;&#x5B50;&#x94FE;&#x8868;&#x8868;&#x793A;&#x6CD5;&#xFF1A;&#x7528;&#x94FE;&#x8868;&#x8868;&#x793A;&#x5B69;&#x5B50;&#xFF0C;&#x5E76;&#x5C06;&#x5B69;&#x5B50;&#xFF08;&#x94FE;&#x8868;&#xFF09;&#x4E32;&#x6210;&#x4E32;</li>
+<li>孩子链表表示法：用链表表示孩子，并将孩子（链表）串成串</li>
 </ul>
-<p>&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x7ED3;&#x6784;&#xFF1A; child | nextChild</p>
-<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typedef struct CTNode {</div><div class="line">	int child;</div><div class="line">	struct CTNode nextChild;</div><div class="line">}*childPtr;</div></pre></td></tr></table></figure>
-<p>&#x53CC;&#x4EB2;&#x7ED3;&#x70B9;&#x7ED3;&#x6784;&#xFF1A;data | firstChild</p>
-<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typedef struct {</div><div class="line">	elem data;</div><div class="line">	childPtr firstChild;	//&#x5B69;&#x5B50;&#x94FE;&#x7684;&#x5934;&#x6307;&#x9488;</div><div class="line">}CTBox;</div></pre></td></tr></table></figure>
-<p>&#x6811;&#x7ED3;&#x6784;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">typedef struct {</div><div class="line">	CTBox nodes[MAX_TREE_SIZE];</div><div class="line">	int r;		//&#x6839;&#x8282;&#x70B9;&#x7684;&#x4F4D;&#x7F6E;</div><div class="line">	int n;		//&#x7ED3;&#x70B9;&#x6570;</div><div class="line">}CTree;</div></pre></td></tr></table></figure>
+<p>孩子结点结构： child | nextChild</p>
+<p>类型描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct CTNode &#123;</span><br><span class="line">	int child;</span><br><span class="line">	struct CTNode nextChild;</span><br><span class="line">&#125;*childPtr;</span><br></pre></td></tr></table></figure>
+<p>双亲结点结构：data | firstChild</p>
+<p>类型描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">	elem data;</span><br><span class="line">	childPtr firstChild;	//孩子链的头指针</span><br><span class="line">&#125;CTBox;</span><br></pre></td></tr></table></figure>
+<p>树结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct &#123;</span><br><span class="line">	CTBox nodes[MAX_TREE_SIZE];</span><br><span class="line">	int r;		//根节点的位置</span><br><span class="line">	int n;		//结点数</span><br><span class="line">&#125;CTree;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>&#x6811;&#x7684;&#x4E8C;&#x53C9;&#x94FE;&#x8868;&#xFF08;&#x5B69;&#x5B50;-&#x5144;&#x5F1F;&#xFF09;&#x5B58;&#x50A8;&#x8868;&#x793A;&#x6CD5;&#xFF1A;&#x5DE6;&#x6307;&#x9488;&#x57DF;&#x5B58;&#x653E;&#x5B69;&#x5B50;&#xFF0C;&#x53F3;&#x6307;&#x9488;&#x57DF;&#x5B58;&#x653E;&#x5144;&#x5F1F;</li>
+<li>树的二叉链表（孩子-兄弟）存储表示法：左指针域存放孩子，右指针域存放兄弟</li>
 </ul>
-<p>&#x7ED3;&#x70B9;&#x7ED3;&#x6784;&#xFF1A;firstChild | data | nextSibling</p>
-<p>&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typedef struct CSNode {</div><div class="line">	elem data;</div><div class="line">	struct CSNode *firstChild, *nextSibling;</div><div class="line">}CSNode, *CSTree;</div></pre></td></tr></table></figure>
-<h2 id="&#x68EE;&#x6797;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;"><a href="#&#x68EE;&#x6797;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;" class="headerlink" title="&#x68EE;&#x6797;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;"></a>&#x68EE;&#x6797;&#x548C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5173;&#x7CFB;</h2><p>&#x8BBE;&#x68EE;&#x6797;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">F = (T1,T2,&#x2026;,Tn);</div><div class="line">T1 = (root, t11,t12,&#x2026;,t1m);</div></pre></td></tr></table></figure>
-<p>&#x8BBE;&#x4E8C;&#x53C9;&#x6811;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">B = (LBT, node(root), RBT);</div></pre></td></tr></table></figure>
-<p><strong>&#x7531;&#x68EE;&#x6797;&#x8F6C;&#x5316;&#x4E3A;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x8F6C;&#x6362;&#x89C4;&#x5219;&#x4E3A;</strong></p>
-<pre><code>&#x82E5;F&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;B&#x4E3A;&#x7A7A;
-&#x5426;&#x5219;&#xFF1A;
-&#x7531;root(T1)&#x5BF9;&#x5E94;&#x5F97;&#x5230;node(root)
-&#x7531;(t11,t12,&#x2026;,t1m)&#x5BF9;&#x5E94;&#x5F97;&#x5230;LBT
-&#x7531;(T2,T3,&#x2026;,Tn)&#x5BF9;&#x5E94;&#x5F97;&#x5230;RBT
-</code></pre><p><strong>&#x7531;&#x4E8C;&#x53C9;&#x6811;&#x8F6C;&#x6362;&#x4E3A;&#x68EE;&#x6797;&#x7684;&#x89C4;&#x5219;&#x4E3A;</strong></p>
-<pre><code>&#x82E5;B&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;F&#x4E3A;&#x7A7A;
-&#x5426;&#x5219;&#xFF1A;
-&#x7531;node(root)&#x5BF9;&#x5E94;&#x5F97;&#x5230;root(T1)
-&#x7531;LBT&#x5BF9;&#x5E94;&#x5F97;&#x5230;(t11,t12,&#x2026;,t1m)
-&#x7531;RBT&#x5BF9;&#x5E94;&#x5F97;&#x5230;(T2,T3,&#x2026;,Tn)
-</code></pre><p>&#x7531;&#x6B64;&#xFF0C;&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x5747;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#x76F8;&#x5BF9;&#x5E94;</p>
-<p>&#x5E94;&#x5F53;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x548C;&#x6811;&#x5BF9;&#x5E94;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5176;&#x5DE6;&#x3001;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x6982;&#x5FF5;&#x5DF2;&#x6539;&#x53D8;&#x4E3A;&#xFF1A;&#x5DE6;&#x662F;&#x5B69;&#x5B50;&#xFF0C;&#x53F3;&#x662F;&#x5144;&#x5F1F;</p>
-<p>&#x5C06;<em>&#x4E00;&#x68F5;&#x6811;&#x8F6C;&#x6362;&#x4E3A;&#x4E8C;&#x53C9;&#x6811;</em>&#x7684;&#x601D;&#x8DEF;&#xFF0C;&#x4E3B;&#x8981;&#x6839;&#x636E;&#x6811;&#x7684;&#x5B69;&#x5B50;-&#x5144;&#x5F1F;&#x800C;&#x6765;&#x7684;&#xFF0C;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x6811;&#x4E2D;&#x6240;&#x6709;&#x5144;&#x5F1F;&#x7ED3;&#x70B9;&#x95F4;&#x52A0;&#x4E00;&#x6761;&#x8FDE;&#x7EBF;</div><div class="line">&#x5BF9;&#x6811;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;&#x5BF9;&#x6811;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x5176;&#x4E0E;&#x7B2C;&#x4E00;&#x4E2A;&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x7EBF;&#xFF0C;&#x5220;&#x53BB;&#x5176;&#x4E0E;&#x5176;&#x4ED6;&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x95F4;&#x7684;&#x8FDE;&#x7EBF;</div><div class="line">&#x4EE5;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;&#x4E3A;&#x8F74;&#x5FC3;&#xFF0C;&#x5C06;&#x6574;&#x68F5;&#x6811;&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;&#x4E00;&#x5B9A;&#x7684;&#x89D2;&#x5EA6;&#xFF0C;&#x4F7F;&#x4E4B;&#x7ED3;&#x6784;&#x5C42;&#x6B21;&#x5206;&#x660E;</div></pre></td></tr></table></figure>
-<pre><code>&#x53EF;&#x4EE5;&#x8BC1;&#x660E;&#xFF0C;&#x6811;&#x505A;&#x8FD9;&#x6837;&#x7684;&#x8F6C;&#x6362;&#x6240;&#x6784;&#x6210;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;
-</code></pre><p><em>&#x5C06;&#x68EE;&#x6797;&#x8F6C;&#x6362;&#x4E3A;&#x4E8C;&#x53C9;&#x6811;</em></p>
-<p>&#x68EE;&#x6797;&#x662F;&#x82E5;&#x5E72;&#x6811;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x6811;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x4E3A;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x68EE;&#x6797;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x68EE;&#x6797;&#x4E5F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x7528;&#x5144;&#x5F1F;&#x5B69;&#x5B50;&#x94FE;&#x8868;&#x8868;&#x793A;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x5C06;&#x68EE;&#x6797;&#x4E2D;&#x7684;&#x6BCF;&#x68F5;&#x6811;&#x8F6C;&#x6362;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x4E8C;&#x53C9;&#x6811;</div><div class="line">&#x7B2C;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x4E0D;&#x52A8;&#xFF0C;&#x4ECE;&#x7B2C;&#x4E8C;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x5F00;&#x59CB;&#xFF0C;&#x4F9D;&#x6B21;&#x628A;&#x540E;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x524D;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x53F3;&#x5B69;&#x5B50;</div><div class="line">&#x5F53;&#x6240;&#x6709;&#x4E8C;&#x53C9;&#x6811;&#x8FDE;&#x5728;&#x4E00;&#x8D77;&#x540E;&#xFF0C;&#x6240;&#x5F97;&#x5230;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x5C31;&#x662F;&#x68EE;&#x6797;&#x8F6C;&#x6362;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x3002;</div></pre></td></tr></table></figure>
-<p><em>&#x4E8C;&#x53C9;&#x6811;&#x8FD8;&#x539F;&#x4E3A;&#x6811;&#x6216;&#x8005;&#x68EE;&#x6797;</em></p>
-<p>&#x6811;&#x548C;&#x68EE;&#x6797;&#x90FD;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x4E3A;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x4E8C;&#x8005;&#x7684;&#x4E0D;&#x540C;&#x662F;&#xFF1A;&#x6811;&#x8F6C;&#x6362;&#x6210;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5176;&#x6839;&#x8282;&#x70B9;&#x5FC5;&#x7136;&#x65E0;&#x53F3;&#x5B69;&#x5B50;&#xFF1B;&#x4E8C;&#x68EE;&#x6797;&#x8F6C;&#x6362;&#x540E;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5176;&#x6839;&#x8282;&#x70B9;&#x5FC5;&#x7136;&#x6709;&#x53F3;&#x5B69;&#x5B50;&#x3002;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x82E5;&#x67D0;&#x7ED3;&#x70B9;&#x662F;&#x5176;&#x53CC;&#x4EB2;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#xFF0C;&#x5219;&#x628A;&#x8BE5;&#x7ED3;&#x70B9;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#xFF0C;&#x53F3;&#x5B69;&#x5B50;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x3002;&#x3002;&#x3002;&#x90FD;&#x4E0E;&#x8BE5;&#x7ED3;&#x70B9;&#x7684;&#x53CC;&#x4EB2;&#x7ED3;&#x70B9;&#x94FE;&#x63A5;&#x8D77;&#x6765;</div><div class="line">&#x5220;&#x9664;&#x539F;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x6240;&#x6709;&#x53CC;&#x4EB2;&#x7ED3;&#x70B9;&#x4E0E;&#x53F3;&#x5B69;&#x5B50;&#x7ED3;&#x70B9;&#x7684;&#x8FDE;&#x7EBF;</div><div class="line">&#x6574;&#x7406;&#x7531;1&#x3001;2&#x4E24;&#x6B65;&#x5F97;&#x5230;&#x7684;&#x6811;&#x6216;&#x68EE;&#x6797;&#xFF0C;&#x4F7F;&#x5176;&#x5C42;&#x6B21;&#x5206;&#x660E;</div></pre></td></tr></table></figure>
-<h2 id="&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x904D;&#x5386;"><a href="#&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x904D;&#x5386;" class="headerlink" title="&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x904D;&#x5386;"></a>&#x6811;&#x548C;&#x68EE;&#x6797;&#x7684;&#x904D;&#x5386;</h2><ul>
-<li>&#x6811;&#x7684;&#x904D;&#x5386;</li>
+<p>结点结构：firstChild | data | nextSibling</p>
+<p>类型描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typedef struct CSNode &#123;</span><br><span class="line">	elem data;</span><br><span class="line">	struct CSNode *firstChild, *nextSibling;</span><br><span class="line">&#125;CSNode, *CSTree;</span><br></pre></td></tr></table></figure>
+<h2 id="森林和二叉树的关系"><a href="#森林和二叉树的关系" class="headerlink" title="森林和二叉树的关系"></a>森林和二叉树的关系</h2><p>设森林</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F = (T1,T2,…,Tn);</span><br><span class="line">T1 = (root, t11,t12,…,t1m);</span><br></pre></td></tr></table></figure>
+<p>设二叉树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = (LBT, node(root), RBT);</span><br></pre></td></tr></table></figure>
+<p><strong>由森林转化为二叉树的转换规则为</strong></p>
+<pre><code>若F为空，则B为空
+否则：
+由root(T1)对应得到node(root)
+由(t11,t12,…,t1m)对应得到LBT
+由(T2,T3,…,Tn)对应得到RBT
+</code></pre><p><strong>由二叉树转换为森林的规则为</strong></p>
+<pre><code>若B为空，则F为空
+否则：
+由node(root)对应得到root(T1)
+由LBT对应得到(t11,t12,…,t1m)
+由RBT对应得到(T2,T3,…,Tn)
+</code></pre><p>由此，树和森林的各种操作均与二叉树的各种操作相对应</p>
+<p>应当注意的是，和树对应的二叉树，其左、右子树的概念已改变为：左是孩子，右是兄弟</p>
+<p>将<em>一棵树转换为二叉树</em>的思路，主要根据树的孩子-兄弟而来的，方法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">树中所有兄弟结点间加一条连线</span><br><span class="line">对树中的每个结点，对树中的每个结点，只保留其与第一个孩子结点之间的连线，删去其与其他孩子结点间的连线</span><br><span class="line">以树的根节点为轴心，将整棵树顺时针旋转一定的角度，使之结构层次分明</span><br></pre></td></tr></table></figure>
+<pre><code>可以证明，树做这样的转换所构成的二叉树是唯一的。
+</code></pre><p><em>将森林转换为二叉树</em></p>
+<p>森林是若干树的集合，树可以转换为二叉树，森林同样可以。因此，森林也可以方便的用兄弟孩子链表表示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">将森林中的每棵树转换成相应的二叉树</span><br><span class="line">第一棵二叉树不动，从第二棵二叉树开始，依次把后一棵二叉树的根节点作为前一棵二叉树的右孩子</span><br><span class="line">当所有二叉树连在一起后，所得到的二叉树就是森林转换的二叉树。</span><br></pre></td></tr></table></figure>
+<p><em>二叉树还原为树或者森林</em></p>
+<p>树和森林都可以转换为二叉树，二者的不同是：树转换成的二叉树，其根节点必然无右孩子；二森林转换后二叉树，其根节点必然有右孩子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">若某结点是其双亲的左孩子，则把该结点的右孩子，右孩子的右孩子。。。都与该结点的双亲结点链接起来</span><br><span class="line">删除原二叉树中所有双亲结点与右孩子结点的连线</span><br><span class="line">整理由1、2两步得到的树或森林，使其层次分明</span><br></pre></td></tr></table></figure>
+<h2 id="树和森林的遍历"><a href="#树和森林的遍历" class="headerlink" title="树和森林的遍历"></a>树和森林的遍历</h2><ul>
+<li>树的遍历</li>
 </ul>
-<p>&#x6811;&#x7684;&#x904D;&#x5386;&#x53EF;&#x6709;&#x4EE5;&#x4E0B;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#xFF1A;</p>
-<pre><code>&#x5148;&#x6839;&#x6B21;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x82E5;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x5148;&#x8BBF;&#x95EE;&#x6839;&#x7ED3;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x4F9D;&#x6B21;&#x5148;&#x6839;&#x904D;&#x5386;&#x5404;&#x68F5;&#x5B50;&#x6811;&#xFF08;&#x5176;&#x7ED3;&#x679C;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5148;&#x5E8F;&#x904D;&#x5386;&#x7ED3;&#x679C;&#x4E00;&#x6837;&#xFF09;
-&#x540E;&#x6839;&#x6B21;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x82E5;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x5148;&#x4F9D;&#x6B21;&#x540E;&#x6839;&#x904D;&#x5386;&#x5404;&#x68F5;&#x5B50;&#x6811;&#xFF0C;&#x7136;&#x540E;&#x8BBF;&#x95EE;&#x6839;&#x7ED3;&#x70B9;&#xFF08;&#x5176;&#x7ED3;&#x679C;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x4E00;&#x6837;&#xFF09;
-&#x6309;&#x5C42;&#x6B21;&#x904D;&#x5386;&#xFF1A;&#x82E5;&#x6811;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x81EA;&#x4E0A;&#x800C;&#x4E0B;&#x81EA;&#x5DE6;&#x800C;&#x53F3;&#x8BBF;&#x95EE;&#x6811;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;
+<p>树的遍历可有以下搜索路径：</p>
+<pre><code>先根次序遍历：若树不空，则先访问根结点，然后依次先根遍历各棵子树（其结果与二叉树的先序遍历结果一样）
+后根次序遍历：若树不空，则先依次后根遍历各棵子树，然后访问根结点（其结果与二叉树的中序遍历一样）
+按层次遍历：若树不空，则自上而下自左而右访问树中的每个结点
 </code></pre><ul>
-<li>&#x68EE;&#x6797;&#x7684;&#x904D;&#x5386;</li>
+<li>森林的遍历</li>
 </ul>
-<p>&#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x6210;&#x4E09;&#x90E8;&#x5206;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x68EE;&#x6797;&#x4E2D;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;</div><div class="line">&#x68EE;&#x6797;&#x4E2D;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x5B50;&#x6811;&#x68EE;&#x6797;</div><div class="line">&#x68EE;&#x6797;&#x4E2D;&#x5176;&#x4ED6;&#x6811;&#x6784;&#x6210;&#x7684;&#x68EE;&#x6797;</div></pre></td></tr></table></figure>
-<pre><code>&#x5148;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x82E5;&#x68EE;&#x6797;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x8BBF;&#x95EE;&#x68EE;&#x6797;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;&#xFF1B;&#x5148;&#x5E8F;&#x904D;&#x5386;&#x68EE;&#x6797;&#x4E2D;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x5B50;&#x6811;&#x68EE;&#x6797;&#xFF1B;&#x5148;&#x5E8F;&#x904D;&#x5386;&#x68EE;&#x6797;&#x4E2D;&#xFF08;&#x9664;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x4E4B;&#x5916;&#xFF09;&#x5176;&#x4F59;&#x6811;&#x6784;&#x6210;&#x7684;&#x68EE;&#x6797;
-&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#xFF1A;&#x82E5;&#x68EE;&#x6797;&#x4E0D;&#x7A7A;&#xFF0C;&#x5219;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x68EE;&#x6797;&#x4E2D;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x5B50;&#x6811;&#x68EE;&#x6797;&#xFF1B;&#x8BBF;&#x95EE;&#x68EE;&#x6797;&#x4E2D;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;&#xFF1B;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x68EE;&#x6797;&#x4E2D;&#xFF08;&#x9664;&#x7B2C;&#x4E00;&#x68F5;&#x6811;&#x4E4B;&#x5916;&#x7684;&#xFF09;&#x5176;&#x4F59;&#x6811;&#x6784;&#x6210;&#x7684;&#x68EE;&#x6797;&#x3002;&#x5373;&#xFF1A;&#x4F9D;&#x6B21;&#x4ECE;&#x5DE6;&#x81F3;&#x53F3;&#x5BF9;&#x68EE;&#x6797;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x68F5;&#x6811;&#x8FDB;&#x884C;&#x4E2D;&#x5E8F;&#x904D;&#x5386;
-</code></pre><h2 id="&#x6811;&#x7684;&#x904D;&#x5386;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;"><a href="#&#x6811;&#x7684;&#x904D;&#x5386;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;" class="headerlink" title="&#x6811;&#x7684;&#x904D;&#x5386;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;"></a>&#x6811;&#x7684;&#x904D;&#x5386;&#x4E0E;&#x4E8C;&#x53C9;&#x6811;&#x904D;&#x5386;&#x7684;&#x5BF9;&#x5E94;&#x5173;&#x7CFB;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x6811;		&#x68EE;&#x6797;		&#x4E8C;&#x53C9;&#x6811;</div><div class="line">&#x5148;&#x6839;&#x904D;&#x5386;		&#x5148;&#x5E8F;&#x904D;&#x5386;		&#x5148;&#x5E8F;&#x904D;&#x5386;</div><div class="line">&#x540E;&#x6839;&#x904D;&#x5386;		&#x4E2D;&#x5E8F;&#x904D;&#x5386;		&#x4E2D;&#x5E8F;&#x904D;&#x5386;</div></pre></td></tr></table></figure>
-<p>&#x4F8B;&#x9898;1&#xFF1A;&#x6C42;&#x68EE;&#x6797;&#x7684;&#x6DF1;&#x5EA6;</p>
-<p>&#x8BBE;&#x6811;&#x7684;&#x5B58;&#x50A8;&#x7ED3;&#x6784;&#x4E3A;&#x5B69;&#x5B50;&#x5144;&#x5F1F;&#x94FE;&#x8868;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">typedef struct CSNode {</div><div class="line">	elemType data;</div><div class="line">	struct CSNode *firstChild, *nextSibling;</div><div class="line">}CSNode, *CSTree;</div><div class="line">int depth(CSTree T) {</div><div class="line">	if (T == NULL) 	return 0;</div><div class="line">	else {</div><div class="line">		d1 = depth(T -&gt;firstChild);</div><div class="line">		d2 = depth(T -&gt; nextSibling);</div><div class="line">		return max(d1 + 1; d2);</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x4F8B;&#x9898;2&#xFF1A;&#x7F16;&#x5199;&#x9012;&#x5F52;&#x7B97;&#x6CD5;&#xFF0C;&#x6C42;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x4EE5;&#x5143;&#x7D20;&#x503C;&#x4E3A;x&#x7684;&#x7ED3;&#x70B9;&#x4E3A;&#x6839;&#x7684;&#x5B50;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</p>
-<p>&#x5206;&#x6790;&#xFF1A;&#x672C;&#x9898;&#x4E3B;&#x8981;&#x662F;&#x5229;&#x7528;&#x904D;&#x5386;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x67E5;&#x627E;&#x503C;&#x4E3A;x&#x7684;&#x7ED3;&#x70B9;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x4EE5;&#x53CA;&#x6C42;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6DF1;&#x5EA6;&#x7684;&#x64CD;&#x4F5C;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">int getSubDepth(BiTree T, int x) {</div><div class="line">	if (T -&gt; data == x) {</div><div class="line">		//&#x627E;&#x5230;&#x503C;&#x4E3A;x&#x7684;&#x7ED3;&#x70B9;&#xFF0C;&#x5E76;&#x6C42;&#x5176;&#x6DF1;&#x5EA6;</div><div class="line">		printf(&#x201C;%d\n&#x201D;, getDepth(T));</div><div class="line">		exit 1;</div><div class="line">	}else {</div><div class="line">		if (T -&gt; lChild) </div><div class="line">			//&#x5728;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x7EE7;&#x7EED;&#x67E5;&#x627E;</div><div class="line">			getSubDepth(T -&gt; lChild, x);</div><div class="line">		if (T -&gt; rChild)</div><div class="line">			//&#x5728;&#x53F3;&#x5B50;&#x6811;&#x4E2D;&#x7EE7;&#x7EED;&#x67E5;&#x627E;</div><div class="line">			getSubDepth(T -&gt; rChild, x);</div><div class="line">	}</div><div class="line">}</div><div class="line">int getDepth(BiTree T) {</div><div class="line">	//&#x6C42;&#x5B50;&#x6811;&#x6DF1;&#x5EA6;&#x7684;&#x9012;&#x5F52;&#x7B97;&#x6CD5;</div><div class="line">	if (!T) return 0;</div><div class="line">	else {</div><div class="line">		m = getDepth(T -&gt; lChild);</div><div class="line">		n = getDepth(T -&gt; rChild);</div><div class="line">		return (m &gt; n ? m : n) + 1;</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>可以分解成三部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">森林中第一棵树的根节点</span><br><span class="line">森林中第一棵树的子树森林</span><br><span class="line">森林中其他树构成的森林</span><br></pre></td></tr></table></figure>
+<pre><code>先序遍历：若森林不空，则访问森林中的第一棵树的根节点；先序遍历森林中第一棵树的子树森林；先序遍历森林中（除第一棵树之外）其余树构成的森林
+中序遍历：若森林不空，则中序遍历森林中第一棵树的子树森林；访问森林中第一棵树的根节点；中序遍历森林中（除第一棵树之外的）其余树构成的森林。即：依次从左至右对森林中的每一棵树进行中序遍历
+</code></pre><h2 id="树的遍历与二叉树遍历的对应关系"><a href="#树的遍历与二叉树遍历的对应关系" class="headerlink" title="树的遍历与二叉树遍历的对应关系"></a>树的遍历与二叉树遍历的对应关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">树		森林		二叉树</span><br><span class="line">先根遍历		先序遍历		先序遍历</span><br><span class="line">后根遍历		中序遍历		中序遍历</span><br></pre></td></tr></table></figure>
+<p>例题1：求森林的深度</p>
+<p>设树的存储结构为孩子兄弟链表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">typedef struct CSNode &#123;</span><br><span class="line">	elemType data;</span><br><span class="line">	struct CSNode *firstChild, *nextSibling;</span><br><span class="line">&#125;CSNode, *CSTree;</span><br><span class="line">int depth(CSTree T) &#123;</span><br><span class="line">	if (T == NULL) 	return 0;</span><br><span class="line">	else &#123;</span><br><span class="line">		d1 = depth(T -&gt;firstChild);</span><br><span class="line">		d2 = depth(T -&gt; nextSibling);</span><br><span class="line">		return max(d1 + 1; d2);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例题2：编写递归算法，求二叉树中以元素值为x的结点为根的子树的深度</p>
+<p>分析：本题主要是利用遍历算法实现查找值为x的结点的操作，以及求二叉树的深度的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">int getSubDepth(BiTree T, int x) &#123;</span><br><span class="line">	if (T -&gt; data == x) &#123;</span><br><span class="line">		//找到值为x的结点，并求其深度</span><br><span class="line">		printf(“%d\n”, getDepth(T));</span><br><span class="line">		exit 1;</span><br><span class="line">	&#125;else &#123;</span><br><span class="line">		if (T -&gt; lChild) </span><br><span class="line">			//在左子树中继续查找</span><br><span class="line">			getSubDepth(T -&gt; lChild, x);</span><br><span class="line">		if (T -&gt; rChild)</span><br><span class="line">			//在右子树中继续查找</span><br><span class="line">			getSubDepth(T -&gt; rChild, x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">int getDepth(BiTree T) &#123;</span><br><span class="line">	//求子树深度的递归算法</span><br><span class="line">	if (!T) return 0;</span><br><span class="line">	else &#123;</span><br><span class="line">		m = getDepth(T -&gt; lChild);</span><br><span class="line">		n = getDepth(T -&gt; rChild);</span><br><span class="line">		return (m &gt; n ? m : n) + 1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div><!-- .entry-content -->
@@ -223,8 +225,8 @@
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -234,7 +236,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -257,7 +259,7 @@
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -288,6 +290,10 @@
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -303,10 +309,6 @@
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -316,7 +318,7 @@
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 

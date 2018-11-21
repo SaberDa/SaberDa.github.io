@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   
-  <meta name="description" content="阿尔托利亚是我老婆~" />
+  <meta name="description" content="阿尔托利亚是我老婆~">
   
 
   
@@ -15,14 +15,14 @@
   
   <title>Machine-Learning-3 | SaberDa的幻想乡</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. 
-However, this method doesn&amp;#x2019;t work">
+  <meta name="description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0.  However, this method doesn’t work well be">
+<meta name="keywords" content="Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine-Learning-3">
 <meta property="og:url" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/index.html">
 <meta property="og:site_name" content="SaberDa的幻想乡">
-<meta property="og:description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. 
-However, this method doesn&amp;#x2019;t work">
+<meta property="og:description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0.  However, this method doesn’t work well be">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/1.png">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/2.png">
 <meta property="og:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/3.png">
@@ -58,8 +58,7 @@ However, this method doesn&amp;#x2019;t work">
 <meta property="og:updated_time" content="2017-01-29T04:37:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine-Learning-3">
-<meta name="twitter:description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. 
-However, this method doesn&amp;#x2019;t work">
+<meta name="twitter:description" content="ClassificationTo attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0.  However, this method doesn’t work well be">
 <meta name="twitter:image" content="https://saberda.github.io/2016/11/29/Machine-Learning-3/1.png">
   
   
@@ -70,8 +69,8 @@ However, this method doesn&amp;#x2019;t work">
 
   
   <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
-</head>
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
 <body class="home blog custom-background custom-font-enabled single-author">
   <div id="page" class="hfeed site">
       <header id="masthead" class="site-header" role="banner">
@@ -130,22 +129,22 @@ However, this method doesn&amp;#x2019;t work">
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/29/Machine-Learning-3/" data-id="cjk8fbkrb001ou0b36g455jlh" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/29/Machine-Learning-3/" data-id="cjoqmj8q3001kr0b3vbvsqti2" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
     <div class="entry-content">
       
         <h2 id="Classification"><a href="#Classification" class="headerlink" title="Classification"></a>Classification</h2><p>To attempt classification, one method is to use linear regression and map all predictions greater than 0.5 as a 1 and all less than 0.5 as a 0. </p>
-<p>However, this method doesn&#x2019;t work well because classification is not actually a linear function.<br>The classification problem is just like the regression problem, except that the values y we now want to predict take on only a small number of discrete values. For now, we will focus on the <strong>binary classification problem</strong> in which y can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then x<sup>(i)</sup> may be some features of a piece of email, and y may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, y&#x2208;{0,1}. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols &#x201C;-&#x201D; and &#x201C;+.&#x201D; Given x<sup>(i)</sup> , the corresponding y<sup>(i)</sup> is also called the label for the training example.</p>
+<p>However, this method doesn’t work well because classification is not actually a linear function.<br>The classification problem is just like the regression problem, except that the values y we now want to predict take on only a small number of discrete values. For now, we will focus on the <strong>binary classification problem</strong> in which y can take on only two values, 0 and 1. (Most of what we say here will also generalize to the multiple-class case.) For instance, if we are trying to build a spam classifier for email, then x<sup>(i)</sup> may be some features of a piece of email, and y may be 1 if it is a piece of spam mail, and 0 otherwise. Hence, y∈{0,1}. 0 is also called the negative class, and 1 the positive class, and they are sometimes also denoted by the symbols “-” and “+.” Given x<sup>(i)</sup> , the corresponding y<sup>(i)</sup> is also called the label for the training example.</p>
 <a id="more"></a>
-<h2 id="Hypothesis-Representation"><a href="#Hypothesis-Representation" class="headerlink" title="Hypothesis Representation"></a>Hypothesis Representation</h2><p>We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn&#x2019;t make sense for h<sub>&#x3B8;</sub>(x) to take values larger than 1 or smaller than 0 when we know that y &#x2208; {0, 1}. To fix this, let&#x2019;s change the form for our hypotheses h<sub>&#x3B8;</sub>(x) to satisfy 0&lt;=h<sub>&#x3B8;</sub>(x)&lt;=1 .This is accomplished by plugging &#x3B8;<sup>T</sup>x into the Logistic Function.</p>
-<p>Our new form uses the &#x201C;Sigmoid Function,&#x201D; also called the &#x201C;Logistic Function&#x201D;:</p>
+<h2 id="Hypothesis-Representation"><a href="#Hypothesis-Representation" class="headerlink" title="Hypothesis Representation"></a>Hypothesis Representation</h2><p>We could approach the classification problem ignoring the fact that y is discrete-valued, and use our old linear regression algorithm to try to predict y given x. However, it is easy to construct examples where this method performs very poorly. Intuitively, it also doesn’t make sense for h<sub>θ</sub>(x) to take values larger than 1 or smaller than 0 when we know that y ∈ {0, 1}. To fix this, let’s change the form for our hypotheses h<sub>θ</sub>(x) to satisfy 0&lt;=h<sub>θ</sub>(x)&lt;=1 .This is accomplished by plugging θ<sup>T</sup>x into the Logistic Function.</p>
+<p>Our new form uses the “Sigmoid Function,” also called the “Logistic Function”:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/1.png" alt=""></p>
 <p>The following image shows us what the sigmoid function looks like:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/2.png" alt=""></p>
 <p>The function g(z), shown here, maps any real number to the (0, 1) interval, making it useful for transforming an arbitrary-valued function into a function better suited for classification.</p>
-<p>h<sub>&#x3B8;</sub>(x) will give us the <strong>probability</strong> that our output is 1. For example, h<sub>&#x3B8;</sub>(x) = 0.7 gives us a probability of 70% that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).</p>
+<p>h<sub>θ</sub>(x) will give us the <strong>probability</strong> that our output is 1. For example, h<sub>θ</sub>(x) = 0.7 gives us a probability of 70% that our output is 1. Our probability that our prediction is 0 is just the complement of our probability that it is 1 (e.g. if probability that it is 1 is 70%, then the probability that it is 0 is 30%).</p>
 <p><img src="/2016/11/29/Machine-Learning-3/3.png" alt=""></p>
 <h2 id="Decision-Boundary"><a href="#Decision-Boundary" class="headerlink" title="Decision Boundary"></a>Decision Boundary</h2><p>In order to get our discrete 0 or 1 classification, we can translate the output of the hypothesis function as follows:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/4.png" alt=""></p>
@@ -153,7 +152,7 @@ However, this method doesn&amp;#x2019;t work">
 <p><img src="/2016/11/29/Machine-Learning-3/5.png" alt=""></p>
 <p>Remember.</p>
 <p><img src="/2016/11/29/Machine-Learning-3/6.png" alt=""></p>
-<p>So if our input to g is &#x3B8;<sup>T</sup>X,then that means:</p>
+<p>So if our input to g is θ<sup>T</sup>X,then that means:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/7.png" alt=""></p>
 <p>From these statements we can now say:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/8.png" alt=""></p>
@@ -161,17 +160,17 @@ However, this method doesn&amp;#x2019;t work">
 <h2 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.</p>
 <p>Instead, our cost function for logistic regression looks like:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/9.png" alt=""></p>
-<p>When y = 1, we get the following plot for J(&#x3B8;) vs h<sub>&#x3B8;</sub>(x):</p>
+<p>When y = 1, we get the following plot for J(θ) vs h<sub>θ</sub>(x):</p>
 <p><img src="/2016/11/29/Machine-Learning-3/10.png" alt=""></p>
-<p>Similarly, when y = 0, we get the following plot for J(&#x3B8;) vs h<sub>&#x3B8;</sub>(x):</p>
+<p>Similarly, when y = 0, we get the following plot for J(θ) vs h<sub>θ</sub>(x):</p>
 <p><img src="/2016/11/29/Machine-Learning-3/11.png" alt=""></p>
 <p><img src="/2016/11/29/Machine-Learning-3/12.png" alt=""></p>
-<p>If our correct answer &#x2018;y&#x2019; is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.</p>
-<p>If our correct answer &#x2018;y&#x2019; is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity.</p>
-<p>Note that writing the cost function in this way guarantees that J(&#x3B8;) is convex for logistic regression.</p>
-<h2 id="Simplified-Cost-Function-and-Gradient-Descent"><a href="#Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="Simplified Cost Function and Gradient Descent"></a>Simplified Cost Function and Gradient Descent</h2><p>We can compress our cost function&#x2019;s two conditional cases into one case:</p>
+<p>If our correct answer ‘y’ is 0, then the cost function will be 0 if our hypothesis function also outputs 0. If our hypothesis approaches 1, then the cost function will approach infinity.</p>
+<p>If our correct answer ‘y’ is 1, then the cost function will be 0 if our hypothesis function outputs 1. If our hypothesis approaches 0, then the cost function will approach infinity.</p>
+<p>Note that writing the cost function in this way guarantees that J(θ) is convex for logistic regression.</p>
+<h2 id="Simplified-Cost-Function-and-Gradient-Descent"><a href="#Simplified-Cost-Function-and-Gradient-Descent" class="headerlink" title="Simplified Cost Function and Gradient Descent"></a>Simplified Cost Function and Gradient Descent</h2><p>We can compress our cost function’s two conditional cases into one case:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/13.png" alt=""></p>
-<p>Notice that when y is equal to 1, then the second term <strong>(1-y)log(1-h<sub>&#x3B8;</sub>(x))</strong> will be zero and will not affect the result. If y is equal to 0, then the first term <strong>-ylog(1-h<sub>&#x3B8;</sub>(x))</strong> will be zero and will not affect the result.</p>
+<p>Notice that when y is equal to 1, then the second term <strong>(1-y)log(1-h<sub>θ</sub>(x))</strong> will be zero and will not affect the result. If y is equal to 0, then the first term <strong>-ylog(1-h<sub>θ</sub>(x))</strong> will be zero and will not affect the result.</p>
 <p>We can fully write out our entire cost function as follows:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/14.png" alt=""></p>
 <p>A vectorized implementation is:</p>
@@ -186,26 +185,26 @@ However, this method doesn&amp;#x2019;t work">
 <p>Notice that this algorithm is identical to the one we used in linear regression. We still have to simultaneously update all values in theta.</p>
 <p>A vectorized implementation is:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/18.png" alt=""></p>
-<h2 id="Advanced-Optimization"><a href="#Advanced-Optimization" class="headerlink" title="Advanced Optimization"></a>Advanced Optimization</h2><p>&#x201C;Conjugate gradient&#x201D;, &#x201C;BFGS&#x201D;, and &#x201C;L-BFGS&#x201D; are more sophisticated, faster ways to optimize &#x3B8; that can be used instead of gradient descent. We suggest that you should not write these more sophisticated algorithms yourself (unless you are an expert in numerical computing) but use the libraries instead, as they&#x2019;re already tested and highly optimized. Octave provides them.</p>
-<p>We first need to provide a function that evaluates the following two functions for a given input value &#x3B8;:</p>
+<h2 id="Advanced-Optimization"><a href="#Advanced-Optimization" class="headerlink" title="Advanced Optimization"></a>Advanced Optimization</h2><p>“Conjugate gradient”, “BFGS”, and “L-BFGS” are more sophisticated, faster ways to optimize θ that can be used instead of gradient descent. We suggest that you should not write these more sophisticated algorithms yourself (unless you are an expert in numerical computing) but use the libraries instead, as they’re already tested and highly optimized. Octave provides them.</p>
+<p>We first need to provide a function that evaluates the following two functions for a given input value θ:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/19.png" alt=""></p>
 <p>We can write a single function that returns both of these:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function [jVal, gradient] = costFunction(theta)</div><div class="line">	jVal = [...code to compute J(theta)...];</div><div class="line">	gradient = [...code to compute derivative of J(theta)...];</div><div class="line">end</div></pre></td></tr></table></figure>
-<p>Then we can use octave&#x2019;s &#x201C;fminunc()&#x201D; optimization algorithm along with the &#x201C;optimset()&#x201D; function that creates an object containing the options we want to send to &#x201C;fminunc()&#x201D;. (Note: the value for MaxIter should be an integer, not a character string - errata)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 100);</div><div class="line">initialTheta = zeros(2,1);</div><div class="line">	[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</div></pre></td></tr></table></figure>
-<p>We give to the function &#x201C;fminunc()&#x201D; our cost function, our initial vector of theta values, and the &#x201C;options&#x201D; object that we created beforehand.</p>
-<h2 id="Multiclass-Classification-One-vs-all"><a href="#Multiclass-Classification-One-vs-all" class="headerlink" title="Multiclass Classification: One-vs-all"></a>Multiclass Classification: One-vs-all</h2><p>Now we will approach the classification of data when we have more than two categories. Instead of y = {0,1} we will expand our definition so that y = {0,1&#x2026;n}.</p>
-<p>Since y = {0,1&#x2026;n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that &#x2018;y&#x2019; is a member of one of our classes.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function [jVal, gradient] = costFunction(theta)</span><br><span class="line">	jVal = [...code to compute J(theta)...];</span><br><span class="line">	gradient = [...code to compute derivative of J(theta)...];</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>Then we can use octave’s “fminunc()” optimization algorithm along with the “optimset()” function that creates an object containing the options we want to send to “fminunc()”. (Note: the value for MaxIter should be an integer, not a character string - errata)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 100);</span><br><span class="line">initialTheta = zeros(2,1);</span><br><span class="line">	[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);</span><br></pre></td></tr></table></figure>
+<p>We give to the function “fminunc()” our cost function, our initial vector of theta values, and the “options” object that we created beforehand.</p>
+<h2 id="Multiclass-Classification-One-vs-all"><a href="#Multiclass-Classification-One-vs-all" class="headerlink" title="Multiclass Classification: One-vs-all"></a>Multiclass Classification: One-vs-all</h2><p>Now we will approach the classification of data when we have more than two categories. Instead of y = {0,1} we will expand our definition so that y = {0,1…n}.</p>
+<p>Since y = {0,1…n}, we divide our problem into n+1 (+1 because the index starts at 0) binary classification problems; in each one, we predict the probability that ‘y’ is a member of one of our classes.</p>
 <p><img src="/2016/11/29/Machine-Learning-3/20.png" alt=""></p>
 <p>We are basically choosing one class and then lumping all the others into a single second class. We do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.</p>
 <p>The following image shows how one could classify 3 classes:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/21.png" alt=""></p>
 <p><strong>To summarize:</strong></p>
-<p>Train a logistic regression classifier h<sub>&#x398;</sub>(x) for each class to predict the probability that  y = i .</p>
-<p>To make a prediction on a new x, pick the class that maximizes h<sub>&#x398;</sub>(x).</p>
-<h2 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h2><p>Consider the problem of predicting y from x &#x2208; R. The leftmost figure below shows the result of fitting a y = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x to a dataset. We see that the data doesn&#x2019;t really lie on straight line, and so the fit is not very good.</p>
+<p>Train a logistic regression classifier h<sub>Θ</sub>(x) for each class to predict the probability that  y = i .</p>
+<p>To make a prediction on a new x, pick the class that maximizes h<sub>Θ</sub>(x).</p>
+<h2 id="The-Problem-of-Overfitting"><a href="#The-Problem-of-Overfitting" class="headerlink" title="The Problem of Overfitting"></a>The Problem of Overfitting</h2><p>Consider the problem of predicting y from x ∈ R. The leftmost figure below shows the result of fitting a y = Θ<sub>0</sub> + Θ<sub>1</sub>x to a dataset. We see that the data doesn’t really lie on straight line, and so the fit is not very good.</p>
 <p><img src="/2016/11/29/Machine-Learning-3/22.png" alt=""></p>
-<p>Instead, if we had added an extra feature x<sup>2</sup>, and fit y = &#x398;<sub>0</sub> + &#x398;<sub>1</sub>x + &#x398;<sub>2</sub>x<sup>2</sup> then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5<sup>th</sup> order polynomial y = &#x2211;<sup>5</sup><sub>j=0</sub>&#x398;<sub>j</sub>x<sup>j</sup> .We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). Without formally defining what these terms mean, we&#x2019;ll say the figure on the left shows an instance of <strong>underfitting</strong>&#x2014;in which the data clearly shows structure not captured by the model&#x2014;and the figure on the right is an example of <strong>overfitting</strong>.</p>
+<p>Instead, if we had added an extra feature x<sup>2</sup>, and fit y = Θ<sub>0</sub> + Θ<sub>1</sub>x + Θ<sub>2</sub>x<sup>2</sup> then we obtain a slightly better fit to the data (See middle figure). Naively, it might seem that the more features we add, the better. However, there is also a danger in adding too many features: The rightmost figure is the result of fitting a 5<sup>th</sup> order polynomial y = ∑<sup>5</sup><sub>j=0</sub>Θ<sub>j</sub>x<sup>j</sup> .We see that even though the fitted curve passes through the data perfectly, we would not expect this to be a very good predictor of, say, housing prices (y) for different living areas (x). Without formally defining what these terms mean, we’ll say the figure on the left shows an instance of <strong>underfitting</strong>—in which the data clearly shows structure not captured by the model—and the figure on the right is an example of <strong>overfitting</strong>.</p>
 <p>Underfitting, or high bias, is when the form of our hypothesis function h maps poorly to the trend of the data. It is usually caused by a function that is too simple or uses too few features. At the other extreme, overfitting, or high variance, is caused by a hypothesis function that fits the available data but does not generalize well to predict new data. It is usually caused by a complicated function that creates a lot of unnecessary curves and angles unrelated to the data.</p>
 <p>This terminology is applied to both linear and logistic regression. There are two main options to address the issue of overfitting:</p>
 <p>1) Reduce the number of features:</p>
@@ -215,41 +214,41 @@ However, this method doesn&amp;#x2019;t work">
 </ul>
 <p>2) Regularization</p>
 <ul>
-<li>Keep all the features, but reduce the parameters &#x398;<sub>j</sub></li>
+<li>Keep all the features, but reduce the parameters Θ<sub>j</sub></li>
 <li>Regularization works well when we have a lot of slightly useful features.</li>
 </ul>
 <h2 id="Cost-Function-1"><a href="#Cost-Function-1" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>If we have overfitting from our hypothesis function, we can reduce the weight that some of the terms in our function carry by increasing their cost.</p>
 <p>Say we wanted to make the following function more quadratic:</p>
-<p>&#x3B8;<sub>0</sub> + &#x3B8;<sub>1</sub>x + &#x3B8;<sub>2</sub>x<sup>2</sup> + &#x3B8;<sub>3</sub>x<sup>3</sup> + &#x3B8;<sub>4</sub>x<sup>4</sup></p>
-<p>We&#x2019;ll want to eliminate the influence of &#x3B8;<sub>3</sub>x<sup>3</sup> and &#x3B8;<sub>4</sub>x<sup>4</sup>.Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our <strong>cost function</strong>:</p>
+<p>θ<sub>0</sub> + θ<sub>1</sub>x + θ<sub>2</sub>x<sup>2</sup> + θ<sub>3</sub>x<sup>3</sup> + θ<sub>4</sub>x<sup>4</sup></p>
+<p>We’ll want to eliminate the influence of θ<sub>3</sub>x<sup>3</sup> and θ<sub>4</sub>x<sup>4</sup>.Without actually getting rid of these features or changing the form of our hypothesis, we can instead modify our <strong>cost function</strong>:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/23.png" alt=""></p>
-<p>We&#x2019;ve added two extra terms at the end to inflate the cost of &#x3B8;<sub>3</sub> and &#x3B8;<sub>4</sub>.Now, in order for the cost function to get close to zero, we will have to reduce the values of &#x3B8;<sub>3</sub> and &#x3B8;<sub>4</sub> to near zero. This will in turn greatly reduce the values of &#x3B8;<sub>3</sub>x<sup>3</sup> and &#x3B8;<sub>4</sub>x<sup>4</sup> in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms &#x3B8;<sub>3</sub>x<sup>3</sup> and &#x3B8;<sub>4</sub>x<sup>4</sup>.</p>
+<p>We’ve added two extra terms at the end to inflate the cost of θ<sub>3</sub> and θ<sub>4</sub>.Now, in order for the cost function to get close to zero, we will have to reduce the values of θ<sub>3</sub> and θ<sub>4</sub> to near zero. This will in turn greatly reduce the values of θ<sub>3</sub>x<sup>3</sup> and θ<sub>4</sub>x<sup>4</sup> in our hypothesis function. As a result, we see that the new hypothesis (depicted by the pink curve) looks like a quadratic function but fits the data better due to the extra small terms θ<sub>3</sub>x<sup>3</sup> and θ<sub>4</sub>x<sup>4</sup>.</p>
 <p><img src="/2016/11/29/Machine-Learning-3/24.png" alt=""></p>
 <p>We could also regularize all of our theta parameters in a single summation as:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/25.png" alt=""></p>
-<p>The &#x3BB;, or lambda, is the <strong>regularization parameter</strong>. It determines how much the costs of our theta parameters are inflated.</p>
-<p>Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if &#x3BB;=0 or is too small ?</p>
+<p>The λ, or lambda, is the <strong>regularization parameter</strong>. It determines how much the costs of our theta parameters are inflated.</p>
+<p>Using the above cost function with the extra summation, we can smooth the output of our hypothesis function to reduce overfitting. If lambda is chosen to be too large, it may smooth out the function too much and cause underfitting. Hence, what would happen if λ=0 or is too small ?</p>
 <h2 id="Regularized-Linear-Regression"><a href="#Regularized-Linear-Regression" class="headerlink" title="Regularized Linear Regression"></a>Regularized Linear Regression</h2><p>We can apply regularization to both linear regression and logistic regression. We will approach linear regression first.</p>
 <ul>
 <li>Gradient Descent</li>
 </ul>
-<p>We will modify our gradient descent function to separate out &#x3B8;<sub>0</sub> </p>
+<p>We will modify our gradient descent function to separate out θ<sub>0</sub> </p>
 <p><img src="/2016/11/29/Machine-Learning-3/26.png" alt=""></p>
-<p>The term &#x3BB;/m*&#x3B8;<sub>j</sub> performs our regularization. With some manipulation our update rule can also be represented as:</p>
+<p>The term λ/m*θ<sub>j</sub> performs our regularization. With some manipulation our update rule can also be represented as:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/27.png" alt=""></p>
-<p>The first term in the above equation, 1-&#x3B1;*&#x3BB;/m<br>will always be less than 1. Intuitively you can see it as reducing the value of &#x3B8;<sub>j</sub> by some amount on every update. Notice that the second term is now exactly the same as it was before.</p>
-<h2 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h2><p>Now let&#x2019;s approach regularization using the alternate method of the non-iterative normal equation.</p>
+<p>The first term in the above equation, 1-α*λ/m<br>will always be less than 1. Intuitively you can see it as reducing the value of θ<sub>j</sub> by some amount on every update. Notice that the second term is now exactly the same as it was before.</p>
+<h2 id="Normal-Equation"><a href="#Normal-Equation" class="headerlink" title="Normal Equation"></a>Normal Equation</h2><p>Now let’s approach regularization using the alternate method of the non-iterative normal equation.</p>
 <p>To add in regularization, the equation is the same as our original, except that we add another term inside the parentheses:</p>
 <p><img src="/2016/11/29/Machine-Learning-3/28.png" alt=""></p>
-<p>L is a matrix with 0 at the top left and 1&#x2019;s down the diagonal, with 0&#x2019;s everywhere else. It should have dimension (n+1)&#xD7;(n+1). Intuitively, this is the identity matrix (though we are not including x<sub>0</sub>), multiplied with a single real number &#x3BB;.</p>
-<p>Recall that if m &#x2264; n, then X<sup>T</sup>X is non-invertible. However, when we add the term &#x3BB;&#x22C5;L, then X<sup>T</sup>X+&#x3BB;&#x22C5;L becomes invertible.</p>
+<p>L is a matrix with 0 at the top left and 1’s down the diagonal, with 0’s everywhere else. It should have dimension (n+1)×(n+1). Intuitively, this is the identity matrix (though we are not including x<sub>0</sub>), multiplied with a single real number λ.</p>
+<p>Recall that if m ≤ n, then X<sup>T</sup>X is non-invertible. However, when we add the term λ⋅L, then X<sup>T</sup>X+λ⋅L becomes invertible.</p>
 <h2 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h2><p>We can regularize logistic regression in a similar way that we regularize linear regression. As a result, we can avoid overfitting. The following image shows how the regularized function, displayed by the pink line, is less likely to overfit than the non-regularized function represented by the blue line:</p>
 <p> <img src="/2016/11/29/Machine-Learning-3/29.png" alt=""></p>
 <h2 id="Cost-Function-2"><a href="#Cost-Function-2" class="headerlink" title="Cost Function"></a>Cost Function</h2><p>Recall that our cost function for logistic regression was:</p>
 <p> <img src="/2016/11/29/Machine-Learning-3/30.png" alt=""></p>
 <p>We can regularize this equation by adding a term to the end:</p>
 <p> <img src="/2016/11/29/Machine-Learning-3/31.png" alt=""></p>
-<p>The second sum, &#x2211;<sub>j=1</sub><sup>n</sup>&#x3B8;<sub>j</sub><sup>2</sup> <strong>means to explicitly exclude</strong> the bias term, &#x3B8;<sub>0</sub>.I.e. the &#x3B8; vector is indexed from 0 to n (holding n+1 values,&#x3B8;<sub>0</sub> through &#x3B8;<sub>n</sub>), and this sum explicitly skips &#x3B8;<sub>0</sub> by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:</p>
+<p>The second sum, ∑<sub>j=1</sub><sup>n</sup>θ<sub>j</sub><sup>2</sup> <strong>means to explicitly exclude</strong> the bias term, θ<sub>0</sub>.I.e. the θ vector is indexed from 0 to n (holding n+1 values,θ<sub>0</sub> through θ<sub>n</sub>), and this sum explicitly skips θ<sub>0</sub> by running from 1 to n, skipping 0. Thus, when computing the equation, we should continuously update the two following equations:</p>
 <p> <img src="/2016/11/29/Machine-Learning-3/32.png" alt=""></p>
 
       
@@ -297,8 +296,8 @@ However, this method doesn&amp;#x2019;t work">
   
     <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
     <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
     </div>
 </form></aside>
   
@@ -308,7 +307,7 @@ However, this method doesn&amp;#x2019;t work">
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">35</span></li></ul>
     </div>
   </aside>
 
@@ -331,7 +330,7 @@ However, this method doesn&amp;#x2019;t work">
 <li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
 
 
-<li><a href="http://wxjackie.com" target="_blank">WXJACKIE</a></li>
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
 
 
 <li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
@@ -362,6 +361,10 @@ However, this method doesn&amp;#x2019;t work">
       <ul>
         
           <li>
+            <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
@@ -377,10 +380,6 @@ However, this method doesn&amp;#x2019;t work">
             <a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件</a>
           </li>
         
-          <li>
-            <a href="/2017/11/02/LSTM/">RNN 与 LSTM</a>
-          </li>
-        
       </ul>
     </div>
   </aside>
@@ -390,7 +389,7 @@ However, this method doesn&amp;#x2019;t work">
   <aside class="widget">
     <h3 class="widget-title">Tags</h3>
     <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
     </div>
   </aside>
 
