@@ -83,6 +83,65 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-FastRCNN-FasterRCNN" class="post-FastRCNN-FasterRCNN post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2017/12/17/FastRCNN-FasterRCNN/">谈一谈 Fast R-CNN 和 Faster R-CNN</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/" data-id="cjzfn8h3e000m3sb3gnybots6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本文讨论内容涉及到之前整理的一篇文章，链接见下<a href="http://www.saberismywife.com/2017/10/31/CNN之定位检测/" target="_blank" rel="noopener">CNN之定位检测</a></p>
+<h2 id="R-CNN-的一些问题"><a href="#R-CNN-的一些问题" class="headerlink" title="R-CNN 的一些问题"></a>R-CNN 的一些问题</h2><p>R-CNN并不是完美的，他也有一些问题。</p>
+<p>在测试是它运行的很慢。我们可能有2000个区域，每个区域都要运行一下R-CNN，这就是很慢的原因。<br>我们还会面对一个比较有趣的问题。当我们使用SVM或者regression时是离线训练使用线性回归等方法训练，所以我们的R-CNN没有机会按照相应部分的网络目的升级。<br>同时R-CNN训练管道比较复杂时，他会有一些混乱。</p>
+<p>Fast R-CNN</p>
+<p>为了解决这些问题，有人提出了Fast R-CNN模型。Fast R-CNN的算法很简单：我们只需要交换提取出的区域然后在运行CNN。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/12/17/FastRCNN-FasterRCNN/#more" class="more-link">More <span class="meta-nav">→</span></a>
+          </p>
+        
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/12/17/FastRCNN-FasterRCNN/">
+    <time datetime="2017-12-17T08:10:42.000Z" class="entry-date">
+        2017-12-17
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-如何在Xcode中添加-bits-stdc-h-头文件" class="post-如何在Xcode中添加-bits-stdc-h-头文件 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -98,7 +157,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/" data-id="cjtwwz47f005f0ib3a9imo1y7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/" data-id="cjzfn8hcl005k3sb3tzig4lob" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -154,7 +213,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/02/LSTM/" data-id="cjtwwz3yz00110ib3k36rvuee" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/02/LSTM/" data-id="cjzfn8h4100123sb3p6b236ln" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -210,7 +269,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/01/循环神经网络-RNN/" data-id="cjtwwz47m005t0ib3cy1k0ioc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/01/循环神经网络-RNN/" data-id="cjzfn8hcu00633sb3u8gnab6e" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -268,7 +327,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/31/CNN之定位检测/" data-id="cjtwwz3x800060ib3165mlty8" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/31/CNN之定位检测/" data-id="cjzfn8h2a00053sb3tuvxvx0h" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -324,7 +383,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/27/CNN-Structure-2/" data-id="cjtwwz3w700030ib382dknvlp" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/27/CNN-Structure-2/" data-id="cjzfn8h53001l3sb3js9nlaxx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -381,7 +440,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/25/CNN-Structure/" data-id="cjtwwz3wm00050ib35azlxo6b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/25/CNN-Structure/" data-id="cjzfn8h2500033sb3uewlvca9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -427,63 +486,6 @@
 
 
   
-    <article id="post-MapReduce-RDBMs" class="post-MapReduce-RDBMs post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/10/16/MapReduce-RDBMs/">MapReduce VS RDBMs</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/10/16/MapReduce-RDBMs/" data-id="cjtwwz41o00210ib3to8hvzi6" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>Now, <strong>the RDBMs – Rational Database Management Systems</strong>, is good for updating a small portion of a big database. RDBMs uses a traditional <strong>B-Tree</strong>, which is highly dependent on the time required to perform seek operations. </p>
-<p>Compared to this, MapReduce is good for updating all, or a majority of a big database. MapReduce uses <strong>sort and merge</strong> to rebuild the database which depends more on transfer operations. </p>
-<p>RDBMs is good for applications that required the data sets if the database to be very frequently updated such as in point queries or small dataset updates. MapReduce is better for <strong>WORM, which is a write once and read many times</strong> based data applications. </p>
-        
-          <p class="article-more-link">
-            <a href="/2017/10/16/MapReduce-RDBMs/#more" class="more-link">More <span class="meta-nav">→</span></a>
-          </p>
-        
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/10/16/MapReduce-RDBMs/">
-    <time datetime="2017-10-15T17:58:35.000Z" class="entry-date">
-        2017-10-16
-    </time>
-</a>
-    
-  <span class="article-delim">&#8226;</span>
-  <div class="article-category">
-  <a class="article-category-link" href="/categories/ML/">ML</a>
-  </div>
-
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
   
     <nav id="pagination">
       <nav id="page-nav">
@@ -508,7 +510,7 @@
   <aside class="widget">
     <h3 class="widget-title">Categories</h3>
     <div class="widget-content">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">36</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">36</span></li></ul>
     </div>
   </aside>
 
@@ -562,6 +564,10 @@
       <ul>
         
           <li>
+            <a href="/2019/08/13/前方乃是未踏之旅/">前方乃是未踏之旅</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/31/毕设挖坑笔记-Git-lfs的使用/">毕设填坑笔记-Git lfs的使用</a>
           </li>
         
@@ -575,10 +581,6 @@
         
           <li>
             <a href="/2018/11/21/白话迁移学习/">简述迁移学习</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/reinforcement-learning-and-self-play/">Reinforcement Learning &amp; Self-Play</a>
           </li>
         
       </ul>
