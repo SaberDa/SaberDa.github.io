@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code四期.png">
 <meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code递减.png">
 <meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code三期.png">
-<meta property="og:updated_time" content="2020-04-20T04:22:52.117Z">
+<meta property="og:updated_time" content="2020-04-20T06:00:27.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从代码角度分析动森大头菜价格走势">
 <meta name="twitter:description" content="首先感谢进行解包的大佬Ninji。本文只是对解包代码进行粗略的解读并加以分析。 解包代码大体可分为三个阶段，分别是随机数生成阶段、价格预测阶段和价格计算阶段。 随机数生成阶段–梅森旋转算法梅森旋转算法，Mersenne twister，简写为MT。在C++11中的随机数库中，有一个随机数生成引擎函数 std::mt19937，这里的mt就是梅森旋转算法的简写。">
@@ -179,7 +179,7 @@
 <p>换句话说，如果在周四下午时价格走势还是逐次降低的话，抓紧去好友岛上抛售吧，你的大头菜熔断了。</p>
 <p><strong>针对三期形计算</strong></p>
 <p><img src="/2020/04/20/动森大头菜价格分析/code三期.png" alt=""></p>
-<p>从代码中可以看出，三期型是最为复杂的一种变化，它首先会持续走低，然后在某一天开始回暖，然后打到峰值。改峰值的最低点是买入价的1.4倍左右，最高点可达2倍左右。达到峰值后重新开始持续走低。</p>
+<p>从代码中可以看出，三期型是最为复杂的一种变化，它首先会持续走低，然后在某一天开始回暖，然后打到峰值。达到峰值后重新开始持续走低。</p>
 <hr>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从整体上看，大头菜价格预测还是相对简单的，网上那些预测工具也是使用你的上一周走势情况，加上你的买入价和一些售价进行反计算，计算出预测阶段时产生的随机bias。当然想完全准确的预测出bias基本上是不可能的，只能给你提供一个大致的范围。</p>
 <p>所以建议玩家在心里设置一个大头菜价格阈值，如果高于这个阈值就卖了吧。毕竟股市有风险，投资需谨慎。</p>
