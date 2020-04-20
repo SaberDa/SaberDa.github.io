@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>从代码角度分析动森大头菜价格走势 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先感谢进行解包的大佬Ninji。本文只是对解包代码进行粗略的解读并加以分析。 解包代码大体可分为三个阶段，分别是随机数生成阶段、价格预测阶段和价格计算阶段。 随机数生成阶段–梅森旋转算法梅森旋转算法，Mersenne twister，简写为MT。在C++11中的随机数库中，有一个随机数生成引擎函数 std::mt19937，这里的mt就是梅森旋转算法的简写。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从代码角度分析动森大头菜价格走势">
+<meta property="og:url" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="首先感谢进行解包的大佬Ninji。本文只是对解包代码进行粗略的解读并加以分析。 解包代码大体可分为三个阶段，分别是随机数生成阶段、价格预测阶段和价格计算阶段。 随机数生成阶段–梅森旋转算法梅森旋转算法，Mersenne twister，简写为MT。在C++11中的随机数库中，有一个随机数生成引擎函数 std::mt19937，这里的mt就是梅森旋转算法的简写。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/rand.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/cabbageInit.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/rotate.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/rate.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/pattern.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/波动.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/四期.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/递减.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/三期.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code波形.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code四期.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code递减.png">
+<meta property="og:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/code三期.png">
+<meta property="og:updated_time" content="2020-04-20T04:22:52.117Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从代码角度分析动森大头菜价格走势">
+<meta name="twitter:description" content="首先感谢进行解包的大佬Ninji。本文只是对解包代码进行粗略的解读并加以分析。 解包代码大体可分为三个阶段，分别是随机数生成阶段、价格预测阶段和价格计算阶段。 随机数生成阶段–梅森旋转算法梅森旋转算法，Mersenne twister，简写为MT。在C++11中的随机数库中，有一个随机数生成引擎函数 std::mt19937，这里的mt就是梅森旋转算法的简写。">
+<meta name="twitter:image" content="https://saberda.github.io/2020/04/20/动森大头菜价格分析/rand.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-动森大头菜价格分析" class="post-动森大头菜价格分析 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      从代码角度分析动森大头菜价格走势
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2020/04/20/动森大头菜价格分析/" data-id="ck97yydo70000eehzsyi4fl8p" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>首先感谢进行解包的大佬<a href="https://twitter.com/_Ninji/status/1244818665851289602?s=20" target="_blank" rel="noopener">Ninji</a>。本文只是对解包代码进行粗略的解读并加以分析。</p>
+<p>解包代码大体可分为三个阶段，分别是随机数生成阶段、价格预测阶段和价格计算阶段。</p>
+<h2 id="随机数生成阶段–梅森旋转算法"><a href="#随机数生成阶段–梅森旋转算法" class="headerlink" title="随机数生成阶段–梅森旋转算法"></a>随机数生成阶段–梅森旋转算法</h2><p>梅森旋转算法，Mersenne twister，简写为MT。在C++11中的随机数库中，有一个随机数生成引擎函数 std::mt19937，这里的mt就是梅森旋转算法的简写。</p>
+<a id="more"></a>
+<p>明明是介绍大头菜走势的文章，怎么就突然间跑到一个算法上了呢？因为这个算法是任天堂主要使用的随机数生成算法，也是目前主流的生成随机数算法。</p>
+<p>随机数生成算法虽然说是用来生成随机数的，但是其生成的也只不过是伪随机数。为什么说是“伪”随机数呢？相信有些计算机编程基础的同学都知道，计算机本身并不能产生随机数，只能通过一组循环节很长的数字串来伪造随机。同时，在统计学中，伪随机数的概念为“统计学伪随机性值的是在给定的随机比特流样本中，1的数量大致等于0的数量，同理，00, 01, 10, 11 四者数量大致相等。类似的标准被称为统计学随机性。满足这类要求的数字在人类”一眼看上去“是随机的。</p>
+<p>拿笔者比较熟悉的C++举例，其库函数中的rand函数，只是根据当时提供的种子计算出来的一组循环节很长的数。只要两次提供的种子是一样的，那么rand函数生成的随机数也是一样的。至于这个有多长呢？可以看rand的实现，如下图所示。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/rand.png" alt=""></p>
+<p>然而理想中的随机数，理应是与之前生成的数字没有任何关联，那么在计算机中对应的就是产生随机数的函数应该不需要调用任何参数（因为一旦调用了参数，其生成的随机数就与参数有关）。这点在目前计算机技术上是无法实现的。因为计算机代表的特性是有逻辑的可推理的。</p>
+<p>好了有些说远了，梅森旋转算法是目前最普遍的优质随机数生成算法。梅森旋转算法使用的循环节是 2<sup>19937</sup>-1。这个数字叫梅森素数。梅森旋转算法之所以是优质随机数生成算法，是因为它的循环节是梅森素数，在一定程度下能保证生成的数字平均分布。</p>
+<p>介绍完梅森之后开始简单讲讲旋转。这里笔者思考了很久如何展开，最后还是决定简单的略过。如果详细的对其讲解，其文字量可以完全单开另一篇文章进行介绍，有失偏颇。这里只简简单单概述下旋转算法的大致流程：</p>
+<ul>
+<li>第一阶段：初始化，获得基础的梅森旋转链</li>
+<li>第二阶段：对于旋转链进行旋转算法</li>
+<li>第三阶段：对于旋转算法所得到的结果进行处理</li>
+</ul>
+<p>如果各位看官有兴趣对梅森旋转算法进行深入的了解，笔者这里推荐几个当时自己觉得介绍的比较详细的博文链接：</p>
+<p><a href="https://en.wikipedia.org/wiki/Mersenne_Twister" target="_blank" rel="noopener">梅森旋转算法Wiki</a></p>
+<p><a href="https://liam.page/2018/01/12/Mersenne-twister/" target="_blank" rel="noopener">谈谈梅森旋转：算法及其爆破</a></p>
+<p>这里不建议读者去查阅相关的中文Wiki，因为相对于英文Wiki，中文版Wiki这部分内容少得太多。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/cabbageInit.png" alt=""></p>
+<p>上图即大头菜随机数算法的第一阶段，初始化梅森旋转链。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/rotate.png" alt=""></p>
+<p>上图为大头菜随机数算法的第二阶段，开始对旋转链进行旋转算法。这里任天堂旋转的位数和原梅森旋转算法有些出入，应该是任天堂的算法工程师进行了一些针对的优化。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/rate.png" alt=""></p>
+<p>上图为大头菜随机数算法的最后一步，使用之前随机数算法生成随机的价格比率。后面计算部分就使用这里生成的随机价格比率乘上初始的购入大头菜价格，得到最终的售价。</p>
+<hr>
+<h2 id="价格预测阶段"><a href="#价格预测阶段" class="headerlink" title="价格预测阶段"></a>价格预测阶段</h2><p>这作动森相比于上一作，大头菜价格增加了一个变数，就是你上周的走势会影响这周的走势。这一点我查阅了很多3DS论坛在17年前后发表的有关价格预测的帖子，那些帖子只提及了比例，而没有上周的走势因素。</p>
+<p>在这作动森火了之后，有很多营销号和不良游戏攻略制作者直接用上一作的大头菜价格预测规则来预测本作的走势，这里笔者需要提醒下大家，如果你当前使用的价格预测器没有询问你上一周走势的话，最好还是换一个带有上一周走势因素的计算器吧。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/pattern.png" alt=""></p>
+<p>简单解释下代码。</p>
+<p>第一行是随机生成周日上午的曹卖售价。第二行生成的是你这周大头菜的价格bias。根据你生成的这个bias，确定你这周的价格走势。</p>
+<p>然后分析下每个case代表的含义。</p>
+<p><strong>case0：</strong></p>
+<p>这里对应的走势是随机波形，价格变化为：</p>
+<p>高 -&gt; 低 -&gt; 高 -&gt; 低 -&gt; 高</p>
+<p>价格频繁的上下浮动，即使是价格突然下降也有可能立马回升。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/波动.png" alt=""></p>
+<p><strong>case1:</strong></p>
+<p>这里对应的走势是四期型，前几日价格会持续下跌，接着会在某一天突然价格上涨，并在一天后达到峰值，然后逐渐降低。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/四期.png" alt=""></p>
+<p><strong>case2：</strong></p>
+<p>这里对应的走势是递减型，价格会持续下跌。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/递减.png" alt=""></p>
+<p><strong>case3：</strong></p>
+<p>这里对应的走势是三期型，前几日价格会持续下跌，接着在某一天突然上涨。</p>
+<p><img src="/2020/04/20/动森大头菜价格分析/三期.png" alt=""></p>
+<p>从代码上可以看出来，无论你上周是怎样的走势，这周为持续下跌型的概率最高只为20%。</p>
+<hr>
+<h2 id="价格计算阶段"><a href="#价格计算阶段" class="headerlink" title="价格计算阶段"></a>价格计算阶段</h2><p><strong>针对波形进行计算</strong></p>
+<p><img src="/2020/04/20/动森大头菜价格分析/code波形.png" alt=""></p>
+<p>从代码可知，一旦你的走势确认为波形，那你需要注意当你的售价为买价的1.4倍左右时，就是出手的好时机了，因为再高也不会高于这个价了。</p>
+<p><strong>针对四期型计算</strong></p>
+<p><img src="/2020/04/20/动森大头菜价格分析/code四期.png" alt=""></p>
+<p>从代码可知，如果你的走势是四期型，那么你就可以适当的赌一把，因为四期型的最高价可以高达买入价的6倍左右。并且从代码中可以看出来，最高价出现的日子是价格开始回升的第三次开盘，这里是重点，千万不要错过这个时间段。</p>
+<p><strong>针对递减型计算</strong></p>
+<p><img src="/2020/04/20/动森大头菜价格分析/code递减.png" alt=""></p>
+<p>这部分代码没什么好讲的，很简单，比率持续下降。</p>
+<p>这里要提醒大家，递减型和四期型的前期走势特别相似，但是出于四期型的5次价格抬高，如果在周四下午还未发现价格回升，这里建议立即去好友的岛上进行大头菜的售出。因为此时已经确定为递减型。</p>
+<p>换句话说，如果在周四下午时价格走势还是逐次降低的话，抓紧去好友岛上抛售吧，你的大头菜熔断了。</p>
+<p><strong>针对三期形计算</strong></p>
+<p><img src="/2020/04/20/动森大头菜价格分析/code三期.png" alt=""></p>
+<p>从代码中可以看出，三期型是最为复杂的一种变化，它首先会持续走低，然后在某一天开始回暖，然后打到峰值。改峰值的最低点是买入价的1.4倍左右，最高点可达2倍左右。达到峰值后重新开始持续走低。</p>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从整体上看，大头菜价格预测还是相对简单的，网上那些预测工具也是使用你的上一周走势情况，加上你的买入价和一些售价进行反计算，计算出预测阶段时产生的随机bias。当然想完全准确的预测出bias基本上是不可能的，只能给你提供一个大致的范围。</p>
+<p>所以建议玩家在心里设置一个大头菜价格阈值，如果高于这个阈值就卖了吧。毕竟股市有风险，投资需谨慎。</p>
+<p><strong>感谢攻略组的解包人员为玩家提供出准确的游戏数据。世上哪有那么多好用的游戏攻略，只不过是在你看不见的地方有大佬在替你负重前行。任何游戏的攻略数据都是如此，希望广大玩家在网上查找到有用的攻略时在心里默默感谢一下攻略组解包玩家的默默付出。</strong></p>
+<p>最后，本文相关代码<a href="https://github.com/SaberDa/My-Swiss-Army-Knife-Made-By-Code/blob/master/CPP/Cabbage.cpp" target="_blank" rel="noopener">见此</a>。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/04/20/动森大头菜价格分析/">
+    <time datetime="2020-04-20T04:09:18.000Z" class="entry-date">
+        2020-04-20
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2020/03/15/LeetCode刷题记录-Part2/" rel="next">LeetCode刷题记录-Part2 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">40</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/20/HashCode-2020/">HashCode 2020</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/LeetCode刷题记录-Part1/">LeetCode刷题记录-Part1</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/13/前方乃是未踏之旅/">前方乃是未踏之旅</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
