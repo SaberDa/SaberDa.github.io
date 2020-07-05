@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>LeetCode刷题记录-Part3 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本篇是该系列第三篇，第一篇和第二篇的链接在此。本篇将介绍Trie Tree 和 Union Find。两者都是很常见的树状数据结构。 这篇应该是LeetCode刷题系列的最后一篇，本来还打算包含 segment tree 和 topological sort 的介绍，但是后来发现这两个部分的题目数量是真的少，没必要写出来。至于之前还计划整理一篇位运算的相关操作，但是想了想这东西在工作中的实际运用，">
+<meta name="keywords" content="LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题记录-Part3">
+<meta property="og:url" content="https://saberda.github.io/2020/07/05/LeetCode-part3/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本篇是该系列第三篇，第一篇和第二篇的链接在此。本篇将介绍Trie Tree 和 Union Find。两者都是很常见的树状数据结构。 这篇应该是LeetCode刷题系列的最后一篇，本来还打算包含 segment tree 和 topological sort 的介绍，但是后来发现这两个部分的题目数量是真的少，没必要写出来。至于之前还计划整理一篇位运算的相关操作，但是想了想这东西在工作中的实际运用，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie1.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie2.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie3.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie4.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie5.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/676.jpg">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/676code.jpeg">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/323.png">
+<meta property="og:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/323code.png">
+<meta property="og:updated_time" content="2020-07-05T19:47:28.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode刷题记录-Part3">
+<meta name="twitter:description" content="本篇是该系列第三篇，第一篇和第二篇的链接在此。本篇将介绍Trie Tree 和 Union Find。两者都是很常见的树状数据结构。 这篇应该是LeetCode刷题系列的最后一篇，本来还打算包含 segment tree 和 topological sort 的介绍，但是后来发现这两个部分的题目数量是真的少，没必要写出来。至于之前还计划整理一篇位运算的相关操作，但是想了想这东西在工作中的实际运用，">
+<meta name="twitter:image" content="https://saberda.github.io/2020/07/05/LeetCode-part3/Trie1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-LeetCode-part3" class="post-LeetCode-part3 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      LeetCode刷题记录-Part3
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2020/07/05/LeetCode-part3/" data-id="ckc9h87n30018wshzpzdy2shf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本篇是该系列第三篇，<a href="http://www.saberismywife.com/2020/03/15/LeetCode刷题记录-Part2/" target="_blank" rel="noopener">第一篇</a>和<a href="http://www.saberismywife.com/2020/03/15/LeetCode刷题记录-Part2/" target="_blank" rel="noopener">第二篇</a>的链接在此。本篇将介绍Trie Tree 和 Union Find。两者都是很常见的树状数据结构。</p>
+<p>这篇应该是LeetCode刷题系列的最后一篇，本来还打算包含 segment tree 和 topological sort 的介绍，但是后来发现这两个部分的题目数量是真的少，没必要写出来。至于之前还计划整理一篇位运算的相关操作，但是想了想这东西在工作中的实际运用，也被删除了。</p>
+<p>接下来估计会开 system design 系列。这东西在北美找全职也是要准备的，之前还自以为刷题什么的就可以了。</p>
+<a id="more"></a>
+<h2 id="什么是Trie-？"><a href="#什么是Trie-？" class="headerlink" title="什么是Trie ？"></a>什么是Trie ？</h2><ul>
+<li>Trie 是一种树状的数据结构，它的每个结点通常上存储单个的字母</li>
+<li>Trie 是一种有序的树数据结构，每次遍历它的分支用户都会得到一个字符串，是一种哈希树的变种</li>
+<li>典型应用<br>  既然 Trie 又被称为字典树，它的主要应用在于统计和排序大量的字符串，比如在搜索引擎系统中进行词频统计。</li>
+</ul>
+<h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>这里采取最常见的结构，在实际做题的过程中，要根据题意进行细微的变化，比如将 bool 类型的判断符换成 string 类型的标识符，或者改变存储数组的大小。下文中提到的所有 Trie 结构都是基于该最基础的结构。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct TrieNode &#123;</span><br><span class="line">​	bool isWord;</span><br><span class="line">​	TrieNode *next[26];</span><br><span class="line">​	TrieNode() : isWord(false) &#123;</span><br><span class="line">​		memset(next, NULL, sizeof(next));</span><br><span class="line">​	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一个典型的 Trie 结构包含一个为空的根结点，和对其他所有结点的引用。</p>
+<p>至于引用的具体数量，取决于当前要遍历的值的总数。举个例子，比如当前 Trie 表示仅包含小写字母的字符串。然后从 “a” 到 “z” 有26个不同的字母，那么它的引用个数就是26。如果是专门储存二进制变量的 Bitwise Trie，那么的引用只需要两个，分别为 0 和 1。</p>
+<hr>
+<h2 id="Trie-的每个结点都包含什么呢？"><a href="#Trie-的每个结点都包含什么呢？" class="headerlink" title="Trie 的每个结点都包含什么呢？"></a>Trie 的每个结点都包含什么呢？</h2><p>Trie 的每个结点包含两部分：</p>
+<ul>
+<li>一个存储对其他结点引用的数组</li>
+<li>一个 bool 值，可以称其为 Leaf。（需要注意的是，这里的 Leaf 是用于检查当前字符串是否在该结点结束，而不是结点本身是否是叶子结点）</li>
+</ul>
+<hr>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>下面通过一步步构建出一个 Trie 树来帮助大家更好的理解。</p>
+<pre><code>List = {&quot;apple&quot;, &quot;app&quot;, &quot;abide&quot;, &quot;ball&quot;, &quot;bat&quot;};
+Note: All the string in the list contains lowercase letters from &apos;a&apos; to &apos;z&apos;.
+</code></pre><p><img src="/2020/07/05/LeetCode-part3/Trie1.png" alt=""></p>
+<p><strong>第一步：apple 被添加到树中。</strong><br>上图中的第一个结点是根结点，其本身值为空。<br>现在根结点已经有了一个引用 ‘a’，’a’ 结点本身只有一个对 ‘p’ 的引用，其他的为空。依次类推余下的结点。</p>
+<p><img src="/2020/07/05/LeetCode-part3/Trie2.png" alt=""></p>
+<p><strong>第二步：将 app 添加到树中。</strong><br>从根结点开始，判断当前的引用是否存在。如果存在，那么移动到该引用指向的结点那里。否则，需要创建一个新的结点，并将引用指向新的结点。<br>当前结点的所有子结点都具有与该结点关联的字符串的公共前缀。</p>
+<p><img src="/2020/07/05/LeetCode-part3/Trie3.png" alt=""></p>
+<p><strong>第三步：将 abide 添加到树中。</strong><br>abide 所代表的分支与 apple 分支共享一个公共前缀 ‘a’</p>
+<p><img src="/2020/07/05/LeetCode-part3/Trie4.png" alt=""></p>
+<p><strong>第四步：将 ball 添加到树中。</strong><br>因为当前根结点没有对 ‘b’ 的引用，所以我们创建一个新的分支。</p>
+<p><img src="/2020/07/05/LeetCode-part3/Trie5.png" alt=""></p>
+<p><strong>第五步：将 bat 添加到树中。</strong><br>上图即为根据当前输入字符串列表所建立的最终的 Trie。</p>
+<hr>
+<h2 id="具体代码实现："><a href="#具体代码实现：" class="headerlink" title="具体代码实现："></a>具体代码实现：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">class TrieTree &#123;</span><br><span class="line">private:</span><br><span class="line">​	struct TrieNode &#123;</span><br><span class="line">​		bool isWord;</span><br><span class="line">​		TrieNode *next[26];</span><br><span class="line">​		TrieNode() : isWord(false) &#123;</span><br><span class="line">​			memset(next, NULL, sizeof(next));</span><br><span class="line">​		&#125;</span><br><span class="line">​	&#125;;</span><br><span class="line">​	TrieNode *root;</span><br><span class="line"></span><br><span class="line">​	// 插入过程</span><br><span class="line">​	// Insert</span><br><span class="line">​	void buildTree(string s) &#123;</span><br><span class="line">​		TrieNode *node = root;</span><br><span class="line">​		for (auto c : s) &#123;</span><br><span class="line">​			if (!node-&gt;next[c - &apos;a&apos;]) node-&gt;next[c - &apos;a&apos;] = new TrieNode();</span><br><span class="line">​			node = node-&gt;next[c - &apos;a&apos;];</span><br><span class="line">​		&#125;</span><br><span class="line">​		node-&gt;isWord = true;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	// 查找过程</span><br><span class="line">​	// Search</span><br><span class="line">​	bool findWord(string s) &#123;</span><br><span class="line">​		TrieNode *node = root;</span><br><span class="line">​		for (auto c : s) &#123;</span><br><span class="line">​			if (!node-&gt;next[c - &apos;a&apos;]) return false;</span><br><span class="line">​			node = node-&gt;next[c - &apos;a&apos;];</span><br><span class="line">​		&#125;</span><br><span class="line">​		return node-&gt;isWord;</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line"></span><br><span class="line">​	TrieTree() &#123;</span><br><span class="line">​		root = new TrieNode();</span><br><span class="line">​	&#125;</span><br><span class="line"></span><br><span class="line">​	// Do other things</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="例题分析"><a href="#例题分析" class="headerlink" title="例题分析"></a>例题分析</h2><p><a href="https://leetcode.com/problems/implement-magic-dictionary/" target="_blank" rel="noopener">Leetcode 676</a></p>
+<p>这道题是一个典型的使用 Trie Tree 解决的问题。</p>
+<p><img src="/2020/07/05/LeetCode-part3/676.jpg" alt=""></p>
+<p>这道题我们首先需要依据输入的字符串数组建树。然后对之后输入的字符串进行处理，当每次仅变换一个字母时，能否在树中查找到对应的单词，如果可以返回 true，否则返回 false。</p>
+<p><img src="/2020/07/05/LeetCode-part3/676code.jpeg" alt=""></p>
+<p><a href="https://github.com/SaberDa/LeetCode/blob/master/C%2B%2B/676-implenmentMagicDictionart.cpp" target="_blank" rel="noopener">源码</a>。</p>
+<p>还有一些使用 Trie 的变种。<a href="https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/" target="_blank" rel="noopener">LeetCode 421</a> 是使用了 Bitwise Trie，<a href="https://leetcode.com/problems/camelcase-matching/" target="_blank" rel="noopener">LeetCode 1023</a> 则是在初始化树的结构时需要考虑大写和小写的情况。</p>
+<hr>
+<h2 id="Trie-的优点"><a href="#Trie-的优点" class="headerlink" title="Trie 的优点"></a>Trie 的优点</h2><ul>
+<li>Trie Tree 类似于 HashMap，但是在时间和空间上有一些变化。<br>在 Trie 中搜索一个字符串的时间复杂度为 O(m)，其中 m 表示带搜索字符串长度。</li>
+<li>相比于哈希表，Trie 避免了碰撞冲突。</li>
+<li>并且 Trie 本身不需要任何的哈希计算函数</li>
+<li>Trie在自动补全功能上有着显著的作用。</li>
+</ul>
+<h2 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h2><ul>
+<li>最坏的情况下，建树为 O(mn)。其中 m 是最长的字符串，n 是字符串的总数。时间复杂度取决于 Trie 所包含的字符串数量以及它们的长度</li>
+<li>Trie 执行插入、搜索、删除需要的时间都是 O(m)，其中 m 是待操作单词的长度</li>
+</ul>
+<h2 id="空间复杂度分析"><a href="#空间复杂度分析" class="headerlink" title="空间复杂度分析"></a>空间复杂度分析</h2><ul>
+<li>O(kN)，其中 k 是所有索引的数量（包含为空的索引），N 是树中的结点个数</li>
+</ul>
+<hr>
+<h2 id="Union-Find-并查集"><a href="#Union-Find-并查集" class="headerlink" title="Union Find 并查集"></a>Union Find 并查集</h2><p>Union Find 简单来讲就是解决图的连通性问题。并广泛应用于解决集合问题，比如判断某个元素是否属于一个集合，或者两个元素是否属于同一个集合，或者求解集合的个数等等。</p>
+<hr>
+<h2 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h2><ul>
+<li>Find<br>确定元素属于哪一个子集，或判断两个元素是否属于同一子集</li>
+<li>Union<br>将两个子集合并成一个集合</li>
+</ul>
+<p>简单来讲，find 操作是查找当前两个元素的公共祖先；Union 操作是修改元素的root。</p>
+<p>在LeetCode中具体应用挺八股文的，只要你分析出这道题可以使用 Union Find ，那么代码的大致结构都是差不多的。</p>
+<h2 id="一个简单的模板"><a href="#一个简单的模板" class="headerlink" title="一个简单的模板"></a>一个简单的模板</h2><p>该模板为了方便大家理解，就不使用泛型了。采取题目中出现次数比较频繁的int型，并将 Union 操作合并到了主要操作中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">int find(vector&lt;int&gt;&amp; parents, int c) &#123;</span><br><span class="line">​	return (parents[c] == c) ? parents[c] ? find(parents, parents[c]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int doSomething(vector&lt;vector&lt;int&gt;&gt; nums, ...) &#123;</span><br><span class="line">​	int m = nums.size();</span><br><span class="line">​	// The vector size must be the size + 1</span><br><span class="line">​	vector&lt;int&gt; parents(m + 1);</span><br><span class="line">​	// Assignment value to vector from 0 to m</span><br><span class="line">​	iota(parents.begin(), parents.end(), 0);</span><br><span class="line">​	for (auto it : nums) &#123;</span><br><span class="line">​		// This is the Union() operation</span><br><span class="line">​		int root1 = find(parents, it[0]);  // Find the root1</span><br><span class="line">​		int root2 = find(parents, it[1]);  // Find the root2</span><br><span class="line">​		// If root1 == root2, do operations according to problem</span><br><span class="line">​		// Else if root1 != root2, put the root2 as the value of parents[root1]</span><br><span class="line">​		if (root1 != root2) parents[root1] = root2;</span><br><span class="line">​	&#125;</span><br><span class="line">​	// Do other operations</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="例题分析-1"><a href="#例题分析-1" class="headerlink" title="例题分析"></a>例题分析</h2><p>以 <a href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/" target="_blank" rel="noopener">LeetCode 323</a> 为例，这道题以图形化的方式帮助大家更好的理解 Union Find 问题。</p>
+<p><img src="/2020/07/05/LeetCode-part3/323.png" alt=""></p>
+<p>这道题的意思是让我们根据输入的结点，找出一共有几个联通子图。</p>
+<p>比如在 Example 1 中，先将 0 和 1 相连，然后讲 2 和 1 相连。这就是合并集合的操作。</p>
+<p><img src="/2020/07/05/LeetCode-part3/323code.png" alt=""></p>
+<p><a href="https://github.com/SaberDa/LeetCode/blob/master/C%2B%2B/323-numberOfConnectedComponentsInAnUndirectedGraph.cpp" target="_blank" rel="noopener">源码</a>。</p>
+<hr>
+<p>Union Find 另一个比较典型的操作就是判断森林中是否存在环，比如 <a href="https://leetcode.com/problems/graph-valid-tree/" target="_blank" rel="noopener">LeetCode 261</a> 。</p>
+<p>这几道题都是比较典型的应用，还有一些变形，需要我们处理 parent 数组的大小，或者对 Union 操作进行一些变形。比如 <a href="https://leetcode.com/problems/satisfiability-of-equality-equations/" target="_blank" rel="noopener">LeetCode 990</a> 就是一道需要我们变换 parent 数组的题目，这道题也可以理解为寻找环形 DFS。</p>
+<p>一些比较复杂的 DFS 问题，如果能将其转换换成 Union Find 来处理，则会大大降低难度，比如 <a href="https://leetcode.com/problems/surrounded-regions/" target="_blank" rel="noopener">LeetCode 130</a>，这道题是个典型的 DFS 问题，但是我们可以使用一个 dummy 结点当做所有 O 值的祖先结点，添加动态连通性，这样就可以把二维坐标映射到一维坐标，降低难度。</p>
+<hr>
+<p>Union Find 操作的具体应用还是挺套路化的，感觉和 topological sort 差不多，两者都是使用起来模板化。但是需要针对具体题目进行变换。</p>
+<p>Union Find 还有很多针对它本身的优化，这里就不一一讲解了，毕竟只是针对刷题，大家有兴趣的可以自行去了解。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>笔者现在刷题数量已经400多了，已经开始有条件的按类型反复刷了。刷题这个过程主要是让你思考相关题目的主要思路，比如看到求和（xSUM）问题，自然而然的就想到双指针；树的同层遍历，那就先上deque。诸如此类。</p>
+<p>刷题的目的不是让大家在面试中碰到原题，当然如果碰到原题那自然最好，而是去分析这个题目的目的，去联想这道题的 follow up。当然这都是老生常谈的问题。这里并不是说大量刷题是没用的、或者是浪费时间的，肌肉记忆还是需要的。有些题可能第一次见时一脸懵逼不知从哪里下手，但是见得多了就自然掌握了。</p>
+<p>这篇文章总结的两种数据结构应用的大致模板，都是相关类型的题刷够一定数量上自然而然掌握的。类似的还有链表的翻转、二维矩阵的搜索等，都是那个套路，唯一不同的就是需要分析题意来判断边界。</p>
+<p>至于自身的遗忘问题，这是必然的。但是当我们见过一道之前做过的题目时，不能只想起来“这道题我做过”，而是要想起来“这道题我记得是用XXX方法来做的”，所以说如果大家每次都是第一种反应的话，建议每做完一道题后，都对类似的相关题目进行 BFS 一遍（LeetCode的每道题下面基本都有 “similar question”），这些题目可以不做，但是一定要分析为什么和之前的题目是相似的，如果我使用之前题目的解法，我能不能解答出这道题。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2020/07/05/LeetCode-part3/">
+    <time datetime="2020-07-05T19:26:32.000Z" class="entry-date">
+        2020-07-05
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2020/04/20/动森大头菜价格分析/" rel="next">从代码角度分析动森大头菜价格走势 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">41</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/20/HashCode-2020/">HashCode 2020</a>
+          </li>
+        
+          <li>
+            <a href="/2020/01/19/LeetCode刷题记录-Part1/">LeetCode刷题记录-Part1</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2020 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
