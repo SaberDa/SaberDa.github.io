@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://saberda.github.io/"/>
-  <updated>2020-07-05T19:47:28.420Z</updated>
+  <updated>2021-02-04T16:46:40.842Z</updated>
   <id>https://saberda.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>海外网易云</title>
+    <link href="https://saberda.github.io/2021/02/04/%E6%B5%B7%E5%A4%96%E7%BD%91%E6%98%93%E4%BA%91/"/>
+    <id>https://saberda.github.io/2021/02/04/海外网易云/</id>
+    <published>2021-02-04T16:39:51.000Z</published>
+    <updated>2021-02-04T16:46:40.842Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>此教程仅针对海外windows用户，若用于商业用途，一切与本文无关。</code></pre><p><strong>第一步，安装代理</strong></p><p>以 <code>管理员身份</code> 打开 <code>Powershell</code>，Windows 10 快捷入口：<code>Win + X</code> - <code>Windows Powershell(管理员)(A)</code></p><a id="more"></a><p><img src="/2021/02/04/海外网易云/1.PNG" alt=""></p><p>复制以下代码，右键粘贴到命令行回车，打开安装菜单。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force</span><br><span class="line">Invoke-Expression -Command (Invoke-WebRequest -UseBasicParsing -Uri https://bit.ly/2RYvE3p).Content</span><br></pre></td></tr></table></figure><p><img src="https://s1.ax1x.com/2020/10/14/04GEUf.png" alt="04GEUf.png"></p><ul><li>随后选择 <code>1</code> 即安装。</li><li>安装完毕后选择 <code>3</code> 运行。</li><li>如需添加开机自启，则执行 <code>7</code>。</li><li>最后输入 <code>0</code> 退出。</li></ul><p><img src="https://s1.ax1x.com/2020/10/14/04GV58.png" alt="04GV58.png"></p><p><strong>第二步，设置代理</strong></p><p>打开网易云音乐客户端，进入设置页面，设置自定义代理</p><ul><li><p>自定义代理 ：填写服务器地址和端口号</p></li><li><p>代理服务器地址：127.0.0.1 （推荐本机搭建，速度快）</p></li><li><p>代理服务器端口：6666</p><p><img src="https://s1.ax1x.com/2020/10/14/04GePS.png" alt="04GePS.png"></p><p>如使用一段时间后无法解锁，则需要重新执行命令，选择 <code>5</code> 更新。</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;pre&gt;&lt;code&gt;此教程仅针对海外windows用户，若用于商业用途，一切与本文无关。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;第一步，安装代理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;以 &lt;code&gt;管理员身份&lt;/code&gt; 打开 &lt;code&gt;Powershell&lt;/code&gt;，Windows 10 快捷入口：&lt;code&gt;Win + X&lt;/code&gt; - &lt;code&gt;Windows Powershell(管理员)(A)&lt;/code&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="LIFE" scheme="https://saberda.github.io/categories/LIFE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>LeetCode刷题记录-Part3</title>
@@ -482,30 +504,6 @@ lol
     
     
       <category term="Neural Networks" scheme="https://saberda.github.io/tags/Neural-Networks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MapReduce VS RDBMs</title>
-    <link href="https://saberda.github.io/2017/10/16/MapReduce-RDBMs/"/>
-    <id>https://saberda.github.io/2017/10/16/MapReduce-RDBMs/</id>
-    <published>2017-10-16T05:58:35.000Z</published>
-    <updated>2017-10-15T18:24:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Now, <strong>the RDBMs – Rational Database Management Systems</strong>, is good for updating a small portion of a big database. RDBMs uses a traditional <strong>B-Tree</strong>, which is highly dependent on the time required to perform seek operations. </p><p>Compared to this, MapReduce is good for updating all, or a majority of a big database. MapReduce uses <strong>sort and merge</strong> to rebuild the database which depends more on transfer operations. </p><p>RDBMs is good for applications that required the data sets if the database to be very frequently updated such as in point queries or small dataset updates. MapReduce is better for <strong>WORM, which is a write once and read many times</strong> based data applications. </p><a id="more"></a><pre><code>Now, MapReduce is a complementary system to the traditional RDBMs system.</code></pre><p>Here are some of the characteristics compared. </p><p><img src="/2017/10/16/MapReduce-RDBMs/1.png" alt=""></p><h2 id="Data-types"><a href="#Data-types" class="headerlink" title="Data types"></a>Data types</h2><p>In order to understand the data types, we need to understand what types of data are actually existing and what their characteristics are. </p><ul><li><p><strong>Structured data</strong> is that has a formal defined structure, such as XML documents or database tables. Semi-structure is data that has looser format, where the data structure is used as a guide, and may be ignored. </p></li><li><p><strong>Unstructured data</strong> is data that dose not have and formal structure, plain text, or image data. These are the things that we may use in our social network, sending images and also text massages, or what we will use in Google(Baidu) to search out various things.</p></li></ul><p><u>MapReduce is very effective on unstructured and semi-structured data</u>. MapReduce interprets that data during the data processing session. It dose not use intrinsic properties of data as input keys or input values. The parameters used are selected by the person analyzing the data. And MapReduce has a programming model that is linearly scalable. </p><p>MapReduce uses two very important functions. One is the <strong>map function</strong>, the other is the <strong>reduce function</strong>. And both of these functions define a key-value pair mapping relationship such like key-value_1 -&gt; key-value_2.</p><p>Here are some of the Hadoop release series characteristics. </p><p><img src="/2017/10/16/MapReduce-RDBMs/2.png" alt=""></p><p>In 1.X, you can have secure authentication, old configuration names, and also old MapReduce APIs. In addition, MapReduce 1 runtime, the classic version is included. In the 0.22 version, it includes new configuration names, and the old MapReduce APIs. And the new MapReduce APIs are also included.</p><p>And it includes MapReduce 1 runtime, the classic version. In the 2.X version, which are the more recent ones, secure authentication, new configuration names, old MapReduce APIs, and new MapReduce APIs, they are all included. Some of the more advanced characteristics include MapReduce 2 runtime <strong>YARN, HDFS</strong> federation, and HDFS high-availability. The Hadoop release series 2.X, includes several major new features, </p><p>MapReduce 2 is the new MapReduce runtime implemented on a new system called YARN. <strong>YARN stands for yet another resource negotiator</strong>. YRAN is a great resource management system for running distributed applications. </p><p>HDFS federation partitions the HDFS namespace across multiple <strong>namenodes</strong>. It enables improved support for clusters with very large number of files. The HDFS high-availability feature uses standby namenodes for backup, and therefore the namenode is no longer a potential SPOF, which is a single point of failure.</p><h2 id="Epilogue"><a href="#Epilogue" class="headerlink" title="Epilogue"></a>Epilogue</h2><p>The next note is about the HDFS’s details, and I will turn it into passage and push the blog if I have enough time :).</p><p>And the last note is a short introduction about the Hadoop, I’m too busy now to update it into passage because I have to finish the FGO activity. </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Now, &lt;strong&gt;the RDBMs – Rational Database Management Systems&lt;/strong&gt;, is good for updating a small portion of a big database. RDBMs uses a traditional &lt;strong&gt;B-Tree&lt;/strong&gt;, which is highly dependent on the time required to perform seek operations. &lt;/p&gt;
-&lt;p&gt;Compared to this, MapReduce is good for updating all, or a majority of a big database. MapReduce uses &lt;strong&gt;sort and merge&lt;/strong&gt; to rebuild the database which depends more on transfer operations. &lt;/p&gt;
-&lt;p&gt;RDBMs is good for applications that required the data sets if the database to be very frequently updated such as in point queries or small dataset updates. MapReduce is better for &lt;strong&gt;WORM, which is a write once and read many times&lt;/strong&gt; based data applications. &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ML" scheme="https://saberda.github.io/categories/ML/"/>
-    
-    
-      <category term="Cloud Computing" scheme="https://saberda.github.io/tags/Cloud-Computing/"/>
     
   </entry>
   
