@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>简述迁移学习 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本篇并不是对迁移学习的一个概述，只是简单说明什么情景应该使用迁移学习，以及迁移学习的一些基本算法思路 首先介绍的是使用情景  Data not directly related to the task considered  直译过来就是使用的数据与任务目标不是直接相关。举个例子来帮助大家明白这句话，我是在今年夏天时的一个比赛中了解到这个算法的，当时我的任务是通过分析 EMG （肌电信号）来识别以">
+<meta name="keywords" content="Neural Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简述迁移学习">
+<meta property="og:url" content="https://saberda.github.io/2018/11/21/白话迁移学习/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本篇并不是对迁移学习的一个概述，只是简单说明什么情景应该使用迁移学习，以及迁移学习的一些基本算法思路 首先介绍的是使用情景  Data not directly related to the task considered  直译过来就是使用的数据与任务目标不是直接相关。举个例子来帮助大家明白这句话，我是在今年夏天时的一个比赛中了解到这个算法的，当时我的任务是通过分析 EMG （肌电信号）来识别以">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/1.png">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/2.png">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/3.png">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/4.png">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/6.PNG">
+<meta property="og:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/5.png">
+<meta property="og:updated_time" content="2018-11-21T13:59:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简述迁移学习">
+<meta name="twitter:description" content="本篇并不是对迁移学习的一个概述，只是简单说明什么情景应该使用迁移学习，以及迁移学习的一些基本算法思路 首先介绍的是使用情景  Data not directly related to the task considered  直译过来就是使用的数据与任务目标不是直接相关。举个例子来帮助大家明白这句话，我是在今年夏天时的一个比赛中了解到这个算法的，当时我的任务是通过分析 EMG （肌电信号）来识别以">
+<meta name="twitter:image" content="https://saberda.github.io/2018/11/21/白话迁移学习/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-白话迁移学习" class="post-白话迁移学习 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      简述迁移学习
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2018/11/21/白话迁移学习/" data-id="ckqlqy7bp00828dx7znq7gtiq" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>本篇并不是对迁移学习的一个概述，只是简单说明什么情景应该使用迁移学习，以及迁移学习的一些基本算法思路
+</code></pre><p>首先介绍的是<strong>使用情景</strong></p>
+<blockquote>
+<p>Data not directly related to the task considered</p>
+</blockquote>
+<p>直译过来就是使用的数据与任务目标不是直接相关。举个例子来帮助大家明白这句话，我是在今年夏天时的一个比赛中了解到这个算法的，当时我的任务是通过分析 EMG （肌电信号）来识别以及预测手势。当时的问题是，我们小组内并没有足够的数据，这里的数据指的是使用我们小组研发的 EMG 采集器收集的数据，基本都是组内人员自己制作的。那么问题在于，我们花费了大量时间收集数据，但是数据量还是相对而言较少，如果直接将这些数据给神经网络训练的话，最后得到的结果可能无法避免的过拟合。</p>
+<p>这种情况就可以采用迁移学习的思想，使用自己的少量数据与使用其他与当前任务相关不大的数据源一同训练。在上述例子中，我最后使用了国外的一个大学实验室收集的 EMG 信号当 Source Data。</p>
+<a id="more"></a>
+<p>这里插入一下迁移学习中的<strong>两个常用术语</strong></p>
+<ul>
+<li><strong>Target Data</strong>：与当前 Task 有关的数据</li>
+<li><strong>Source Data</strong>：与当前 Task 无关的数据</li>
+</ul>
+<p>上诉两种数据都可以细分为 <strong>labeled</strong> 与 <strong>unlabeled</strong></p>
+<p>在上面的例子中，我们小组内自己收集的数据就是 Target Data，国外实验室的数据就是 Source Data。</p>
+<hr>
+<p>下面就是针对数据的不同形式，从而对迁移学习常用算法进行一个简单介绍。我将从 Source Data 与 Target Data 的 labeled 与 unlabeled 两个状态分为四个较大的模块。具体可以见下图</p>
+<p><img src="/2018/11/21/白话迁移学习/1.png" alt=""></p>
+<h2 id="Model-Fine-Tuning"><a href="#Model-Fine-Tuning" class="headerlink" title="Model Fine-Tuning"></a>Model Fine-Tuning</h2><p><strong>使用数据情景</strong>：Target Data 与 Source Data 都是 labeled</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) -&gt; (very little)</li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) -&gt; (a large amount)</li>
+</ul>
+<blockquote>
+<p>“One-shot learning: only a few examples in target domain”</p>
+</blockquote>
+<p><strong>具体思想</strong>：</p>
+<p>Training a model by source data, then fine-tune the model by target data.</p>
+<p>该方法主要面临<strong>问题</strong>：因为只有有限的 target data，所以要谨慎处理过拟合问题</p>
+<h2 id="一些防止过拟合的训练方法"><a href="#一些防止过拟合的训练方法" class="headerlink" title="一些防止过拟合的训练方法"></a>一些防止过拟合的训练方法</h2><ol>
+<li>Conservative training </li>
+</ol>
+<p><strong>方法主要思想</strong>：</p>
+<p>加入限制，让 Source data 训练出的 model 与 Target data 训练出的 model 差距不要过大</p>
+<p><img src="/2018/11/21/白话迁移学习/2.png" alt=""></p>
+<ol start="2">
+<li>Layer Transfer</li>
+</ol>
+<p><strong>方法主要思想</strong>：</p>
+<p>先用 Source Data 训练好一个模型，将该模型的大部分 Layer 复制到新模型，用 Target Data 训练该模型中非复制部分的 Layer。</p>
+<p>该方法的<strong>优点</strong>：</p>
+<p>训练 Target Data 时只用考虑非常少的参数</p>
+<p>那么使用该方法时，我们要将哪些 layer 复制过去呢？</p>
+<p>答案是需要分情况讨论。拿目前主要的两个应用方面，语音识别与图片识别，来举例。</p>
+<ul>
+<li>语音识别：通常复制最后几层的 layer，因为这最后几层的作用往往是分辨词汇，与语种的关系不是很大</li>
+<li>图片识别：通常是复制前几层 layer，因为前几层往往是分辨简单的几何图形，与最后的图片识别结果关系不是很大</li>
+</ul>
+<h2 id="Multitask-Learning"><a href="#Multitask-Learning" class="headerlink" title="Multitask Learning"></a>Multitask Learning</h2><p><strong>使用数据情景</strong>：Target Data 与 Source Data 都是 labeled</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) -&gt; (very little)</li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) -&gt; (a large amount)</li>
+</ul>
+<blockquote>
+<p>“Multitask Learning: The multi-layer structure makes NN suitable for multitask learning.”</p>
+</blockquote>
+<p>简单来说，通过训练一个神经网络，使得最后得到多种分类。一般该模型主要分为两类。</p>
+<ul>
+<li>第一类是输入的数据是相同的类型，最后得到多个不同的分类。比如输入都是图片，最后的结果是得到猫的图片与狗的图片。</li>
+<li>第二类是输入的数据不是相同的类型，最后得到多个不同的分类。</li>
+</ul>
+<p><img src="/2018/11/21/白话迁移学习/3.png" alt=""></p>
+<p>下面举一个使用多任务学习的例子，是一个语音识别模型。</p>
+<p>输入数据为“声音（acoustic features）”，输出的类别分别为“法语，德语，西班牙语，意大利语和汉语”</p>
+<p><img src="/2018/11/21/白话迁移学习/4.png" alt=""></p>
+<h2 id="Domain-Adversarial-Training"><a href="#Domain-Adversarial-Training" class="headerlink" title="Domain-Adversarial Training "></a>Domain-Adversarial Training </h2><p><strong>使用数据情景</strong>：Target Data 是 unlabeled 的，Source Data 是 labeled 的</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) -&gt; (testing data)</li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) -&gt; (training data)</li>
+</ul>
+<blockquote>
+<p>“Domain-Adversarial Training: Not only cheat the domain classifier, but satisfying label classifier at the same time”</p>
+</blockquote>
+<p><img src="/2018/11/21/白话迁移学习/6.PNG" alt=""></p>
+<p>上图神经网络中，不同部分的具体分工见下：</p>
+<ul>
+<li>Feature extractor: Maximize the label classification accuracy + Minimize domain classification accuracy</li>
+<li>Label predictor: Maximize the label classification accuracy</li>
+<li>Domain predictor: Maximize the domain classification accuracy</li>
+</ul>
+<p>Ps：本来是想自己做的，发现ppt绘制3D图形太操蛋，就直接挪用了介绍该算法的论文里的图片。<a href="https://arxiv.org/abs/1505.07818" target="_blank" rel="noopener">论文地址</a></p>
+<h2 id="Zero-shot-Learning"><a href="#Zero-shot-Learning" class="headerlink" title="Zero-shot Learning"></a>Zero-shot Learning</h2><p><strong>使用数据情景</strong>：Target Data 是 unlabeled 的，Source Data 是 labeled 的</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) -&gt; (testing data)</li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) -&gt; (training data)</li>
+</ul>
+<p>其中，Target data 与 Source data 是 in different tasks，即在 Source data 中从未出现过 Target data 中的数据。</p>
+<blockquote>
+<p>“Zero-shot Learning: Representing each class by its attributes”</p>
+</blockquote>
+<p>该模型适用于语言识别，因为语言 data 中不可能出现所有单词的发音，所以我们建立一个子表，让模型去识别发音，让识别的发音与子表中的数据去匹配。</p>
+<p>下面为了方便理解，使用一个简单的图片识别做一个浅显易懂的例子，下图中分别对狗、鱼还有猩猩划分了一个简单的子表</p>
+<p><img src="/2018/11/21/白话迁移学习/5.png" alt=""></p>
+<p>其中，分别对其是否有毛发、腿的数量与是否有尾巴等进行判断，若有则标记为“1”，没有则为“0”。子表建立好之后，用输入的数据进行匹配，若该数据有皮毛有四条腿而且有尾巴，那么其大概率是一只狗。</p>
+<p>在训练时，我们不直接辨识那张图片属于哪一类，而是去辨识每张图片它具备怎样的 attribute。</p>
+<p>在测试时，尽管输入一张训练集中没有的事物，但只要找到图中的 attribute，然后查找表，看表中的那个分类最接近结果。</p>
+<p>有时，你的 attribute 会很复杂，这时可以借鉴词向量的思想，对其进行 embedding；甚至当我们没有 dataSet 时，我们可以借用 word2vec，即同时使用 Attribute embedding + word embedding，此时需要计算 loss function。当然，还有一种更简单的 zero-shot learning 方法，即 Convex Combination of Semantic Embedding，读者有兴趣的话可以自行去网上搜索这些算法的具体实现方式，这里写的话会占用超级长的篇幅，并且与“简述”这个主题不符。</p>
+<h2 id="Self-taught-Learning"><a href="#Self-taught-Learning" class="headerlink" title="Self-taught Learning"></a>Self-taught Learning</h2><p><strong>使用数据情景</strong>：Target Data 是 labeled 的，Source Data 是 unlabeled 的</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) </li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) </li>
+</ul>
+<p>该思想有两种主要解释方法，分别针对于非监督学习和监督学习</p>
+<p>针对非监督学习：</p>
+<blockquote>
+<p>“Self-taught Learning: Learning to extract better representation from the source data”</p>
+</blockquote>
+<p>针对监督学习：</p>
+<blockquote>
+<p>“Self-taught Learning: Extracting better representation for target data”</p>
+</blockquote>
+<h2 id="Self-taught-Clustering"><a href="#Self-taught-Clustering" class="headerlink" title="Self-taught Clustering"></a>Self-taught Clustering</h2><p><strong>使用数据情景</strong>：Target Data 与 Source Data 都是 unlabeled 的</p>
+<p><strong>Task description</strong>： </p>
+<ul>
+<li>Target Data: (x<sup>t</sup>, y<sup>t</sup>) </li>
+<li>Source Data: (x<sup>s</sup>, y<sup>s</sup>) </li>
+</ul>
+<p>很少有人在这种情况下，即两个数据集都是 unlabeled 的，使用迁移学习，大家对这个思想了解下就好，<a href="https://www.cse.ust.hk/~qyang/Docs/2008/dwyakicml.pdf" target="_blank" rel="noopener">论文地址</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/11/21/白话迁移学习/">
+    <time datetime="2018-11-21T16:19:26.000Z" class="entry-date">
+        2018-11-21
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/12/31/我的2018，记忆名为伽勒底/" rel="prev"><span class="meta-nav">←</span> 我的2018，记忆名为伽勒底</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/07/30/reinforcement-learning-and-self-play/" rel="next">Reinforcement Learning &amp; Self-Play <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

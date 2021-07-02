@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>栈，队列，数组 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="绪论通常称，栈和队列是限定插入和删除只能在表的端点进行的线性表。  栈和队列是两种常用的数据结构。">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈，队列，数组">
+<meta property="og:url" content="https://saberda.github.io/2016/09/24/栈，队列，数组/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="绪论通常称，栈和队列是限定插入和删除只能在表的端点进行的线性表。  栈和队列是两种常用的数据结构。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2016/09/24/栈，队列，数组/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/09/24/栈，队列，数组/2.png">
+<meta property="og:updated_time" content="2016-10-12T07:24:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="栈，队列，数组">
+<meta name="twitter:description" content="绪论通常称，栈和队列是限定插入和删除只能在表的端点进行的线性表。  栈和队列是两种常用的数据结构。">
+<meta name="twitter:image" content="https://saberda.github.io/2016/09/24/栈，队列，数组/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-栈，队列，数组" class="post-栈，队列，数组 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      栈，队列，数组
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/09/24/栈，队列，数组/" data-id="ckqlqy7ba006y8dx76okkoyxx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><pre><code>通常称，栈和队列是限定插入和删除只能在表的端点进行的线性表。
+</code></pre><p><img src="/2016/09/24/栈，队列，数组/1.png" alt=""></p>
+<p>栈和队列是两种常用的数据结构。</p>
+<a id="more"></a>
+<h2 id="栈的类型定义"><a href="#栈的类型定义" class="headerlink" title="栈的类型定义"></a>栈的类型定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ADT Stack &#123;</span><br><span class="line">	数据对象：</span><br><span class="line">		D = &#123;ai | ai属于ElemSet, i = 1,2,…,n&#125;</span><br><span class="line">	数据关系：</span><br><span class="line">		R1 = &#123;&lt;ai-1, ai&gt; | ai-1,ai属于D, i = 1,2,…,n&#125;</span><br><span class="line">		约定an端为栈顶，a1端为栈底</span><br><span class="line">	基本操作：</span><br><span class="line">		InitStack (&amp;S)</span><br><span class="line">		DestoryStack (&amp;S)</span><br><span class="line">		StackLength (S)</span><br><span class="line">		StackEmpty (S)			//判断是否为空</span><br><span class="line">		GetTop (S, &amp;e)</span><br><span class="line">		ClearStack (&amp;S)</span><br><span class="line">		Push (&amp;S, e)</span><br><span class="line">		Pop (&amp;S, &amp;e)</span><br><span class="line">		StackTravers (&amp;S, visit( ))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Push (&amp;S, e)：</span><br><span class="line">	初始条件：</span><br><span class="line">		栈S已存在</span><br><span class="line">	操作结果：</span><br><span class="line">		插入元素e为新的栈顶元素</span><br><span class="line">Pop (&amp;S, &amp;e)：</span><br><span class="line">	初始条件：栈S已存在且非空</span><br><span class="line">	操作结果：删除S的栈顶元素，并用e返回其值</span><br></pre></td></tr></table></figure>
+<h2 id="栈的应用举例"><a href="#栈的应用举例" class="headerlink" title="栈的应用举例"></a>栈的应用举例</h2><pre><code>这些问题的具体实现代码请见博客内其他文章
+</code></pre><p>1.例一、数制转换</p>
+<p>算法基于原理：N = (N div d) * d + N mod d;</p>
+<p>例如：(1348)10  = (2504)8</p>
+<p><img src="/2016/09/24/栈，队列，数组/2.png" alt=""></p>
+<p>具体伪代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void conversion () &#123;</span><br><span class="line">	InitStack(S);</span><br><span class="line">	scanf(“%d”, &amp;N);</span><br><span class="line">	while(N) &#123;</span><br><span class="line">		Push(S, N % d);</span><br><span class="line">		N = N / d;</span><br><span class="line">	&#125;</span><br><span class="line">	while(!StackEmpty(S)) &#123;</span><br><span class="line">		Pop(S, e);</span><br><span class="line">		printf(“%d”, e);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.括号匹配的检验</p>
+<p>检验括号是否匹配的方法可用“期待的急迫程度”这个概念来描述</p>
+<p>例如：考虑这个括号序列</p>
+<p>[  (  [  ]  [  ]  )  ]</p>
+<p>分析可能出现的不匹配情况：</p>
+<p>*到来的右括号非是所期待的</p>
+<p>*到来的是“不速之客”</p>
+<p>*直到结束，也没有到来所“期待”的括号</p>
+<p>算法设计思想：</p>
+<p>1.凡出现左括号，则进栈</p>
+<p>2.凡出现右括号，则检查栈是否为空。若栈空，则表明右括号多余；否则和栈顶元素比较。若相匹配，则左括号出栈；否则表明不匹配</p>
+<p>3.表达式检验结束时，若栈为空，则表明表达式之中匹配正确；否则表明左括号多余。</p>
+<p>伪代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void match (char &amp;exp) &#123;</span><br><span class="line">	InitStack(S);</span><br><span class="line">	char c;</span><br><span class="line">	int i = 0, b = 1;</span><br><span class="line">	while(exp[i] != ‘/0’ &amp;&amp; b == 1) &#123;</span><br><span class="line">		if(exp[i] == ‘(’)</span><br><span class="line">			Push(S, exp[i]);</span><br><span class="line">		else if(exp[i] == ‘)’) &#123;</span><br><span class="line">			c = Pop(S);</span><br><span class="line">			if( c != ‘(’)</span><br><span class="line">				b = 0;</span><br><span class="line">		&#125;</span><br><span class="line">	i++;</span><br><span class="line">	&#125;</span><br><span class="line">	return (b &amp;&amp; StackEmpty(S));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.行编辑程序问题</p>
+<p>[分析]在用户输入一行的过程中，允许用户输入出差错，并在发现有误时可以及时更正。</p>
+<p>[合理做法]建立一个输入缓冲区，用以接受用户输入的一行字符，然后逐行存入用户数据区；并假设“#”为退格符，“@”为退行符。</p>
+<p>假设从终端接受了如下字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whli##ilr#e(s#*s) </span><br><span class="line">outcha@putchar(*s=#++);</span><br></pre></td></tr></table></figure>
+<p>则实际上的字符为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while(*s)</span><br><span class="line">putchar(s++);</span><br></pre></td></tr></table></figure></p>
+<p>伪代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">while (ch != EOF &amp;&amp; ch != ‘\n’) &#123;</span><br><span class="line">	switch (ch) &#123;</span><br><span class="line">		case ‘#’ : Pop(S,ch);</span><br><span class="line">		     break;</span><br><span class="line">		case ‘@’: ClearStack(S);</span><br><span class="line">		     break;</span><br><span class="line">		//充值S为空栈</span><br><span class="line">		default: Push(S,ch);</span><br><span class="line">			 break;</span><br><span class="line">		&#125;</span><br><span class="line">	ch = getchar(); //从终端接受下一个字符</span><br><span class="line">&#125;</span><br><span class="line">//将从栈底到栈顶传送至调用过程的数据区；</span><br><span class="line">ClearStack(S);	//重置S为空栈</span><br><span class="line">if(ch != EOF) ch = getchar;</span><br></pre></td></tr></table></figure>
+<p>4.表达式求值</p>
+<p>限于二元运算符的表达式求值</p>
+<p>表达式＝操作数+运算符+操作数</p>
+<p>操作数＝简单变量 | 表达式</p>
+<p>运算符＝标识符 | 无符号整数</p>
+<p>表达式的三种标识方法：</p>
+<pre><code>设EXP = S1 + OP + S2
+则称OP + S1 + S2 为前缀表达式
+S1 + OP + S2 为中缀表达式
+S1 + S2 + OP 为后缀表达式
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例如：EXP ＝ a * b + (c - d / e) * f</span><br><span class="line">前缀式：+ * ab  * - c / def </span><br><span class="line">中缀式：a * b + c - d / e * f</span><br><span class="line">后缀式：ab *  cde / - f * +</span><br></pre></td></tr></table></figure>
+<p>[结论]：1.操作数之间相对次序没变</p>
+<p>　　2.运算符的相对次序不同<br>　　<br>　　3.中缀式丢失了括号信息，致使运算的次序不确定<br>　　<br>　　4.前缀式的运算规则：<br>　　<br>　　　　连续出现的两个操作数和在他们之前和紧靠他们的运算符构成一个最小表达式；<br>　　　　<br>　　5.后缀式的运算规则：<br>　　<br>　　　　运算符在式中出现的顺序恰为表达式的运算顺序。<br>　　　　<br>　　　　每个运算符和在他出现之前出现且紧靠他的两个操作数构成最小表达式。</p>
+<p>如何从后缀式求值？</p>
+<p>　　先找运算符，再找表达式<br>　　<br>如何从原表达式求得后缀式？</p>
+<p>　　分析原表达式和后缀式的运算符<br>　　<br>原表达式：EXP ＝ a <em> b + (c - d / e) </em> f</p>
+<p>后缀式：ab <em>  cde / - f </em> +</p>
+<p>每个运算符的运算次序要由他之后的一个运算符决定，在后缀式中优先数高的运算符领先于优先数低的运算符。</p>
+<p>从原表达式求得后缀表达式的规律为：</p>
+<p>　　1.设立暂存运算符的栈<br>　　<br>　　2.设表达式的结束符为’#’，预设运算符栈的栈底为’#’<br>　　<br>　　3.若当前字符为操作数，直接发送给后缀式<br>　　<br>　　4.若当前运算符的优先数高于栈顶运算符，则进栈<br>　　<br>　　5.否则，将栈顶运算符发送给后缀式，然后该运算符进栈<br>　　<br>　　6.’ ( ’对它之前后的运算符起隔离作用，’ ) ’可视为自相应左括号开始的表达式的结束符</p>
+<p>5.实现递归</p>
+<p>当在一个函数的运行期间调用另一个函数时，在运行该被调用函数之前，需先完成三项任务：</p>
+<p>　　1.将所有的实在参数、返回地址等信息传递给被调用函数保存；<br>　　<br>　　2.为被调用函数的局部变量分配存储区；<br>　　<br>　　3.将控制转移到被调用函数的入口；<br>　　<br>　　　　从被调用函数返回到调用函数之前，应该完成下列三项任务：<br>　　　　<br>　　　　　　1.保存被调函数的运行结果；<br>　　　　　　<br>　　　　　　2.释放被调函数的数据区；<br>　　　　　　<br>　　　　　　3.依照被调函数的返回地址将控制转移到调用函数；<br>　　　　　　<br>　　　　多个函数嵌套调用的规则是：<br>　　　　<br>　　　　　　后调用，先返回(此时内存管理实行“栈式管理”)</p>
+<h2 id="栈类型的实现"><a href="#栈类型的实现" class="headerlink" title="栈类型的实现"></a>栈类型的实现</h2><p>1.顺序栈：类似于线性表的顺序映象实现，指向表尾的指针可以作为栈顶指针</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//栈的顺序存储表示（动态分配）</span><br><span class="line">#define STACK_INIT_SIZE 100</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	SElemType *base;</span><br><span class="line">	SElemType *top;</span><br><span class="line">	int stacksize;</span><br><span class="line">&#125; SqStack;</span><br><span class="line">//注意，非空栈时top始终在顶栈元素的下一个位置</span><br></pre></td></tr></table></figure>
+<p>顺序栈的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Status initStack(SqStack &amp;L, int maxsize) &#123;</span><br><span class="line">//构造一个最大空间为maxsize的空顺序栈</span><br><span class="line">	S.base = new SElemType[maxsize];</span><br><span class="line">	if (!S.base) </span><br><span class="line">		exit(overflow);</span><br><span class="line">	S.top = S.base;</span><br><span class="line">	S.stacksize = maxsize;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>进栈的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Status push(SqStack &amp;L, SElemType e) &#123;</span><br><span class="line">//若栈不满，则将e推入栈顶</span><br><span class="line">	if (S.top - S.base &gt;= S.stacksize) &#123;</span><br><span class="line">		return(overflow);		//栈满</span><br><span class="line">	&#125;</span><br><span class="line">	*S.top++ = e;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>top始终指向栈顶元素的下一个位置</p>
+<p>出栈的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Status pop(SqStack &amp;L, SElemtype &amp;e) &#123;</span><br><span class="line">//若栈不空，删除栈顶的元素，并返回其值</span><br><span class="line">	if(S.top == S.base)</span><br><span class="line">		return ERROE;</span><br><span class="line">	e = *- -S.top;</span><br><span class="line">	return e;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>2.栈链形式描述：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct node &#123;</span><br><span class="line">	SElemType data;</span><br><span class="line">	struct node *next;</span><br><span class="line">&#125;StackNode, *LinkStack;</span><br><span class="line">	</span><br><span class="line">LinkStack top;		//说明top是栈顶指针</span><br></pre></td></tr></table></figure>
+<p>因为栈中的主要运算是在栈顶插入、删除，显然在链表的头部做栈顶是最方便的，而且没有必要像单链表那样为了方便计算附加一个头指针。</p>
+<h2 id="队列的类型定义"><a href="#队列的类型定义" class="headerlink" title="队列的类型定义"></a>队列的类型定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ADT Queue &#123;</span><br><span class="line">	数据对象：D = &#123;ai | ai 属于 SElemtype&#125;</span><br><span class="line">	数据关系：R = &lt;ai-1, ai&gt;</span><br><span class="line">			约定其中a1端为队列头，an端为队列尾</span><br><span class="line">	队列的基本操作：</span><br><span class="line">		1.InitQueue (&amp;Q)</span><br><span class="line">		2.DestroyQueue (&amp;Q)</span><br><span class="line">		3.QueueEmpty (Q)</span><br><span class="line">		4.QueueLength (Q)</span><br><span class="line">		5.GetHead (Q, &amp;e)</span><br><span class="line">		6.ClearQueue (&amp;Q)</span><br><span class="line">		7.EnQueue (&amp;Q, e)			//入队</span><br><span class="line">		8.DeQueue (&amp;Q, &amp;e)		//出队</span><br><span class="line">		9.QueueTravers (Q, visit( ))</span><br><span class="line">&#125;ADT Queue</span><br></pre></td></tr></table></figure>
+<h2 id="队列类型的实现"><a href="#队列类型的实现" class="headerlink" title="队列类型的实现"></a>队列类型的实现</h2><p>1.链队列：链式映象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">typedef struct QNode &#123;	//结点类型</span><br><span class="line">	QElemType data;</span><br><span class="line">	struct QNode *next;</span><br><span class="line">&#125;QNode, *QueuePtr;</span><br><span class="line"></span><br><span class="line">typedef struct&#123;		//链队列类型</span><br><span class="line">	QueuePtr front;	//队头指针</span><br><span class="line">	QueuePtr rear;	//队尾指针</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+<p>InitQueue (&amp;Q)的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">Status initQueue(&amp;Q) &#123;</span><br><span class="line">	//构造一个空队列Q</span><br><span class="line">	Q.front = Q.rear = new QNode;</span><br><span class="line">	if (!Q.front) </span><br><span class="line">		return ERROR;</span><br><span class="line">		//分配内存失败</span><br><span class="line">	Q.front  -&gt; next = NULL;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EnQueue (&amp;Q, e)的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">Status enQueue(&amp;Q, e) &#123;</span><br><span class="line">//插入元素e为Q的新队尾元素</span><br><span class="line">	p = new QNode;</span><br><span class="line">	if(!p)</span><br><span class="line">		return ERROR;</span><br><span class="line">	p.data = e;</span><br><span class="line">	p.next = NULL;</span><br><span class="line">	Q.rear.next = p;</span><br><span class="line">	Q.rear = p;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DeQueue (&amp;Q, &amp;e) 的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">	</span><br><span class="line">Status deQueue(&amp;Q, &amp;e) &#123;</span><br><span class="line">//若队列不空，删除队列的头元素，并用e返回</span><br><span class="line">	if(Q.front == Q.rear) </span><br><span class="line">		return ERROR;</span><br><span class="line">	p = Q.front.next;</span><br><span class="line">	e = p.data;</span><br><span class="line">	Q.front.next = p.next;</span><br><span class="line">	if(Q.rear == p)</span><br><span class="line">		Q.rear = Q.front;		//针对只剩下一个元素的情况</span><br><span class="line">	delete(p);</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.循环队列：顺序映象 </p>
+<p>【笔者注：此部分建议边画环形图边理解为好】</p>
+<p>队列的顺序存储结构中，用一组地址连续存储单元依次存放从队头到对尾的所有元素</p>
+<p>附设两个指针front和rear分别指示队头元素的位置和对尾元素的下一个位置</p>
+<p>初始化建空列时令front ＝ rear ＝ 0，插入新的对尾元素时尾指针增1，删除队头元素时头指针增1。</p>
+<p>注：由于普通的队列的front和rear的同增现象，有可能会出现假上溢情况。</p>
+<p>因为在队列的操作中，头尾指针只增加不减小，导致被删除元素的空间永远无法重复利用。尽管队列中实际的元素个数可能远远小于存储空间的规模，但仍然不可以做入队的操作，该现象称为假上溢。</p>
+<p>客服假上溢现象的方法是将顺序队列想象成一个首尾相接的圆环，称之为循环队列。</p>
+<p>循环队列中是无法通过Q.front = Q.rear 来判断队列“空”还是“满”，解决此问题的方法至少有三种：</p>
+<p>　　1.另设一个标志位区别队列中的空与满<br>　　<br>　　2.使用一个计数器计录队列中元素的总数(实际上是队列长度)。<br>　　<br>　　3.少用一个元素的空间，约定以“队列头指针在队列尾指针的下一个位置(指环状的下一个位置)上”作为队列呈现“满”状态的标志。（在后继算法中我们使用这种方法）.<br>　　<br>循环队列类型定义：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#define MAXQSIZE 100</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	QElemType *base;		//动态分配存储空间</span><br><span class="line">	int front;			//头指针，若队列不空；指向队列头元素</span><br><span class="line">	int rear;			//尾指针，若队列不空，指向队列尾元素的下一个位置</span><br><span class="line">	int queuesize;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初始化循环队列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Status initQueue(SqQueue &amp;Q, int maxsize) &#123;</span><br><span class="line">	//构造一个最大存储空间为maxsize的空循环队列Q</span><br><span class="line">	Q.base = new QElemType[maxsize];</span><br><span class="line">	if(!Q.base) </span><br><span class="line">		return OVERFLOW;</span><br><span class="line">	Q.queuesize = maxsize;</span><br><span class="line">	Q.front = Q.rear = 0;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在循环队列中入队的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Status enQueue(SqQueue &amp;Q, ElemTypt e) &#123;</span><br><span class="line">	//插入元素e为Q的新的对尾元素</span><br><span class="line">	if ( (Q.rear + 1) % Q.queuesize == Q.front )</span><br><span class="line">		return OVERFLOW;		//队列满</span><br><span class="line">	Q.base[Q.rear] = e;</span><br><span class="line">	Q.rear = (Q.rear + 1) % Q.queuesize;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在循环队列中出队的实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Status deQueue(SqQueue &amp;Q, ElemType &amp;e) &#123;</span><br><span class="line">	//若队列不空，则删除Q的队头元素，用e返回其值</span><br><span class="line">	if(Q.front == Q.rear) </span><br><span class="line">		return OVERFLOW;</span><br><span class="line">	e = Q.base[Q.front];</span><br><span class="line">	Q.front = (Q.front + 1) % Q.queuesize;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>循环队列中需要注意的几点：</p>
+<p>　　1.如果Q.front = Q.rear，则可以判断队列已空<br>　　<br>　　2.如果（Q.rear + 1）% Q.queuesize = Q.front ，则可以判断队列为满<br>　　<br>　　3.无论是对循环队列进行插入或者删除元素时，均可能涉及到尾指针或头指针的调整（非简单的对指针进行+1操作），即：<br>　　<br>　　　　Q.rear = (Q.rear + 1) % MAXQSIZE    或<br>　　　　<br>　　　　Q.front = (Q.front + 1) % MAXQSIZE<br>　　　　<br>　　4.如何理解 (Q.rear - Q.front + MAXQSIZE) % MAXQSIZE 即为循环链表的长度：<br>　　<br>　　　　1&gt;当Q.rear &gt; Q.front 时，循环队列长度 ＝ Q.rear - Q.front<br>　　　　<br>　　　　2&gt;当Q.rear &lt; Q.front 时，循环队列长度 ＝ Q.rear - Q.front + MAXQSIZE<br>　　　　<br>　　　　3&gt;综上，循环队列长度 ＝ (Q.rear - Q.front + MAXQSIZE) % MAXQSIZE<br>　　　　<br>3.几种特殊的队列</p>
+<p>　　1.双端队列：可以在双端进行插入、删除的线性表<br>　　<br>　　2.输入受限的双端队列：线性表的两端都可以输出数据元素，但是只有一端可以进行输入操作<br>　　<br>　　3.输出受限的双端队列：线性表的两端都可以输入数据元素，但是只有一端可以进行输出操作</p>
+<h2 id="队列与循环链表"><a href="#队列与循环链表" class="headerlink" title="队列与循环链表"></a>队列与循环链表</h2><p>【笔者注：这个概念在界内存在广泛争议，如下是笔者所站的立场，读者若有异议请见谅】</p>
+<p>队列（包括循环队列），是一个逻辑概念，而链表是一个存储概念。一个队列是否是循环队列，不取决于它将采用何种存储结构，根据实际的需要，循环队列可以采用顺序存储结构，也可以采用链式存储结构，包括采用循环链表作为cc结构。</p>
+<p>　　1.一串数据依次通过一个栈，并不能保证出栈的顺序总是倒序，可以产生多种出栈序列。<br>　　<br>　　一串数据通过一个栈后的顺序由每个数据之间的入栈出栈次序决定。只有当“所有数据全部入栈后再出栈”才能使数据倒序。事实上，存在一种操作序列——“入栈，出栈，入栈，出栈……”——可以试数据通过栈后次序保持不变<br>　　<br>　　2.一串数据通过一个队列，只有一种出队列方式，就是其入队列顺序
+　　</p>
+<h2 id="数组的顺序表示与实现"><a href="#数组的顺序表示与实现" class="headerlink" title="数组的顺序表示与实现"></a>数组的顺序表示与实现</h2><p>类型特点：</p>
+<p>　　1.只有引用性操作，没有加工型操作<br>　　<br>　　2.数组是多维的结构，而存储空间是一个一维的结构<br>　　<br>有两种顺序映象的表示：</p>
+<p>　　1.以行序为主序（低下标优先）<br>　　<br>　　　　二维数组A中任意一个元素aij的存储地址为：LOC(i,j) = LOC(0,0) + (列数 <em> i + j) </em> C          //C为元素类型的大小<br>　　　　<br>　　2.以列序为主序（高下标优先）
+　　</p>
+<h2 id="特殊矩阵的压缩存储"><a href="#特殊矩阵的压缩存储" class="headerlink" title="特殊矩阵的压缩存储"></a>特殊矩阵的压缩存储</h2><p>1.稀疏矩阵</p>
+<p>假设m行n列的矩阵含t个非零元素，则称a ＝ t / mn 为稀疏因子。</p>
+<p>通常将a &lt; 0.05 的矩阵称为稀疏矩阵。</p>
+<p>以常规方法，即以二维数组表示高阶的稀疏矩阵时，会产生的问题：</p>
+<p>　　1.零值元素占了很大的空间<br>　　<br>　　2.计算中遇到了很多与零值的运算，若遇除法还需判断<br>　　<br>解决问题的原则：</p>
+<p>　　1.尽可能少存或不存零值元素<br>　　<br>　　2.尽可能减少没有实际意义的运算<br>　　<br>　　3.操作方便。<br>　　<br>即能尽可能快地找到与下标值（i，j）对应元素；能尽可能快地找到同一行或同一列的非零值元。</p>
+<p>有两类矩阵：</p>
+<p>　　1.特殊矩阵：非零元在矩阵中的分布有一定规则。<br>　　<br>　　　　如：对称矩阵，三角矩阵，对角矩阵<br>　　　　<br>　　2.随机稀疏矩阵：非零元在矩阵中随机出现<br>　　<br>2.对称矩阵的压缩：</p>
+<p>aij = aji;</p>
+<p>由于对称矩阵的对称性，只用保存上三角或者下三角矩阵的元素就可以了。让每两个对称的元素共享一个存储空间，这样能节约近一半的存储空间。</p>
+<p>不失一般性，按行优先顺序存储主对角线（包括对角线）以下的元素，其存储空间的下标为 k ＝ i * (i + 1) / 2 + j （若上三角并且也是按行优先则将i与j互换即可）</p>
+<p>因此，aij的地址可用如下方程来计算：</p>
+<pre><code>LOC(aij) = LOC(sa[k]) = LOC(sa[0]) + k * C
+//不丢失随机存取的特性
+</code></pre><p>对于任意给定一组下标（i，j），均可在sa[k]中找到矩阵元素aij，反之也成立。</p>
+<p>3.三角矩阵的压缩：</p>
+<p>上三角或者下三角的元素（不包括主对角线）全为常数（一般为0）的矩阵</p>
+<p>三角矩阵中的重复元素C可以共享一个存储空间，其余的元素正好有 n(n + 1) / 2 个，因此三角矩阵可以压缩到向量sa[0,…, n(n + 1) / 2 ] 中，其中C存放在向量的最后一个分量中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">上三角aij与sa[k] 的关系为：</span><br><span class="line">	if( i &lt;= j ) </span><br><span class="line">		k = i(2n - i + 1) / 2 + j - 1;</span><br><span class="line">	else</span><br><span class="line">		k = n(n + 1) / 2;		//存放C</span><br><span class="line">下三角aij与sa[k] 的关系为：</span><br><span class="line">	if( i &lt;= j ) </span><br><span class="line">		k = i * (i + 1) / 2 + j；</span><br><span class="line">	else</span><br><span class="line">		k = n(n + 1) / 2;		//存放C</span><br></pre></td></tr></table></figure>
+<p>4.对角矩阵的压缩：</p>
+<p>除了主对角线以及其邻近的若干条对角线上的元素不为0外，其他元素都为0.</p>
+<p>对角矩阵可以按行优先顺序或者按对角线的顺序将其压缩存储到一个向量中，并且也能找到每个元素和向量下标的对应关系。</p>
+<p>aij与sa[k] 的关系为:</p>
+<p>数组sa中的元素sa[k]与三对角带状矩阵中aij存在一一对应的关系。在aij之前有i行，共3i-1个非零元素；在第i行，有j-i+1个非零元素，所以：</p>
+<pre><code>k = 2i + j 
+</code></pre><p>因此对角矩阵可以压缩到向量sa[0,…, 3n-2 ] 中</p>
+<p>5.随机稀疏矩阵的压缩存储方法</p>
+<p>三元组顺序表(计数从0开始)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define MAXSIZE 12500</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	int i, j;			//该非零元的行下标与列下标</span><br><span class="line">	ElemType e;		//该非零元的值</span><br><span class="line">&#125;Triple;			//三元组类型</span><br><span class="line"></span><br><span class="line">typedef union &#123;</span><br><span class="line">	Triple data[MAXSIZE + 1];</span><br><span class="line">	int mu, nu, tu;	//行数、列数、非零元素的个数</span><br><span class="line">&#125;TSMatrix;			//稀疏矩阵类型</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/09/24/栈，队列，数组/">
+    <time datetime="2016-09-25T01:42:08.000Z" class="entry-date">
+        2016-09-24
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/09/25/栈基础函数C语言实现/" rel="prev"><span class="meta-nav">←</span> 栈基础函数C语言实现</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/09/22/线性表基础函数C语言实现/" rel="next">线性表基础函数C语言实现 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

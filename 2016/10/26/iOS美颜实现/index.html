@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>iOS美颜实现 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这篇文章主要是介绍iOS实现美颜的原理，如果想简单点实现美颜功能可以直接导入LFLiveKit这个库 我在以前的文章里介绍过如何使用LFLiveKit进行美颜设置，导入这个库后只需要一行代码就可以实现。 http://www.saberismywife.com/2016/10/17/LFLiveKit的简单用法/ 但是这篇文章主要是介绍它是如何实现的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS美颜实现">
+<meta property="og:url" content="https://saberda.github.io/2016/10/26/iOS美颜实现/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="这篇文章主要是介绍iOS实现美颜的原理，如果想简单点实现美颜功能可以直接导入LFLiveKit这个库 我在以前的文章里介绍过如何使用LFLiveKit进行美颜设置，导入这个库后只需要一行代码就可以实现。 http://www.saberismywife.com/2016/10/17/LFLiveKit的简单用法/ 但是这篇文章主要是介绍它是如何实现的">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2016-10-26T07:50:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS美颜实现">
+<meta name="twitter:description" content="这篇文章主要是介绍iOS实现美颜的原理，如果想简单点实现美颜功能可以直接导入LFLiveKit这个库 我在以前的文章里介绍过如何使用LFLiveKit进行美颜设置，导入这个库后只需要一行代码就可以实现。 http://www.saberismywife.com/2016/10/17/LFLiveKit的简单用法/ 但是这篇文章主要是介绍它是如何实现的">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-iOS美颜实现" class="post-iOS美颜实现 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      iOS美颜实现
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/26/iOS美颜实现/" data-id="ckqlqy79y003u8dx7gyzl8ga9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>这篇文章主要是介绍iOS实现美颜的原理，如果想简单点实现美颜功能可以直接导入LFLiveKit这个库
+</code></pre><p>我在以前的文章里介绍过如何使用LFLiveKit进行美颜设置，导入这个库后只需要一行代码就可以实现。</p>
+<p><a href="http://www.saberismywife.com/2016/10/17/LFLiveKit的简单用法/" target="_blank" rel="noopener">http://www.saberismywife.com/2016/10/17/LFLiveKit的简单用法/</a></p>
+<p>但是这篇文章主要是介绍它是如何实现的</p>
+<a id="more"></a>
+<p>首先LFLiveKit实现美颜的功能是基于GPUImage这个第三方库的，所以咱们也先导入这个库。</p>
+<p>GUPImage是一个开源的基于GPU的图片或视频的处理框架，其本身内置了多达120多种常见的滤镜效果。有了它，添加实时的滤镜只需要简单地添加几行代码</p>
+<h2 id="GUPImage处理美颜过程"><a href="#GUPImage处理美颜过程" class="headerlink" title="GUPImage处理美颜过程"></a>GUPImage处理美颜过程</h2><p>首先是用基于AVFoundation的GPUImageVideoCamera来采集视频，从而获得视频的每一帧动画，进而对每一帧动画进行像素点的坐标和颜色变化。</p>
+<p>GUPImage这个库十分庞大，大家谁对照片处理或者视频处理可以仔细研究一下。</p>
+<p>当完成像素点的优化后，美颜过程基本就完成了。剩下的就是对其进行编码处理以及推流了。这里的推流还是上面那一篇博客中说的RTMP推流。</p>
+<p>在编码和推流的同时，通过底层的OpenGL渲染生成GUPImageView</p>
+<h2 id="GUPImage处理画面原理"><a href="#GUPImage处理画面原理" class="headerlink" title="GUPImage处理画面原理"></a>GUPImage处理画面原理</h2><p>GPUImage采用链式方式来处理画面,通过addTarget:方法为链条添加每个环节的对象，处理完一个target,就会把上一个环节处理好的图像数据传递下一个target去处理，称为GPUImage处理链</p>
+<p>一般的target可分为两类</p>
+<ul>
+<li>中间环节的target, 一般是各种filter, 是GPUImageFilter或者是子类</li>
+<li>最终环节的target, GPUImageView：用于显示到屏幕上, 或者GPUImageMovieWriter：写成视频文件</li>
+</ul>
+<p>GPUImage处理主要分为3个环节</p>
+<ul>
+<li>source -&gt; filter -&gt; final target </li>
+<li><p>GPUImaged的Source:都继承GPUImageOutput的子类，作为GPUImage的数据源,就好比外界的光线，作为眼睛的输出源</p>
+<p>  PUImageVideoCamera：用于实时拍摄视频<br>  GPUImageStillCamera：用于实时拍摄照片<br>  GPUImagePicture：用于处理已经拍摄好的图片，比如png,jpg图片<br>  GPUImageMovie：用于处理已经拍摄好的视频,比如mp4文件</p>
+</li>
+<li><p>GPUImage的filter:GPUimageFilter类或者子类，这个类继承自GPUImageOutput,并且遵守GPUImageInput协议，这样既能流进，又能流出，就好比我们的墨镜，光线通过墨镜的处理，最终进入我们眼睛</p>
+</li>
+<li>GPUImage的final target:GPUImageView,GPUImageMovieWriter就好比我们眼睛，最终输入目标</li>
+</ul>
+<h2 id="美颜原理"><a href="#美颜原理" class="headerlink" title="美颜原理"></a>美颜原理</h2><pre><code>磨皮(GPUImageBilateralFilter)
+</code></pre><p>磨皮的本质实际上是模糊。而在图像处理领域，模糊就是将像素点的取值与周边的像素点取值相关联。而我们常见的高斯模糊，它的像素点取值则是由周边像素点求加权平均所得，而权重系数则是像素间的距离的高斯函数，大致关系是距离越小、权重系数越大</p>
+<p>如果单单使用高斯模糊来磨皮，得到的效果是不尽人意的。原因在于，高斯模糊只考虑了像素间的距离关系，没有考虑到像素值本身之间的差异。举个例子来讲，头发与人脸分界处（颜色差异很大，黑色与人皮肤的颜色），如果采用高斯模糊则这个边缘也会模糊掉，这显然不是我们希望看到的。而双边滤镜（Bilateral Filter）则考虑到了颜色的差异，它的像素点取值也是周边像素点的加权平均，而且权重也是高斯函数。不同的是，这个权重不仅与像素间距离有关，还与像素值本身的差异有关，具体讲是，像素值差异越小，权重越大，也是这个特性让它具有了保持边缘的特性，因此它是一个很好的磨皮工具。</p>
+<pre><code>美白(GPUImageBrightnessFilter)
+</code></pre><p>本质上就是提高亮度</p>
+<h2 id="使用GPUImage"><a href="#使用GPUImage" class="headerlink" title="使用GPUImage"></a>使用GPUImage</h2><p>1.将GPUImage导入<br>2.创建视频源GPUImageVideoCamera<br>3.创建最终目的源：GPUImageView<br>4.创建滤镜组(GPUImageFilterGroup)，需要组合亮度(GPUImageBrightnessFilter)和双边滤波(GPUImageBilateralFilter)这两个滤镜达到美颜效果.<br>5.设置滤镜组链<br>6.设置GPUImage处理链，从数据源 =&gt; 滤镜 =&gt; 最终界面效果<br>7.开始采集视频</p>
+<p>创建视频源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// SessionPreset:屏幕分辨率，AVCaptureSessionPresetHigh会自适应高分辨率</span><br><span class="line">// cameraPosition:摄像头方向</span><br><span class="line">GPUImageVideoCamera *videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];</span><br><span class="line">videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;</span><br><span class="line">_videoCamera = videoCamera;	</span><br></pre></td></tr></table></figure>
+<p>创建最终预览View</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GPUImageView *captureVideoPreview = [[GPUImageView alloc] initWithFrame:self.view.bounds];</span><br><span class="line">[self.view insertSubview:captureVideoPreview atIndex:0];</span><br></pre></td></tr></table></figure>
+<p>创建滤镜：磨皮，美白，组合滤镜</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GPUImageFilterGroup *groupFilter = [[GPUImageFilterGroup alloc] init];</span><br><span class="line"></span><br><span class="line">// 磨皮滤镜</span><br><span class="line">GPUImageBilateralFilter *bilateralFilter = [[GPUImageBilateralFilter alloc] init];</span><br><span class="line">[groupFilter addTarget:bilateralFilter];</span><br><span class="line">_bilateralFilter = bilateralFilter;</span><br><span class="line"></span><br><span class="line">// 美白滤镜</span><br><span class="line">GPUImageBrightnessFilter *brightnessFilter = [[GPUImageBrightnessFilter alloc] init];</span><br><span class="line">[groupFilter addTarget:brightnessFilter];</span><br><span class="line">_brightnessFilter = brightnessFilter;</span><br></pre></td></tr></table></figure>
+<p>设置滤镜组链</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[bilateralFilter addTarget:brightnessFilter];</span><br><span class="line">[groupFilter setInitialFilters:@[bilateralFilter]];</span><br><span class="line">groupFilter.terminalFilter = brightnessFilter;</span><br></pre></td></tr></table></figure>
+<p>设置GPUImage响应链</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[videoCamera addTarget:groupFilter];</span><br><span class="line">[groupFilter addTarget:captureVideoPreview];</span><br></pre></td></tr></table></figure>
+<p>开始采集视频</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[videoCamera startCameraCapture];</span><br></pre></td></tr></table></figure>
+<p>设置按钮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (IBAction)brightnessFilter:(UISlider *)sender &#123;</span><br><span class="line">    _brightnessFilter.brightness = sender.value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (IBAction)bilateralFilter:(UISlider *)sender &#123;</span><br><span class="line">    // 值越小，磨皮效果越好</span><br><span class="line">    CGFloat maxValue = 10;</span><br><span class="line">    [_bilateralFilter setDistanceNormalizationFactor:(maxValue - sender.value)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/26/iOS美颜实现/">
+    <time datetime="2016-10-26T18:54:36.000Z" class="entry-date">
+        2016-10-26
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/11/05/Huffman树以及Huffman编码/" rel="prev"><span class="meta-nav">←</span> Huffman树以及Huffman编码</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/25/你陪了我多少年，花开花落，起起伏伏/" rel="next">你陪了我多少年，花开花落，起起伏伏 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>谈一谈 Fast R-CNN 和 Faster R-CNN | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文讨论内容涉及到之前整理的一篇文章，链接见下CNN之定位检测 R-CNN 的一些问题R-CNN并不是完美的，他也有一些问题。 在测试是它运行的很慢。我们可能有2000个区域，每个区域都要运行一下R-CNN，这就是很慢的原因。我们还会面对一个比较有趣的问题。当我们使用SVM或者regression时是离线训练使用线性回归等方法训练，所以我们的R-CNN没有机会按照相应部分的网络目的升级。同时R-C">
+<meta name="keywords" content="Neural Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="谈一谈 Fast R-CNN 和 Faster R-CNN">
+<meta property="og:url" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本文讨论内容涉及到之前整理的一篇文章，链接见下CNN之定位检测 R-CNN 的一些问题R-CNN并不是完美的，他也有一些问题。 在测试是它运行的很慢。我们可能有2000个区域，每个区域都要运行一下R-CNN，这就是很慢的原因。我们还会面对一个比较有趣的问题。当我们使用SVM或者regression时是离线训练使用线性回归等方法训练，所以我们的R-CNN没有机会按照相应部分的网络目的升级。同时R-C">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/4.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/5.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/6.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/7.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/8.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/9.png">
+<meta property="og:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/10.png">
+<meta property="og:updated_time" content="2017-12-17T08:33:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="谈一谈 Fast R-CNN 和 Faster R-CNN">
+<meta name="twitter:description" content="本文讨论内容涉及到之前整理的一篇文章，链接见下CNN之定位检测 R-CNN 的一些问题R-CNN并不是完美的，他也有一些问题。 在测试是它运行的很慢。我们可能有2000个区域，每个区域都要运行一下R-CNN，这就是很慢的原因。我们还会面对一个比较有趣的问题。当我们使用SVM或者regression时是离线训练使用线性回归等方法训练，所以我们的R-CNN没有机会按照相应部分的网络目的升级。同时R-C">
+<meta name="twitter:image" content="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-FastRCNN-FasterRCNN" class="post-FastRCNN-FasterRCNN post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      谈一谈 Fast R-CNN 和 Faster R-CNN
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/12/17/FastRCNN-FasterRCNN/" data-id="ckqlqy76k000j8dx71g9yifgd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>本文讨论内容涉及到之前整理的一篇文章，链接见下<a href="http://www.saberismywife.com/2017/10/31/CNN之定位检测/" target="_blank" rel="noopener">CNN之定位检测</a></p>
+<h2 id="R-CNN-的一些问题"><a href="#R-CNN-的一些问题" class="headerlink" title="R-CNN 的一些问题"></a>R-CNN 的一些问题</h2><p>R-CNN并不是完美的，他也有一些问题。</p>
+<p>在测试是它运行的很慢。我们可能有2000个区域，每个区域都要运行一下R-CNN，这就是很慢的原因。<br>我们还会面对一个比较有趣的问题。当我们使用SVM或者regression时是离线训练使用线性回归等方法训练，所以我们的R-CNN没有机会按照相应部分的网络目的升级。<br>同时R-CNN训练管道比较复杂时，他会有一些混乱。</p>
+<p>Fast R-CNN</p>
+<p>为了解决这些问题，有人提出了Fast R-CNN模型。Fast R-CNN的算法很简单：我们只需要交换提取出的区域然后在运行CNN。</p>
+<a id="more"></a>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/1.png" alt=""></p>
+<p>这个思想和那个overfeat的浮窗有些相似，所以这里的pipeline看起来有些相像。底层是我们的输入，我们把这个高分辨的图片输入，然后在卷积层运行，这样我们得到了高分辨率的卷积特征映射。之后我们的region proposals使用一个叫ROI pooling的东西从卷积特征映射里分离出这些区域的特征，这些区域的卷积特征将会进入全连接层，最后会有得到在之前文章里介绍过的和classification head和regression head。</p>
+<p>这个算法解决了R-CNN有的一些问题。Fast R-CNN通过共享不同目标框的卷积特征的计算解决了测试过程中R-CNN很慢的问题。在Fast R-CNN中，我们同时训练所有部分，而不使用R-CNN中那个复杂的pipeline。</p>
+<p>在Fast R-CNN中最有意思的部分就是region of interest pooling。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/2.png" alt=""></p>
+<p>现在我们有一个输入图片，很大可能是高分辨率的，并且我们有这个目标框。我们可以把这个高分辨率的图片输入到卷积层和池化层。但是现在有个问题是全连接层希望得到low-res conv的特征值，而整个图片的特征是high-res的。在Fast R-CNN中使用了很简单粗暴的方法解决了这个问题。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/3.png" alt=""></p>
+<p>对于给出的目标框，我们把它投影到那个conv feature的空间，再把那个conv feature volume切成小块，即切分成下层需要的h*w网络，在对每一小格都进行最大池化。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/4.png" alt=""></p>
+<p>所以我们现在使用这个简单的方法，使用目标框共享卷积特征值，最后提取出那个区域的输出。简单来讲，就是交换卷积的顺序，然后扭曲修改。同时这也是个比较简单的计算过程。因为基本上我们只使用了最大池化，而且我们知道如何对最大池化进行向后传播。你可以对这些region of interest pooling进行BP，使得我们可以把整个整体一起训练。</p>
+<p>在实际训练中，Fast R-CNN相比于R-CNN会有更好的结果。这主要是因为其经过调整后良好的属性值。在Fast R-CNN中你可以看到在每个卷积的连接处，都有这样的调整，其保证了输出结果的准确性，使得结果有些提升。</p>
+<p>但是当前模型也存在一个比较大的问题：之前的测试时间没有包含推荐区域的选取，故Fast R-CNN的瓶颈在于推荐区域的选择。如果你将推荐区域的选取所花费的时间也考虑进来，相比于不考虑的情况，速度明显慢了很多。但是解决方法是显而易见的。</p>
+<p>Faster R-CNN</p>
+<p>我们能使用卷积神经网络做回归和分类，那么我们也可以用其来做推荐区域的选取。这就是另一个模型采用的方法，这个模型的名字也是相当简单粗暴，叫 Faster R-CNN</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/5.png" alt=""></p>
+<p>在Fast R-CNN中我们使用对整张输入图片进行卷积来取代对各个推荐区域进行卷积；在Faster R-CNN中使用区域推荐网络来替代额外的区域推荐算法来获得卷积层最末端的特征图谱，并从中获取推荐区域，完成这一步后剩下的操作和Fast R-CNN一样了。</p>
+<p>Faster R-CNN的神奇之处就在于区域推荐网络，它使得我们可以在一个巨大的卷积神经网络中完成所有工作。</p>
+<p>区域推荐网络的工作方式大致是：我们把卷积神经网络的最后一层的特征图谱当做输入，然后我们将区域推荐网络添加到卷机网络之上，然后对特征图谱进行滑窗操作，就是卷积。我们用3*3的卷积和对特征图谱进行卷积。在区域推荐网络中，我们有两种相似的顶层结构。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/6.png" alt=""></p>
+<p>在这边我们进行分类，在另一边我们判断图片中是否包含检测目标，并对位置进行回归。滑窗和特征图谱之间的位置关联表示我们查看的是图片的哪一部分，回归得出的结果给出特征图谱中具体位置。</p>
+<p>但是实际上，它们所做的工作要稍微复杂一些。他们并不是直接对特征图谱中的位置进行回归，其中有几个形状固定的框。你可以想象这些不同形状和尺寸的框根据特征图谱点到原始图片点的关联，覆盖到原始图片上。在Fast R-CNN中，我们将这些框从原始图片映射到特征图谱；现在在Faster R-CNN中，我们将这些框从特征图谱映射到原始图片。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/7.png" alt=""></p>
+<p>现在这里有n个卷积框对特征图谱进行卷积，对于每个区域进行卷积它们会产出一个评分来判断这个框内是否有检测目标，它们还会输出4个回归坐标点从而得到正确的框。就像之前介绍的那样，训练区域推荐网络，获得预测未知类的检测器。</p>
+<p>在最原始的Faster R-CNN论文中，他们训练网络的方式挺有意思的。他们首先训练区域推荐网络，然后训练Fast R-CNN，然后他们把两个网络融合起来，最终得到一个整体的网络。之后他们将训练方式整体化，好比他们有一个大网络，输入图片，网络中有一个内置的区域推荐网络，还有一个分类损失值用来表示每个推荐区域内是否包含目标物体。在区域推荐网络中，有一个回归边框，对卷积顶部的特征图谱进行回归，然后进行roi池化，之后做Fast R-CNN的操作，在网络的末端我们会得到分类的损失函数用来表示目标所属类以及回归损失，来获得正确的推荐区域。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/8.png" alt=""></p>
+<p>这项巨大的工作在这样一个巨大的网络中完成，最终输出4个损失值，然后对其训练，这样我们可以同时完成目标检测的多项工作</p>
+<p>所以目前世界上最好的目标检测器是101层的ResNet加上Faster R-CNN在加上一些其他的内容。</p>
+<p>因为可以看到在Fast R-CNN中，它是对你的区域建议做了一个修正，然后会将它反馈给你的网路，最后重新分类或重新获取一个新的预测值，这就进行了一次次边框的改进，性能也因为这些内容而得到了提高。除了对这些区域进行分类之外，他们还得到了一个可以体现整张图片所有的特征向量，它可以体现出更好的内容和更好的性能。</p>
+<p>同时，它们还进行了多个尺度的测试，就像我们在Overfeat中看到的那样，测试时将在不同的尺寸上运行。</p>
+<h2 id="YOLO：You-Only-Look-Once-Detection"><a href="#YOLO：You-Only-Look-Once-Detection" class="headerlink" title="YOLO：You Only Look Once Detection "></a>YOLO：You Only Look Once Detection </h2><p>我们之前说过关于定为回归的一个想法，这件事叫YOLO，事实上，它将检测问题直接当做回归问题来处理。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/9.png" alt=""></p>
+<p>它将我们输入的图像划分成许多个空间网格（S <em> S），通常是7</em>7的网格，对于每一个网格中的元素，我们得到一个关于边界检测的数（B），在大部分的实验中我们通常使用B=2。</p>
+<p>在每个网络上，你要预测2个B边界框，也就是4个数，还要预测一个树来表示这一边界框的可信度，同时你还要对你数据集中的每一个类计算预测分类的评分，所以这个最终检测问题最终就变成了回归问题。</p>
+<p>对于这个回归问题，往往需要用CNN来训练它。它和我们之前讲的区域建议之类的东西不同，当然他也存在一些问题，它的模型输出的数量是有上限的，所以如果你的测试数据和训练数据中有很多的ground-truth，就可能出现一些问题。</p>
+<p><img src="/2017/12/17/FastRCNN-FasterRCNN/10.png" alt=""></p>
+<p>实际上这个YOLO检测器的速度是很快的，它甚至比Faster R-CNN还要快。但是不幸的是它的工作效果不是很好，所以就有了Fast YOLO</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p><strong>外部区域推荐的思想</strong>：你在做外部区域推荐的时候，你所做的是选取区域，然后进行卷积。如果能够同时做到这些，那会是很不错的。</p>
+<p>卷积就像一个对图片进行处理的一般过程，你期待卷积能对分类和回归有利。其实卷积中所包含的信息对区域选取同样是十分有用的。这其实就是为了减少计算量。</p>
+<p>在最后，对于所有划分，你使用的是同样的卷积特征图谱，不论是区域推荐，还是接下来的分类和回归。这就是为何能从这里获得运算速度的提升</p>
+<p><strong>Rol池化</strong>：其工作过程是通过将原始图像分解成固定的网络，然后对其做最大池化，对它做旋转变换是比较困难的，但是有一个叫空间变换神经网络模型提出了很好解决该问题的方法。</p>
+<p>它的中心思想是：不同于Rol池化，我们要做的是双线性插值，这有些像我们在处理纹理和图形中用到的。当你使用双线性插值时，也许你就能对这些区域进行操作。</p>
+<p>我认为另一个关于旋转对象比较实际的问题是，我们的数据集中没有与之对应的ground-truth，对于大部分检测数据集，我们仅有的ground-truth信息都是沿着坐标轴的。</p>
+<h2 id="本文中提到的模型链接"><a href="#本文中提到的模型链接" class="headerlink" title="本文中提到的模型链接"></a>本文中提到的模型链接</h2><p><a href="https://github.com/rbgirshick/rcnn" target="_blank" rel="noopener">R-CNN(Caffe + MATLAB)</a></p>
+<p><a href="https://github.com/rbgirshick/fast-rcnn" target="_blank" rel="noopener">Fast R-CNN(Caffe + MATLAB)</a></p>
+<p><a href="https://github.com/ShaoqingRen/faster_rcnn" target="_blank" rel="noopener">Faster R-CNN(Caffe + MATLAB)</a></p>
+<p><a href="https://github.com/rbgirshick/py-faster-rcnn" target="_blank" rel="noopener">Faster R-CNN(Caffe + Python)</a></p>
+<p><a href="http://pjreddie.com/darknet/yolo/" target="_blank" rel="noopener">YOLO</a></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/12/17/FastRCNN-FasterRCNN/">
+    <time datetime="2017-12-17T21:10:42.000Z" class="entry-date">
+        2017-12-17
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/03/23/EMTC-md/" rel="prev"><span class="meta-nav">←</span> Extreme Multi-label Text Classification:Kim-CNN &amp; XML-CNN</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/11/17/如何在Xcode中添加-bits-stdc-h-头文件/" rel="next">如何在Xcode中添加&lt;bits/stdc++.h&gt;头文件 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

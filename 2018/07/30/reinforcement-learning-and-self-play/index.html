@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Reinforcement Learning &amp; Self-Play | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Meta Learning &amp;amp; Self PlayThis passage is a learning note about a paper talking about the reinforcement learning and self play.  First of all, tell a joke. Title: How to perform as machine learning">
+<meta name="keywords" content="Neural Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reinforcement Learning &amp; Self-Play">
+<meta property="og:url" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="Meta Learning &amp;amp; Self PlayThis passage is a learning note about a paper talking about the reinforcement learning and self play.  First of all, tell a joke. Title: How to perform as machine learning">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/1.png">
+<meta property="og:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/2.png">
+<meta property="og:updated_time" content="2018-11-21T05:53:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Reinforcement Learning &amp; Self-Play">
+<meta name="twitter:description" content="Meta Learning &amp;amp; Self PlayThis passage is a learning note about a paper talking about the reinforcement learning and self play.  First of all, tell a joke. Title: How to perform as machine learning">
+<meta name="twitter:image" content="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-reinforcement-learning-and-self-play" class="post-reinforcement-learning-and-self-play post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Reinforcement Learning &amp; Self-Play
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2018/07/30/reinforcement-learning-and-self-play/" data-id="ckqlqy7a400478dx7sqeho1mf" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="Meta-Learning-amp-Self-Play"><a href="#Meta-Learning-amp-Self-Play" class="headerlink" title="Meta Learning &amp; Self Play"></a>Meta Learning &amp; Self Play</h2><pre><code>This passage is a learning note about a paper talking about the reinforcement learning and self play.
+
+First of all, tell a joke.
+Title: How to perform as machine learning?
+Q: Do you know the result of 11 * 12?
+A: Yes. My answer is 233.
+Q: No, the answer is 132.
+A: Ok, my answer is 132.
+lol
+</code></pre><h2 id="The-reinforcement-Learning-Problem"><a href="#The-reinforcement-Learning-Problem" class="headerlink" title="The reinforcement Learning Problem"></a>The reinforcement Learning Problem</h2><p>The Reinforcement Learning framework just tell you that you have an agent in some environment and you want to find a policy for this agent that will maximize its reward.</p>
+<a id="more"></a>
+<p>It’s a super general framework because almost any problem you can think of can be describe as there is an agent that takes some actions and you want to take those actions which lead to the good rewards, the high rewards.</p>
+<p>Now, the reason that reinforcement learning is interesting is because this reasonably good reinforcement learning algorithms. I should say reasonably good, I should say interesting reinforcement learning algorithms that can sometimes solve problems. So in the formulation, the environment gives the agents the observations and the rewards, but in the real world, the agent need to figure out its own rewards from the observation.</p>
+<p>Humans and animals they are not being told by the world but something is good or bad, it’s on us to figure it out of for ourselves.</p>
+<pre><code>Agent = neural work
+</code></pre><p>And this is how it looks like</p>
+<p><img src="/2018/07/30/reinforcement-learning-and-self-play/1.png" alt=""></p>
+<p>This is how it looks like now at least where the observation come in and a little network or helpfully a big neural network does some processing and produces an action.</p>
+<p>And I’ll explain to you in this part the way in which the vast majority of reinforcement learning algorithms work.</p>
+<ul>
+<li>Add randomness to your actions</li>
+<li>If the result was better than expected, do more of the same in the future</li>
+</ul>
+<p>So, this two both points it tries something random and if you eat better than expected, do it again.</p>
+<p>And there is some math around it but that’s basically the core of it and then that everything else is like slightly clever ways of making better use of this randomness.</p>
+<p>The reinforcement learning algorithms that we have new can solve some problems, but there is also a lot of things they can not solve.</p>
+<p>If you had a super good reinforcement learning algorithms then you can build the system it could achieve super complicated goals really quickly and basically the technical portion of the field of AI would be complete and a really good algorithms would combine all the spectrum of ideas from machine learning, and reasoning and inference the best time and the training at the best time, all of those ideas would be put together in the right way to create a system which would figure out how the world works and then achieve its goals in this world and do it vey quickly.</p>
+<p>But the algorithm we have today are still nowhere near at the level of what they can be in the future and will be.</p>
+<h2 id="Hindsight-Experience-Replay"><a href="#Hindsight-Experience-Replay" class="headerlink" title="Hindsight Experience Replay"></a>Hindsight Experience Replay</h2><p>So now let’s discuss ways in which we can improve reinforcement learning algorithms and I’ll describe to you one very simple improvement.</p>
+<p>The improvement boils down to this really simple idea so as discussed earlier, the very reinforcement learning algorithms is work is that you try something random and if you succeed, if you do better than expected then you should do it again.</p>
+<p>But what will happen if you try lots of random things and nothing works, this is the case when exploration is hard when you rewards are infrequent you get a lot of failures, don’t have a lot of success. So the question is can we somehow find a way to learn from failure.</p>
+<p>Next, I’ll explain to you the idea very briefly, the idea is the following. You try to do one thing, you aim to achieve one thing but you’ll probably fall unless you’re really good. So you will achieve something else.</p>
+<p>So, why not use the failure ti achieve the one thing as training data to achieve the other thing.</p>
+<ul>
+<li>Setup: build a system that can reach any state</li>
+<li>Goal: reach state A</li>
+<li>Any trajectory ends up in some other state B</li>
+<li>Use this as training data to each state B</li>
+</ul>
+<p>It’s really intuitive and it works.</p>
+<h2 id="Learning-a-Hierarchy-of-Actions-With-Meta-Learning"><a href="#Learning-a-Hierarchy-of-Actions-With-Meta-Learning" class="headerlink" title="Learning a Hierarchy of Actions With Meta Learning"></a>Learning a Hierarchy of Actions With Meta Learning</h2><p>It’s a simple approach for learning hierarchy of actions, so one of the things that would be nice to do in reinforcement learning is to learn this hierarchy with the hierarchy of some kind.</p>
+<p>But it’s never really been successful, truly successful, and I don’t want to claim that this is a success as well this is more of a demonstration which of how you could approach the problem learning a hierarchy if you had distribution over takes, then basically what you want is to train how level controllers such that they make it possible to solve the tasks quickly.</p>
+<p>So you optimize the low level actions such that they make it possible to solve the tasks from your distribution tasks quickly.</p>
+<h2 id="Evolved-Policy-Gradients"><a href="#Evolved-Policy-Gradients" class="headerlink" title="Evolved Policy Gradients"></a>Evolved Policy Gradients</h2><p>It will be kind of cool if we could evolve a cost function which would make it possible to solve reinforcement learning problems quickly, and as easy as you usually do in there kind of situations you have a distribution over take and you literally evolve the cost function. And the fitness of the cost function is the speed in which this cost function lets you solve problems from a distribution of problems.</p>
+<pre><code>Goal: learn a cost function that leads to rapid learning.
+</code></pre><ul>
+<li>Train a cost function such that reinforcement learning on this function learns very quickly.</li>
+<li>Ingredients: a distribution over look</li>
+<li>Use evolution strategies to learn the cost function</li>
+</ul>
+<p>So the learned cost function allows for extremely rapid learning but the learned cost function also has a lot of information about the distribution of tasks.</p>
+<p>In this case, this result is not magic because you need your training task distribution to be equal to a test at distribution and now it’s improved some more.</p>
+<h2 id="Self-Play"><a href="#Self-Play" class="headerlink" title="Self Play"></a>Self Play</h2><p>Self play is something which is really interesting. It’s an old idea that’s existed for many years back from the 60s.</p>
+<p>The first really cool result in self play is from 1992 by Tesauro where he used a cluster of 386 computers to train a neural network using Q-learning to play backgammon with self play. And the neural network learned to the feed the world champion and it discover strategies but bag of and experts weren’t aware of and they decided and agreed those strategies were superior.</p>
+<p><strong>Appealing properties of Self Play</strong></p>
+<ul>
+<li>Simple environment</li>
+</ul>
+<p>Self play has the property that you can have very simple environments. If you run self play in one simple environment, then you can potentially get behaviors with unbounded complexity self.</p>
+<ul>
+<li>Convert computer into data</li>
+</ul>
+<p>Self play gives you a way of converting computer into data which is great because data is really hard to get but computer is easier to get.</p>
+<ul>
+<li>Perfect curriculum</li>
+</ul>
+<p>Another very nice thing about self play is that it has an natural or perfect curriculum because if you are good then your opponent is good, the table is difficult. You always vain on between 50% of the tome. So it does not matter how good you are or how bad you are. It’s always challenging at the right level of challenge and so it means that you have a very smooth path of going from agents that don’t do much to agents that potentially do a lot of things.</p>
+<h2 id="AI-Alignment-Learning-from-human-feedback"><a href="#AI-Alignment-Learning-from-human-feedback" class="headerlink" title="AI Alignment: Learning from human feedback"></a>AI Alignment: Learning from human feedback</h2><p>Here the question is that we are trying to address is really simple. You know as we train progressively more powerfully AI system it will be important to communicate to them goals of greater subtlety and intricacy and how can we do that.</p>
+<p>Well, in this work, we investigate one approach which is having humans judge the behavior of an algorithms and some be route be really efficient.</p>
+<p>The way it really works is that human judges provide feedback to the system. All of those bits of feedback are being cashed into a model of a reward using a triplet loss. It tries to come up with a single reward function that respects all the human feedback that was given to it.</p>
+<p><img src="/2018/07/30/reinforcement-learning-and-self-play/2.png" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/07/30/reinforcement-learning-and-self-play/">
+    <time datetime="2018-07-31T03:21:22.000Z" class="entry-date">
+        2018-07-30
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2018/11/21/白话迁移学习/" rel="prev"><span class="meta-nav">←</span> 简述迁移学习</a></span>
+    
+    
+        <span class="nav-next"><a href="/2018/03/23/EMTC-md/" rel="next">Extreme Multi-label Text Classification:Kim-CNN &amp; XML-CNN <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

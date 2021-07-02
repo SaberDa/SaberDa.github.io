@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>详细谈谈RBF-1 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="对神经网络的监督学习有多种不同的方法。在我以前的文章里提到过的反向传播算法，可以是看做递归技术的应用，这种方法又叫做随机逼近。 在这篇文章中，我将采用完全不同的途径。具体来说，通过包含如下两阶段的混合方式来解决非线性可分模式的分类问题：  第一阶段将一个给定的非线性可分模式的集合转换为新的集合，在一定条件下，转换后的模式变为线性的可能性很高；关于这一转换的数学证明我就不具体介绍了，大家可以去查阅">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详细谈谈RBF-1">
+<meta property="og:url" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="对神经网络的监督学习有多种不同的方法。在我以前的文章里提到过的反向传播算法，可以是看做递归技术的应用，这种方法又叫做随机逼近。 在这篇文章中，我将采用完全不同的途径。具体来说，通过包含如下两阶段的混合方式来解决非线性可分模式的分类问题：  第一阶段将一个给定的非线性可分模式的集合转换为新的集合，在一定条件下，转换后的模式变为线性的可能性很高；关于这一转换的数学证明我就不具体介绍了，大家可以去查阅">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/4.png">
+<meta property="og:updated_time" content="2017-04-01T16:01:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详细谈谈RBF-1">
+<meta name="twitter:description" content="对神经网络的监督学习有多种不同的方法。在我以前的文章里提到过的反向传播算法，可以是看做递归技术的应用，这种方法又叫做随机逼近。 在这篇文章中，我将采用完全不同的途径。具体来说，通过包含如下两阶段的混合方式来解决非线性可分模式的分类问题：  第一阶段将一个给定的非线性可分模式的集合转换为新的集合，在一定条件下，转换后的模式变为线性的可能性很高；关于这一转换的数学证明我就不具体介绍了，大家可以去查阅">
+<meta name="twitter:image" content="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-RBF-径向基函数网络-1" class="post-RBF-径向基函数网络-1 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      详细谈谈RBF-1
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/04/01/RBF-径向基函数网络-1/" data-id="ckqlqy79e002y8dx7whh962s9" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>对神经网络的监督学习有多种不同的方法。在我<a href="http://www.saberismywife.com/2016/12/10/Machine-Learning-5/" target="_blank" rel="noopener">以前的文章</a>里提到过的反向传播算法，可以是看做递归技术的应用，这种方法又叫做随机逼近。</p>
+<p>在这篇文章中，我将采用完全不同的途径。具体来说，通过包含如下两阶段的混合方式来解决非线性可分模式的分类问题：</p>
+<ul>
+<li>第一阶段将一个给定的非线性可分模式的集合转换为新的集合，在一定条件下，转换后的模式变为线性的可能性很高；关于这一转换的数学证明我就不具体介绍了，大家可以去查阅 Cover 大大在 1965 年的早期论文</li>
+<li>第二阶段是通过最小二乘估计来解决给定的分类问题</li>
+</ul>
+<a id="more"></a>
+<p>我们首先通过插值问题的讨论来描诉关于这一混合方式对模式分类问题的一种执行方式：使用径向基函数网络(radial-basis function network)，简称RBF，该网络由三层组成：</p>
+<ul>
+<li>输入层由一些源节点（感知单元）组成。它们将网络与外界环境链接起来</li>
+<li>第二层由隐藏单元组成，它的作用是从输入空间到隐藏（特征）空间之间进行非线性变换。在大多数情况下网络仅有的隐藏层具有较高的维数，这一层是利用混合学习过程的第一阶段在非监督学习的方式下训练</li>
+<li>输出层是线性的，它是为提供网络的响应而专门设计的，该响应提供给应用于输入层的激活模式。这一层是利用混合过程的第二阶段在监督学习的方式下训练的</li>
+</ul>
+<p>从输入空间到隐藏空间的非线性变换以及隐藏空间的高维数满足了Cover定理的仅有两个条件</p>
+<p>RBF网络的多维理论建立在高斯函数之上，这一类中一个重要成员是径向基函数。高斯函数可以看做是一个核–因此基于高斯函数的两阶段过程的设计可看成是核方法。</p>
+<h2 id="模式可分性的-Cover-定理"><a href="#模式可分性的-Cover-定理" class="headerlink" title="模式可分性的 Cover 定理"></a>模式可分性的 Cover 定理</h2><p>当用径向基函数神经网络来解决一个复杂的分类任务时，问题基本可通过以下方式解决：首先用非线性方法将其转换到高维空间，然后在输出层进行分类，模式可分性的 Cover 定理，说明了这样做的合法性，该定理可以定性的表述如下：</p>
+<pre><code>假设空间不是稠密可分的，将复杂的模式分类问题非线性的投射到高维空间将比投射到低维空间更可能是线性可分的
+</code></pre><p>我们知道，一旦模式具有线性可分性，则分类问题相对而言就更容易解决。因此，我们通过研究模式的可分性可以深入了解RBF网络作为模式分类器是如何工作的。</p>
+<p>考虑一族曲面，每一个曲面都自然的将输入空间分成两个区域。用 χ 代表 N 个模式（向量） x<sub>1</sub>，x<sub>2</sub>，…，x<sub>N</sub> 的集合，其中每一个模式都分属于 χ<sub>1</sub> 和 χ<sub>2</sub> 中的一类。如果在这一族曲面中存在一个曲面能将分别属于 χ<sub>1</sub> 和 χ<sub>2</sub> 的这些点分为两个部分，我们则称这些点的二分（二元划分）关于这族曲面是可分的。对于每一个模式 x ∈ χ ，定义一个由一组实值函数 { φ<sub>1</sub>(x) | i = 1, 2, …, m<sub>1</sub> } 组成的向量，表示如下：</p>
+<center>φ(x) = [ φ<sub>1</sub>(x), φ<sub>2</sub>(x), …, φ<sub>m<sub>1</sub></sub>(x)]<sup>T</sup></center> 
+
+<p>假设模式 x 是 m<sub>0</sub> 维输入空间的一个向量，则向量 φ(x) 将 m<sub>0</sub> 维输入空间的点映射到新的 m<sub>1</sub> 维空间的相应的点上。我们将 φ<sub>i</sub>(x) 称为隐藏函数，因为它与前面神经网络中的隐藏单元起着同样的作用。相应的，由隐藏函数集合 { φ<sub>i</sub>(x) }<sub>i=1</sub><sup>m<sub>1</sub></sup> 所生成的空间称为隐藏空间或者特征空间。</p>
+<p>我们称一个关于 χ 的二分 { χ<sub>1</sub>, χ<sub>2</sub>} 是 φ 可分的，如果存在一个  m<sub>1</sub> 维的向量 w 使得我们得到如下公式：</p>
+<center> w<sup>T</sup>φ(x) &gt; 0, x ∈ χ<sub>1</sub> </center>
+
+<center> w<sup>T</sup>φ(x) &lt; 0, x ∈ χ<sub>2</sub> </center>
+
+
+
+<p>由方程 w<sup>T</sup>φ(x) = 0 定义的超平面描述 φ 空间（即特征空间）中的分离曲面。这个超平面的逆像，即 x: w<sup>T</sup>φ(x) = 0 定义输入空间中的分离曲面（即决策边界）。</p>
+<p>考虑一个利用 r 次模式向量坐标乘积的线性组合实现的一个自然类映射。与此种映射相对应的分离曲面被称为 r 阶有理簇。一个 m<sub>0</sub> 维空间的 r 阶有理簇可描述为输入向量 x 的坐标的一个 r 次齐次方程，表示为：</p>
+<center>∑ a<sub>i<sub>1</sub>,i<sub>2</sub>,…,i<sub>r</sub></sub>x<sub>i<sub>1</sub></sub>x<sub>i<sub>2</sub></sub>…x<sub>i<sub>r</sub></sub> = 0</center>
+
+<center> 0 &lt;= i<sub>1</sub>,i<sub>2</sub>,…,i<sub>r</sub> &lt;= m<sub>0</sub> </center>
+
+
+<p>其中 x<sub>i</sub> 是输入向量的 x 的第 i 个元素。为了用齐次形式来表达方程，将 x<sub>0</sub> 的值置为单位值1。x 中项 x<sub>i</sub> 的 r 阶乘积，即 x<sub>i<sub>1</sub></sub>x<sub>i<sub>2</sub></sub>…x<sub>i<sub>r</sub></sub> ，被称为单项式。对于一个 m<sub>0</sub> 维的输入空间在上式中一共有 ((m<sub>0</sub> - r)! / m<sub>0</sub>!r!) 个单项式。上式所秒速的分离曲面的类型的例子有超平面（一阶有理簇）、二次曲面（二阶有理簇）和超球面（带有某些线性限制系数的二次曲面）等。</p>
+<p>通常情况下，线性可分性暗示着球面可分性，而球面可分性又暗示着二次可分性；反之不一定成立。</p>
+<p>在概率模式中，一个模式集合的可分性是一个随机事件，该随机事件依赖于选择的二分以及输入空间的模式分布。假设激活模式 x<sub>1</sub>, x<sub>2</sub>, …, x<sub>N</sub> 是根据输入空间的概率特性二独立选取的。同时假设所有的关于 χ = { x<sub>i</sub> }<sub>i=1</sub><sup>N</sup> 的二分都是等概率的。令 P(N, m<sub>1</sub>) 表示某一随机选取的二分是 φ 可分的概率，这里被选中的分离曲面的类具有 m<sub>1</sub> 维的自由度。则可将 P(N, m<sub>1</sub>) 表述为：</p>
+<center>P(N, m<sub>1</sub>) = (1/2)<sup>N-1</sup>∑(N-1), N &gt; m<sub>1</sub>-1</center>
+
+<center>P(N, m<sub>1</sub>) = (1/2)<sup>N-1</sup>∑(m), N &lt;= m<sub>1</sub>-1</center>
+
+<p>上式隐含了 Cover 的可分性定理对于随机模式的本质。他说明累计二项概率分布，相当于抛（N-1）次硬币有（m<sub>1</sub>-1）次或者更少词头像向上的概率。</p>
+<p>尽管在上式的推导中遇见的隐藏单元院是一个多项式的形式，因而与我们通常在径向基函数网络中用到的有所不同，但是该式的核心内容却具有普遍的适用性。具体来说，隐藏空间的维数 m<sub>1</sub> 越高，则概率 P(N, m<sub>1</sub>) 就越趋向于1.总之，关于该模式可分性的 Cover 定理只要包含下面两个基本部分：</p>
+<ul>
+<li>由 φ<sub>i</sub>(x) 定义的隐藏函数的非线性构成，这里 x 是输入向量，且 i = 1, 2, …, m<sub>1</sub></li>
+<li>高维数的隐藏（特征）空间，这里的高维数是相对于输入空间而言的。位数由赋给 m<sub>1</sub> 的值（即隐藏单元的个数）决定</li>
+</ul>
+<p>综上所述，通常讲一个复杂的模式分类问题非线性的投射到高维数空间将会比投射到低维空间更可能是线性不可分的。但需要强调的是，有时使用非线性映射就足够导致线性可分，而不必升高隐藏单元空间维数。</p>
+<h2 id="曲面的分离能力"><a href="#曲面的分离能力" class="headerlink" title="曲面的分离能力"></a>曲面的分离能力</h2><p>上式对于在多维空间中随机指定输入模式线性可分的期望最大数目有重要意义。为了研究这个问题，如前所诉将 x<sub>1</sub>，x<sub>2</sub>，…，x<sub>N</sub> 视为一个随机模式（向量）序列。令 N 为一个随机变量，定义为该序列为 φ 可分时的最大整数，这里的 φ 具有 m<sub>1</sub> 的自由度。于是由上式可推导出当 N = n 时的概率：</p>
+<p><img src="/2017/04/01/RBF-径向基函数网络-1/1.png" alt=""></p>
+<p>为了解释上诉结果，我们回想一下负二项分布的定义。该分布相当于在一组重复的伯努利实验中有 r 次成功，k 次失败的概率。在这种概率分布中，每一次实验只有两个两种结果，不是成功就是失败，并且成功和失败的几率在整租实验中都是相同的。令 p 代表成功的概率，q 代表失败的概率，p + q = 1。负二项分布定义如下：</p>
+<p><img src="/2017/04/01/RBF-径向基函数网络-1/2.png" alt=""></p>
+<p>在 p = q = 1/2（即成功与失败具有相等的概率时）且 k + r = n 的特殊情况下，负二项分布将变为：</p>
+<p><img src="/2017/04/01/RBF-径向基函数网络-1/3.png" alt=""></p>
+<p>根据上诉定义，我们现在可以看出上式所表示的结果恰好就是负二项分布，只不过右移了 m<sub>1</sub> 个单位且具有参数 m<sub>1</sub> 和 1/2。这样，N 相当于在一组抛硬币的实验中出现了第 m<sub>1</sub> 次失败的“等待时间”。随机变量 N 的期望机器中位数分别为：</p>
+<center>ε[N] = 2m<sub>1</sub></center>
+
+<center>median[N] = 2m<sub>1</sub></center>
+
+<p>因此，可以得到 Cover 定理的一个推论，用著名的渐进结果的形式可表述如下：</p>
+<pre><code>一组随机指定的输入模式（向量）的集合在 m1 维空间中线性可分，它的元素数目的最大期望等于2 m1
+</code></pre><p>该结果表明，2m<sub>1</sub> 是对一族具有 m<sub>1</sub> 维自由度的决策曲面的分离能力的自然定义。在一定程度上，一个曲面的分离能力与 VC 维数的概念有着密切的联系</p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>径向基函数是在解决实多变量插值问题时首次提出的。现在径向基函数是数值分析研究中的一个主要方向</p>
+<p>Cover 定理的证明遵循如下两个基本考虑：</p>
+<p>Schlafli 定理，或函数计数定理：对 m<sub>1</sub> 维欧几里得空间上的 N 个处于一般位置的向量进行二分，可得到的齐次线性可分的二分方式的数目等于：</p>
+<p><img src="/2017/04/01/RBF-径向基函数网络-1/4.png" alt=""></p>
+<p>如果每一个含有 m<sub>1</sub> 个或者小于 m<sub>1</sub> 个的向量子集都是线性独立的，也就是说 m<sub>1</sub> 维的欧几里得空间上的集合 χ = { x<sub>i</sub> }<sub>i=1</sub><sup>N</sup> 处于一般位置</p>
+<p>χ 的联合概率分布的反射不变性：一个随机的二分是可分的概率（在 χ 的条件下）等于 χ 的一个特定二分（所有的 N 个向量都属于一类）的非条件概率</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本系列的第一篇文章主要介绍了关于模式可分的 Cover 定理以及相关公式。</p>
+<p>下一篇计划为介绍如何使用径向基函数来求解插值问题。</p>
+<p>（Ps：公式由mathtype友情支持）</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/04/01/RBF-径向基函数网络-1/">
+    <time datetime="2017-04-01T23:04:34.000Z" class="entry-date">
+        2017-04-01
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/04/17/支持向量机/" rel="prev"><span class="meta-nav">←</span> 支持向量机与核函数</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/03/27/install-opencv3/" rel="next">Problems in Installing openCV on Mac <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

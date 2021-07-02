@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>大话指针 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="指针入门，看这个就够了 本文章主要以代码给大家讲解指针是什么，我们该怎么用，以及要注意什么。我不会明确的告诉你们，什么是指针，指针的意义是什么，你们要做的就是把下面的一个个main函数都去实现并运行一遍，体会每一个输出与定义的意义。">
+<meta name="keywords" content="指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大话指针">
+<meta property="og:url" content="https://saberda.github.io/2016/10/19/大话指针/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="指针入门，看这个就够了 本文章主要以代码给大家讲解指针是什么，我们该怎么用，以及要注意什么。我不会明确的告诉你们，什么是指针，指针的意义是什么，你们要做的就是把下面的一个个main函数都去实现并运行一遍，体会每一个输出与定义的意义。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2016-10-23T14:23:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大话指针">
+<meta name="twitter:description" content="指针入门，看这个就够了 本文章主要以代码给大家讲解指针是什么，我们该怎么用，以及要注意什么。我不会明确的告诉你们，什么是指针，指针的意义是什么，你们要做的就是把下面的一个个main函数都去实现并运行一遍，体会每一个输出与定义的意义。">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-大话指针" class="post-大话指针 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      大话指针
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/19/大话指针/" data-id="ckqlqy7ar005r8dx7s5ue8mjr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>指针入门，看这个就够了
+</code></pre><p>本文章主要以代码给大家讲解指针是什么，我们该怎么用，以及要注意什么。我不会明确的告诉你们，什么是指针，指针的意义是什么，你们要做的就是把下面的一个个main函数都去实现并运行一遍，体会每一个输出与定义的意义。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">	int num = 100;</span><br><span class="line">	int *p = &amp;num;</span><br><span class="line">	//p的值是一个地址，存放的是num的地址</span><br><span class="line">	//*p的本质：根据一个地址，获取内容</span><br><span class="line">	*p = 10;</span><br><span class="line">	//(int *)指针，包含一个地址，这里就是p</span><br><span class="line">	//*p就是一个int型的数据</span><br><span class="line"></span><br><span class="line">	printf(“%d”, change_1(num));</span><br><span class="line">	printf(“%d”, change_2(&amp;num));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line"></span><br><span class="line">	int a = 1;</span><br><span class="line">	int *p = &amp;a;</span><br><span class="line">	printf(“*p = %d, a = %d”, *p, a);</span><br><span class="line">	printf(“\np = %x, &amp;a = %x”, p, &amp;a);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">	int a = 1;</span><br><span class="line">	int *p = &amp;a;	//&amp;a是一个地址；p存放地址，是一个指针变量</span><br><span class="line">	int **pp = &amp;p;	//**pp可以当做int理解</span><br><span class="line">	**pp = 2;</span><br><span class="line">	//**pp == *(*pp)</span><br><span class="line">	printf(“%d”, a);</span><br><span class="line">	int b = 3;</span><br><span class="line">	*pp = &amp;b;	//*pp是个int型的指针</span><br><span class="line">	printf(“%d”, b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="指针的类型"><a href="#指针的类型" class="headerlink" title="指针的类型"></a>指针的类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">	int *p1;</span><br><span class="line">	char *p2;</span><br><span class="line">	double *pe;</span><br><span class="line">	//所有指针在32位系统下都是4个字节</span><br><span class="line">	//在64为系统下都是8个字节</span><br><span class="line"></span><br><span class="line">	//但是地址不能乱传，因为这个地址存储的内容你不知道，它可能是变量，可能是数组，可能是函数</span><br><span class="line">	//指针类型的作用：解析这段地址的数据</span><br><span class="line">	printf(“%d %d %d”, sizeof(p1), sizeof(p2), sizeof(p3));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">	//指针类型不匹配不能乱传</span><br><span class="line">    int a = 5555;</span><br><span class="line">    int *p = &amp;a;</span><br><span class="line">    char *ppp = &amp;a;</span><br><span class="line">    char *pp = p;</span><br><span class="line">    printf(&quot;%d&quot;, *pp);</span><br><span class="line">    printf(&quot;\n%d&quot;, *ppp);</span><br><span class="line">    printf(&quot;\n%d %d&quot;, sizeof(*p), sizeof(*pp));</span><br><span class="line">    printf(&quot;\n%d %d&quot;, sizeof(p), sizeof(pp));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="指针常识"><a href="#指针常识" class="headerlink" title="指针常识"></a>指针常识</h2><p>1.指针变量在使用前必须初始化</p>
+<p>这里可以访问我的另一篇博客，其详细介绍了指针初始化的含义与注意事项</p>
+<p><a href="http://www.saberismywife.com/2016/09/17/指针的初始化/" target="_blank" rel="noopener">http://www.saberismywife.com/2016/09/17/指针的初始化/</a></p>
+<p>2.使用二级指针的场景：外部函数改动一级指针必须使用二级指针</p>
+<p>3.直接访问：按变量地址来访问变量</p>
+<p>  间接访问：通过存放变量地址的变量去访问变量</p>
+<p>4.空指针</p>
+<p>空指针的定义：指针变量值为0</p>
+<p>空指针的表示：int <em>p = 0; 或 int </em>p = NULL;</p>
+<pre><code>p指向地址为0的单元，系统保证该单元不作它用，表示指针变量值没有意义
+</code></pre><p>p = NULL; 与未对p赋值不同</p>
+<p>空指针的用途：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">避免指针变量的非法引用;</span><br><span class="line">在程序中常作为状态比较;</span><br></pre></td></tr></table></figure>
+<h2 id="函数改变外部指针"><a href="#函数改变外部指针" class="headerlink" title="函数改变外部指针"></a>函数改变外部指针</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">char a = ‘A’;</span><br><span class="line">char b = ‘B’;</span><br><span class="line">void change_1(char *p) &#123;</span><br><span class="line">	p = &amp;b;</span><br><span class="line">&#125;</span><br><span class="line">//改变一个变量，需要改变这个变量的地址</span><br><span class="line">//如果变量是数据，就需要指针保存变量的地址</span><br><span class="line">//如果是个指针，就需要二级指open针保存指针变量的地址</span><br><span class="line">void change_2(char **p) &#123;</span><br><span class="line">	*p = &amp;b;			//*p 对应char *</span><br><span class="line">	//**p = ‘c’;		//**p对应char</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">	char *p = &amp;a;</span><br><span class="line">	printf(“%c”, *p);</span><br><span class="line">	change_1(p);</span><br><span class="line">	printf(“%c”, *p);</span><br><span class="line">	change_2(&amp;p);</span><br><span class="line">	printf(“%c”, *p);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实战：单向赋值与双向赋值"><a href="#实战：单向赋值与双向赋值" class="headerlink" title="实战：单向赋值与双向赋值"></a>实战：单向赋值与双向赋值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void change_1(int p) &#123;</span><br><span class="line">	//单向传递，复制，只能接受不能改变原来的值</span><br><span class="line">	p = 100;</span><br><span class="line">&#125;</span><br><span class="line">void change_2(int *p) &#123;</span><br><span class="line">	//新建了一个变量，复制了地址的值</span><br><span class="line">	//创建一个指针，接受a的地址</span><br><span class="line">	//根据地址改变原来的值，通过*(地址)来赋值</span><br><span class="line">	*p = 100;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/19/大话指针/">
+    <time datetime="2016-10-20T01:22:17.000Z" class="entry-date">
+        2016-10-19
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指针/">指针</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/10/24/隐藏键盘的几种方法/" rel="prev"><span class="meta-nav">←</span> 隐藏键盘的几种方法</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/17/树与二叉树（六）/" rel="next">树与二叉树（六） <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>树与二叉树（三） | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本篇文章是树系列的第三篇文章，主要介绍二叉树的遍历和建树 二叉树的遍历遍历的定义：顺着某一条搜索路径巡防二叉树中的结点，使得每个结点均被访问一次，而且仅被访问一次。 “遍历”是任何类型都有的操作，对线性结构来说，只有一条搜索路径（因为每个结点只有一个后继），故不需要另加讨论。而二叉树是非线性结构，每个结点有两个后继，则存在如何遍历即按什么样的搜索路径来进行遍历的问题。">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树（三）">
+<meta property="og:url" content="https://saberda.github.io/2016/10/13/树与二叉树（三）/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本篇文章是树系列的第三篇文章，主要介绍二叉树的遍历和建树 二叉树的遍历遍历的定义：顺着某一条搜索路径巡防二叉树中的结点，使得每个结点均被访问一次，而且仅被访问一次。 “遍历”是任何类型都有的操作，对线性结构来说，只有一条搜索路径（因为每个结点只有一个后继），故不需要另加讨论。而二叉树是非线性结构，每个结点有两个后继，则存在如何遍历即按什么样的搜索路径来进行遍历的问题。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2016/10/13/树与二叉树（三）/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/10/13/树与二叉树（三）/2.png">
+<meta property="og:image" content="https://saberda.github.io/2016/10/13/树与二叉树（三）/3.png">
+<meta property="og:updated_time" content="2016-10-13T09:15:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树与二叉树（三）">
+<meta name="twitter:description" content="本篇文章是树系列的第三篇文章，主要介绍二叉树的遍历和建树 二叉树的遍历遍历的定义：顺着某一条搜索路径巡防二叉树中的结点，使得每个结点均被访问一次，而且仅被访问一次。 “遍历”是任何类型都有的操作，对线性结构来说，只有一条搜索路径（因为每个结点只有一个后继），故不需要另加讨论。而二叉树是非线性结构，每个结点有两个后继，则存在如何遍历即按什么样的搜索路径来进行遍历的问题。">
+<meta name="twitter:image" content="https://saberda.github.io/2016/10/13/树与二叉树（三）/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-树与二叉树（三）" class="post-树与二叉树（三） post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      树与二叉树（三）
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/13/树与二叉树（三）/" data-id="ckqlqy7be00758dx7r7apeku0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>本篇文章是树系列的第三篇文章，主要介绍二叉树的遍历和建树
+</code></pre><h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><p>遍历的定义：顺着某一条搜索路径巡防二叉树中的结点，使得每个结点均被访问一次，而且仅被访问一次。</p>
+<p>“遍历”是任何类型都有的操作，对线性结构来说，只有一条搜索路径（因为每个结点只有一个后继），故不需要另加讨论。而二叉树是非线性结构，每个结点有两个后继，则存在如何遍历即按什么样的搜索路径来进行遍历的问题。</p>
+<a id="more"></a>
+<p>对“二叉树”而言，可以有三条搜索路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">先上后下的按层次遍历</span><br><span class="line">先左（子树）后右（子树）的遍历</span><br><span class="line">先右（子树）后左（子树）的遍历</span><br></pre></td></tr></table></figure>
+<h2 id="先左后右的遍历算法"><a href="#先左后右的遍历算法" class="headerlink" title="先左后右的遍历算法"></a>先左后右的遍历算法</h2><p>先（根）序的遍历算法：</p>
+<pre><code>若二叉树为空树，则空操作，否则：
+1）访问根节点；
+2）先序遍历左子树；
+3）先序遍历右子树
+</code></pre><p><img src="/2016/10/13/树与二叉树（三）/1.png" alt=""></p>
+<p>中（根）序的遍历算法：</p>
+<pre><code>若二叉树为空树，则空操作，否则：
+1）中序遍历左子树；
+2）访问根节点；
+3）中序遍历右子树
+</code></pre><p><img src="/2016/10/13/树与二叉树（三）/2.png" alt=""></p>
+<p>后（根）序的遍历算法：</p>
+<pre><code>若二叉树为空树，则空操作，否则：
+1）后序遍历左子树；
+2）后序遍历右子树；
+3）访问根节点
+</code></pre><p><img src="/2016/10/13/树与二叉树（三）/3.png" alt=""></p>
+<h2 id="算法的递归描述"><a href="#算法的递归描述" class="headerlink" title="算法的递归描述"></a>算法的递归描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void preorder(BiTree T, void(*visit)(elemtype &amp;e)) &#123;</span><br><span class="line">	//先序遍历二叉树</span><br><span class="line">	//中序与后序遍历算法只是将if里的三条语句的顺序换一下就可以了</span><br><span class="line">	if(T) &#123;</span><br><span class="line">		visit(T -&gt; data);	//访问结点</span><br><span class="line">		preorder(T -&gt; lChild, visit);		//访问左子树</span><br><span class="line">		preorder(T -&gt; rChild, visit);		//访问右子树</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法的非递归描述"><a href="#算法的非递归描述" class="headerlink" title="算法的非递归描述"></a>算法的非递归描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中序遍历非递归算法</span><br></pre></td></tr></table></figure>
+<p>由中序遍历算法过程可知，采用一个栈用以保存需要返回的结点指针，先扫描（并非访问）根节点的所有左结点并将他们一一进栈。</p>
+<p>然后出栈一个结点，显然该结点没有左孩子结点或者左孩子结点已经访问过，则访问它。</p>
+<p>然后扫描该结点的右孩子结点，将其进栈，再扫描该右孩子结点的所在左结点并一一进栈。循环，直到栈空为止。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">void inOrder(BiTree root) &#123;</span><br><span class="line">	//调用栈操作实现</span><br><span class="line">	initStack(&amp;S);</span><br><span class="line">	p = root;</span><br><span class="line">	while(p != NULL || !stackEmpty) &#123;</span><br><span class="line">		if(p != NULL) &#123;</span><br><span class="line">			//根指针进栈，遍历左子树</span><br><span class="line">			push(&amp;S, p);</span><br><span class="line">			p = p -&gt; lChild;</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			//根指针出栈，访问根节点，遍历右子树</span><br><span class="line">			pop(&amp;S, p);</span><br><span class="line">			visit(p -&gt; data);</span><br><span class="line">			//改变visit的位置就可以改变算法的实现，比如放到前面的if中就是先序遍历</span><br><span class="line">			p = p -&gt; rChild;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void NRinOrder(BiTree bt) &#123;</span><br><span class="line">	BiTree stack[MAX_TREE_SIZE], p;</span><br><span class="line">	int top = 0;</span><br><span class="line">	p = bt;</span><br><span class="line">	if (bt == NULL) return;</span><br><span class="line">	while (!(p == NULL &amp;&amp; top == 0)) &#123;</span><br><span class="line">		while (p != NULL) &#123;</span><br><span class="line">			if (top &lt; MAX_TREE_SIZE - 1)</span><br><span class="line">				stack[top++] = p;</span><br><span class="line">			else &#123;</span><br><span class="line">				printf(“栈溢出”);</span><br><span class="line">				return;</span><br><span class="line">			&#125;</span><br><span class="line">			p = p -&gt; lChild;	//指针指向p的左孩子结点</span><br><span class="line">		if (top &lt; 0) return;	//栈空时结束</span><br><span class="line">		else &#123;</span><br><span class="line">			p = stack[- -top];	//从栈中推出栈顶元素</span><br><span class="line">			visit(p -&gt; data);	//访问结点的数据域</span><br><span class="line">			p = p -&gt; rChild;	//指针指向p的右孩子结点</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先序遍历的非递归算法</span><br></pre></td></tr></table></figure>
+<p>由先序遍历的过程可知，先访问根节点，再访问左子树，最后访问右子树。</p>
+<p>因此，先将根节点进栈，在栈不空时循环：出栈p，访问*p结点，将其右孩子结点进栈，再将左孩子进栈。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void preOrder(BiTree b) &#123;</span><br><span class="line">	BiTree st[MAX_TREE_SIZE], p;</span><br><span class="line">	int top = -1;</span><br><span class="line">	if (b != NULL) &#123;</span><br><span class="line">		st[++top] = b;		//根结点进栈</span><br><span class="line">		while (top &gt; -1) &#123;</span><br><span class="line">			//栈不空时循环</span><br><span class="line">			p = st[top—];</span><br><span class="line">			visit(p -&gt; data);</span><br><span class="line">			if(p -&gt; rChild != NULL) //右孩子进栈</span><br><span class="line">				st[top++] = p -&gt; rChild;</span><br><span class="line">			if(p -&gt; lChild != NULL) //左孩子进栈</span><br><span class="line">				st[top++] = p -&gt; lChild;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">后序遍历的非递归算法</span><br></pre></td></tr></table></figure>
+<p>由后序遍历过程可知，采用一个栈保存需要返回的指针结点，先扫描根节点的所有左结点并将他们一一入栈，同时出栈当前结点*b，然后扫描该结点的右孩子结点并进栈，然后扫描该右孩子的所有左结点并入栈。</p>
+<p>当一个结点的左、右孩子结点均被访问后再访问该结点，循环，直到栈空为止.</p>
+<p>其中的难点是如何判断一个结点*b的右孩子结点已经被访问过，因此用p保存刚刚访问过的结点（初值为NULL），若(b -&gt; rChild) == p成立（在后序遍历中，*b的右孩子结点一定刚好在*b之前访问），说明*b的左右子树均已被访问，现在应访问*b。</p>
+<p>从上述过程可知，栈中保存的是当前结点*b的所有祖先结点（均未被访问）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void postOrder1(BiTree b) &#123;</span><br><span class="line">	BiTree st[MAX_TREE_SIZE], p;</span><br><span class="line">	int flag;</span><br><span class="line">	int top = -1;</span><br><span class="line">	if (b != NULL) &#123;</span><br><span class="line">		do &#123;</span><br><span class="line">			while (b != NULL) &#123;</span><br><span class="line">				//扫描b的左结点并进栈</span><br><span class="line">				st[++top] = b;</span><br><span class="line">				b = b -&gt; lChild;</span><br><span class="line">			&#125;</span><br><span class="line">			p = NULL;	//p指向栈顶结点的前一个已被访问过的结点</span><br><span class="line">			flag = 1;	//设置b的访问标记为访问过</span><br><span class="line">			while (top != -1 &amp;&amp; flag) &#123;</span><br><span class="line">				b = st[top];	//取出当前的栈顶元素</span><br><span class="line">				if (b -&gt; rChild == p) &#123;</span><br><span class="line">					//右孩子不存在或者已经访问过，则访问\*b</span><br><span class="line">					visit(b -&gt; data);	//访问\*b结点</span><br><span class="line">					top—;</span><br><span class="line">					p = b;		//p指向被访问的结点</span><br><span class="line">				&#125; else &#123;</span><br><span class="line">					b = b -&gt; rChild;	//b指向右孩子结点</span><br><span class="line">					flag = 0;		//设置为未被访问</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;while (top != -1);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="由二叉树的先序序列和中序序列建树"><a href="#由二叉树的先序序列和中序序列建树" class="headerlink" title="由二叉树的先序序列和中序序列建树"></a>由二叉树的先序序列和中序序列建树</h2><p>仅知二叉树的先序序列“abcdefg”不能确定唯一的一棵二叉树；但同时已知二叉树的中序序列”cbdaegf”，则会如何？</p>
+<p>二叉树的先序遍历：根　|　左子树　|　右子树</p>
+<p>二叉树的中序遍历：左子树　|　根　|　右子树</p>
+<p>已知先序序列和中序序列是可以确定唯一一棵二叉树的。因为先序首先得到根，将根代入中序中便会得到左右划分，以此递推，便可求得二叉树。</p>
+<p>同理，若已知后序序列和中序序列也是可以确定唯一一棵二叉树的。</p>
+<p>但是，已知先序序列和后序序列则不能确定唯一一棵二叉树，因为两者的作用都是一样的，都是确定根而不能确定左右划分。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/13/树与二叉树（三）/">
+    <time datetime="2016-10-13T20:59:06.000Z" class="entry-date">
+        2016-10-13
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/10/14/关于Xcode8的坑爹pod配置/" rel="prev"><span class="meta-nav">←</span> 关于Xcode8的坑爹pod配置</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/13/树与二叉树（二）/" rel="next">树与二叉树（二） <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

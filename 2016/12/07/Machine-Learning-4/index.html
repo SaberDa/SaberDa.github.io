@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>Machine-Learning-4 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Neural NetworksModel Representation ILet’s examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs">
+<meta name="keywords" content="Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine-Learning-4">
+<meta property="og:url" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="Neural NetworksModel Representation ILet’s examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/1.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/2.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/3.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/4.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/5.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/6.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/7.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/8.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/9.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/10.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/11.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/12.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/13.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/14.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/15.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/16.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/17.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/18.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/19.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/20.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/21.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/22.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/23.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/24.png">
+<meta property="og:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/25.png">
+<meta property="og:updated_time" content="2017-01-29T04:37:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine-Learning-4">
+<meta name="twitter:description" content="Neural NetworksModel Representation ILet’s examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs">
+<meta name="twitter:image" content="https://saberda.github.io/2016/12/07/Machine-Learning-4/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-Machine-Learning-4" class="post-Machine-Learning-4 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      Machine-Learning-4
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/12/07/Machine-Learning-4/" data-id="ckqlqy78a001z8dx7mp4dv58j" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="Neural-Networks"><a href="#Neural-Networks" class="headerlink" title="Neural Networks"></a>Neural Networks</h2><h2 id="Model-Representation-I"><a href="#Model-Representation-I" class="headerlink" title="Model Representation I"></a>Model Representation I</h2><p>Let’s examine how we will represent a hypothesis function using neural networks. At a very simple level, neurons are basically computational units that take inputs (<strong>dendrites</strong>) as electrical inputs (called “spikes”) that are channeled to outputs (<strong>axons</strong>). In our model, our dendrites are like the input features x<sub>1</sub>…x<sub>n</sub> and the output is the result of our hypothesis function. In this model our x<sub>0</sub> input node is sometimes called the “bias unit.” It is always equal to 1. In neural networks, we use the same logistic function as in classification, 1/(1+e<sup>Θ<sup>T</sup>x</sup>),yet we sometimes call it a sigmoid (logistic) <strong>activation</strong> function. In this situation, our “theta” parameters are sometimes called “weights”.</p>
+<a id="more"></a>
+<p>Visually, a simplistic representation looks like:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/1.png" alt=""></p>
+<p>Our input nodes (layer 1), also known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p>
+<p>We can have intermediate layers of nodes between the input and output layers called the “hidden layers.”</p>
+<p>In this example, we label these intermediate or “hidden” layer nodes a<sub>0</sub><sup>2</sup>…a<sub>0</sub><sup>n</sup> </p>
+<p><img src="/2016/12/07/Machine-Learning-4/2.png" alt=""></p>
+<p>If we had one hidden layer, it would look like:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/3.png" alt=""></p>
+<p>The values for each of the “activation” nodes is obtained as follows:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/4.png" alt=""></p>
+<p>This is saying that we compute our activation nodes by using a 3×4 matrix of parameters. We apply each row of the parameters to our inputs to obtain the value for one activation node. Our hypothesis output is the logistic function applied to the sum of the values of our activation nodes, which have been multiplied by yet another parameter matrix Θ<sup>(2)</sup> containing the weights for our second layer of nodes.</p>
+<p>Each layer gets its own matrix of weights, Θ<sup>(j)</sup>.</p>
+<p>The dimensions of these matrices of weights is determined as follows:</p>
+<p>If network has s<sub>j</sub> units in layer j and s<sub>j+1</sub> units in layer j+1 , then Θ<sup>(j)</sup> will be of dimension s<sub>j+1</sub> * (s<sub>j</sub> + 1).</p>
+<p>The +1 comes from the addition in Θ<sup>(j)</sup> of the “bias nodes,” x<sub>0</sub> and a<sub>0</sub><sup>(j)</sup> .In other words the output nodes will not include the bias nodes while the inputs will. The following image summarizes our model representation:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/5.png" alt=""></p>
+<h2 id="Model-Representation-II"><a href="#Model-Representation-II" class="headerlink" title="Model Representation II"></a>Model Representation II</h2><p>To re-iterate, the following is an example of a neural network:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/6.png" alt=""></p>
+<p>In this section we’ll do a vectorized implementation of the above functions. We’re going to define a new variable z<sup>(j)</sup><sub>k</sub> that encompasses the parameters inside our g function. In our previous example if we replaced by the variable z for all the parameters we would get:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/7.png" alt=""></p>
+<p>In other words, for layer j=2 and node k, the variable z will be:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/8.png" alt=""></p>
+<p>The vector representation of x and z<sup>j</sup> is:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/9.png" alt=""></p>
+<p>Setting x=a<sup>(1)</sup>,we can rewrite the equation as:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/10.png" alt=""></p>
+<p>We are multiplying our matrix Θ<sup>(j-1)</sup> with dimensions s<sub>j</sub>*(n+1) (where s<sub>j</sub> is the number of our activation nodes) by our vector a<sup>(j-1)</sup> with height (n+1). This gives us our vector z<sup>(j)</sup> with height s<sub>j</sub> Now we can get a vector of our activation nodes for layer j as follows:</p>
+<p>a<sup>(j)</sup> = g(z<sup>(j)</sup>)</p>
+<p>Where our function g can be applied element-wise to our vector z<sup>(j)</sup>.</p>
+<p>We can then add a bias unit (equal to 1) to layer j after we have computed a<sup>(j)</sup> .This will be element a<sub>0</sub><sup>(j)</sup> and will be equal to 1. To compute our final hypothesis, let’s first compute another z vector:</p>
+<p>z<sup>(j+1)</sup> = Θ<sup>(j)</sup>a<sup>(j)</sup></p>
+<p>We get this final z vector by multiplying the next theta matrix after Θ<sup>(j-1)</sup> with the values of all the activation nodes we just got. This last theta matrix Θ<sup>(j)</sup> will have only <strong>one row</strong> which is multiplied by one column a<sup>(j)</sup> so that our result is a single number. We then get our final result with:</p>
+<p>h<sub>Θ</sub>(x) = a<sup>(j+1)</sup> = g(z<sup>(j+1)</sup>)</p>
+<p>Notice that in this <strong>last step</strong>, between layer j and layer j+1, we are doing <strong>exactly the same thing</strong> as we did in logistic regression. Adding all these intermediate layers in neural networks allows us to more elegantly produce interesting and more complex non-linear hypotheses.</p>
+<h2 id="Examples-and-Intuitions-I"><a href="#Examples-and-Intuitions-I" class="headerlink" title="Examples and Intuitions I"></a>Examples and Intuitions I</h2><p>A simple example of applying neural networks is by predicting x<sub>1</sub> AND x<sub>2</sub> ,which is the logical ‘and’ operator and is only true if both x<sub>1</sub> and x<sub>2</sub> are 1.</p>
+<p>The graph of our functions will look like:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/11.png" alt=""></p>
+<p>Remember that x<sub>0</sub> is our bias variable and is always 1.</p>
+<p>Let’s set our first theta matrix as:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/12.png" alt=""></p>
+<p>This will cause the output of our hypothesis to only be positive if both x<sub>1</sub> and x<sub>2</sub> are 1. In other words:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/13.png" alt=""></p>
+<p>So we have constructed one of the fundamental operations in computers by using a small neural network rather than using an actual AND gate. Neural networks can also be used to simulate all the other logical gates. The following is an example of the logical operator ‘OR’, meaning either x<sub>1</sub> is true or x<sub>2</sub> is true, or both: </p>
+<p><img src="/2016/12/07/Machine-Learning-4/14.png" alt=""></p>
+<p>Where g(z) is the following:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/15.png" alt=""></p>
+<h2 id="Examples-and-Intuitions-II"><a href="#Examples-and-Intuitions-II" class="headerlink" title="Examples and Intuitions II"></a>Examples and Intuitions II</h2><p>The Θ<sup>(1)</sup> matrices for AND, NOR, and OR are:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/16.png" alt=""></p>
+<p>We can combine these to get the XNOR logical operator (which gives 1 if x<sub>1</sub> and x<sub>2</sub> are both 0 or both 1).</p>
+<p><img src="/2016/12/07/Machine-Learning-4/17.png" alt=""></p>
+<p>For the transition between the first and second layer, we’ll use a Θ<sup>(1)</sup> matrix that combines the values for AND and NOR:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/18.png" alt=""></p>
+<p>For the transition between the second and third layer, we’ll use a Θ<sup>(2)</sup> matrix that uses the value for OR:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/19.png" alt=""></p>
+<p>Let’s write out the values for all our nodes:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/20.png" alt=""></p>
+<p>And there we have the XNOR operator using two hidden layers! The following summarizes the above algorithm:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/21.png" alt=""></p>
+<h2 id="Multiclass-Classification"><a href="#Multiclass-Classification" class="headerlink" title="Multiclass Classification"></a>Multiclass Classification</h2><p>To classify data into multiple classes, we let our hypothesis function return a vector of values. Say we wanted to classify our data into one of four categories. We will use the following example to see how this classification is done. This algorithm takes as input an image and classifies it accordingly:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/22.png" alt=""></p>
+<p>We can define our set of resulting classes as y:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/23.png" alt=""></p>
+<p>Each y<sup>(i)</sup> represents a different image corresponding to either a car, pedestrian, truck, or motorcycle. The inner layers, each provide us with some new information which leads to our final hypothesis function. The setup looks like:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/24.png" alt=""></p>
+<p>Our resulting hypothesis for one set of inputs may look like:</p>
+<p><img src="/2016/12/07/Machine-Learning-4/25.png" alt=""></p>
+<p>In which case our resulting class is the third one down, or h<sub>Θ</sub>(x)<sub>3</sub>, which represents the motorcycle.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/12/07/Machine-Learning-4/">
+    <time datetime="2016-12-07T23:42:51.000Z" class="entry-date">
+        2016-12-07
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/12/10/Machine-Learning-5/" rel="prev"><span class="meta-nav">←</span> Machine-Learning-5</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/11/29/Machine-Learning-3/" rel="next">Machine-Learning-3 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

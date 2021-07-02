@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>树与二叉树（四） | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本篇文章主要介绍线索二叉树 什么是线索二叉树首先我们要知道遍历二叉树的结果是什么？我们得到的是一个线性序列 而指向该线性序列中的“前驱”和“后继”的指针，称为线索。">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树（四）">
+<meta property="og:url" content="https://saberda.github.io/2016/10/15/树与二叉树（四）/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本篇文章主要介绍线索二叉树 什么是线索二叉树首先我们要知道遍历二叉树的结果是什么？我们得到的是一个线性序列 而指向该线性序列中的“前驱”和“后继”的指针，称为线索。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2016/10/15/树与二叉树（四）/1.png">
+<meta property="og:updated_time" content="2016-10-15T08:19:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树与二叉树（四）">
+<meta name="twitter:description" content="本篇文章主要介绍线索二叉树 什么是线索二叉树首先我们要知道遍历二叉树的结果是什么？我们得到的是一个线性序列 而指向该线性序列中的“前驱”和“后继”的指针，称为线索。">
+<meta name="twitter:image" content="https://saberda.github.io/2016/10/15/树与二叉树（四）/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-树与二叉树（四）" class="post-树与二叉树（四） post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      树与二叉树（四）
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/15/树与二叉树（四）/" data-id="ckqlqy7bj007j8dx76udklsl7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>本篇文章主要介绍线索二叉树
+</code></pre><h2 id="什么是线索二叉树"><a href="#什么是线索二叉树" class="headerlink" title="什么是线索二叉树"></a>什么是线索二叉树</h2><p>首先我们要知道遍历二叉树的结果是什么？我们得到的是一个线性序列</p>
+<p>而指向该线性序列中的“前驱”和“后继”的指针，称为线索。</p>
+<a id="more"></a>
+<p>我们把包含线索的存储结构称作“线索链表”</p>
+<p>于是，对线索链表中结点的约定：在二叉链表的结点中增加两个标志域，并作如下规定：</p>
+<ul>
+<li><p>若该结点下的左子树不空，则lChild域的指针指向其左子树，且左标志域的值为“指针 Link”；否则其lChild域的指针域指向其“前驱”，且左标志域的值为“线索 Thread”</p>
+</li>
+<li><p>若该结点下的右子树不空，则rChild域的指针指向其右子树，且有标志域的值为“指针 Link”；否则其rChild域的指针域指向其“前驱”，且右标志域的值为“线索 Thread”</p>
+</li>
+</ul>
+<p>我们把如此定义的二叉树的存储结构称作“线索链表”</p>
+<h2 id="线索链表的类型描述"><a href="#线索链表的类型描述" class="headerlink" title="线索链表的类型描述"></a>线索链表的类型描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef enum &#123;</span><br><span class="line">	//Link == 1:指针; Thread == 0:线索</span><br><span class="line">	Link,</span><br><span class="line">	Thread</span><br><span class="line">&#125;pointerThr;</span><br><span class="line">	</span><br><span class="line">typedef struct BiThrNod &#123;</span><br><span class="line">	TElemType e;</span><br><span class="line">	BiThrNod struct *lChild, *rChild;	//左右指针</span><br><span class="line">	PointerThr lTag, rTag;	//左右标志</span><br><span class="line">&#125;BiThrNod, *BiThrTree;</span><br></pre></td></tr></table></figure>
+<h2 id="线索链表的遍历算法"><a href="#线索链表的遍历算法" class="headerlink" title="线索链表的遍历算法"></a>线索链表的遍历算法</h2><p>由于在线索链表中添加了遍历中得到的“前驱”和“后继”的信息，从而简化了遍历的算法。</p>
+<p>主要思想:</p>
+<pre><code>for (p = firstNode(T); p; p = Succ(p)) 
+    visit(p);
+</code></pre><p>我们以中序遍历为例:</p>
+<p>中序遍历的第一个结点：左子树上处于“最左下”（没有左子树）的结点</p>
+<h2 id="在中序线索化链表中找结点的后继"><a href="#在中序线索化链表中找结点的后继" class="headerlink" title="在中序线索化链表中找结点的后继"></a>在中序线索化链表中找结点的后继</h2><p>对于结点p，想要找其后继结点，当p -&gt; rTag = 1时，p -&gt; rChild 即为p的后继结点；当 p -&gt; rTag = 0 时，说明p有右子树，此时p的中序后继结点即为其右子树的“最左下段”结点。</p>
+<p>在二叉树的线索链表上添加一个头结点，令其lChild域的指针指向二叉树的根节点，其rChild域的指针指向中序遍历时访问的最后一个结点；同时令二叉树的中序序列中的第一个结点的lChild域的指针和最后一个结点的rChild域的指针都指向头结点。即为二叉树建立双向线索链表。</p>
+<p>中序遍历二叉线索树的过程分析:</p>
+<p>   1）如果用指针p从头结点（T指向其头结点）开始访问，则遍历过程结束时，p＝＝T</p>
+<p>   2）从根结点A开始，找到其左孩子，左孩子的左孩子…直到某个结点的lTag＝＝1</p>
+<p>   3）访问该结点，如果该结点的rTag＝＝1（说明该结点有直接后继），且该结点的rChild不指向头结点T（即该结点不是中序遍历的最后一个结点），则沿着该结点rChild找到后继结点，后继结点的后继结点…并访问之</p>
+<p>   4）如果某个结点的rTag＝＝0，说明该结点有右子树，此时应该访问右子树</p>
+<p>   5）如果某个结点的rChild指向T，即该结点是中序遍历的最后一个结点，此时说明遍历过程应该结束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Status inOrderTraverse_Thr(BiThrTree T, Status(* Visit)(TElemType)) &#123;</span><br><span class="line">	//T指向头结点，头结点的lChild左链指向根节点</span><br><span class="line">	//中序遍历二叉线索树的非递归算法</span><br><span class="line">	p = T -&gt; lChild;	//p指向根节点</span><br><span class="line">	while (p != T) &#123;</span><br><span class="line">		//空树或者遍历结束时，p==T</span><br><span class="line">		while (p -&gt; lTag == Link)</span><br><span class="line">			p = p -&gt; lChild;</span><br><span class="line">		if (!Visit(p -&gt; data))</span><br><span class="line">			//访问左子树为空的结点</span><br><span class="line">			return ERROR;</span><br><span class="line">		while (p -&gt; rTag == Thread &amp;&amp; p -&gt; rChild != T) &#123;</span><br><span class="line">			//访问后继结点</span><br><span class="line">			p = p -&gt; rChild;</span><br><span class="line">			Visit(p -&gt; data);</span><br><span class="line">		&#125;</span><br><span class="line">		//如果p -&gt; rTag == Link，则从右子树开始</span><br><span class="line">		p = p -&gt; rChild;</span><br><span class="line">	&#125;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;//inOrderTraverse_Thr</span><br></pre></td></tr></table></figure>
+<p><strong>在中序线索二叉树中找到前驱结点</strong></p>
+<p>根据线索二叉树的基本概念和存储结构可知，对于结点p，当p -&gt; lTag == 1 时，p -&gt; lChild 指向其前驱；当p -&gt; lTag == 0 时，p -&gt; lChild 指向其左孩子。</p>
+<p>由中序遍历的规律可知，作为跟p的前驱结点，他是中序遍历p的左子树时访问的最后一个结点，即左子树的“最右下端”结点。</p>
+<p><strong>在先序线索二叉树中找前驱结点</strong></p>
+<p>在先序线索树中找结点的前驱比较困难</p>
+<p>1）若结点p是二叉树的根，则p的前驱为空</p>
+<p>2）若p是其双亲的左孩子，或者p是其双亲的右孩子并且其双亲无左孩子，则p的前驱是其双亲结点</p>
+<p>3）若p是双亲的右孩子，且双亲有左孩子，则p的前驱是其双亲的左子树按先序遍历时最后访问的那个结点</p>
+<p><strong>在先序线索二叉树中找后继结点</strong></p>
+<p>根据先序线索树的遍历过程可知:</p>
+<p>1）若结点p存在左子树，则p的左孩子结点即为p的后继</p>
+<p>2）若结点p没有左子树，但有右子树，则p的右孩子结点即为p的后继</p>
+<p>3）若结点p既没有左子树，也没有右子树，则结点p的rChild的指针域所指的结点即为p的后继</p>
+<p><strong>在后序线索二叉树中找前驱结点</strong></p>
+<p>根据后序线索树的遍历过程可知:</p>
+<p>1）若结点p存在右子树，则右子树的根即为p的前驱</p>
+<p>2）若结点p存在左子树，但无右子树，则其前驱是左子树的根</p>
+<p>3）若结点p既无左子树，又无右子树，则p -&gt; lChild 即为他的前驱</p>
+<p><strong>在后序线索二叉树中找后继结点</strong></p>
+<p>可分为三种情况:</p>
+<ul>
+<li>若结点p为二叉树的根，则其后继为空</li>
+<li>若结点p是其双亲结点的右孩子或者是其双亲结点的左孩子且双亲没有右子树（注意条件判断，这句话有点复杂，各位不要理解错了）</li>
+<li>若结点p是其双亲的左孩子，且其双亲有右子树，则其后继结点为其双亲的右子树上按后序遍历列出的第一个结点</li>
+</ul>
+<h2 id="如何建立线索链表"><a href="#如何建立线索链表" class="headerlink" title="如何建立线索链表"></a>如何建立线索链表</h2><p>在中序遍历过程中，修改结点的左右指针域，以保存当前访问结点的的“前驱”和“后继”信息。遍历过程中，附设指针pre，并始终保持指针pre指向当前访问的、指针p所指结点的前驱。（即一直保持一对结点，p为正在访问的，pre为访问过的并指向p的前驱）</p>
+<pre><code>线索化的实质是指将二叉链表中的空指针改为指向前驱或者后继的线索
+
+前驱或后继的信息只有在遍历时才能得到
+
+因此，线索化的过程就是在遍历过程中修改空指针的过程
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Status inOrderThreading(BiThrTree &amp;Thrt, BiThrTree T) &#123;</span><br><span class="line">	//中序遍历二叉树T，并将其中序线索化，Thrt指向头结点</span><br><span class="line">	if(!Thrt = (BiThrTree)malloc(sizeof(BiThrNode)))</span><br><span class="line">		return(OVERFLOW);</span><br><span class="line">	//建立头结点</span><br><span class="line">	Thrt -&gt; lTag = Link;</span><br><span class="line">	Thrt -&gt; rTag = Thread;</span><br><span class="line">	//右指针回指</span><br><span class="line">	Thrt -&gt; rChild = Thrt;</span><br><span class="line">	if (!T)</span><br><span class="line">		//若二叉树为空，左指针回指</span><br><span class="line">		Thrt -&gt; lChild = Thrt;</span><br><span class="line">	else &#123;</span><br><span class="line">		Thrt -&gt; lChild = T;</span><br><span class="line">		pre = Thrt;</span><br><span class="line">		//中序遍历进行中序线索化</span><br><span class="line">		InThreading(T);</span><br><span class="line">		//最后一个结点线索化</span><br><span class="line">		pre -&gt; rChild = Thrt;</span><br><span class="line">		pre -&gt; rTag = Thread;</span><br><span class="line">		Thrt -&gt; rChild = pre;</span><br><span class="line">	&#125;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br><span class="line">Status InReading(BiThrTree &amp;p) &#123;</span><br><span class="line">	//中序遍历进行中序线索化</span><br><span class="line">	if (p) &#123;</span><br><span class="line">		//左子树线索化</span><br><span class="line">		InReading(p -&gt; lChild);</span><br><span class="line">		if (!p -&gt; lChild) &#123;</span><br><span class="line">			//前驱线索</span><br><span class="line">			p -&gt; lTag = Thread;</span><br><span class="line">			p -&gt; lChild = pre;</span><br><span class="line">		&#125;</span><br><span class="line">		if (!p -&gt; rChild) &#123;</span><br><span class="line">			//后继线索</span><br><span class="line">			p -&gt; rTag = Thread;</span><br><span class="line">			p -&gt; rChild = pre;</span><br><span class="line">		&#125;</span><br><span class="line">		//保持pre指向p的前驱</span><br><span class="line">		pre = p;</span><br><span class="line">		//右子树线索化</span><br><span class="line">		InThreading(p -&gt; rChild);</span><br><span class="line">	&#125;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>线索二叉树：在二叉链表表示的二叉树中，引入线索的目的主要是便于查找结点的前驱和后继。因为若知道各结点的后继，遍历过程会变得非常简单</p>
+<p>二叉链表结构查找结点的左右孩子非常方便，但其前驱和后继是在遍历中形成的。在线索二叉树（尤其是中序线索二叉树中）上遍历便消除了递归，也不使用栈（其中后序线索二叉树中查找后继还是需要栈）</p>
+<p>由于序列可由不同的遍历方法得到，因此，线索树中有先序线索二叉树、中序线索二叉树、后续线索二叉树三种。</p>
+<p>在先序、中序、后序线索二叉树中实现方法均相同，即线索化之前的二叉树相同，所有结点的标志位取值也完全相同，只是标志位取1时，不同的线索二叉树将用不同的虚线表示，即不同的线索树中线索指向的前驱和后继结点不同。</p>
+<p>因为中序线索二叉树使用的很普遍，以下表格以中序为例</p>
+<p><img src="/2016/10/15/树与二叉树（四）/1.png" alt=""></p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/15/树与二叉树（四）/">
+    <time datetime="2016-10-15T18:41:35.000Z" class="entry-date">
+        2016-10-15
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/10/17/LFLiveKit的简单用法/" rel="prev"><span class="meta-nav">←</span> LFLiveKit的简单用法</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/15/单链表实现归并排序/" rel="next">单链表实现归并排序 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

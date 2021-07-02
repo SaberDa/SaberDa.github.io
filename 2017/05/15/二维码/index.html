@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>详细谈谈二维码生成原理与编码（一） | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本想一篇文章就解决的，后来发现需要介绍的有点多，一个晚上绝对写不完，看来又要开新坑了。 一、什么是二维码？二维码有很多种，其中占据大半江山的主要有两种，一是以 PDF417 为代表的堆叠式条形二维码，另一个是以 QR Code 为代表的矩阵式二维码。 PDF417 是“便携式数据文件”的缩写。它最少分为三层，最多 90 层。包括左右空白区、起始符、终止符、左右层指示符号字符等。它的具体架构如下图：">
+<meta name="keywords" content="二维码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="详细谈谈二维码生成原理与编码（一）">
+<meta property="og:url" content="https://saberda.github.io/2017/05/15/二维码/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本想一篇文章就解决的，后来发现需要介绍的有点多，一个晚上绝对写不完，看来又要开新坑了。 一、什么是二维码？二维码有很多种，其中占据大半江山的主要有两种，一是以 PDF417 为代表的堆叠式条形二维码，另一个是以 QR Code 为代表的矩阵式二维码。 PDF417 是“便携式数据文件”的缩写。它最少分为三层，最多 90 层。包括左右空白区、起始符、终止符、左右层指示符号字符等。它的具体架构如下图：">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/图一.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/图二.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/图三.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/二维码进行图像处理.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/数字图像的采集过程.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/预处理.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/公式一.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/公式二.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/公式三.png">
+<meta property="og:image" content="https://saberda.github.io/2017/05/15/二维码/效果图.png">
+<meta property="og:updated_time" content="2017-05-15T16:00:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="详细谈谈二维码生成原理与编码（一）">
+<meta name="twitter:description" content="本想一篇文章就解决的，后来发现需要介绍的有点多，一个晚上绝对写不完，看来又要开新坑了。 一、什么是二维码？二维码有很多种，其中占据大半江山的主要有两种，一是以 PDF417 为代表的堆叠式条形二维码，另一个是以 QR Code 为代表的矩阵式二维码。 PDF417 是“便携式数据文件”的缩写。它最少分为三层，最多 90 层。包括左右空白区、起始符、终止符、左右层指示符号字符等。它的具体架构如下图：">
+<meta name="twitter:image" content="https://saberda.github.io/2017/05/15/二维码/图一.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-二维码" class="post-二维码 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      详细谈谈二维码生成原理与编码（一）
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/05/15/二维码/" data-id="ckqlqy7ab004r8dx77dx4s40c" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>本想一篇文章就解决的，后来发现需要介绍的有点多，一个晚上绝对写不完，看来又要开新坑了。
+</code></pre><h2 id="一、什么是二维码？"><a href="#一、什么是二维码？" class="headerlink" title="一、什么是二维码？"></a>一、什么是二维码？</h2><p>二维码有很多种，其中占据大半江山的主要有两种，一是以 PDF417 为代表的<a href="https://en.wikipedia.org/wiki/PDF417" target="_blank" rel="noopener">堆叠式条形二维码</a>，另一个是以 QR Code 为代表的<a href="https://en.wikipedia.org/wiki/QR_code" target="_blank" rel="noopener">矩阵式二维码</a>。</p>
+<p>PDF417 是“便携式数据文件”的缩写。它最少分为三层，最多 90 层。包括左右空白区、起始符、终止符、左右层指示符号字符等。它的具体架构如下图：</p>
+<a id="more"></a>
+<p><img src="/2017/05/15/二维码/图一.png" alt=""></p>
+<p>QR Code 分为编码区与功能区。编码区主要负责版本格式、数据和纠错编码；功能区主要负责位置探测图形、校正图像以及位置探测，其中位置探测图形是快速识别的关键。它的具体架构如下：</p>
+<p><img src="/2017/05/15/二维码/图二.png" alt=""></p>
+<p>并且 QR Code 有有多种版本，版本与版本间的主要差别在于图形的尺寸，尺寸越大所能存储的信息越多。二维码一共有40个尺寸。官方叫版本Version。Version 1是21 x 21的矩阵，Version 2是 25 x 25的矩阵，Version 3是29的尺寸，每增加一个version，就会增加4的尺寸，公式是：(V-1)*4 + 21（V是版本号） 最高Version 40，(40-1)*4+21 = 177，所以最高是177 x 177 的正方形。</p>
+<p><img src="/2017/05/15/二维码/图三.png" alt=""></p>
+<p>目前国内甚至世界范围内使用最为广泛的就是 QR Code，所以本篇文章具体介绍该二维码，并且下面的文章为方便大家理解，所有的二维码均指 QR Code。</p>
+<h2 id="二、怎样处理一个二维码？"><a href="#二、怎样处理一个二维码？" class="headerlink" title="二、怎样处理一个二维码？"></a>二、怎样处理一个二维码？</h2><p>这个部分我将分为两大部分来进行具体解释。第一部分是图像处理，第二部分是具体解码。</p>
+<p>图像处理又可以细分为三个层次：</p>
+<ol>
+<li>初级图像处理：图像去噪与图像锐化</li>
+<li>中级图像处理：图像分割与边缘提取</li>
+<li>高级图像处理：识别图像所包含的信息</li>
+</ol>
+<p>解码过程也主要由三部分组成，这些部分的具体操作会在下文详细介绍：</p>
+<ol>
+<li>二维码码字提取</li>
+<li>纠错译码</li>
+<li>信息译码</li>
+</ol>
+<p>其中纠错译码是为了求解伴随因子，即判断正确码字的个数 [正确码字 = Y<sub>ji</sub><sup>错误码字</sup>]</p>
+<p>信息译码 = 模式指示 + 字符段 + 数据位流。该功能一是为判断编码模式与字符个数，二是按照对应的编码进行解码</p>
+<h2 id="三、图像处理"><a href="#三、图像处理" class="headerlink" title="三、图像处理"></a>三、图像处理</h2><p>先放一张图来大致表示一下图像处理的主要步骤</p>
+<p><img src="/2017/05/15/二维码/二维码进行图像处理.png" alt=""></p>
+<p>将上图文字化具象一下，可以得到一下具体步骤：</p>
+<ul>
+<li>拍摄图像输入</li>
+<li>预处理</li>
+<li>图像定位</li>
+<li>图像校正</li>
+<li>解码或译码</li>
+</ul>
+<p>关于图像输入的渠道目前主要分为四种，该四种包含了几乎所有的信息码。</p>
+<ol>
+<li>光管输入：主要采集一维码</li>
+<li>激光输入：采集一维码与QR Code</li>
+<li>线阵输入：即由LED组成的矩阵二维码</li>
+<li>图像输入：即照片等形式的扫描</li>
+</ol>
+<p>图像的采集与数字图像的质量由二维矩阵的形式存储与计算机中。其中该图像的对比度、清晰度等等都是图像质量的主要影响因素。清晰度是指所采集图像的亮度、对比度、尺寸大小、颜色饱和度（颜色饱和度越小，清晰度越高）。</p>
+<p>用物理的方式表示图像采集可以抽象为下图所表示的模型：</p>
+<p><img src="/2017/05/15/二维码/数字图像的采集过程.png" alt=""></p>
+<p>接下来详细介绍一下预处理模块。这个模块是相当重要的，其主要功能就是将二维码从众多复杂信息中提取出来。可能你会问，二维码不就在那里嘛，一眼就可以看见，怎么个复杂法？也许对于人眼来说二维码很好辨认，但是对于计算机来说可不是这样。计算器需要一些列复杂的判断才能分辨出二维码的位置。</p>
+<p><img src="/2017/05/15/二维码/预处理.png" alt=""></p>
+<p>上图就是一个预处理所进行的步骤。咱们来一个个的分析。</p>
+<p><strong>图像的灰度化处理</strong></p>
+<p>摄像头采集到的二维条码图片是RGB格式的彩色图像，由红(Red)、绿(Green)、蓝(Blue)三种基本颜色按照一定的比例混合得到，每一种颜色分量有256个灰度级，三种颜色组合可以表示出多种颜色，几乎可以表示人类能够感知到的所有颜色。彩色图像包含了大量识别过程中不需要的色彩信息，这些信息都需要占用存储空间。在计算机中，R、G、B三个分量分别占用一个字节的内存，一个像素至少需要占用三个字节的内存。灰度图像只表示亮度信息，只需要占用一个字节内存。所以，在图像处理过程中，通常都先将彩色图像转换成灰度图像，这样不但可以减少存储开销，而且可以减少后续图像处理的计算量，加快二维条码识别速度。</p>
+<p>假设灰度图像中灰度值用 Y 表示，彩色图像各分量的灰度值分别为 R、 G、 B，那么标准的灰度值Y的计算公式为：</p>
+<center>Y = 0.30R+ 0.59G+0.11B</center>
+
+<p><strong>图像的中值滤波处理</strong></p>
+<p>普通CMOS摄像头采集到的二维条码图像中经常会含有一些噪声点，导致图像退化，对后续的条码识别产生严重的干扰，降低条码识别率。针对图像中普遍存在的高斯噪声、椒盐噪声采取了中值滤波降噪处理，能够有效的去除上述几种噪声，保护图像的边缘信息，不会对后续的边缘提取产生很大的影响。</p>
+<p>中值滤波具有良好的噪声抑制能力，是一种非线性平滑技术。对于像素点，它统计其领域窗口内所有像素点的灰度值并进行排序，将这个像素点的灰度值设置为排序后的中间值。一般选取窗口像素点个数都为奇数，因此中值滤波的数学表达式如下：</p>
+<center>P<sub>M</sub> = Median{ P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub> … P<sub>n</sub> } = P<sub>i((n+1) / 2)</sub></center>
+
+
+<p>其中， P<sub>1</sub>, P<sub>2</sub>, P<sub>3</sub> … P<sub>n</sub> 是邻域内的像素灰度值，P<sub>M</sub> 就是邻域内的中指。</p>
+<p>窗口选取对图像中值滤波的效果也将产生很大的影响。根据不同的应用场合需要采用不同的采样窗口，常见的采样窗口有十字形、米字型、棱形、矩形等，其中矩形窗口最为常用。本文主要是去除二维条码图像中含有的椒盐噪声，结合二维条码的特性，选用 3*3 的矩形窗口作为滤波窗口。</p>
+<p>中值滤波是通过对邻域内像素的灰度值进行排序，能后选取排序结果的中间值作为该像素点的灰度值来实现的。图像中存在的椒盐噪声一般是随机分散分布的，在较小的领域内通常不会存在多个椒盐噪声，经过排序后，噪声点通常是排在靠前或者靠后的位置，因此，中值点的值比较能代表这个像素点的实际灰度值。中值滤波的具体操作过程如下：</p>
+<ol>
+<li>遍历这个模板中所有像素点的灰度值</li>
+<li>将这些灰度值从小到大进行排序</li>
+<li>选取排序结果的中间值，并将其作为这个模板中心像素点的灰度值</li>
+</ol>
+<p><strong>图像的二值化处理</strong></p>
+<p>基于门限化的二值化方法。大津算法(Otsu)就是其中的代表，对光照均匀的图片具有良好的分割效果。但拍摄时，由于光源的不确定性经常会导致拍摄到的图像存在光照不均的现象，图像中靠近光源那边比较明亮，另一边则比较暗，对后续的图像二值化处理产生严重的影响。这里就采用了一种自适应亮度均衡化算法。</p>
+<p>日本学者大津展之首先提出了最大类间方差理论，也叫做大津算法，简称 OTSU 算法。它的基本思想如下：设定一个阈值 t，它把一幅灰度图像分割成两组，一组灰度对应目标图像，另一组对应背景图像。假设灰度图像的灰度值为 0~k 级， t 从 0 开始取值，一直到 k，当 t=T 使得这两组灰度值的类间方差最大，类内方差最小时，目标图像和背景图像两部分的差别达到了最大化，若将此时的阈值 T 作为二值化的门限值，将获得最佳的二值化效果。</p>
+<p>比如:一幅大小为 M*N 的 QR 条码图像，设阈值 t 将图像分割成前景色和背景色两组，n<sub>i</sub> 为图像中灰度值的像素个数， G 为灰度图的最大灰度级，8位灰度图的最大灰度级为255，则：</p>
+<p>前景/背景色像素点占整个图像的比例 ω1 和 ω2 分别为：</p>
+<p><img src="/2017/05/15/二维码/公式一.png" alt=""></p>
+<p>前景/背景色像素点的平均灰度值 μ1 和 μ2 分别为：</p>
+<p><img src="/2017/05/15/二维码/公式二.png" alt=""></p>
+<p>整幅图像的平均灰度值 μ 为：</p>
+<p><img src="/2017/05/15/二维码/公式三.png" alt=""></p>
+<p>则两组图像的类间方差 σ<sup>2</sup>(t) 为：</p>
+<center>σ<sup>2</sup>(t) = ω1μ1 - μ<sup>2</sup> + ω2μ2 - μ<sup>2</sup></center>
+
+<p>当 0~k 之间改变 t，带入到上式中，当 t=T 使得 σ<sup>2</sup>(t) 取得最大值时，有由大津定律我们得知，T 即为最佳阙值，T = max[σ<sup>2</sup>(t)]。根据阙值 T 将图像数据分为大于阙值与小于阙值两部分。</p>
+<p>由于大津算法是全局阈值法，图像分割阈值的选取是建立在整幅图片前景色和背景色的区分基础上的，当图像中存在比较严重的光照不均时，容易错误的将图像中较暗的部分认为是前景色，较亮的部分背景色，而不是把条码本身作为前景色，得到错误的门限阈值，得到的效果并不理想。</p>
+<p>所以使用自适应亮度调节！</p>
+<p><strong>二维码预处理之自适应亮度均衡算法的介绍：</strong></p>
+<p>第一步：将条形码图像的第一行像素均等的分成 N 块，假设每一块含有 C 个像素，块内每个像素点分别标记为 p<sub>N1</sub>, p<sub>N2</sub>, p<sub>N3</sub>, …, p<sub>NC</sub>。则图像一行的像素点总数个数 K = N * C。p<sub>N1</sub> 和 p<sub>NC</sub> 分别为这个快中第一个和最后一个像素，计算出每块的灰度等级记为 SL<sub>N</sub> 为：</p>
+<center>SL<sub>N</sub> = MAX_M(p<sub>N1</sub>~p<sub>NC</sub>) / M</center>
+
+<p>其中，MAX_M(p<sub>N1</sub>~p<sub>NC</sub>) = ∑ H<sub>pi</sub>。H<sub>pi</sub> 为这个块中最大的 M 个像素点的灰度值，利用求平均值的方法来减小噪声点的干扰。</p>
+<p>第二步：计算前后两块的插值为：</p>
+<center>D<sub>i</sub>ff<sub>N</sub> = | SL<sub>N</sub> - SL<sub>N+1</sub> |</center>
+
+
+<p>同时，不断将块的大小进行对等分裂，直至差值 D<sub>i</sub>ff<sub>N</sub> 小于阙值或者块的大小不大于 M。</p>
+<p>第三步：在相邻两个块之间使用线性插值计算，可以计算出块内每个点的像素灰度值，用 S<sub>Ni</sub> 表示如下：</p>
+<center>S<sub>Ni</sub> = ( SL<sub>N</sub> <em> ( C-1 ) + SL<sub>N</sub> </em> i ) / C</center>
+
+
+<p>其中，S<sub>Ni</sub> 表示第 N 块中的第 i 个像素的灰度值。</p>
+<p>第四步：基于上诉计算出的光照分布，就可以自适应的调整给各个像素点的增益。如果 S<sub>Ni</sub> 的值较小，这个像素点的增益就可以适当加大，反之则减小。这样就可以将背景较暗的部分加量，背景明亮的部分则基本保持不变，达到光照补偿期望的效果。具体的增益公式如下：</p>
+<center>AGC<sub>Ni</sub> = BC / S<sub>Ni</sub></center>
+
+
+<p>其中，AGC<sub>Ni</sub> 为第 N 块第 i 个像素的增益。BC是经验值，用来控制图像亮度的系数值，通过反复试验，得出当 BC = 240 时能获得良好的效果。</p>
+<p>处理后图像每个像素点的灰度值为：</p>
+<center>p<sub>Ni</sub>‘ = p<sub>Ni</sub> * AGC<sub>Ni</sub></center>
+
+<p>这里的 p<sub>Ni</sub> 为原始灰度值，p<sub>Ni</sub>‘ 为原图像中的像素点在经过自适应增益变换后的灰度值。同时，注意到，当 SL<sub>N</sub> 的灰度级比较大时，已经不需要对其进行增益处理，此时我们可以设定一个阙值 T，当 SL<sub>N</sub> 超过这个阙值时，不对该像素点进行增益处理。</p>
+<p>第五步：采用大津算法对自适应亮度均衡后的图形进行二值化处理，效果如下图：</p>
+<p><img src="/2017/05/15/二维码/效果图.png" alt=""></p>
+<p>算法部分暂时到此结束。接下来将介绍二维码的定位方式与解码过程。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/05/15/二维码/">
+    <time datetime="2017-05-15T23:38:03.000Z" class="entry-date">
+        2017-05-15
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二维码/">二维码</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/07/19/MapReduce-and-Hadoop/" rel="prev"><span class="meta-nav">←</span> MapReduce &amp; Hadoop</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/04/21/模拟退火/" rel="next">模拟退火 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

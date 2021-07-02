@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>散列表 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="散列表是什么？我在静态查找表与静态查找表两篇文章中表示查找表的各种结构的共同特点：记录在表中的位置和它的关键字之间不存在一个确定的关系，查找的过程为给定值依次和关键字集合中各个关键字进行比较，查找的效率取决于和给定值比较的关键字个数。 用这类方法表示的查找表，其平均查找长度都不为0。不同的表示方法，其差别仅在于：关键字与给定值进行比较的顺序不同。">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="散列表">
+<meta property="og:url" content="https://saberda.github.io/2016/11/17/散列表/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="散列表是什么？我在静态查找表与静态查找表两篇文章中表示查找表的各种结构的共同特点：记录在表中的位置和它的关键字之间不存在一个确定的关系，查找的过程为给定值依次和关键字集合中各个关键字进行比较，查找的效率取决于和给定值比较的关键字个数。 用这类方法表示的查找表，其平均查找长度都不为0。不同的表示方法，其差别仅在于：关键字与给定值进行比较的顺序不同。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2016-11-17T12:34:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="散列表">
+<meta name="twitter:description" content="散列表是什么？我在静态查找表与静态查找表两篇文章中表示查找表的各种结构的共同特点：记录在表中的位置和它的关键字之间不存在一个确定的关系，查找的过程为给定值依次和关键字集合中各个关键字进行比较，查找的效率取决于和给定值比较的关键字个数。 用这类方法表示的查找表，其平均查找长度都不为0。不同的表示方法，其差别仅在于：关键字与给定值进行比较的顺序不同。">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-散列表" class="post-散列表 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      散列表
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/11/17/散列表/" data-id="ckqlqy7b5006o8dx7hrwq1ux0" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="散列表是什么？"><a href="#散列表是什么？" class="headerlink" title="散列表是什么？"></a>散列表是什么？</h2><p>我在静态查找表与静态查找表两篇文章中表示查找表的各种结构的共同特点：记录在表中的位置和它的关键字之间不存在一个确定的关系，查找的过程为给定值依次和关键字集合中各个关键字进行比较，查找的效率取决于和给定值比较的关键字个数。</p>
+<p>用这类方法表示的查找表，其平均查找长度都不为0。不同的表示方法，其差别仅在于：关键字与给定值进行比较的顺序不同。</p>
+<a id="more"></a>
+<p>对于频繁比较的查找表，希望ASL = 0。只有一个方法：预先知道所查关键字在表中的位置，即要求：记录在表中的位置和其关键字之间存在一种确定的关系。</p>
+<p>eg：为zsr追求的1000名妹子建立一张查找表，其关键字为序号，其值得范围为 xx000~xx999 (前两位是年份)。<br>若以下标范围为000~999的顺序表表示之，则查找过程可以简单进行为：取给定值（序号）的后三位，不需要经过比较便可直接从顺序表中找到待查关键字。</p>
+<p>但是，对于动态查找表而言：<br>1）表长不确定；<br>2）在设计查找表的时候，只知道关键字所属的范围，而不知道确切的关键字；</p>
+<p>因此在一般情况下，需在关键字与记录在表中的存储位置之间建立一个函数关系，以 f(key) 作为关键字为 key 的记录在表中的位置，通常称 f(key) 为散列函数。</p>
+<p>散列函数的性质：</p>
+<ul>
+<li>散列(Hash)函数是一个映像，即：将关键字的集合映射某个地址集合上，他的设置很灵活，只要这个地址集合的大小不超出允许范围内即可；</li>
+<li>由于散列函数是一个压缩映像，因此，在一般情况下，很容易产生冲突的情况，即 key1 != key2 ，但是 f(key1) = f(key2)</li>
+<li>很难找到一个不产生冲突的散列函数。一般情况下，只能选择恰当的散列函数，是冲突尽可能少的产生。</li>
+</ul>
+<p>因此，在构造这种特殊的查找表时，除了需要选择一个好(尽可能少产生冲突)的散列函数之外，还需要一种解决冲突的方法。</p>
+<h2 id="散列表的定义"><a href="#散列表的定义" class="headerlink" title="散列表的定义"></a>散列表的定义</h2><p>根据设定的散列函数 H(key) 和所选中的处理冲突的方法，将一组关键字映像到一个有限的、地址连续的地址集上，并以关键字在地址集中的“像”作为相应记录在表中的存储位置，如此构造所得的查找表称之为“散列表”</p>
+<h2 id="构造散列函数的方法"><a href="#构造散列函数的方法" class="headerlink" title="构造散列函数的方法"></a>构造散列函数的方法</h2><p>对数字的关键字可有以下构造方法：<br>直接定址法、数字分析法、平方取中法、折叠法、<strong>除留余数法</strong>、随机数法</p>
+<p>若是非数字关键字，则需先对其进行数字化处理。</p>
+<p>1.直接定址法：散列函数为关键字的线性函数，设 H(key) = key 或 H(key) = a * key + b<br>此法仅适合于：地址集合的大小==关键字集合的大小</p>
+<p>2.数字分析法：假设关键字集合中的每个关键字都是有s为有效数字组成(u1,u2,…,us)，分析关键字集中的全体，并从中提取分布均匀的若干位或他们的组合作为地址<br>此法仅适合于：能预先估计出全体关键字的每一位上<br>各种数字出现的频度</p>
+<p>3.平法取中法：以关键字的平方值的中间几位作为存储地址。求关键字平方值的目的是扩大差别，同时平方值的中间各位又能受到整个关键字中各位的影响<br>此方法仅适合于：关键字中的每一位都有某些数字重复出现频度很高的现象</p>
+<p>4.折叠法：将关键字分割成若干部分，然后取他们的叠加和为散列地址。有两种叠加处理的方法：<strong>移位叠加和间界叠加</strong><br>此方法仅适合于：关键字的数字位数特别多</p>
+<p>5.<strong>除留余数法</strong></p>
+<p>设定散列函数为 H(key) = key MOD p ，其中 p &lt;= m (表长) 并且 p 应为不大于 m 的最大素数</p>
+<p>为什么要对p加限制？<br>减少冲突</p>
+<p>6.随机数法：设散列函数为 H(key) = Random(key) ，其中 Random 为伪随机函数<br>通常此方法用于对长度不等的关键字构造散列函数</p>
+<p>实际造表时，采用何种构造散列函数的方法取决于建表的关键字集合的情况（包括关键字的范围与形态），总的原则是使产生冲突的可能性降到尽可能的小</p>
+<h2 id="处理冲突的方法"><a href="#处理冲突的方法" class="headerlink" title="处理冲突的方法"></a>处理冲突的方法</h2><p>处理冲突的<strong>实际含义</strong>是：为产生冲突的地址寻找下一个散列地址</p>
+<ul>
+<li>开放地址法</li>
+<li>链地址法</li>
+</ul>
+<p>1.开放定址法：为产生冲突的地址H(key)求得一个地址序列：H1,H2,…,Hs (1&lt;=s&lt;=m-1) ，其中 H0 = H(key) ,<br>Hi = (H(key) + di) MOD m , i = 1,2,…,s</p>
+<p>对增量di有三种取法：<br>1）线性探测再散列：di = c <em> i 最简单的情况，c = 1<br>2）平方法探测再散列：di = 1^2, -1^2, 2^2, -2^2…<br>3）随机探测再散列：di是一组伪随机数列，或者 di = i </em> H2(key) (又称双散列函数探测)</p>
+<p>eg：<br>关键字集合：{19,01,23,14,55,68,11,82,36}<br>设散列函数 H(key) = key MOD 11 (表长为11)<br>若采用线性探测再散列处理冲突：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 </span><br><span class="line">55  01  23  14  68  11  82  36  19</span><br></pre></td></tr></table></figure> 
+<p>2.链地址法：将所有散列地址相同的记录都连接在同一链表中</p>
+<h2 id="散列表的查找"><a href="#散列表的查找" class="headerlink" title="散列表的查找"></a>散列表的查找</h2><p>查找过程与建表过程一致。假设采用开放定址法处理冲突，则查找过程为：</p>
+<p>对于给定值K，计算散列地址 i = H(k)<br>若 r[i] = NULL ，则查找不成功<br>若 r[i].key = K ，则查找成功<br>否则求下一地址 Hi ，直至<br> r[Hi] = NULL （查找不成功）<br>或 r[Hi] = K （查找成功）为止</p>
+<p>散列表查找的分析：</p>
+<p>从查找过程得知，散列表查找过程的平均长度实际上并不为0</p>
+<p>绝对散列表ASL的<strong>因素</strong>：</p>
+<ul>
+<li>选用的散列函数</li>
+<li>选用的处理冲突的方法</li>
+<li>散列表的饱和程度，装载因子 α = n/m 值得大小（n为记录数，m为表的长度）</li>
+</ul>
+<p>一般情况下，可以认为选用的散列函数是均匀的，则在讨论ASl时可以不考虑其他因素。</p>
+<p>因此，<strong>散列表的ASL是处理冲突方法和装载因子的函数</strong></p>
+<p>可以证明，查找成功时可以有一下结果（证明过程参见算法导论）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">线性探测再散列： Snl = 1/2 * (1+1/(1-α))</span><br><span class="line">随机探测再散列： Snr = -1/α * ln(1-α)</span><br><span class="line">链地址法： Snc = 1 + 2/α</span><br></pre></td></tr></table></figure>
+<p>从以上结果可见，散列表的平均查找长度是 α 的函数，而不是 n 的函数。这说明，用散列表构造查找表时，可以选择一个适当的装填因子 α 使得ASL限定在某个范围内。</p>
+<p><strong>这就是所有散列表的特点</strong></p>
+<h2 id="散列表的删除操作"><a href="#散列表的删除操作" class="headerlink" title="散列表的删除操作"></a>散列表的删除操作</h2><p>从散列表中删除记录时，要做特殊处理，相应的，需要修改查找的算法</p>
+<h2 id="散列表也可以用来构造静态查找表"><a href="#散列表也可以用来构造静态查找表" class="headerlink" title="散列表也可以用来构造静态查找表"></a>散列表也可以用来构造静态查找表</h2><p>并且，对静态查找表，有时可以找到不发生冲突的散列函数。即此时的散列表的ASL=0，称此类散列函数为理想的散列函数</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/11/17/散列表/">
+    <time datetime="2016-11-17T15:19:01.000Z" class="entry-date">
+        2016-11-17
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/11/17/串的模式匹配问题/" rel="prev"><span class="meta-nav">←</span> 串的模式匹配问题</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/11/16/红黑树C实现/" rel="next">红黑树C实现 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

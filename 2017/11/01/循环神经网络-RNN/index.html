@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>循环神经网络_RNN | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="循环神经网络，英文名是Recurrent Neural Network，随着对它的不断深入了解，你会发现这个神经网络模型是多么的有趣。你可以喂给它莎士比亚的作品，经过有效的训练后它会给你输出带有莎士比亚风格的句子；你喂给它 Linux 源码，它会装模作样的给你生成一段它自己写的代码，尽管会有语意错误，但是不会有语法错误。 那么废话不多说，直接进入正文吧。 Recurrent Neural Netw">
+<meta name="keywords" content="Neural Networks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="循环神经网络_RNN">
+<meta property="og:url" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="循环神经网络，英文名是Recurrent Neural Network，随着对它的不断深入了解，你会发现这个神经网络模型是多么的有趣。你可以喂给它莎士比亚的作品，经过有效的训练后它会给你输出带有莎士比亚风格的句子；你喂给它 Linux 源码，它会装模作样的给你生成一段它自己写的代码，尽管会有语意错误，但是不会有语法错误。 那么废话不多说，直接进入正文吧。 Recurrent Neural Netw">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/4.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/5.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/6.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/7.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/8.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/9.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/10.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/11.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/12.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/13.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/16.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/14.png">
+<meta property="og:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/15.png">
+<meta property="og:updated_time" content="2017-10-31T18:41:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="循环神经网络_RNN">
+<meta name="twitter:description" content="循环神经网络，英文名是Recurrent Neural Network，随着对它的不断深入了解，你会发现这个神经网络模型是多么的有趣。你可以喂给它莎士比亚的作品，经过有效的训练后它会给你输出带有莎士比亚风格的句子；你喂给它 Linux 源码，它会装模作样的给你生成一段它自己写的代码，尽管会有语意错误，但是不会有语法错误。 那么废话不多说，直接进入正文吧。 Recurrent Neural Netw">
+<meta name="twitter:image" content="https://saberda.github.io/2017/11/01/循环神经网络-RNN/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-循环神经网络-RNN" class="post-循环神经网络-RNN post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      循环神经网络_RNN
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/11/01/循环神经网络-RNN/" data-id="ckqlqy7b1006b8dx7unvjgnp7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>循环神经网络，英文名是Recurrent Neural Network，随着对它的不断深入了解，你会发现这个神经网络模型是多么的有趣。你可以喂给它莎士比亚的作品，经过有效的训练后它会给你输出带有莎士比亚风格的句子；你喂给它 Linux 源码，它会装模作样的给你生成一段它自己写的代码，尽管会有语意错误，但是不会有语法错误。</p>
+<p>那么废话不多说，直接进入正文吧。</p>
+<h2 id="Recurrent-Neural-Network"><a href="#Recurrent-Neural-Network" class="headerlink" title="Recurrent Neural Network"></a>Recurrent Neural Network</h2><pre><code>循环神经网络的好处就是他们会在你建立神经网络架构时给予你很高的灵活性
+</code></pre><p>咱们先来看一下最左边这个例子，所以一般你在处理神经网络的时候，你会得到一个固定大小的向量（即图中的红色框），然后用隐藏层 – 这个绿色的框来处理它，你就会得到一个固定大小的向量，就是蓝色。所以会有一个固定大小的图像进入网络，然后要输出一个固定大小的向量，他是一个 class score，在循环神经网络中，我们可以采用不同的顺序实现，比如从输入开始或输出开始，或者两者同时开始。</p>
+<a id="more"></a>
+<p><img src="/2017/11/01/循环神经网络-RNN/1.png" alt=""></p>
+<p>再举一个图像字幕的例子。比方说你得到了一个固定大小的推向，通过循环神经网络，我们会生成一些按顺序排列的描述图像内容的词，那么这些词会连成一句话，这就是这幅图的描述。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/2.png" alt=""></p>
+<p>循环神经网络也可以用在情感分类中，我们来举游说的例子。我们会处理一定数量按照顺序排列的词，然后试着去把这个句子里的词按正面情感和负面情感来分类。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/3.png" alt=""></p>
+<p>在用机器进行语言翻译时，我们也可以用到循环神经网络我们需要让这个网络把这些单词，比如说是英文单词翻译成法语单词，所以我们把这些词放在循环神经网络中，我们把这称之为从一个序列翻译至另一个序列（seq to seq）。所以我们通过这个网络把英文句子翻译成了法语句子。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/4.png" alt=""></p>
+<p>最后一个例子就是视频分类，提到这个，也许你会想到把视频里的每一帧图像都按照一定数量的类来分类，但关键是你实际上不希望这个预测仅仅是当前时间所对应的当前脱氨的函数，你更希望他是当前时间之前所有图片的函数。那么循环神经网络就可以让你构建一个架构，这个架构可以让你得到一个预测得到某个时间点前所有图片的函数。即使你没有输入或输出的序列，你也可以用到循环神经网络，甚至你在最开始的那个例子中用到他，因为你可以对你的固定尺寸的输入或者输出按顺序的进行处理。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/5.png" alt=""></p>
+<p>那么循环神经网络实质上就是这个绿色的框。他自己有一个状态，并定期的接受数据，所以每一个在每一个时间点中它有内在的状态。然后它可以通过每个时间点所接受内容的根据函数来修改自己的状态，当然，他会在 RNN 里等待着，RNN 会根据他在接受输入时状态的参与程度来改变它的行为。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/6.png" alt=""></p>
+<p>我们还要关注基于 RNN 状态所生成的输出，我们可以在 RNN 上方生成这些向量，你会看到这样的图，但我要说的是 RNN 就只是在中间的一块，他有一个状态，可以随时间变化接受向量。我们可以在一些应用中根据他上方的状态进行假设</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/7.png" alt=""></p>
+<h2 id="循环的过程"><a href="#循环的过程" class="headerlink" title="循环的过程"></a>循环的过程</h2><p>那么整个过程看起来是这样的：RNN 有某种状态，这里我们记为向量 H 。因为这也可以是许多向量的集合，所以这是一个更加综合的状态。我们现在要根据之前的隐藏状态 h 前的时间 t-1 以及现在输入向量 X 列一个方程，其中还要有一个函数，我把它称之为递归函数（recurrence function），这个函数有一个参数 W ，那么当我们对 W 进行改变的时候，我们就会发现RNN有了不同的表现。当然，我们想要的是RNN的某个特定的表现，所以我们要训练这些数据中的权重。</p>
+<p>现在我要着重说明的是，在每个时间不长中我们都要有同一个函数，同一个固定大小的f<sub>w</sub>，在每一个时间步长中我们都要用这个函数。这样就既可以使我们按顺序使用循环回归网络，又不用去管这个序列的大小。无论输入或输出的序列有多长，在每一个时间不长中我们用的都是同一个函数。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/8.png" alt=""></p>
+<p>所以在一个特定的循环神经网络的情况中，在可用的最简单的循环中建立这个函数最简便的方法就是 vanilla RNN。在这个例子中，循环神经网络的状态就是这个隐藏状态（hidden state）h，我们还会得到一个循环方程式。这个方程式可以告诉你怎么来更新你的隐藏状态。这需要用到之前的隐藏状态还有现在输入的 X<sub>t</sub> 。在这个最特殊也是最简单的例子中，我们要用到这些权矩阵 W<sub>hh</sub> 和 W<sub>xh</sub>。这两个矩阵分别对之前的隐藏状态和现在的输入做投影，然后把这两者相加，并求出这个和的双曲正切值。这就是我们更新时间 t 下隐藏状态的方法。这个循环所做的就是告诉我们h是怎样随时间和目前时间步长的输入的变化而变化的。那么现在可以对h进行检测。比如用另一个矩阵对隐藏状态进行投影。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/9.png" alt=""></p>
+<p>那么，这就是一个完整的简单的例子，你可以把它用于你自己的神经网络中。为了讲述这到底怎么用的，我现在要讲 X<sub>t</sub> 和 y 在向量中的抽象形式，我们可以用语义学来分析这些向量。我们可以用到循环神经网络的其中一个方面，也就是字符级语言模型（character-level language model）。这是我认为理解RNN最简单的方法之一，因为它又直观又有趣。</p>
+<h2 id="Char-RNN"><a href="#Char-RNN" class="headerlink" title="Char-RNN"></a>Char-RNN</h2><p>那么现在我们有了一个使用RNN的字符级语言模型，他的工作原理是：把一系列的字符输入到循环神经网络中。在每一个时间步长里，我们都会要求循环神经网络来预测下一个字符是什么，所以他就会根据他所看到的字符来预测下一个字符是什么。</p>
+<p>举一个简单的例子，我们有一个训练序列 hello，字符词汇，即 [h, e, l, o]，我们试着在这组训练数据中使用循环神经网络来学习预测序列中的下一个字符方法开始运作，将每一个字符按照先后不同时间点转化为一个循环神经网路。第一步完成的是 h 字符，然后是 e，我们就这样完成了 H-E-L-L。我们来使用一个词向量 – one hot向量，代表了字符的顺序和词汇。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/10.png" alt=""></p>
+<p>我们来看一下递推公式。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/11.png" alt=""></p>
+<p>在每一个测试中我们从h开始，然后我们要求计算隐藏层，每一个时间步骤使用我们的地推公式。假设这一层中只有三个数字，那么我们用一个三维向量，基本在时间点上总结了所有的字符，直到最后一个。每一个时间步骤上都有隐藏层，现在我们可以预测每个时间步骤所连接的序列中的下一个字符是什么。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/12.png" alt=""></p>
+<p>例如，因为这个单词中有四个字符，我们预测在每个时间点有四个数字。例如在第一个位置，我们对应了字母 H ，同时 RNN 在这时候的权重已经计算到了他现在的字母以及下一个位置和字符。那么推断，H 对应的下一位字符的权重是 H 的话是 1.0，E 是 2.2，L 是 -3.0，O 是 4.1，除了其他可能性，当然，我们也知道，在这个训练序列中，E 是在 H 后面的那个字符，所以事实上，变为绿色的那个 2.2 是正确的答案，我们希望这个值是高的，所以我门要让其他值比较低，这就使我们基本上有一个目标，谁会是序列中的下一个字符。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/13.png" alt=""></p>
+<p>我们仅仅是想让这一类的值是高的，其他的值是低的，包括绿色的信号、损失函数，并且通过这些链接向后传播。这种用来思考的方法是每个时间步骤，我们基本上有一个大的 softmax 分类器，这些大的 softmax 中的每一个结束后会接着下一个字符，在每个点上我们知道下一个字符是什么。所以我们只是得到了从上到下的损失，并且通过这张图流通，向后至所有的箭头，我们要得到所有权重矩阵的梯度，这样我们将会知道如何转移矩阵。</p>
+<p>那么当前的问题来自于 RNN，所以我们要会塑造这些权重，这才是正确的方式来形成字符，并且你可以想象的出来你是如何训练的。</p>
+<h2 id="训练-RNN"><a href="#训练-RNN" class="headerlink" title="训练 RNN"></a>训练 RNN</h2><p>正如我提到的每个递归场景都有自己的功能，我们每一个时间步骤都有一个 W<sub>xh</sub> ，也有一个 W<sub>hy</sub> 。我们在这个图解中用了四次 W<sub>xh</sub> 和 W<sub>hy</sub>，向后传播时，我们通过这些给他们计数，因为我们会把所有的添加到相同的权重矩阵，也因为他已经被用在多个时间步骤，这使我们能够处理不同输入的大小，因为即使我们每次做相同的事情，功能的数量也不会相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># data I/O</span><br><span class="line">data = open(&apos;input.txt&apos;, &apos;r&apos;).read() # should be simple plain text file</span><br><span class="line">chars = list(set(data))</span><br><span class="line">data_size, vocab_size = len(data), len(chars)</span><br><span class="line">print &apos;data has %d characters, %d unique.&apos; % (data_size, vocab_size)</span><br><span class="line">char_to_ix = &#123; ch:i for i,ch in enumerate(chars) &#125;</span><br><span class="line">ix_to_char = &#123; i:ch for i,ch in enumerate(chars) &#125;</span><br></pre></td></tr></table></figure>
+<p>在最开始，正如你所看到的，只有 numpy，一些文本数据正在加载，所以我们在这里只是收集了大量的字符序列，在这种情况下输入 txt 文件，然后我们会得到文件中的所有字符，我们还会找到所有独一无二的字符。然后我们创建映射字典，映射字符索引，从索引能找到字符，我们最基本的还是为了字符。从表面上看是一大堆的数据，我们有数百个的字符或者类似的东西并且在序列里排序，所以我们把索引关联到每个字符上，然后我们在进行初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># hyperparameters</span><br><span class="line">hidden_size = 100 # size of hidden layer of neurons</span><br><span class="line">seq_length = 25 # number of steps to unroll the RNN for</span><br><span class="line">learning_rate = 1e-1</span><br><span class="line"></span><br><span class="line"># model parameters</span><br><span class="line">Wxh = np.random.randn(hidden_size, vocab_size)*0.01 # input to hidden</span><br><span class="line">Whh = np.random.randn(hidden_size, hidden_size)*0.01 # hidden to hidden</span><br><span class="line">Why = np.random.randn(vocab_size, hidden_size)*0.01 # hidden to output</span><br><span class="line">bh = np.zeros((hidden_size, 1)) # hidden bias</span><br><span class="line">by = np.zeros((vocab_size, 1)) # output bias</span><br></pre></td></tr></table></figure>
+<p>首先是隐藏大小的初始值，因为你会用到 RNN，所以你不能让他成为 100，我们有学习率，序列长度在这里达到了 25，这是一个你需要意识到的参数。此外，需要注意的是，如果我们的输入数据很大，比如说有数百万次，你就没有办法把它放在所有的上面，因为我们需要保持所有的数据和内存，这样我们就可以开始向后传播。但是事实上，我们没办法把他们所有都存在内存中，并且向后传播所有的输入数据块，在这种情况下，我们可以在一段时间内通过一个 25 字符的序列，我会在下文讲到。我们有整个数据集，但是现在要让他变成在某一时间只有 25 个字符的数据块，并且每次都是按时通过 25 个字符，因为我们负担不起太长时间的向后传播，因此我们必须记录所有的数据。所以我们让数据块包含 2 5个字符。然后我们例举了所有的 W 矩阵，分析了一些随机的方框所以 W<sub>xh</sub> 和 W<sub>hy</sub> 都是我们的参数，这样我们才能训练向后传播。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">n, p = 0, 0</span><br><span class="line">mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)</span><br><span class="line">mbh, mby = np.zeros_like(bh), np.zeros_like(by) # memory variables for Adagrad</span><br><span class="line">smooth_loss = -np.log(1.0/vocab_size)*seq_length # loss at iteration 0</span><br><span class="line">while True:</span><br><span class="line">  # prepare inputs (we&apos;re sweeping from left to right in steps seq_length long)</span><br><span class="line">  if p+seq_length+1 &gt;= len(data) or n == 0: </span><br><span class="line">    hprev = np.zeros((hidden_size,1)) # reset RNN memory</span><br><span class="line">    p = 0 # go from start of data</span><br><span class="line">  inputs = [char_to_ix[ch] for ch in data[p:p+seq_length]]</span><br><span class="line">  targets = [char_to_ix[ch] for ch in data[p+1:p+seq_length+1]]</span><br><span class="line"></span><br><span class="line">  # sample from the model now and then</span><br><span class="line">  if n % 100 == 0:</span><br><span class="line">    sample_ix = sample(hprev, inputs[0], 200)</span><br><span class="line">    txt = &apos;&apos;.join(ix_to_char[ix] for ix in sample_ix)</span><br><span class="line">    print &apos;----\n %s \n----&apos; % (txt, )</span><br><span class="line"></span><br><span class="line">  # forward seq_length characters through the net and fetch gradient</span><br><span class="line">  loss, dWxh, dWhh, dWhy, dbh, dby, hprev = lossFun(inputs, targets, hprev)</span><br><span class="line">  smooth_loss = smooth_loss * 0.999 + loss * 0.001</span><br><span class="line">  if n % 100 == 0: print &apos;iter %d, loss: %f&apos; % (n, smooth_loss) # print progress</span><br><span class="line">  </span><br><span class="line">  # perform parameter update with Adagrad</span><br><span class="line">  for param, dparam, mem in zip([Wxh, Whh, Why, bh, by], </span><br><span class="line">                                [dWxh, dWhh, dWhy, dbh, dby], </span><br><span class="line">                                [mWxh, mWhh, mWhy, mbh, mby]):</span><br><span class="line">    mem += dparam * dparam</span><br><span class="line">    param += -learning_rate * dparam / np.sqrt(mem + 1e-8) # adagrad update</span><br><span class="line"></span><br><span class="line">  p += seq_length # move data pointer</span><br><span class="line">  n += 1 # iteration counter </span><br></pre></td></tr></table></figure>
+<p>然后我们先看最后一部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># prepare inputs (we&apos;re sweeping from left to right in steps seq_length long)</span><br><span class="line">  if p+seq_length+1 &gt;= len(data) or n == 0: </span><br><span class="line">    hprev = np.zeros((hidden_size,1)) # reset RNN memory</span><br><span class="line">    p = 0 # go from start of data</span><br><span class="line">  inputs = [char_to_ix[ch] for ch in data[p:p+seq_length]]</span><br><span class="line">  targets = [char_to_ix[ch] for ch in data[p+1:p+seq_length+1]]</span><br></pre></td></tr></table></figure>
+<p>在这里，我们有主函数，我们把这里的一些初始值设置为20，然后我们继续对一批数据进行采样，所以这也是我们在这个数据集处批处理 25 个字符的地方。这些就是输入列表，输入列表基本上只有对应的 25 个字符。你所看到的目标是所有的相同字符，除去移除的那个，因为这些都是我们试图在每一层预测的检索。重要的目标是那 25 个字符的输入列表，还有将会被移除的目标，这就是我们基本的数据采样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># sample from the model now and then</span><br><span class="line">  if n % 100 == 0:</span><br><span class="line">    sample_ix = sample(hprev, inputs[0], 200)</span><br><span class="line">    txt = &apos;&apos;.join(ix_to_char[ix] for ix in sample_ix)</span><br><span class="line">    print &apos;----\n %s \n----&apos; % (txt, )</span><br></pre></td></tr></table></figure>
+<p>我们使用低层次字符和测试时间的方式，就是我们可以看到一些字符，然而他们并不是那些在这个序列中下一个字符的分布，所以你可以想象从他的采样到他在分布中形成下一个字符。我们需要不断的采样，并且持续下去，就可以生成任意的文本数据，这就是我们要做的代码，并且生成了样本函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># forward seq_length characters through the net and fetch gradient</span><br><span class="line">  loss, dWxh, dWhh, dWhy, dbh, dby, hprev = lossFun(inputs, targets, hprev)</span><br><span class="line">  smooth_loss = smooth_loss * 0.999 + loss * 0.001</span><br><span class="line">  if n % 100 == 0: print &apos;iter %d, loss: %f&apos; % (n, smooth_loss) # print progress</span><br></pre></td></tr></table></figure>
+<p>现在我们来说一下 loss function（损失函数），损失函数接受输入的目标，它也接受H prep，H prep 的缺点就是他的形状向量来自于前一个数据块，所以我们要分批进行25个字符的区块，并且我们要跟踪在 25 个字符结尾的是什么情景，以至于在向后传播相遇时，我们可以看到 H 最初的形态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># perform parameter update with Adagrad</span><br><span class="line">  for param, dparam, mem in zip([Wxh, Whh, Why, bh, by], </span><br><span class="line">                                [dWxh, dWhh, dWhy, dbh, dby], </span><br><span class="line">                                [mWxh, mWhh, mWhy, mbh, mby]):</span><br><span class="line">    mem += dparam * dparam</span><br><span class="line">    param += -learning_rate * dparam / np.sqrt(mem + 1e-8) # adagrad update</span><br></pre></td></tr></table></figure>
+<p>因此我们确保隐藏层通过这个方式在区块之间是基本上正确的传播，但是我们只向后传播这些 25 次，为此我们添加了损失函数和梯度，还有所有的权重矩阵和方框，可以输出损失，然后会有一个参数的更新，告诉我们要更新比较老的部分。注意：这里共有 25 个 softmax 分类器，我们对这 25 个端同时进行反向传播，最后将所求梯度加起来。</p>
+<p>损失函数是这一块代码，它包含了向前传播和向后传播两部分方法。我们可以比较一下向前传播和向后传播。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def lossFun(inputs, targets, hprev):</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  inputs,targets are both list of integers.</span><br><span class="line">  hprev is Hx1 array of initial hidden state</span><br><span class="line">  returns the loss, gradients on model parameters, and last hidden state</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  xs, hs, ys, ps = &#123;&#125;, &#123;&#125;, &#123;&#125;, &#123;&#125;</span><br><span class="line">  hs[-1] = np.copy(hprev)</span><br><span class="line">  loss = 0</span><br><span class="line">  # forward pass</span><br><span class="line">  for t in xrange(len(inputs)):</span><br><span class="line">    xs[t] = np.zeros((vocab_size,1)) # encode in 1-of-k representation</span><br><span class="line">    xs[t][inputs[t]] = 1</span><br><span class="line">    hs[t] = np.tanh(np.dot(Wxh, xs[t]) + np.dot(Whh, hs[t-1]) + bh) # hidden state</span><br><span class="line">    ys[t] = np.dot(Why, hs[t]) + by # unnormalized log probabilities for next chars</span><br><span class="line">    ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars</span><br><span class="line">    loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)</span><br></pre></td></tr></table></figure>
+<p>在向前传播，你应该基本认识到，我们得到的亏损目标和我们被等待接受的这 25 个索引并不是我们通过他们的传递从 1 到 25，我们创建了文本的输入向量，虽然只是一些 0，并且我们设置了一个 one-hot 编码，无论他的指数是什么，我们把它集成一个编码。在计算中，循环公式用的就是这个方程。hs[t]，在这里 h 就是跟踪不同步骤中结果的量，我们使用循环公式计算隐含层的向量以及输出向量。接着使用 softmax 公式，得到归一化的概率，损失值则等于 -log（正确类的概率）。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/16.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># backward pass: compute gradients going backwards</span><br><span class="line">  dWxh, dWhh, dWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)</span><br><span class="line">  dbh, dby = np.zeros_like(bh), np.zeros_like(by)</span><br><span class="line">  dhnext = np.zeros_like(hs[0])</span><br><span class="line">  for t in reversed(xrange(len(inputs))):</span><br><span class="line">    dy = np.copy(ps[t])</span><br><span class="line">    dy[targets[t]] -= 1 # backprop into y. see http://cs231n.github.io/neural-networks-case-study/#grad if confused here</span><br><span class="line">    dWhy += np.dot(dy, hs[t].T)</span><br><span class="line">    dby += dy</span><br><span class="line">    dh = np.dot(Why.T, dy) + dhnext # backprop into h</span><br><span class="line">    dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity</span><br><span class="line">    dbh += dhraw</span><br><span class="line">    dWxh += np.dot(dhraw, xs[t].T)</span><br><span class="line">    dWhh += np.dot(dhraw, hs[t-1].T)</span><br><span class="line">    dhnext = np.dot(Whh.T, dhraw)</span><br><span class="line">  for dparam in [dWxh, dWhh, dWhy, dbh, dby]:</span><br><span class="line">    np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients</span><br><span class="line">  return loss, dWxh, dWhh, dWhy, dbh, dby, hs[len(inputs)-1]</span><br></pre></td></tr></table></figure>
+<p>在向后传播，我们从第 25 层穿过隐藏层，直到第一层，你或许已经注意到，这里我并不知道我需要处理多少细节，但是这里反向通过了一个 softmax 函数，反向通过了激活函数，我对所有的梯度和参数进行加和。值得一提的是，梯度是与权值同尺寸的的矩阵，在代码中使用了 “+=”，因为在反向传播过程中权值矩阵会求得多个梯度，我们需要将这些梯度叠加起来，因为我们向前的每一步都用到了权值矩阵，所以在反向求导是也要不断的叠加梯度。这样我们就求出了梯度，现在就可以利用损失函数对初值进行更新了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def sample(h, seed_ix, n):</span><br><span class="line">  &quot;&quot;&quot; </span><br><span class="line">  sample a sequence of integers from the model </span><br><span class="line">  h is memory state, seed_ix is seed letter for first time step</span><br><span class="line">  &quot;&quot;&quot;</span><br><span class="line">  x = np.zeros((vocab_size, 1))</span><br><span class="line">  x[seed_ix] = 1</span><br><span class="line">  ixes = []</span><br><span class="line">  for t in xrange(n):</span><br><span class="line">    h = np.tanh(np.dot(Wxh, x) + np.dot(Whh, h) + bh)</span><br><span class="line">    y = np.dot(Why, h) + by</span><br><span class="line">    p = np.exp(y) / np.sum(np.exp(y))</span><br><span class="line">    ix = np.random.choice(range(vocab_size), p=p.ravel())</span><br><span class="line">    x = np.zeros((vocab_size, 1))</span><br><span class="line">    x[ix] = 1</span><br><span class="line">    ixes.append(ix)</span><br><span class="line">  return ixes</span><br></pre></td></tr></table></figure>
+<p>最后，在这里我们有个采样方法。我们使用这个方法，基于我们之前训练出来的模型（如字符串的衔接）来生成新的文本。我们随机获得一些字符，并用训练好的模型对这个字符进行扩展，我们使用循环公式，获得字符的概率分布，然后从中取样，取出最有可能出现的字符。然后我们开始取下一个字符，依次迭代，直到我们获得足够长的文本。</p>
+<p>共有 25 个 softmax 分类器，我们对这 25 个端同时进行反向传播，然后将所求梯度加起来</p>
+<p><a href="https://gist.github.com/karpathy/d4dee566867f8291f086" target="_blank" rel="noopener">源码地址</a></p>
+<h2 id="训练成果"><a href="#训练成果" class="headerlink" title="训练成果"></a>训练成果</h2><p>下面是 Andrej Karpathy 和 Justin Johnson 做的一些训练。</p>
+<p>他们用 Char-RNN 去学习一些文本，RNN 去读这些文本、小段代码，我们注意到某些特定的单元以及 RNN 隐藏层的状态，我们用颜色来标注这些单元，来表示这些单元是否“兴奋”。可以看出，有很多隐藏层的状态很难去理解，他们时而兴奋时而沉默，显得很奇怪。这是因为他们关注的是字符级的变化，例如在 ah 之后接 e 的情况有多少等。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/14.png" alt=""></p>
+<p>但是有些单元表达的信息是可以理解的。对于像引号检测这样的单元而言，当前一个引号出现，它们即处于“开启状态”，一直到后一个引号出现。跟踪这样的单元比较可靠，这是从反向传播中得到的信息。很明显可以看出，对于这样的一个字符级模型，引导内外信号强度的差别很大，这是值得学习的有用特征，于是 RNN 用一部分隐藏层来对引号进行跟踪，以分辨目前是在引号中还是引号外。</p>
+<p><img src="/2017/11/01/循环神经网络-RNN/15.png" alt=""></p>
+<p>注意，这里的 RNN 使用了包含 100 个字符的序列进行学习，即我们只在 100 层上进行反向传播，这 100 层才是这个单元的学习区间，因为他不知道长于 100 字符的情况，但是这里的引号之间的长度明显大于 100，这个情况表明你可以对小于 100 长度的数据进行训练，然后将情况合理的推广到更长的序列，所以对于长度长于 100 字符的序列，模型依然有效</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>在 RNN 中为什么不使用正则化？</li>
+</ul>
+<p>因为在 RNN 中使用正则化并不常见，甚至有时候正则化反而会得出更差的结果，所以我有时候不考虑他，他属于一种超参数</p>
+<p>===</p>
+<ul>
+<li>我们是否要去学习这些输入的单词本身含义？</li>
+</ul>
+<p>对于这 25 个连续的单词，我们并不关心一个词是否存在，我们关心的是字符所处的位置，这个模型中我们不需要了解字符，也不需要了解语言，模型所学习的是字符的序列</p>
+<p>===</p>
+<p>经过训练后的 RNN 很少会犯语法错误，比如括号的匹配一类的，但是所生成的文章的意思会随着训练的进行而逐渐明朗。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/11/01/循环神经网络-RNN/">
+    <time datetime="2017-11-01T05:47:43.000Z" class="entry-date">
+        2017-11-01
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/ML/">ML</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/11/02/LSTM/" rel="prev"><span class="meta-nav">←</span> RNN 与 LSTM</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/10/31/CNN之定位检测/" rel="next">卷积神经网络之定位检测 <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

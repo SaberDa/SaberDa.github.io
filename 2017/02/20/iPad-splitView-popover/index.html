@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>iPad开发之--splitView和popover | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="iPad上的app与iPhone上的app最显著的不同就是iPad使用splitView和popover来代替navigationController 在介绍正文之前，先来谈一谈如何实现进入不同的view出现不同的toolbars？ 关于Navigation Controller有一点很重要，toolbar上的按钮和navigationController本身没有任何关系，它只和当时显示的view">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iPad开发之--splitView和popover">
+<meta property="og:url" content="https://saberda.github.io/2017/02/20/iPad-splitView-popover/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="iPad上的app与iPhone上的app最显著的不同就是iPad使用splitView和popover来代替navigationController 在介绍正文之前，先来谈一谈如何实现进入不同的view出现不同的toolbars？ 关于Navigation Controller有一点很重要，toolbar上的按钮和navigationController本身没有任何关系，它只和当时显示的view">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-02-19T17:31:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iPad开发之--splitView和popover">
+<meta name="twitter:description" content="iPad上的app与iPhone上的app最显著的不同就是iPad使用splitView和popover来代替navigationController 在介绍正文之前，先来谈一谈如何实现进入不同的view出现不同的toolbars？ 关于Navigation Controller有一点很重要，toolbar上的按钮和navigationController本身没有任何关系，它只和当时显示的view">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-iPad-splitView-popover" class="post-iPad-splitView-popover post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      iPad开发之--splitView和popover
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/02/20/iPad-splitView-popover/" data-id="ckqlqy79z003y8dx73dcpbonx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>iPad上的app与iPhone上的app最显著的不同就是iPad使用splitView和popover来代替navigationController</p>
+<p>在介绍正文之前，先来谈一谈如何实现进入不同的view出现不同的toolbars？</p>
+<p>关于Navigation Controller有一点很重要，toolbar上的按钮和navigationController本身没有任何关系，它只和当时显示的viewController有关。我们现在知道如何使用push segues来push新的东西到navigationController，所以当你slide进来新事物时，新的按钮会出现在底部栏上</p>
+<a id="more"></a>
+<p>UIViewController有一个方法可以重载，或者你可以直接设置toolbarItems，因为实际上它是一个property，它是一个UIBarButtonItems的NSArray。只要你的viewController被push到一个navigationController，并且这个navigationController底部有设置toolbar，那么你就会看到你的按钮</p>
+<p>现在让我们讲一下UIBarButtonItems，真正使得UIToolBar工作的东西</p>
+<p>他们有target action，就像一个按钮，这是当点击他们时，你如何找到它。他们可以有边框或者简单朴素的背景。你可以像施膜法一样设置它的标题，你可以设定一个图片，比如你设计的图标什么的；或者你甚至可以设置一个你自定义的view；此外，还有不少系统内置的。</p>
+<p>然后这有两个特殊的UIBarButtonItems，Fixed和Flexible space，这些都是用来安排你UIToolbar按钮的显示方式</p>
+<p>创建一个UIBarButtonItem的方式是alloc/ init，他可以采用文字或图像；或者另外一种初始化叫initWithBarButtonSystemItem，然后你给它在枚举类型中指定一个，详情参见苹果文档，嘿嘿嘿</p>
+<p>因此创建一个工具栏超级简单，你只需要将其拖动到你的viewController，通常你会连到一个outlet，然后你只需要从Xcod拖个UIBarButtons到它里面；或者在代码中，你可以设置个数组，工具栏对象有个物品数组，就是仅仅只要一个数组</p>
+<h2 id="splitView"><a href="#splitView" class="headerlink" title="splitView"></a>splitView</h2><p>同样的，创建一个splitViewController的方法是在xcode里将它拖出来，你只能拖动spiltView到一个iPad类型的storyboard。splitView通常只是一个基本元素，它填满了整个屏幕，你不可能把splitView放到navigationController或popover或其他什么的内部。一般情况下，splitView是提供给整个app的。</p>
+<p>正如你看到的splitView，有两个View controllers，一个左侧一个右侧。我们叫左侧<strong>master</strong>，右侧<strong>detail</strong>。你get和set这两个东西超级简单，splitViewController有一个property叫做viewControllers，他是一个数组，这个数组只用两个东西，左边和右边，左侧是元素0，右侧是元素1。这是一个可设置的东西，所以你可以在代码中设置你的两个view controllers。注意一下，通常使用这个API使你得到同时设置这两个东西。但是当然你可以先get它，使其可变，只设置其中一个，然后在设置回去，虽然Xcode会尽量避免你这么做</p>
+<p>你会注意到，辅助API的信息，它是外部property的non-atomic <strong>copy</strong>，不是strong的。这是为什么？这个API不希望你传递含有这两个view controllers的可变数组，然后期待如果你改变了一个，它会以某种方式更新splitView，所以，这里说的是我要复制的东西，而且我要使用它。所以如果你要改变它，你得再给我一次。这就是我们使用复制的原因。也正是因为如此，你会发现iOS里NSArray和NSString的copy用法相当普遍，他们就是不想让你传递可变数组，以防止你改变了它导致发生意外。</p>
+<p><strong>splitView不能没有delegate</strong>，这是iOS对象通过delegate来完成自己的工作。如果你不设置delegat，那么当splitView进入Portrait模式的时候，左侧会消失，你应该在角落里放一个小按钮，使用户可以点击它来让左侧出现在Popover里，这就是splitView的工作原理。但是如果你不实现delegat你就没办法按上面那个按钮，这样就会导致你进入一个尴尬的境地，你无法在Portrait模式下调出左侧。</p>
+<p>通常情况下，你要在你的viewController的方法<u>viewDidLoad</u>或<u>awakeFromNib</u>里设置此delegate(awakeFromNib会被发送给每一个从storyboard里出来的对象，你能通过UIView看到它，它就能接受awakeFromNib)。同样的，我们从initWithFrame和awakeFromNib调用Setup。</p>
+<p>因此，viewControllers也接受awakeFromNib。此外，当awakeFromNib被调用时，这会是非常早期，就是它刚从storyboard出来的时候。如果你的splitViewController是被control拖入Xcode的，那么它会和你的viewController关联在一起。因此，awakeFromNib是另一个地方。<br>splitView的delegate的主要任务就是处理旋转，你有了这个splitView，它在屏幕上了，如果你处在landscape模式并然后你去到Portrait，会发生一些改变。</p>
+<p>delegate控制一切，并完成button dance，这里叫button dance是因为你需要挑一个按钮放到工具栏中，当旋转到另个方向，把他拿出去，当它旋转回Portrait时，再放回来<br>@property (nonatomic, assign) id <uisplitviewcontrollerdelegate> delegate；<br>注意这里是assign，assign和weak差不多，但是更坏一点，因为它不作零处理了。所以你要小心一些，你创建的不是一个strong指针delegate，因此如果当assign从堆上释放，你会得到一个野指针，因为他不是weak。</uisplitviewcontrollerdelegate></p>
+<p>就像上文所说，右侧是detailed的一侧，在splitViewController里它总是可见的，无论怎么旋转或者你的delegate是做什么的，它总是可见的。因此，delegate才是管理左侧的。<br>这里有一个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)splitViewController:(UISplitViewController *)sender shouldHideViewController:(UIViewController *)master inOrientation:(UIInterfaceOrientation)orientation &#123;</span><br><span class="line">	//return YES; 	//always hide it</span><br><span class="line">	//return NO; 	//always display it</span><br><span class="line">	//return UIInterfaceOrientationIsPortrait(orientation); 	//这是默认的情况，当landscape就显示，portrait就隐藏</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法是被发送到你的delegate询问在特定方向下你想要左侧做什么，因此它把自己传递给你，在data source方法里，第一个参数几乎总是sender，然后在传递给你左侧，因为他想要隐藏左侧。这里有三种选择，你可以一直说YES，这意味着左侧一直不会出现在屏幕上，他总是藏在按钮的背后，换言之，你只能通过点击角落里的按钮来查看左侧，它将出现在一个Popover里；你可以说NO，这意味着左侧和右侧都始终出现在屏幕上；如果你不实现这个方法系统会做的默认的选择，但是这样出现其他的问题，因为portrait会隐藏，但你没有那个小按钮，系统不会帮你做到这步，它会给你按钮，但你需要把它放到屏幕上。</p>
+<p>如果你忘记设置了delegate，会在portrait中出现这种情况：在popover的左侧并没有出现按钮，因此，其余的splitViewDelegate方法就是把按钮放上去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (void)splitViewController:(UISplitViewController *)sender willHideViewController:(UIViewController *)master withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popover &#123;</span><br><span class="line">	barButtonItem.title = @“master”; 	//use a better word than “master”</span><br><span class="line">	//setSplitViewBarButtonItem: must put the bar button somewhere on screen</span><br><span class="line">	//probably in a UIToolbar or a UINavigationBar</span><br><span class="line">	[detailViewController setSplitViewBarButtonItem: barButtonItem];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有两个是非常重要的，一个把按钮放上去，一个把按钮拿掉。这是用来隐藏左侧的，它会给你一个barButton，他会把第三个参数barButton放到屏幕上，当这个barButton被按下，他会自动显示左侧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)splitViewController:(UISplitViewController *)sender willHideViewController:(UIViewController *)master withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popover &#123;</span><br><span class="line">	//removeSplitViewBarButtonItem: must remove the bar button from its toolbar</span><br><span class="line">	[detailViewController removeSpiltViewBarButtonItem: nil];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相反，当你想要旋转回landscape，并把左侧放回到屏幕上，它会向你发送此消息invalidatingBarButton，换句话说，把它从你的工具栏中移除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)setSpiltViewBarButtonItem:(UIBarButtonItem *)barButtonItem &#123;</span><br><span class="line">	UIToolbar *toolbar = [self toolbar]; 	//might be outlet or calculate </span><br><span class="line">	NSMutableArray *toolbarItems=[toolbar.items mutableCopy];</span><br><span class="line">	if (_splitViewBarButtonItem)</span><br><span class="line">   [toolbarItems removeObject:_spiltViewBarButtonItem];</span><br><span class="line">	//put the bar button on the left or our existing toolbar</span><br><span class="line">	if (barButtonItem)</span><br><span class="line">   [toolbarItems insertObject: barButtonItem atIndex: 0];</span><br><span class="line">	toolbar.items = toolbarItem;</span><br><span class="line">	_spiltViewBarButtonItem = barButtonItem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是首先要做的，有很多方法实现splitViewsDelegates，这一切取决于你在两侧使用的是什么view controllers</p>
+<p><strong>何时你该设置你的delegate？</strong></p>
+<p>一是你需要决定谁是delegate，是左侧的master，还是右侧的detail。他们都是合理的选择，这要依情况而定。此外你需要去考虑重用性，两者之一可能是通用的，所以你不能再那上面实现splitViewDelegate，它是一个通用的可重复使用的view，但你可以先subclass它，然后再去做。但是另一个可能是专门用在你的app上的，所以把它放在那比较有意义</p>
+<p>所以现在你有master和detail，他们之所以这么叫是因为当你点击master里面的东西是，detail会显示你点击的东西的详细信息。</p>
+<p>那么，<strong>当master改变时，detail是怎么更新的？</strong></p>
+<p>答案是有两个选择。<br>一是简单的target action，在左侧的masterView你已经有了一些按钮或者什么的，当其被点击时，它发送target action消息给你的masterController，当它想更新detail时只需要发一个消息到detail，现在将告诉你它是如何从master得到detail的，很简单<br>例如，masterViewController里一个target action消息叫doit，它就会使用UIViewController一个特殊的方法self.splitViewController来得到detailController。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (IBAction)doit &#123;</span><br><span class="line">	id detailViewController = [[self.spiltViewController viewControllers] lastObject];</span><br><span class="line">	[detailViewController setSomeProperty: …];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个UIViewController的property，他总是返回splitViewController，前提是你所在的是一个splitViewController</p>
+<blockquote>
+<p>Q：self.navigationController和self.splitViewController都可以返回非nil吗？<br>A：当然可以。因为你自己是master，你可以在splitViewController里有一个navigationController，因此，self.navigationController将返回到你所在的navigationController；self.splitViewController将返回你所在的splitViewController。即使你在navigationController里并且同时你离开当前屏幕，你还是在splitViewController里，他仍然会返回非nil。这和是否在屏幕上无关，和是否在UI结构里有关。如果你在navigationController里，你要返回的话，back按钮会找到你 -&gt; 你仍然在splitView里</p>
+</blockquote>
+<p>你通过splitViewController的viewController数组的最后一个对象来获得detailViewController，记住该数组中只有两样东西，所以你可以获取最后一个，然后你要设置它的一些properties，那么他就会更新，就是这样，没有其他你需要做的了，setSomeProperty会有方法来自我更新，比如setNeedsDisplay什么的。</p>
+<p>二是你也可以使用segue，这样稍微复杂一点。在splitViewController里只有一种segue能用，它被称为replaceSegue。这是因为它会替换detail或master。用segue替换master非常罕见，但是让我们把重点放在有关替换detail上。</p>
+<p>有一个情况是你想要替换detailView为新的带按钮的，然后如果你点击另一个按钮，在替换回来。所以这就是用到replace的地方。这有一个有趣的警告关于replace的，当你替换detailView时，如果工具栏里有splitViewBarButton，当然该工具栏也被替换，因为整个view都会替换，所以你需要把splieBarButton转移出来，你需要将它转移到新的delegate生成的popover上，你通常在准备segue时完成去做这些。</p>
+<p>所以如果你需要准备segue，这是一个replaceSegue，你需要问detail关于它的barButton，你设置barButton，然后让segue发生。</p>
+<p>splitView就说这么多</p>
+<h2 id="popover"><a href="#popover" class="headerlink" title="popover"></a>popover</h2><p>就是漂浮选单</p>
+<p>iOS里有一个UIPopoverController类，这不是一个UIViewController，这不是UIPopoverViewController，因此他<strong>只是</strong>一个NSObject，它控制viewController。</p>
+<p>它的工作基本上就是通过contentViewController绘制它的viewController，这是UIPopoverController的property。你设定好了之后它会控制一个包含该viewController的矩形，一个小箭头指向把它画出来的东西。</p>
+<p>通常上，popover的发生是因为你control拖动它，并有一个segue，这样就有了一个popoverSegue。popoverSegue做的是，你control拖动它到viewController，它会把viewController放到popover里，不管你是从按钮或什么拖动，那就是popover的指向。</p>
+<p>当你get popoverSegue的prepareForSegue方法时，其参数是一个UIStoryboardPopoverSegue类，所以你必须假设它总是一个popoverSegue。然后我建议你做一个cast，这样你就可以访问该segue的property和popoverController。</p>
+<p>你可以不通过segue把popover放到屏幕上，你可以alloc/ initWithContentViewController，给它你想要放进popover的viewController，然后把它放到屏幕上。</p>
+<p>你也可以通过- (BOOL)popoverVisible;来问popoverController当前popover是否可见。</p>
+<p>因此，如果你在代码中做popover，或者使用了storyboard，在storyboard的方法instantiateViewControllerWithIdentifier会给你一个storyboard外部的viewController。</p>
+<p>所以无论使用了那种方法，如果你得到一个viewController然后发消息给UIPopoverController，进行alloc/ init，那么现在你手上有了个popoverController，你向其发送这两个消息之一，使其出现在屏幕上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)presentPopoverFromRect:(CGRect)aRect or inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)direction animated:(BOOL)flag;</span><br></pre></td></tr></table></figure>
+<p>或者这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)barButtonItem permittedArrowDirections:(UIPopoverArrowDirection)direction animated:(BOOL)flag;</span><br></pre></td></tr></table></figure>
+<p>这就是你不使用segue的情况。你在一个小的矩形区域内显示popover，也许是一些选定的文本或者view或按钮一类的。或者，你可以在一个barButton显示它，点击barButton后出现popover很常见，所以你只需要传递barButton。</p>
+<p>注意这个参数，<u>permittedArrowDirections</u>。你也许会问，如果从popover或者barButton或一个矩形区域调用，它会被放在屏幕上哪里？答案是他可以放在任何可以容得下它的地方，但是它会尽量使用你的permittedArrowDirections来决定是否要放到左边或下边。这样，如果你不允许它的箭头向左，那么它就会试着放到下边或者其他方向；如果你无法找到合适的地方，系统会把它放到屏幕上的某个地方，屏幕上总会有放得下的地方。</p>
+<p>有个微妙的事情要真正小心，你需要保持一个strong指针指向你的popoverController，所有这些显示的东西都不会有strong指针指向你的popoverController。所以会有很多人写这样的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (IBAction)presentPopover &#123;</span><br><span class="line">	UIPopoverController *pop = [[UIPopoverController alloc] initWithViewController: vc];</span><br><span class="line">	[pop presentPopoverFromBarButtonItem: item permittedArrowDirections: …];</span><br><span class="line">&#125; 	//BAD! No strong pointer to the popover controller! presenting it is not enough!</span><br></pre></td></tr></table></figure>
+<p>他们会说写到这里方法就结束了，然后他们的程序就会崩溃，崩溃的原因就是因为这个UIPopover，它唯一的strong指针是这个本地变量UIPopoverController <em>pop，当出了这个方法的范围，没有人有strong指针指向这个UIPopoverController了。所以当你使用popoverController时，你几乎总是在你的对象里创建一个strong property -&gt; <code>`</code>@property (nonatomic, strong) UIPopoverController </em>myPopover<code>`</code></p>
+<p>现在你的屏幕上已经有了一个popover，现在要<strong>消除</strong>它，把它从屏幕上去掉。这个动作通常是用户触发的。但是他们可能有两种方式。</p>
+<p>一是如果他们点击了屏幕上除popover以外的地方，它会关闭popover，除非点击的是<code>@property (nonatomic, copy) NSArray *passthroughViews;</code>中的一个。换句话就是说，可以在popover以外的特定地方，即使用户点击了，也不会消除popover，你甚至可以拓展到整个屏幕，那么用户只能通过popover里的东西来消除popover。</p>
+<p>现在，当你点击popover里的东西，它是怎么消除的呢？答案是调用了<code>- (void)dismissPopoverAnimated:(BOOL)animated;</code>。现在另一个精妙的地方是，你不能从popover里的viewController调用该方法，虽然这么做很有诱惑力。在viewController里有个“ok”按钮，你点击它来调用上诉方法。</p>
+<p>不管吧popover放上来的是哪个对象，这个对象就应该负责消除popover。那么怎么在popover里放一个ok按钮呢？答案是大量使用delegation。popover内的viewController通常有个property是他的delegate，当ok键被按下，它会发消息给它的delegate，然后谁把它放上来就要去消除它。</p>
+<p>这样看起来多了好多额外的间接操作，我创建此delegate只是为了说“ok，消除它”，但是这样会<strong>更加面向对象</strong>，因为它使popover里面的东西不用知道他是在popover里面，他可以用其他方式显示，它可以被pushed进navigationController，他可以在形态上显示，以其他方式重用。这一点也许你会觉得混乱，但是它是必须了解的，你要记住它。</p>
+<p>所以说了这么多，就是为了说明谁放的，谁就负责消除。</p>
+<p>popover有delegate，但用处不多，它主要做的是告诉你关于消除的事。他实际上有两个方法，一是问你是否消除，另一个是告诉你他何时被消除。但是这只发生在有人通过点击popover以外的地方来消除的情况，如果是调用dismissPopoverAnimated你就不会用到这个。<br>所以这是用户消除popoverController</p>
+<h2 id="popover的大小"><a href="#popover的大小" class="headerlink" title="popover的大小"></a>popover的大小</h2><p>popover在屏幕上，他会有多大？</p>
+<p>有三种方式设置大小。</p>
+<p>一是在Xcode里设置，如果你选中一个viewController并inspect它，在inspector的底部，你会看到有一个小开关叫popover，如果你切换到on，并表明明确使用的大小，由你指定当viewController处在popover里时的大小。</p>
+<p>但是会有一些小限制，有时viewController所在的popover够大而有时会太小，所以UIViewController有一个方法<code>- (CGSize)contentSizeInPopover;</code>，这是一个UIViewController的方法，你重载它，返回一个CGSize的大小，他可以计算出大小。</p>
+<p>第三种方法是UIPopoverController有个方法可以设置popover的大小，<code>- (void)setPopoverContentSize:(CGSize)size animated:(BOOL)animated;</code>。</p>
+<p>这些就是关于iPad开发的基础内容。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/02/20/iPad-splitView-popover/">
+    <time datetime="2017-02-20T06:05:58.000Z" class="entry-date">
+        2017-02-20
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/03/07/k-means算法的实现/" rel="prev"><span class="meta-nav">←</span> K-Means算法的实现</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/02/13/iOS-protocol/" rel="next">iOS-Protocol <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

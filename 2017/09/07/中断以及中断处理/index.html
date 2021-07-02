@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>中断以及中断处理 | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="中断事实上所有计算机都提供了允许其他模块（I/O、存储器）中断处理器正常处理过程的机制。分类如下：  程序中断：在某些条件下由指令执行的结果产生，例如算术溢出、除数为0、试图执行一条非法的机器指令以及访问到用户不允许的存储器位置。 时钟中断：由处理器内部的计时器产生，允许操作系统以一定规律执行函数 I/O中断：由I/O控制器产生，用于发信号通知一个操作的正常完成或各种错误条件 硬件故障中断：由诸如">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中断以及中断处理">
+<meta property="og:url" content="https://saberda.github.io/2017/09/07/中断以及中断处理/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="中断事实上所有计算机都提供了允许其他模块（I/O、存储器）中断处理器正常处理过程的机制。分类如下：  程序中断：在某些条件下由指令执行的结果产生，例如算术溢出、除数为0、试图执行一条非法的机器指令以及访问到用户不允许的存储器位置。 时钟中断：由处理器内部的计时器产生，允许操作系统以一定规律执行函数 I/O中断：由I/O控制器产生，用于发信号通知一个操作的正常完成或各种错误条件 硬件故障中断：由诸如">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/1.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/2.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/3.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/4.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/5.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/6.png">
+<meta property="og:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/7.png">
+<meta property="og:updated_time" content="2017-09-07T05:40:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="中断以及中断处理">
+<meta name="twitter:description" content="中断事实上所有计算机都提供了允许其他模块（I/O、存储器）中断处理器正常处理过程的机制。分类如下：  程序中断：在某些条件下由指令执行的结果产生，例如算术溢出、除数为0、试图执行一条非法的机器指令以及访问到用户不允许的存储器位置。 时钟中断：由处理器内部的计时器产生，允许操作系统以一定规律执行函数 I/O中断：由I/O控制器产生，用于发信号通知一个操作的正常完成或各种错误条件 硬件故障中断：由诸如">
+<meta name="twitter:image" content="https://saberda.github.io/2017/09/07/中断以及中断处理/1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-中断以及中断处理" class="post-中断以及中断处理 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      中断以及中断处理
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2017/09/07/中断以及中断处理/" data-id="ckqlqy7a8004i8dx72lruja1q" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h2 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h2><p>事实上所有计算机都提供了允许其他模块（I/O、存储器）中断处理器正常处理过程的机制。分类如下：</p>
+<ul>
+<li>程序中断：在某些条件下由指令执行的结果产生，例如算术溢出、除数为0、试图执行一条非法的机器指令以及访问到用户不允许的存储器位置。</li>
+<li>时钟中断：由处理器内部的计时器产生，允许操作系统以一定规律执行函数</li>
+<li>I/O中断：由I/O控制器产生，用于发信号通知一个操作的正常完成或各种错误条件</li>
+<li>硬件故障中断：由诸如掉电或存储器奇偶错误之类的故障产生</li>
+</ul>
+<a id="more"></a>
+<p>中断最初是用于提高处理器效率的一种手段。例如：大多数I/O设备比处理器慢得多，假设处理器使用正常的指令周期方案来给一台打印机传送数据，在每一次读写后，处理器暂停并保持空闲，直到打印机完成工作。暂停的时间长度可能相当于成百上千个不涉及存储器的指令周期。显然，这对于车里器的使用来说是非常浪费的。</p>
+<p>这里给出一个实例，假设有一个 1GHz CPU 的PC机，大约每秒执行109条指令。一个典型的硬盘速度是7200转/分，这样大约旋转半周的时间是4ms，处理器比这快4百万倍。</p>
+<p>下图显示了这种事情状态。</p>
+<p><img src="/2017/09/07/中断以及中断处理/1.png" alt=""></p>
+<p>用户程序在处理过程中交织着执行一系列WRITE调用。竖实线表示程序中的代码段，代码段1、2和3表示不涉及I/O的指令序列。WRITE调用要执行一个I/O程序，此I/O程序是一个系统工具程序，由它执行真正的I/O操作。此I/O程序由三部分组成：</p>
+<ol>
+<li>图中标记为4的指令序列用于实际的I/O操作做准备。这包括复制将要输出到特定缓冲区的数据，为设备命令准备参数</li>
+<li>实际的I/O命令。如果不使用中断，当执行此命令时，程序必须等待I/O设备执行请求的函数（或周期额检测I/O设备的状态或轮询I/O设备）。程序可能通过简单的重复执行一个测试操作的方式进行等待，以确定I/O操作的完成</li>
+<li>图中标记5的指令序列，用于完成操作。包括设置一个表示操作成功或失败的标记。</li>
+</ol>
+<p>虚线代表处理器执行的路径；也就是说，这条线显示了指令执行的顺序。当遇到第一条WRITE指令之后，用户程序被中断，I/O程序开始执行。在I/O程序执行完成后，WRITE指令之后的用户程序立即恢复执行。</p>
+<p>由于完成I/O操作可能花费较长的时间，I/O程序需要挂起等待操作完成，因此客户程序会在WRITE永初停留相当长的一段时间。</p>
+<h2 id="中断和指令周期"><a href="#中断和指令周期" class="headerlink" title="中断和指令周期"></a>中断和指令周期</h2><p>利用中断功能，处理器可以在I/O操作的执行中执行其他指令。考虑下图所示的控制流，和前面一样，用户程序到达系统调用WRITE处，但涉及的I/O程序仅包括准备代码和真正的I/O命令。在这些为数不多的几条指令执行后，控制返回用户程序。在这期间，外部设备忙于从计算机存储器接收数据并打印。这种I/O操作和用户程序中指令的执行是并发的。</p>
+<p>当外部设备做好服务的准备，也就是说，当他准备好从处理器接收更多的数据时，该外部设备的I/O模块给处理器发送一个中断请求信号。这时处理器会做出响应，暂停当前程序的处理，转去处理服务于特定I/O设备的程序，这个程序称作中断处理程序（interrupt handler）。在对该设备的服务响应完成后，处理器恢复原先的执行。图中用X表示发生中断的点。注意：中断可以在主程序中的任何位置发生，而不是在一条指定的指令处。</p>
+<p><img src="/2017/09/07/中断以及中断处理/2.png" alt=""></p>
+<p>从用户程序的角度看，中断打断了正常执行的序列。当中断处理完成后，再恢复执行。因此，用户程序并不需要为中断添加任何特殊的代码，处理器和操作系统负责挂起用户程序，然后在同一个地方恢复执行。</p>
+<p><img src="/2017/09/07/中断以及中断处理/3.png" alt=""></p>
+<p>为适应中断产生的情况，在指令周期中要增加一个中断阶段，如上图所示。在中断阶段中，处理器检查是否有中断产生，即检查是否出现中断信号。如果没有中断，处理器继续执行，并在取指周期去当前程序的下一条指令；如果有中断，处理器挂起当前程序的执行，并执行一个中断处理程序。这个中断处理程序通常是操作系统的一部分，他确定中断的性质，并执行所需要的操作。例如，在前面的例子中，处理程序决定哪一个I/O模块产生中断，并转到往该I/O模块中写更多数据的程序。当中断处理程序完成后，处理器在中断点回复对用户程序的执行。</p>
+<p><img src="/2017/09/07/中断以及中断处理/4.png" alt=""></p>
+<p>简单解释一下上面例子，就是当主程序执行到WRITE指令时，跳转至I/O程序并执行，其中主程序被挂起；当I/O程序执行到I/O命令时，控制器调回主程序，与I/O命令并发执行；当I/O程序执行完I/O命令时，即运行到中断处理程序，控制器进行中断处理，跳回I/O程序，主程序停止并发；待I/O程序结束后，回到主程序中断出继续执行。</p>
+<p>很显然在这个处理中有一定的开销，在中断处理程序中必须执行额外的指令以确定中断的性质，并决定采用适当的操作。然而，如果简单的等待I/O操作的完成将花费更多的时间，因此使用中断能够更有效的使用处理器。</p>
+<p>为进一步理解在效率上的提高,更典型的情况是，特别是对比较慢的设备比如打印机来说，I/O操作比执行一些列用户指令的时间要长得多。在这种情况下，用户程序在由第一次调用产生的I/O操作完成之前，就达到了第二次WRITE调用。结果是用户程序在这一点挂起，当前面的I/O操作完成后，才能继续新的WRITE调用，也才能开始一次新的I/O操作。</p>
+<h2 id="中断处理"><a href="#中断处理" class="headerlink" title="中断处理"></a>中断处理</h2><p>中断激活了很多事件，包括处理器硬件中的事件以及软件中的事件。下图显示了一个典型的序列，当I/O设备完成一次I/O操作时，发生下列硬件事件：</p>
+<p><img src="/2017/09/07/中断以及中断处理/5.png" alt=""></p>
+<ol>
+<li>设备给处理器发出一个中断信号。</li>
+<li>处理器在相应中断前结束当前指令的执行。</li>
+<li>处理器对中断进行测定，确定存在未响应的中断，并提交给中断的设备发送确认信号，确认信号允许该设备取消他的中断信号。</li>
+<li>处理器需要为把控制权转移到中断程序中去做准备。首先，需要保存从中断点恢复当前程序所需要的信息，要求最少信息包括程序状态字（PSW）和保存在程序计数器中的下一条指令要执行的指令地址，他们被压入系统控制栈中。</li>
+<li>处理器把响应此中断的中断处理程序入口地址装入程序计数器中。可以针对每类中断有一个中断处理程序，也可以针对每个设备和每类中断各有一个中断处理程序，这取决于计算机系统结构和操作系统的设计，如果有多个中断处理程序，处理器就必须决定调用哪一个，这个信息可能已经包含在最初的信号中，否则处理器必须给发中断的设备发送请求，以获取含有所需要信息的响应。</li>
+</ol>
+<p>一旦完成对程序计数器的装入，处理器则继续到下一个指令周期，该指令周期也是从取值开始。由于取值是由程序计数器内容决定，因此控制被转移到中断处理程序，该程序的执行引起下列操作：</p>
+<ol start="6">
+<li>在这一点，与被中断程序相关的程序计数器和PSW被保存在系统栈中，此外，还有一些其他信息被当做正在执行程序的状态的一部分。特别需要保存处理器寄存器的内容，因为中断处理程序可能会用到这些寄存器，因此所有这些值和任何其他的状态信息都需要保存。在典型情况下，中断处理程序一开始就在栈中保存所有的寄存器内容，其他必须保存的状态信息还有很多，这里不是本篇文章的重点，就不详细介绍了。下图给出了一个简单的例子。在这个例子中，用户程序在执行地址为N的存储单元中的指令之后被中断，所有寄存器的内容和下一条指令的地址（N+1），一共M个字，被压入控制栈中。栈指针被更新指向新的栈顶，程序计数器被更新指向中断服务程序的开始。</li>
+<li>中断处理程序现在可以处理中断，其中包括检查与I/O操作相关的状态信息或其他引起中断的事件，还可能包括给I/O设备发送附加命令或者应答。</li>
+<li>当中断处理结束后，被保存的寄存器值从栈中释放并恢复到寄存器中</li>
+<li>最后的操作是从栈中恢复PSW和程序计数器的值，其结果是下一条要执行的指令来自被前面被中断的程序</li>
+</ol>
+<p>保存被中断程序的所有状态信息并在以后恢复这些信息，这是十分重要的，这是由于中断并不是程序调用的一个历程，他可以在任何时候发生，因而可以在用户程序执行过程中的任何一点上发生，他的发生是不可预测的。</p>
+<h2 id="多个中断"><a href="#多个中断" class="headerlink" title="多个中断"></a>多个中断</h2><p>至此，我们已经讨论了发生一个中断的情况。假设一下，当正在处理一个中断时，可以发生一个或者多个中断，例如，一个程序可能从一条通信线中接收数据并打印结果。每完成一个打印操作，打印机就会产生一个中断；每当一个数据单元到达，通信线控制器也会产生一个中断。数据单元可能是一个字符，也可能是连续的一块字符串，这取决于通信规则本身。在任何情况下，都有可能在处理打印机中断过程中发生一个通信中断。</p>
+<p>处理多个中断有两种方法。第一种是当处理一个中断时，禁止再发生中断。禁止中断的意识是处理器将对任何新的中断请求信号不予理睬。如果在这期间发生了中断，通常中断保持挂起，当处理器再次允许中断时，再有处理器检查。因此，当用户程序正在执行并且有一个中断发生是，立即禁止中断；当中断处理程序完成后，再恢复用户程序之前再允许中断，并且由处理器检查是否还有中断发生。这个方法简单，因为所有中断都严格按照顺序处理。</p>
+<p>上诉方法的缺点是没有考虑相对优先级和时间限制的要求。例如，当来自通信线的输入到达时，可能需要快速接收，以便为更多的输入让出空间。如果在第二批输入到达时第一批还没有处理完，就有可能由于I/O设备的缓冲区装满或者溢出而丢失数据。</p>
+<p><img src="/2017/09/07/中断以及中断处理/6.png" alt=""></p>
+<p>第二种方法是定义中断优先级，允许高优先级的中断打断低优先级的中断处理程序的运行。如图。</p>
+<p><img src="/2017/09/07/中断以及中断处理/7.png" alt=""></p>
+<h2 id="多道程序设计"><a href="#多道程序设计" class="headerlink" title="多道程序设计"></a>多道程序设计</h2><p>即使使用了中断，处理器仍有可能未得到有效的利用，例如处理器在长I/O等待下的使用率，但如果完成I/O操作的时间远远大于I/O调用期间用户代码的执行时间（通常情况下），则在大部分时间处理器是空闲的。解决这个问题的方法是允许多道用户程序同时处于活动状态。</p>
+<p>假设处理器执行两道程序。一道程序从存储器中读取数据并放入外部设备中，另一道是包括大量计算的应用程序。处理器开始执行输出程序，给外部设备发送一个写命令，接着开始执行其他应用程序。当处理器处理很多程序时，执行顺序取决于他们的优先级以及它们是否正在等待I/O。当一个程序被中断时，控制权转移给中断处理程序，一旦中断处理程序完成，控制权可能并不立即放回到这个用户程序，而可能转移到其他待运行的具有更高优先级的程序。最终，当原先被中断的用户程序变为最高的优先级是，它将被重新恢复执行。这种多道程序轮流执行的概念称作多道程序设计。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/09/07/中断以及中断处理/">
+    <time datetime="2017-09-07T17:34:43.000Z" class="entry-date">
+        2017-09-07
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统/">操作系统</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/09/18/Cloud-Introduction/" rel="prev"><span class="meta-nav">←</span> Cloud Introduction</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/07/19/MapReduce-and-Hadoop/" rel="next">MapReduce &amp; Hadoop <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>

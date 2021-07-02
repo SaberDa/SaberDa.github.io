@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="阿尔托利亚是我老婆~">
+  
+
+  
+  
+  
+  
+  
+  
+  <title>树与二叉树（六） | SaberDa的幻想乡</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本篇文章是介绍树与二叉树知识点的最后一篇文章，主要简单的介绍了哈夫曼树与哈夫曼编码 最优树的定义结点的路径长度：从根结点到该结点的路径上分支的数目 树的路径长度：树中每个结点的路径长度之和 树的带权路径长度：树种所有叶子结点的带权路径之和WPL(T) = Σwkjk（对所有叶子结点，权值*分支数）">
+<meta name="keywords" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树与二叉树（六）">
+<meta property="og:url" content="https://saberda.github.io/2016/10/17/树与二叉树（六）/index.html">
+<meta property="og:site_name" content="SaberDa的幻想乡">
+<meta property="og:description" content="本篇文章是介绍树与二叉树知识点的最后一篇文章，主要简单的介绍了哈夫曼树与哈夫曼编码 最优树的定义结点的路径长度：从根结点到该结点的路径上分支的数目 树的路径长度：树中每个结点的路径长度之和 树的带权路径长度：树种所有叶子结点的带权路径之和WPL(T) = Σwkjk（对所有叶子结点，权值*分支数）">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2016-10-17T12:25:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="树与二叉树（六）">
+<meta name="twitter:description" content="本篇文章是介绍树与二叉树知识点的最后一篇文章，主要简单的介绍了哈夫曼树与哈夫曼编码 最优树的定义结点的路径长度：从根结点到该结点的路径上分支的数目 树的路径长度：树中每个结点的路径长度之和 树的带权路径长度：树种所有叶子结点的带权路径之和WPL(T) = Σwkjk（对所有叶子结点，权值*分支数）">
+  
+    <link rel="alternative" href="/atom.xml" title="SaberDa的幻想乡" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src="//push.zhanzhang.baidu.com/push.js"></script>
+</head></html>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="SaberDa的幻想乡" rel="home">SaberDa的幻想乡</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">　　C++/ JS　　|　　呐呐呐　　|　　gli97@gwmail.gwu.edu　　|　　没有什么胜利可言  挺住就意味着一切</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">所有文章</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">主页</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/编程/">编程</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/iOS/">iOS</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/ML/">ML</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/PGM/">PGM</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/MAC/">MAC</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/御宅文化/">御宅文化</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/categories/LIFE/">LIFE</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-树与二叉树（六）" class="post-树与二叉树（六） post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      树与二叉树（六）
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://saberda.github.io/2016/10/17/树与二叉树（六）/" data-id="ckqlqy7bg007g8dx7p6bx812b" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <pre><code>本篇文章是介绍树与二叉树知识点的最后一篇文章，主要简单的介绍了哈夫曼树与哈夫曼编码
+</code></pre><h2 id="最优树的定义"><a href="#最优树的定义" class="headerlink" title="最优树的定义"></a>最优树的定义</h2><p>结点的路径长度：从根结点到该结点的路径上分支的数目</p>
+<p>树的路径长度：树中每个结点的路径长度之和</p>
+<p>树的带权路径长度：树种所有叶子结点的带权路径之和WPL(T) = Σwkjk（对所有叶子结点，权值*分支数）</p>
+<a id="more"></a>
+<p>在所有含n个叶子节点、并带有相同权值的m叉树中，必存在一棵带权长度路径取最小值的树，称为“最优树”</p>
+<h2 id="如何构造最优树"><a href="#如何构造最优树" class="headerlink" title="如何构造最优树"></a>如何构造最优树</h2><p>（哈夫曼算法）以二叉树为例：</p>
+<pre><code>1）根据给定的n个权值{w1,w2,w3,…,wn}，构造n棵二叉树的集合F = {T1,T2,…,Tn}，其中每棵二叉树中均只含有一个带权值为wi的根节点，其左、右子树为空树
+2）在F中选取其根节点的权值为最小的两棵二叉树，分别作为左右子树构造一颗新的二叉树，并置这棵新的二叉树的根节点的权值为其左、右子树根节点的权值之和
+3）从F中删除这两棵树，同时加入刚生成的新树
+4）重复2）3）两步，直至F中只含有一棵树为止
+</code></pre><p><strong>哈夫曼编码思想</strong>:将构成电文的每个不同字符都作为一个叶子结点，其权值为电文中字符的使用频率或者次数，构造哈夫曼树。此哈夫曼树中从根到每个叶子结点都有一条唯一的路径，对路径上各分支约定，左分支标识为“0”码，右标识为“1”码，则从根节点到叶子结点的路径上分支的“0”“1”码组成的字符串即为该叶子结点的哈弗曼编码。</p>
+<p>前缀编码：若要设计长短不等的编码，则必须是任一个编码的字符都不是另外一个编码的前缀，这种编码称为前缀编码</p>
+<p>哈夫曼编码是编码总长最短的前缀编码，因为每一个码值所代表的结点皆为叶子结点，其没有孩子结点，所以其编码不是另外一个编码的前缀。</p>
+<p>举例：数据传送中的二进制编码，要传送数据：state,seat,act,tea,cat,set,a,eat，如何使传送的长度最短？</p>
+<p>首先规定二叉树的构造为：左走为0，右走为1</p>
+<p>为了保证长度最短，先确定字符出现的次数，然后将出现次数当做权，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">字	   符：	s	t	a	e	c</span><br><span class="line">字符出现次数：	3	8	7	5	2</span><br></pre></td></tr></table></figure>
+<p>然后构造哈夫曼树，则有如下编码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">000		001		01		10		11</span><br><span class="line">2		3		5		7		8</span><br><span class="line">c		s		e		a		t</span><br></pre></td></tr></table></figure>
+<p>所以有state的编码为00111101101</p>
+<p>上文所构造的编码满足哈夫曼编码的最短最优性质：</p>
+<pre><code>1）若di!=dj（字母不同），则对应的树叶不同，因此前缀码不同，一个路径不可能是其他路径的一部分，所以字母之间可以完全区别
+2）将所有字符变为二进制的哈夫曼编码，使带权路径长度最短
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>构造哈夫曼树的常见错误：在合并中不是选取根节点权值最小的两棵二叉树（包括已合并的和未合并的），而是选取未合并的根节点权值最小的一颗二叉树和已经合并的二叉树合并（这种选法是不对的）</p>
+<p><strong>对哈夫曼树的总结</strong></p>
+<ul>
+<li>用n个权值（对应n个叶子结点）构造哈夫曼树，共需要n-1此合并，即哈夫曼树中非叶子结点的总数为n-1，总结点个数为2n-1</li>
+<li>哈夫曼树中没有度为1的结点，因为非叶子结点都是通过两个结点合并而来的。但是，没有度为1的二叉树并不一定是哈夫曼树</li>
+<li>用n个权值构造的哈夫曼树结构并不是唯一的</li>
+</ul>
+<p><strong>对哈夫曼编码的小结</strong></p>
+<ul>
+<li>哈夫曼编码是能使电文代码总长最短的编码方式。此结论由哈夫曼树是带权路径最小的树的特征可得</li>
+<li>哈夫曼编码是一种前缀编码，保证其在译码是不会出现歧义。因为，在哈夫曼编码中，每个字符都是叶子结点，而叶子结点不可能从根结点到其他叶子结点的路径上，所以一个字符的哈夫曼编码不可能是另外一个字符的哈夫曼编码的前缀</li>
+<li>深度为h的哈夫曼树，其叶子结点的最大编码长度是h-1</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2016/10/17/树与二叉树（六）/">
+    <time datetime="2016-10-18T00:19:04.000Z" class="entry-date">
+        2016-10-17
+    </time>
+</a>
+    
+  <span class="article-delim">&#8226;</span>
+  <div class="article-category">
+  <a class="article-category-link" href="/categories/编程/">编程</a>
+  </div>
+
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2016/10/19/大话指针/" rel="prev"><span class="meta-nav">←</span> 大话指针</a></span>
+    
+    
+        <span class="nav-next"><a href="/2016/10/17/树与二叉树（五）/" rel="next">树与二叉树（五） <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s">
+        <input type="submit" id="searchsubmit" value="搜索">
+    </div>
+</form></aside>
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-content">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LIFE/">LIFE</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MAC/">MAC</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ML/">ML</a><span class="category-list-count">29</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PGM/">PGM</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/御宅文化/">御宅文化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">42</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+<div class="widget tag">
+<h3 class="title">blogroll</h3>
+<ul class="entry">
+
+
+<li><a href="https://github.com/" target="_blank">我的github</a></li>
+
+
+<li><a href="http://www.jianshu.com/users/41cd7711ed44/latest_articles" target="_blank">我的简书主页</a></li>
+
+
+<li><a href="http://uuzdaisuki.com" target="_blank">leticia’s blog</a></li>
+
+
+<li><a href="http://www.helloyzy.cn" target="_blank">acery</a></li>
+
+
+<li><a href="http://xjin.wang" target="_blank">WXJACKIE</a></li>
+
+
+<li><a href="http://www.stephenzhang.me" target="_blank">stephenzhang</a></li>
+
+
+<li><a href="blog.keybrl.com" target="_blank">keybrl</a></li>
+
+
+<li><a href="http://blog.ciaran.cn" target="_blank">Ciaran</a></li>
+
+
+<li><a href="http://1.dev.blog.qinka.pro" target="_blank">Qinka</a></li>
+
+
+<li><a href="http://tobiasLee.top" target="_blank">TobiasLee</a></li>
+
+
+<li><a href="http://blog.boileryao.com" target="_blank">bingo</a></li>
+
+</ul>
+</div>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/01/转移博客教程/">转移博客教程</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/04/海外网易云/">海外网易云</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/LeetCode-part3/">LeetCode刷题记录-Part3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/20/动森大头菜价格分析/">从代码角度分析动森大头菜价格走势</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/15/LeetCode刷题记录-Part2/">LeetCode刷题记录-Part2</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/">Cloud Computing</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cocoapods/">Cocoapods</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matlab/">Matlab</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Neural-Networks/">Neural Networks</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Probabilistic-Graphical-Models/">Probabilistic Graphical Models</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIColor/">UIColor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView/">UIView</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UIView-圆角/">UIView-圆角</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bug/">bug</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openCV/">openCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二维码/">二维码</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/填坑笔记/">填坑笔记</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/操作系统/">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">8</span></li></ul>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2021 SaberDa
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
