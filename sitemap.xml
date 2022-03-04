@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://saberda.github.io/2022/03/04/Tess4J-for-Java/</loc>
+    
+    <lastmod>2022-03-04</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://saberda.github.io/2021/07/01/%E8%BD%AC%E7%A7%BB%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2021-07-02</lastmod>
@@ -732,7 +739,7 @@
 
   <url>
     <loc>https://saberda.github.io/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -740,147 +747,154 @@
   
   <url>
     <loc>https://saberda.github.io/tags/bug/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/hexo/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Neural-Networks/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Cloud-Computing/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Cocoapods/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/LeetCode/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://saberda.github.io/tags/Probabilistic-Graphical-Models/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <loc>https://saberda.github.io/tags/Java/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/UIColor/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://saberda.github.io/tags/UIView-%E5%9C%86%E8%A7%92/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <loc>https://saberda.github.io/tags/Probabilistic-Graphical-Models/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Linux/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://saberda.github.io/tags/UIView-%E5%9C%86%E8%A7%92/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/openCV/</loc>
-    <lastmod>2021-07-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://saberda.github.io/tags/UIView/</loc>
-    <lastmod>2021-07-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://saberda.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://saberda.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://saberda.github.io/tags/UIView/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Matlab/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/%E6%8C%87%E9%92%88/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/Vim/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/tags/%E5%A1%AB%E5%9D%91%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -888,57 +902,57 @@
 
   
   <url>
-    <loc>https://saberda.github.io/categories/LIFE/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <loc>https://saberda.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://saberda.github.io/categories/%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <loc>https://saberda.github.io/categories/LIFE/</loc>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/ML/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/iOS/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/PGM/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/MAC/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/%E5%BE%A1%E5%AE%85%E6%96%87%E5%8C%96/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://saberda.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2021-07-02</lastmod>
+    <lastmod>2022-03-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
